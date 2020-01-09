@@ -1,0 +1,730 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GXimServerTemplate</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.74.0">
+<link rel="home" href="index.html" title="libgxim Reference Manual">
+<link rel="up" href="ch01.html" title="Abstract Base Classes">
+<link rel="prev" href="GXimCore.html" title="GXimCore">
+<link rel="next" href="GXimClientTemplate.html" title="GXimClientTemplate">
+<meta name="generator" content="GTK-Doc V1.10 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="reference" href="libgxim.html" title="libgxim API Reference">
+<link rel="chapter" href="ch01.html" title="Abstract Base Classes">
+<link rel="chapter" href="ch02.html" title="Interfaces">
+<link rel="chapter" href="ch03.html" title="Connection classes">
+<link rel="chapter" href="ch04.html" title="XIM attributes classes">
+<link rel="chapter" href="ch05.html" title="Miscelleneous">
+<link rel="index" href="ix01.html" title="Index">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="GXimCore.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libgxim Reference Manual</th>
+<td><a accesskey="n" href="GXimClientTemplate.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#GXimServerTemplate.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#GXimServerTemplate.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#GXimServerTemplate.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#GXimServerTemplate.properties" class="shortcut">Properties</a>
+                   | 
+                  <a href="#GXimServerTemplate.signals" class="shortcut">Signals</a></nobr></td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="GXimServerTemplate"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GXimServerTemplate.top_of_page"></a>GXimServerTemplate</span></h2>
+<p>GXimServerTemplate — Base class for XIM server</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="GXimServerTemplate.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#define             <a class="link" href="GXimServerTemplate.html#G-XIM-SRV-TMPL-ERROR:CAPS" title="G_XIM_SRV_TMPL_ERROR">G_XIM_SRV_TMPL_ERROR</a>
+enum                <a class="link" href="GXimServerTemplate.html#GXimServerTemplateError" title="enum GXimServerTemplateError">GXimServerTemplateError</a>;
+                    <a class="link" href="GXimServerTemplate.html#GXimServerTemplate-struct" title="GXimServerTemplate">GXimServerTemplate</a>;
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Quarks.html#GQuark"
+>GQuark</a>              <a class="link" href="GXimServerTemplate.html#g-xim-srv-tmpl-get-error-quark" title="g_xim_srv_tmpl_get_error_quark ()">g_xim_srv_tmpl_get_error_quark</a>      (void);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GXimServerTemplate.html#g-xim-srv-tmpl-is-running" title="g_xim_srv_tmpl_is_running ()">g_xim_srv_tmpl_is_running</a>           (<a class="link" href="GXimServerTemplate.html" title="GXimServerTemplate">GXimServerTemplate</a> *srvtmpl,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"
+>GError</a> **error);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GXimServerTemplate.html#g-xim-srv-tmpl-take-ownership" title="g_xim_srv_tmpl_take_ownership ()">g_xim_srv_tmpl_take_ownership</a>       (<a class="link" href="GXimServerTemplate.html" title="GXimServerTemplate">GXimServerTemplate</a> *srvtmpl,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a> force,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"
+>GError</a> **error);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GXimServerTemplate.html#g-xim-srv-tmpl-send-selection-notify" title="g_xim_srv_tmpl_send_selection_notify ()">g_xim_srv_tmpl_send_selection_notify</a>
+                                                        (<a class="link" href="GXimServerTemplate.html" title="GXimServerTemplate">GXimServerTemplate</a> *srvtmpl,
+                                                         <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Event-Structures.html#GdkEventSelection"
+>GdkEventSelection</a> *event,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *data,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gsize"
+>gsize</a> length,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"
+>GError</a> **error);
+void                <a class="link" href="GXimServerTemplate.html#g-xim-srv-tmpl-add-connection" title="g_xim_srv_tmpl_add_connection ()">g_xim_srv_tmpl_add_connection</a>       (<a class="link" href="GXimServerTemplate.html" title="GXimServerTemplate">GXimServerTemplate</a> *srvtmpl,
+                                                         <a class="link" href="GXimConnection.html" title="GXimConnection">GXimConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Event-Structures.html#GdkNativeWindow"
+>GdkNativeWindow</a> window);
+void                <a class="link" href="GXimServerTemplate.html#g-xim-srv-tmpl-remove-connection" title="g_xim_srv_tmpl_remove_connection ()">g_xim_srv_tmpl_remove_connection</a>    (<a class="link" href="GXimServerTemplate.html" title="GXimServerTemplate">GXimServerTemplate</a> *srvtmpl,
+                                                         <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Event-Structures.html#GdkNativeWindow"
+>GdkNativeWindow</a> window);
+<a class="link" href="GXimConnection.html" title="GXimConnection">GXimConnection</a>*     <a class="link" href="GXimServerTemplate.html#g-xim-srv-tmpl-lookup-connection" title="g_xim_srv_tmpl_lookup_connection ()">g_xim_srv_tmpl_lookup_connection</a>    (<a class="link" href="GXimServerTemplate.html" title="GXimServerTemplate">GXimServerTemplate</a> *srvtmpl,
+                                                         <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Windows.html#GdkWindow"
+>GdkWindow</a> *window);
+<a class="link" href="GXimConnection.html" title="GXimConnection">GXimConnection</a>*     <a class="link" href="GXimServerTemplate.html#g-xim-srv-tmpl-lookup-connection-with-native-window" title="g_xim_srv_tmpl_lookup_connection_with_native_window ()">g_xim_srv_tmpl_lookup_connection_with_native_window</a>
+                                                        (<a class="link" href="GXimServerTemplate.html" title="GXimServerTemplate">GXimServerTemplate</a> *srvtmpl,
+                                                         <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Event-Structures.html#GdkNativeWindow"
+>GdkNativeWindow</a> window);
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="GXimServerTemplate.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a
+href="/usr/share/gtk-doc/html/gobject/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a>
+   +----<a class="link" href="GXimCore.html" title="GXimCore">GXimCore</a>
+         +----GXimServerTemplate
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="GXimServerTemplate.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="GXimServerTemplate.html#GXimServerTemplate--server-name" title='The "server-name" property'>server-name</a>"              <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>*                : Read / Write / Construct Only
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="GXimServerTemplate.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="GXimServerTemplate.html#GXimServerTemplate-destroy" title='The "destroy" signal'>destroy</a>"                                        : Run First
+  "<a class="link" href="GXimServerTemplate.html#GXimServerTemplate-get-supported-locales" title='The "get-supported-locales" signal'>get-supported-locales</a>"                          : Run Last
+  "<a class="link" href="GXimServerTemplate.html#GXimServerTemplate-get-supported-transport" title='The "get-supported-transport" signal'>get-supported-transport</a>"                        : Run Last
+  "<a class="link" href="GXimServerTemplate.html#GXimServerTemplate-xconnect" title='The "xconnect" signal'>xconnect</a>"                                       : Run Last
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="GXimServerTemplate.description"></a><h2>Description</h2>
+<p>
+GXimServerTemplate provides a common facility to deal with XIM protocol
+events, particularly to be working on XIM server.</p>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="GXimServerTemplate.details"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="G-XIM-SRV-TMPL-ERROR:CAPS"></a><h3>G_XIM_SRV_TMPL_ERROR</h3>
+<pre class="programlisting">#define G_XIM_SRV_TMPL_ERROR		(g_xim_srv_tmpl_get_error_quark())
+</pre>
+<p>
+Error domain for <a class="link" href="GXimServerTemplate.html" title="GXimServerTemplate"><span class="type">GXimServerTemplate</span></a>. Errors in this domain will be from
+the <a class="link" href="GXimServerTemplate.html#GXimServerTemplateError" title="enum GXimServerTemplateError"><span class="type">GXimServerTemplateError</span></a> or <span class="type">GXimStandardError</span> enumeration.
+See <a
+href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"
+><span class="type">GError</span></a> for more information on error domains.</p>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GXimServerTemplateError"></a><h3>enum GXimServerTemplateError</h3>
+<pre class="programlisting">typedef enum {
+	G_XIM_SRV_TMPL_ERROR_BEGIN = 128,
+	G_XIM_SRV_TMPL_ERROR_SAME_SERVER_IS_RUNNING,
+	G_XIM_SRV_TMPL_ERROR_ANOTHER_SERVER_IS_RUNNING,
+	G_XIM_SRV_TMPL_ERROR_UNABLE_TO_ACQUIRE_SERVER_OWNER,
+	G_XIM_SRV_TMPL_ERROR_UNABLE_TO_ADD_SERVER,
+	G_XIM_SRV_TMPL_ERROR_UNABLE_TO_SEND_PROPERTY_NOTIFY,
+} GXimServerTemplateError;
+</pre>
+<p>
+Error codes returned by <a class="link" href="GXimServerTemplate.html" title="GXimServerTemplate"><span class="type">GXimServerTemplate</span></a> functions.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><a name="G-XIM-SRV-TMPL-ERROR-BEGIN:CAPS"></a><span class="term"><code class="literal">G_XIM_SRV_TMPL_ERROR_BEGIN</code></span></p></td>
+<td> Unused.
+</td>
+</tr>
+<tr>
+<td><p><a name="G-XIM-SRV-TMPL-ERROR-SAME-SERVER-IS-RUNNING:CAPS"></a><span class="term"><code class="literal">G_XIM_SRV_TMPL_ERROR_SAME_SERVER_IS_RUNNING</code></span></p></td>
+<td> Server is already running in the instance.
+</td>
+</tr>
+<tr>
+<td><p><a name="G-XIM-SRV-TMPL-ERROR-ANOTHER-SERVER-IS-RUNNING:CAPS"></a><span class="term"><code class="literal">G_XIM_SRV_TMPL_ERROR_ANOTHER_SERVER_IS_RUNNING</code></span></p></td>
+<td> Server in another process is already running with the same name.
+</td>
+</tr>
+<tr>
+<td><p><a name="G-XIM-SRV-TMPL-ERROR-UNABLE-TO-ACQUIRE-SERVER-OWNER:CAPS"></a><span class="term"><code class="literal">G_XIM_SRV_TMPL_ERROR_UNABLE_TO_ACQUIRE_SERVER_OWNER</code></span></p></td>
+<td> Unable to acquire the owner of the name.
+</td>
+</tr>
+<tr>
+<td><p><a name="G-XIM-SRV-TMPL-ERROR-UNABLE-TO-ADD-SERVER:CAPS"></a><span class="term"><code class="literal">G_XIM_SRV_TMPL_ERROR_UNABLE_TO_ADD_SERVER</code></span></p></td>
+<td> Unable to add the server to <code class="literal">XIM_SERVERS</code>.
+</td>
+</tr>
+<tr>
+<td><p><a name="G-XIM-SRV-TMPL-ERROR-UNABLE-TO-SEND-PROPERTY-NOTIFY:CAPS"></a><span class="term"><code class="literal">G_XIM_SRV_TMPL_ERROR_UNABLE_TO_SEND_PROPERTY_NOTIFY</code></span></p></td>
+<td> Failed to send <code class="literal">PropertyNotify</code>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GXimServerTemplate-struct"></a><h3>GXimServerTemplate</h3>
+<pre class="programlisting">typedef struct _GXimServerTemplate GXimServerTemplate;</pre>
+<p>
+An abstract implementation of XIM server class</p>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-srv-tmpl-get-error-quark"></a><h3>g_xim_srv_tmpl_get_error_quark ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Quarks.html#GQuark"
+>GQuark</a>              g_xim_srv_tmpl_get_error_quark      (void);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-srv-tmpl-is-running"></a><h3>g_xim_srv_tmpl_is_running ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_srv_tmpl_is_running           (<a class="link" href="GXimServerTemplate.html" title="GXimServerTemplate">GXimServerTemplate</a> *srvtmpl,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"
+>GError</a> **error);</pre>
+<p>
+Checks if XIM server process is already running at <em class="parameter"><code>srvtmpl</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>srvtmpl</code></em> :</span></p></td>
+<td> a <a class="link" href="GXimServerTemplate.html" title="GXimServerTemplate"><span class="type">GXimServerTemplate</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td> a location to store error, or <code class="literal">NULL</code>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <code class="literal">TRUE</code> when XIM server process is already running at <em class="parameter"><code>srvtmpl</code></em>.
+ Otherwise <code class="literal">FALSE</code>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-srv-tmpl-take-ownership"></a><h3>g_xim_srv_tmpl_take_ownership ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_srv_tmpl_take_ownership       (<a class="link" href="GXimServerTemplate.html" title="GXimServerTemplate">GXimServerTemplate</a> *srvtmpl,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a> force,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"
+>GError</a> **error);</pre>
+<p>
+Starts XIM server if able to take an ownership for
+<a class="link" href="GXimServerTemplate.html#GXimServerTemplate--server-name" title='The "server-name" property'><span class="type">"server_name"</span></a> in X property.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>srvtmpl</code></em> :</span></p></td>
+<td> a <a class="link" href="GXimServerTemplate.html" title="GXimServerTemplate"><span class="type">GXimServerTemplate</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>force</code></em> :</span></p></td>
+<td> <code class="literal">TRUE</code> to take an ownership forcibly. <code class="literal">FALSE</code> to fail if the XIM server
+ is already running.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td> a location to store error, or <code class="literal">NULL</code>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <code class="literal">TRUE</code> when XIM serrver could be started.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-srv-tmpl-send-selection-notify"></a><h3>g_xim_srv_tmpl_send_selection_notify ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_srv_tmpl_send_selection_notify
+                                                        (<a class="link" href="GXimServerTemplate.html" title="GXimServerTemplate">GXimServerTemplate</a> *srvtmpl,
+                                                         <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Event-Structures.html#GdkEventSelection"
+>GdkEventSelection</a> *event,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *data,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gsize"
+>gsize</a> length,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"
+>GError</a> **error);</pre>
+<p>
+Sends <em class="parameter"><code>data</code></em> with <code class="literal">SelectionNotify</code>. which mainly be used to deliver the result
+of <code class="literal">LOCALES</code> and <code class="literal">TRANSPORT</code> request.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>srvtmpl</code></em> :</span></p></td>
+<td> a <a class="link" href="GXimServerTemplate.html" title="GXimServerTemplate"><span class="type">GXimServerTemplate</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td> the <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Event-Structures.html#GdkEventSelection"
+><span class="type">GdkEventSelection</span></a> to send.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td> the chunks of data to send with <code class="literal">SelectionNotify</code>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
+<td> the number of bytes of <em class="parameter"><code>data</code></em> to send.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td> a location to store error, or <code class="literal">NULL</code>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <code class="literal">TRUE</code> if <em class="parameter"><code>data</code></em> is successfully sent.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-srv-tmpl-add-connection"></a><h3>g_xim_srv_tmpl_add_connection ()</h3>
+<pre class="programlisting">void                g_xim_srv_tmpl_add_connection       (<a class="link" href="GXimServerTemplate.html" title="GXimServerTemplate">GXimServerTemplate</a> *srvtmpl,
+                                                         <a class="link" href="GXimConnection.html" title="GXimConnection">GXimConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Event-Structures.html#GdkNativeWindow"
+>GdkNativeWindow</a> window);</pre>
+<p>
+Puts <em class="parameter"><code>conn</code></em> to get it managed under <em class="parameter"><code>srvtmpl</code></em>. <em class="parameter"><code>window</code></em> will be referred to
+deliver events to the right place. i.e. <em class="parameter"><code>conn</code></em> to deal with events for <em class="parameter"><code>window</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>srvtmpl</code></em> :</span></p></td>
+<td> a <a class="link" href="GXimServerTemplate.html" title="GXimServerTemplate"><span class="type">GXimServerTemplate</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td> the <a class="link" href="GXimConnection.html" title="GXimConnection"><span class="type">GXimConnection</span></a> to get it managed under <em class="parameter"><code>srvtmpl</code></em>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>window</code></em> :</span></p></td>
+<td> the <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Event-Structures.html#GdkNativeWindow"
+><span class="type">GdkNativeWindow</span></a> to make reference.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-srv-tmpl-remove-connection"></a><h3>g_xim_srv_tmpl_remove_connection ()</h3>
+<pre class="programlisting">void                g_xim_srv_tmpl_remove_connection    (<a class="link" href="GXimServerTemplate.html" title="GXimServerTemplate">GXimServerTemplate</a> *srvtmpl,
+                                                         <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Event-Structures.html#GdkNativeWindow"
+>GdkNativeWindow</a> window);</pre>
+<p>
+Gets rid of the connection, which managed under <em class="parameter"><code>srvtmpl</code></em>. <em class="parameter"><code>window</code></em> will be
+used as the key to remove it.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>srvtmpl</code></em> :</span></p></td>
+<td> a <a class="link" href="GXimServerTemplate.html" title="GXimServerTemplate"><span class="type">GXimServerTemplate</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>window</code></em> :</span></p></td>
+<td> the <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Event-Structures.html#GdkNativeWindow"
+><span class="type">GdkNativeWindow</span></a> to get rid of the connection. which should be
+ added with <a class="link" href="GXimServerTemplate.html#g-xim-srv-tmpl-add-connection" title="g_xim_srv_tmpl_add_connection ()"><code class="function">g_xim_srv_tmpl_add_connection()</code></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-srv-tmpl-lookup-connection"></a><h3>g_xim_srv_tmpl_lookup_connection ()</h3>
+<pre class="programlisting"><a class="link" href="GXimConnection.html" title="GXimConnection">GXimConnection</a>*     g_xim_srv_tmpl_lookup_connection    (<a class="link" href="GXimServerTemplate.html" title="GXimServerTemplate">GXimServerTemplate</a> *srvtmpl,
+                                                         <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Windows.html#GdkWindow"
+>GdkWindow</a> *window);</pre>
+<p>
+Looks up the connection which is reference with <em class="parameter"><code>window</code></em>. this is
+a convenience function to look up with <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Windows.html#GdkWindow"
+><span class="type">GdkWindow</span></a>. use
+<a class="link" href="GXimServerTemplate.html#g-xim-srv-tmpl-lookup-connection-with-native-window" title="g_xim_srv_tmpl_lookup_connection_with_native_window ()"><code class="function">g_xim_srv_tmpl_lookup_connection_with_native_window()</code></a> for <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Event-Structures.html#GdkNativeWindow"
+><span class="type">GdkNativeWindow</span></a>
+if you like.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>srvtmpl</code></em> :</span></p></td>
+<td> a <a class="link" href="GXimServerTemplate.html" title="GXimServerTemplate"><span class="type">GXimServerTemplate</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>window</code></em> :</span></p></td>
+<td> the <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Windows.html#GdkWindow"
+><span class="type">GdkWindow</span></a> to look up the connection.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a <a class="link" href="GXimConnection.html" title="GXimConnection"><span class="type">GXimConnection</span></a>, or <code class="literal">NULL</code> if the key is not found.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-srv-tmpl-lookup-connection-with-native-window"></a><h3>g_xim_srv_tmpl_lookup_connection_with_native_window ()</h3>
+<pre class="programlisting"><a class="link" href="GXimConnection.html" title="GXimConnection">GXimConnection</a>*     g_xim_srv_tmpl_lookup_connection_with_native_window
+                                                        (<a class="link" href="GXimServerTemplate.html" title="GXimServerTemplate">GXimServerTemplate</a> *srvtmpl,
+                                                         <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Event-Structures.html#GdkNativeWindow"
+>GdkNativeWindow</a> window);</pre>
+<p>
+Looks up the connection which is reference with <em class="parameter"><code>window</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>srvtmpl</code></em> :</span></p></td>
+<td> a <a class="link" href="GXimServerTemplate.html" title="GXimServerTemplate"><span class="type">GXimServerTemplate</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>window</code></em> :</span></p></td>
+<td> the <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Event-Structures.html#GdkNativeWindow"
+><span class="type">GdkNativeWindow</span></a> to look up the connection.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a <a class="link" href="GXimConnection.html" title="GXimConnection"><span class="type">GXimConnection</span></a>, or <code class="literal">NULL</code> if the key is not found.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" lang="en">
+<a name="GXimServerTemplate.property-details"></a><h2>Property Details</h2>
+<div class="refsect2" lang="en">
+<a name="GXimServerTemplate--server-name"></a><h3>The <code class="literal">"server-name"</code> property</h3>
+<pre class="programlisting">  "server-name"              <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>*                : Read / Write / Construct Only</pre>
+<p>
+XIM server name that is used to identify the XIM server through
+X property, such as XIM_SERVERS. also it's used to identify for
+client applications with XMODIFIERS.</p>
+<p>
+
+</p>
+<p>Default value: NULL</p>
+</div>
+</div>
+<div class="refsect1" lang="en">
+<a name="GXimServerTemplate.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2" lang="en">
+<a name="GXimServerTemplate-destroy"></a><h3>The <code class="literal">"destroy"</code> signal</h3>
+<pre class="programlisting">void                user_function                      (<a class="link" href="GXimServerTemplate.html" title="GXimServerTemplate">GXimServerTemplate</a> *srvtmpl,
+                                                        <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a>            user_data)      : Run First</pre>
+<p>
+The ::destroy signal will be emitted when the instance is going to
+be destroyed. you can do something with it if you want.</p>
+<p>
+
+</p>
+
+@:<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>srvtmpl</code></em> :</span></p></td>
+<td> the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GXimServerTemplate-get-supported-locales"></a><h3>The <code class="literal">"get-supported-locales"</code> signal</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>*              user_function                      (<a class="link" href="GXimServerTemplate.html" title="GXimServerTemplate">GXimServerTemplate</a> *srvtmpl,
+                                                        <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a>            user_data)      : Run Last</pre>
+<p>
+The ::get-supported-locales signal will be emitted when the client
+application is connecting and requesting which locales XIM server
+would supports.
+</p>
+<p>
+This is a convenience signal to deal with
+<a class="link" href="GXimCore.html#GXimCore-selection-request-event" title='The "selection-request-event" signal'><span class="type">"selection-request-event"</span></a> for <code class="literal">LOCALES</code> request.</p>
+<p>
+
+</p>
+
+@:<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>srvtmpl</code></em> :</span></p></td>
+<td> the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a locales string that XIM server would supports. multiple
+locales would be separated with comma.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GXimServerTemplate-get-supported-transport"></a><h3>The <code class="literal">"get-supported-transport"</code> signal</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>*              user_function                      (<a class="link" href="GXimServerTemplate.html" title="GXimServerTemplate">GXimServerTemplate</a> *srvtmpl,
+                                                        <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a>            user_data)      : Run Last</pre>
+<p>
+The ::get-supported-transport signal will be emitted when the client
+application is connecting and requesting which transport-specific names
+XIM server would supports.
+</p>
+<p>
+This is a convenience signal to deal with
+<a class="link" href="GXimCore.html#GXimCore-selection-request-event" title='The "selection-request-event" signal'><span class="type">"selection-request-event"</span></a> for <code class="literal">TRANSPORT</code> request.</p>
+<p>
+
+</p>
+
+@:<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>srvtmpl</code></em> :</span></p></td>
+<td> the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a transport-specific names that XIM server would supports.
+In general, you may just need to support "X/" for X Window System.
+
+Multiple transport-specific names would be separated with comma.
+and evaluated in order of the list.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GXimServerTemplate-xconnect"></a><h3>The <code class="literal">"xconnect"</code> signal</h3>
+<pre class="programlisting"><a class="link" href="GXimConnection.html" title="GXimConnection">GXimConnection</a>*     user_function                      (<a class="link" href="GXimServerTemplate.html" title="GXimServerTemplate">GXimServerTemplate</a> *srvtmpl,
+                                                        <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Event-Structures.html#GdkEvent"
+>GdkEvent</a>           *event,
+                                                        <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a>            user_data)      : Run Last</pre>
+<p>
+The ::xconnect signal will be emitted when <code class="literal">XIM_XCONNECT</code> event is
+dispatched from the client applications in order to establish
+a connection between XIM server and a client.
+During processing this signal, it would be supposed to prepare
+a <a class="link" href="GXimConnection.html" title="GXimConnection"><span class="type">GXimConnection</span></a> instance and sends back <code class="literal">XIM_XCONNECT</code> reply to
+the client. See The Input Method Protocol, XIM specification document
+for more details about <code class="literal">XIM_XCONNECT</code>.</p>
+<p>
+
+</p>
+
+@: 
+@:<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>srvtmpl</code></em> :</span></p></td>
+<td> the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td> the <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Event-Structures.html#GdkEventClient"
+><span class="type">GdkEventClient</span></a> which triggered this signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a <a class="link" href="GXimConnection.html" title="GXimConnection"><span class="type">GXimConnection</span></a> for this session.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" lang="en">
+<a name="GXimServerTemplate.see-also"></a><h2>See Also</h2>
+<a class="link" href="GXimCore.html" title="GXimCore"><span class="type">GXimCore</span></a>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.10</div>
+</body>
+</html>

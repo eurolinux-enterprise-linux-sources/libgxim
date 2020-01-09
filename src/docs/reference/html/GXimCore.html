@@ -1,0 +1,822 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GXimCore</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.74.0">
+<link rel="home" href="index.html" title="libgxim Reference Manual">
+<link rel="up" href="ch01.html" title="Abstract Base Classes">
+<link rel="prev" href="ch01.html" title="Abstract Base Classes">
+<link rel="next" href="GXimServerTemplate.html" title="GXimServerTemplate">
+<meta name="generator" content="GTK-Doc V1.10 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="reference" href="libgxim.html" title="libgxim API Reference">
+<link rel="chapter" href="ch01.html" title="Abstract Base Classes">
+<link rel="chapter" href="ch02.html" title="Interfaces">
+<link rel="chapter" href="ch03.html" title="Connection classes">
+<link rel="chapter" href="ch04.html" title="XIM attributes classes">
+<link rel="chapter" href="ch05.html" title="Miscelleneous">
+<link rel="index" href="ix01.html" title="Index">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="ch01.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libgxim Reference Manual</th>
+<td><a accesskey="n" href="GXimServerTemplate.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#GXimCore.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#GXimCore.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#GXimCore.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#GXimCore.properties" class="shortcut">Properties</a>
+                   | 
+                  <a href="#GXimCore.signals" class="shortcut">Signals</a></nobr></td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="GXimCore"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GXimCore.top_of_page"></a>GXimCore</span></h2>
+<p>GXimCore — Base class for XIM protocol event handling</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="GXimCore.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+                    <a class="link" href="GXimCore.html#GXimCore-struct" title="GXimCore">GXimCore</a>;
+void                <a class="link" href="GXimCore.html#g-xim-core-watch-event" title="g_xim_core_watch_event ()">g_xim_core_watch_event</a>              (<a class="link" href="GXimCore.html" title="GXimCore">GXimCore</a> *core,
+                                                         <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Windows.html#GdkWindow"
+>GdkWindow</a> *window);
+void                <a class="link" href="GXimCore.html#g-xim-core-unwatch-event" title="g_xim_core_unwatch_event ()">g_xim_core_unwatch_event</a>            (<a class="link" href="GXimCore.html" title="GXimCore">GXimCore</a> *core,
+                                                         <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Windows.html#GdkWindow"
+>GdkWindow</a> *window);
+<a
+href="/usr/share/gtk-doc/html/gdk/GdkDisplay.html"
+>GdkDisplay</a>*         <a class="link" href="GXimCore.html#g-xim-core-get-display" title="g_xim_core_get_display ()">g_xim_core_get_display</a>              (<a class="link" href="GXimCore.html" title="GXimCore">GXimCore</a> *core);
+<a
+href="/usr/share/gtk-doc/html/gdk/gdk-Windows.html#GdkWindow"
+>GdkWindow</a>*          <a class="link" href="GXimCore.html#g-xim-core-get-selection-window" title="g_xim_core_get_selection_window ()">g_xim_core_get_selection_window</a>     (<a class="link" href="GXimCore.html" title="GXimCore">GXimCore</a> *core);
+<a
+href="/usr/share/gtk-doc/html/gobject/gobject-Type-Information.html#GType"
+>GType</a>               <a class="link" href="GXimCore.html#g-xim-core-get-connection-gtype" title="g_xim_core_get_connection_gtype ()">g_xim_core_get_connection_gtype</a>     (<a class="link" href="GXimCore.html" title="GXimCore">GXimCore</a> *core);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a>*             <a class="link" href="GXimCore.html#g-xim-core-get-protocol-signal-connector" title="g_xim_core_get_protocol_signal_connector ()">g_xim_core_get_protocol_signal_connector</a>
+                                                        (<a class="link" href="GXimCore.html" title="GXimCore">GXimCore</a> *core);
+void                <a class="link" href="GXimCore.html#g-xim-core-setup-connection" title="g_xim_core_setup_connection ()">g_xim_core_setup_connection</a>         (<a class="link" href="GXimCore.html" title="GXimCore">GXimCore</a> *core,
+                                                         <a class="link" href="GXimConnection.html" title="GXimConnection">GXimConnection</a> *conn);
+void                <a class="link" href="GXimCore.html#g-xim-core-add-client-message-filter" title="g_xim_core_add_client_message_filter ()">g_xim_core_add_client_message_filter</a>
+                                                        (<a class="link" href="GXimCore.html" title="GXimCore">GXimCore</a> *core,
+                                                         <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Properties-and-Atoms.html#GdkAtom"
+>GdkAtom</a> atom);
+void                <a class="link" href="GXimCore.html#g-xim-core-remove-client-message-filter" title="g_xim_core_remove_client_message_filter ()">g_xim_core_remove_client_message_filter</a>
+                                                        (<a class="link" href="GXimCore.html" title="GXimCore">GXimCore</a> *core,
+                                                         <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Properties-and-Atoms.html#GdkAtom"
+>GdkAtom</a> atom);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GXimCore.html#g-xim-core-lookup-client-message-filter" title="g_xim_core_lookup_client_message_filter ()">g_xim_core_lookup_client_message_filter</a>
+                                                        (<a class="link" href="GXimCore.html" title="GXimCore">GXimCore</a> *core,
+                                                         <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Properties-and-Atoms.html#GdkAtom"
+>GdkAtom</a> atom);
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="GXimCore.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a
+href="/usr/share/gtk-doc/html/gobject/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a>
+   +----GXimCore
+         +----<a class="link" href="GXimClientTemplate.html" title="GXimClientTemplate">GXimClientTemplate</a>
+         +----<a class="link" href="GXimServerTemplate.html" title="GXimServerTemplate">GXimServerTemplate</a>
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="GXimCore.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="GXimCore.html#GXimCore--connection-gtype" title='The "connection-gtype" property'>connection-gtype</a>"         <a
+href="/usr/share/gtk-doc/html/gobject/gobject-Type-Information.html#GType"
+>GType</a>*                : Read / Write / Construct Only
+  "<a class="link" href="GXimCore.html#GXimCore--display" title='The "display" property'>display</a>"                  <a
+href="/usr/share/gtk-doc/html/gdk/GdkDisplay.html"
+>GdkDisplay</a>*           : Read / Write / Construct Only
+  "<a class="link" href="GXimCore.html#GXimCore--proto-signals" title='The "proto-signals" property'>proto-signals</a>"            <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a>              : Read / Write
+  "<a class="link" href="GXimCore.html#GXimCore--selection-window" title='The "selection-window" property'>selection-window</a>"         <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Windows.html#GdkWindow"
+>GdkWindow</a>*            : Read
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="GXimCore.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="GXimCore.html#GXimCore-client-event" title='The "client-event" signal'>client-event</a>"                                   : Run Last
+  "<a class="link" href="GXimCore.html#GXimCore-destroy-event" title='The "destroy-event" signal'>destroy-event</a>"                                  : Run Last
+  "<a class="link" href="GXimCore.html#GXimCore-expose-event" title='The "expose-event" signal'>expose-event</a>"                                   : Run Last
+  "<a class="link" href="GXimCore.html#GXimCore-selection-clear-event" title='The "selection-clear-event" signal'>selection-clear-event</a>"                          : Run Last
+  "<a class="link" href="GXimCore.html#GXimCore-selection-notify-event" title='The "selection-notify-event" signal'>selection-notify-event</a>"                         : Run Last
+  "<a class="link" href="GXimCore.html#GXimCore-selection-request-event" title='The "selection-request-event" signal'>selection-request-event</a>"                        : Run Last
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="GXimCore.description"></a><h2>Description</h2>
+<p>
+GXimCore provides a common functionality to deal with XIM protocol
+for both server side and client side.  You usually don't need to use
+most functions described here because any chance to do something with
+them is well hidden by the higher-level APIs, except if you want to
+make any classes that inherited from GXimCore, or to do any particular
+thing with them.</p>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="GXimCore.details"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="GXimCore-struct"></a><h3>GXimCore</h3>
+<pre class="programlisting">typedef struct _GXimCore GXimCore;</pre>
+<p>
+An abstract implementation of XIM protocol event handling class.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-core-watch-event"></a><h3>g_xim_core_watch_event ()</h3>
+<pre class="programlisting">void                g_xim_core_watch_event              (<a class="link" href="GXimCore.html" title="GXimCore">GXimCore</a> *core,
+                                                         <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Windows.html#GdkWindow"
+>GdkWindow</a> *window);</pre>
+<p>
+Adds the event filter to <em class="parameter"><code>window</code></em> and catches up events with <em class="parameter"><code>core</code></em>'s event
+handler.  This has to be done before starting the protocol negotiation.
+otherwise it will be lost and another application may be frozen in worst case.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>core</code></em> :</span></p></td>
+<td> a <a class="link" href="GXimCore.html" title="GXimCore"><span class="type">GXimCore</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>window</code></em> :</span></p></td>
+<td> a <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Windows.html#GdkWindow"
+><span class="type">GdkWindow</span></a> that watches the event.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-core-unwatch-event"></a><h3>g_xim_core_unwatch_event ()</h3>
+<pre class="programlisting">void                g_xim_core_unwatch_event            (<a class="link" href="GXimCore.html" title="GXimCore">GXimCore</a> *core,
+                                                         <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Windows.html#GdkWindow"
+>GdkWindow</a> *window);</pre>
+<p>
+Removes the event filter from <em class="parameter"><code>window</code></em> and finishes watching events at <em class="parameter"><code>core</code></em>.
+This has to be done after finishing the protocol connection.
+otherwise some events will be lost and another application may be frozen
+in worst case.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>core</code></em> :</span></p></td>
+<td> a <a class="link" href="GXimCore.html" title="GXimCore"><span class="type">GXimCore</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>window</code></em> :</span></p></td>
+<td> a <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Windows.html#GdkWindow"
+><span class="type">GdkWindow</span></a> that wants to remove from the watch list.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-core-get-display"></a><h3>g_xim_core_get_display ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/gdk/GdkDisplay.html"
+>GdkDisplay</a>*         g_xim_core_get_display              (<a class="link" href="GXimCore.html" title="GXimCore">GXimCore</a> *core);</pre>
+<p>
+Obtains the <a
+href="/usr/share/gtk-doc/html/gdk/GdkDisplay.html"
+><span class="type">GdkDisplay</span></a> that currently use.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>core</code></em> :</span></p></td>
+<td> a <a class="link" href="GXimCore.html" title="GXimCore"><span class="type">GXimCore</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a display to use.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-core-get-selection-window"></a><h3>g_xim_core_get_selection_window ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/gdk/gdk-Windows.html#GdkWindow"
+>GdkWindow</a>*          g_xim_core_get_selection_window     (<a class="link" href="GXimCore.html" title="GXimCore">GXimCore</a> *core);</pre>
+<p>
+Obtains a selection window. this function may be necessary when you want to
+communicate the XIM server or clients through XIM protocol.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>core</code></em> :</span></p></td>
+<td> a <a class="link" href="GXimCore.html" title="GXimCore"><span class="type">GXimCore</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="GXimCore.html#GXimCore--selection-window" title='The "selection-window" property'><span class="type">"selection-window"</span></a> in <em class="parameter"><code>core</code></em>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-core-get-connection-gtype"></a><h3>g_xim_core_get_connection_gtype ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/gobject/gobject-Type-Information.html#GType"
+>GType</a>               g_xim_core_get_connection_gtype     (<a class="link" href="GXimCore.html" title="GXimCore">GXimCore</a> *core);</pre>
+<p>
+Obtains a <a
+href="/usr/share/gtk-doc/html/gobject/gobject-Type-Information.html#GType"
+><span class="type">GType</span></a> of the class inherited from <a class="link" href="GXimConnection.html" title="GXimConnection"><span class="type">GXimConnection</span></a>.
+This function is typically used to create an instance of the connection.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>core</code></em> :</span></p></td>
+<td> a <a class="link" href="GXimCore.html" title="GXimCore"><span class="type">GXimCore</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="GXimCore.html#GXimCore--connection-gtype" title='The "connection-gtype" property'><span class="type">"connection-gtype"</span></a> in <em class="parameter"><code>core</code></em>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-core-get-protocol-signal-connector"></a><h3>g_xim_core_get_protocol_signal_connector ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a>*             g_xim_core_get_protocol_signal_connector
+                                                        (<a class="link" href="GXimCore.html" title="GXimCore">GXimCore</a> *core);</pre>
+<p>
+Obtains a list of the signal callbacks.
+This function is typically used to initialize the signal connectioon after
+creating an instance of the connection.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>core</code></em> :</span></p></td>
+<td> a <a class="link" href="GXimCore.html" title="GXimCore"><span class="type">GXimCore</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a list of <span class="type">GXimLazySignalConnector</span>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-core-setup-connection"></a><h3>g_xim_core_setup_connection ()</h3>
+<pre class="programlisting">void                g_xim_core_setup_connection         (<a class="link" href="GXimCore.html" title="GXimCore">GXimCore</a> *core,
+                                                         <a class="link" href="GXimConnection.html" title="GXimConnection">GXimConnection</a> *conn);</pre>
+<p>
+Initialize a <em class="parameter"><code>conn</code></em>'s connection to get it working.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>core</code></em> :</span></p></td>
+<td> a <a class="link" href="GXimCore.html" title="GXimCore"><span class="type">GXimCore</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td> a <a class="link" href="GXimConnection.html" title="GXimConnection"><span class="type">GXimConnection</span></a> to be initialized
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-core-add-client-message-filter"></a><h3>g_xim_core_add_client_message_filter ()</h3>
+<pre class="programlisting">void                g_xim_core_add_client_message_filter
+                                                        (<a class="link" href="GXimCore.html" title="GXimCore">GXimCore</a> *core,
+                                                         <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Properties-and-Atoms.html#GdkAtom"
+>GdkAtom</a> atom);</pre>
+<p>
+Deals with the event when <em class="parameter"><code>atom</code></em> is specified as the message_type in
+<a class="link" href="GXimCore.html#GXimCore-client-event" title='The "client-event" signal'><span class="type">"client-event"</span></a>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>core</code></em> :</span></p></td>
+<td> a <a class="link" href="GXimCore.html" title="GXimCore"><span class="type">GXimCore</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>atom</code></em> :</span></p></td>
+<td> a <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Properties-and-Atoms.html#GdkAtom"
+><span class="type">GdkAtom</span></a> to deal with in the event filter.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-core-remove-client-message-filter"></a><h3>g_xim_core_remove_client_message_filter ()</h3>
+<pre class="programlisting">void                g_xim_core_remove_client_message_filter
+                                                        (<a class="link" href="GXimCore.html" title="GXimCore">GXimCore</a> *core,
+                                                         <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Properties-and-Atoms.html#GdkAtom"
+>GdkAtom</a> atom);</pre>
+<p>
+Removes <em class="parameter"><code>atom</code></em> from the table and the event filter won't deals with it
+even when it's specified to the message_type in <a class="link" href="GXimCore.html#GXimCore-client-event" title='The "client-event" signal'><span class="type">"client-event"</span></a>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>core</code></em> :</span></p></td>
+<td> a <a class="link" href="GXimCore.html" title="GXimCore"><span class="type">GXimCore</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>atom</code></em> :</span></p></td>
+<td> a <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Properties-and-Atoms.html#GdkAtom"
+><span class="type">GdkAtom</span></a> to not deal with in the event filter any more.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-core-lookup-client-message-filter"></a><h3>g_xim_core_lookup_client_message_filter ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_core_lookup_client_message_filter
+                                                        (<a class="link" href="GXimCore.html" title="GXimCore">GXimCore</a> *core,
+                                                         <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Properties-and-Atoms.html#GdkAtom"
+>GdkAtom</a> atom);</pre>
+<p>
+Looks up <em class="parameter"><code>atom</code></em> if it's registered to deal with it in <a class="link" href="GXimCore.html#GXimCore-client-event" title='The "client-event" signal'><span class="type">"client-event"</span></a>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>core</code></em> :</span></p></td>
+<td> a <a class="link" href="GXimCore.html" title="GXimCore"><span class="type">GXimCore</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>atom</code></em> :</span></p></td>
+<td> a <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Properties-and-Atoms.html#GdkAtom"
+><span class="type">GdkAtom</span></a> to look up
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <code class="literal">TRUE</code> if <em class="parameter"><code>atom</code></em> has already been added to the table.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" lang="en">
+<a name="GXimCore.property-details"></a><h2>Property Details</h2>
+<div class="refsect2" lang="en">
+<a name="GXimCore--connection-gtype"></a><h3>The <code class="literal">"connection-gtype"</code> property</h3>
+<pre class="programlisting">  "connection-gtype"         <a
+href="/usr/share/gtk-doc/html/gobject/gobject-Type-Information.html#GType"
+>GType</a>*                : Read / Write / Construct Only</pre>
+<p>
+a <a
+href="/usr/share/gtk-doc/html/gobject/gobject-Type-Information.html#GType"
+><span class="type">GType</span></a> inherited from <a class="link" href="GXimConnection.html" title="GXimConnection"><span class="type">GXimConnection</span></a>. this will be a instance and
+determines the connection type when the connection is requested.</p>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GXimCore--display"></a><h3>The <code class="literal">"display"</code> property</h3>
+<pre class="programlisting">  "display"                  <a
+href="/usr/share/gtk-doc/html/gdk/GdkDisplay.html"
+>GdkDisplay</a>*           : Read / Write / Construct Only</pre>
+<p>Gdk display to use.</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GXimCore--proto-signals"></a><h3>The <code class="literal">"proto-signals"</code> property</h3>
+<pre class="programlisting">  "proto-signals"            <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a>              : Read / Write</pre>
+<p>
+a set of <span class="type">GXimLazySignalConnector</span> to connect signals to a instance
+of <a class="link" href="GXimCore.html#GXimCore--connection-gtype" title='The "connection-gtype" property'><span class="type">"connection-gtype"</span></a> when the connection is negothating.</p>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GXimCore--selection-window"></a><h3>The <code class="literal">"selection-window"</code> property</h3>
+<pre class="programlisting">  "selection-window"         <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Windows.html#GdkWindow"
+>GdkWindow</a>*            : Read</pre>
+<p>
+a <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Windows.html#GdkWindow"
+><span class="type">GdkWindow</span></a> to communicate with the XIM server or the client
+application.</p>
+<p>
+
+</p>
+</div>
+</div>
+<div class="refsect1" lang="en">
+<a name="GXimCore.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2" lang="en">
+<a name="GXimCore-client-event"></a><h3>The <code class="literal">"client-event"</code> signal</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            user_function                      (<a class="link" href="GXimCore.html" title="GXimCore">GXimCore</a>       *core,
+                                                        <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Event-Structures.html#GdkEventClient"
+>GdkEventClient</a> *event,
+                                                        <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a>        user_data)      : Run Last</pre>
+<p>
+The ::client-event signal will be emitted when the <em class="parameter"><code>core</code></em>'s window
+receives a message (via ClientMessage event) from another application.
+all of XIM protocol is delivered with this signal.</p>
+<p>
+
+</p>
+
+@: 
+@:<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>core</code></em> :</span></p></td>
+<td> the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td> the <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Event-Structures.html#GdkEventClient"
+><span class="type">GdkEventClient</span></a> which triggered this signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <code class="literal">TRUE</code> to stop other handlers from being invoked for
+the event. <code class="literal">FALSE</code> to propagate the event further.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GXimCore-destroy-event"></a><h3>The <code class="literal">"destroy-event"</code> signal</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            user_function                      (<a class="link" href="GXimCore.html" title="GXimCore">GXimCore</a> *core,
+                                                        <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Event-Structures.html#GdkEvent"
+>GdkEvent</a> *event,
+                                                        <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a>  user_data)      : Run Last</pre>
+<p>
+The ::destroy-event signal will be emitted when a <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Windows.html#GdkWindow"
+><span class="type">GdkWindow</span></a>
+is destroyed. typically you will see that when the client connection
+is disconnected from the client side.</p>
+<p>
+
+</p>
+
+@: 
+@:<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>core</code></em> :</span></p></td>
+<td> the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td> the <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Event-Structures.html#GdkEvent"
+><span class="type">GdkEvent</span></a> which triggered this signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <code class="literal">TRUE</code> to stop other handlers from being invoked for
+the event. <code class="literal">FALSE</code> to propagate the event further.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GXimCore-expose-event"></a><h3>The <code class="literal">"expose-event"</code> signal</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            user_function                      (<a class="link" href="GXimCore.html" title="GXimCore">GXimCore</a>       *gximcore,
+                                                        <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Event-Structures.html#GdkEventExpose"
+>GdkEventExpose</a> *event,
+                                                        <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a>        user_data)      : Run Last</pre>
+<p>
+
+</p>
+
+@: 
+@:<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Param2</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GXimCore-selection-clear-event"></a><h3>The <code class="literal">"selection-clear-event"</code> signal</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            user_function                      (<a class="link" href="GXimCore.html" title="GXimCore">GXimCore</a>          *core,
+                                                        <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Event-Structures.html#GdkEventSelection"
+>GdkEventSelection</a> *event,
+                                                        <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a>           user_data)      : Run Last</pre>
+<p>
+The ::selection-clear-event signal will be emitted when the
+<em class="parameter"><code>core</code></em>'s window has lost ownership of a selection. this signal
+won't appears in the client instance, such as inherited from
+<a class="link" href="GXimClientTemplate.html" title="GXimClientTemplate"><span class="type">GXimClientTemplate</span></a>.</p>
+<p>
+
+</p>
+
+@: 
+@:<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>core</code></em> :</span></p></td>
+<td> the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td> the <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Event-Structures.html#GdkEventSelection"
+><span class="type">GdkEventSelection</span></a> which triggered this signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <code class="literal">TRUE</code> to stop other handlers from being invoked for
+the event. <code class="literal">FALSE</code> to propagate the event further.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GXimCore-selection-notify-event"></a><h3>The <code class="literal">"selection-notify-event"</code> signal</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            user_function                      (<a class="link" href="GXimCore.html" title="GXimCore">GXimCore</a>          *core,
+                                                        <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Event-Structures.html#GdkEventSelection"
+>GdkEventSelection</a> *event,
+                                                        <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a>           user_data)      : Run Last</pre>
+<p>
+The ::selection-notify-event signal will be emitted when the
+the XIM server responded requests to get the supported locales
+and the transport-specific names. this signal won't appears in
+the server instance, such as inherited from <a class="link" href="GXimServerTemplate.html" title="GXimServerTemplate"><span class="type">GXimServerTemplate</span></a>.</p>
+<p>
+
+</p>
+
+@: 
+@:<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>core</code></em> :</span></p></td>
+<td> the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td> the <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Event-Structures.html#GdkEventSelection"
+><span class="type">GdkEventSelection</span></a> which triggered this signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <code class="literal">TRUE</code> to stop other handlers from being invoked for
+the event. <code class="literal">FALSE</code> to propagate the event further.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GXimCore-selection-request-event"></a><h3>The <code class="literal">"selection-request-event"</code> signal</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            user_function                      (<a class="link" href="GXimCore.html" title="GXimCore">GXimCore</a>          *core,
+                                                        <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Event-Structures.html#GdkEventSelection"
+>GdkEventSelection</a> *event,
+                                                        <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a>           user_data)      : Run Last</pre>
+<p>
+The ::selection-request-event signal will be emitted when the client
+applications requests a set of names of the supported locales and
+the preregistered formats for transport-specific names. this signal
+won't appears in the client instance, such as inherited from
+<a class="link" href="GXimClientTemplate.html" title="GXimClientTemplate"><span class="type">GXimClientTemplate</span></a>.</p>
+<p>
+
+</p>
+
+@: 
+@:<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>core</code></em> :</span></p></td>
+<td> the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td> the <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Event-Structures.html#GdkEventSelection"
+><span class="type">GdkEventSelection</span></a> which triggered this signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <code class="literal">TRUE</code> to stop other handlers from being invoked for
+the event. <code class="literal">FALSE</code> to propagate the event further.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.10</div>
+</body>
+</html>

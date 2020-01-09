@@ -1,0 +1,1384 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GXimICAttr</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.74.0">
+<link rel="home" href="index.html" title="libgxim Reference Manual">
+<link rel="up" href="ch04.html" title="XIM attributes classes">
+<link rel="prev" href="ch04.html" title="XIM attributes classes">
+<link rel="next" href="ch05.html" title="Miscelleneous">
+<meta name="generator" content="GTK-Doc V1.10 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="reference" href="libgxim.html" title="libgxim API Reference">
+<link rel="chapter" href="ch01.html" title="Abstract Base Classes">
+<link rel="chapter" href="ch02.html" title="Interfaces">
+<link rel="chapter" href="ch03.html" title="Connection classes">
+<link rel="chapter" href="ch04.html" title="XIM attributes classes">
+<link rel="chapter" href="ch05.html" title="Miscelleneous">
+<link rel="index" href="ix01.html" title="Index">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="ch04.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch04.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libgxim Reference Manual</th>
+<td><a accesskey="n" href="ch05.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#GXimICAttr.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#GXimICAttr.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#GXimICAttr.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#GXimICAttr.properties" class="shortcut">Properties</a></nobr></td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="GXimICAttr"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GXimICAttr.top_of_page"></a>GXimICAttr</span></h2>
+<p>GXimICAttr</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="GXimICAttr.synopsis"></a><h2>Synopsis</h2>
+<a name="GXimAttr"></a><a name="GXimIMAttr"></a><pre class="synopsis">
+#define             <a class="link" href="GXimICAttr.html#G-TYPE-XIM-IM-ATTR:CAPS" title="G_TYPE_XIM_IM_ATTR">G_TYPE_XIM_IM_ATTR</a>
+#define             <a class="link" href="GXimICAttr.html#G-XIM-IM-ATTR:CAPS" title="G_XIM_IM_ATTR()">G_XIM_IM_ATTR</a>                       (_o_)
+#define             <a class="link" href="GXimICAttr.html#G-XIM-IM-ATTR-CLASS:CAPS" title="G_XIM_IM_ATTR_CLASS()">G_XIM_IM_ATTR_CLASS</a>                 (_c_)
+#define             <a class="link" href="GXimICAttr.html#G-IS-XIM-IM-ATTR:CAPS" title="G_IS_XIM_IM_ATTR()">G_IS_XIM_IM_ATTR</a>                    (_o_)
+#define             <a class="link" href="GXimICAttr.html#G-IS-XIM-IM-ATTR-CLASS:CAPS" title="G_IS_XIM_IM_ATTR_CLASS()">G_IS_XIM_IM_ATTR_CLASS</a>              (_c_)
+#define             <a class="link" href="GXimICAttr.html#G-XIM-IM-ATTR-GET-CLASS:CAPS" title="G_XIM_IM_ATTR_GET_CLASS()">G_XIM_IM_ATTR_GET_CLASS</a>             (_o_)
+#define             <a class="link" href="GXimICAttr.html#G-TYPE-XIM-IC-ATTR:CAPS" title="G_TYPE_XIM_IC_ATTR">G_TYPE_XIM_IC_ATTR</a>
+#define             <a class="link" href="GXimICAttr.html#G-XIM-IC-ATTR:CAPS" title="G_XIM_IC_ATTR()">G_XIM_IC_ATTR</a>                       (_o_)
+#define             <a class="link" href="GXimICAttr.html#G-XIM-IC-ATTR-CLASS:CAPS" title="G_XIM_IC_ATTR_CLASS()">G_XIM_IC_ATTR_CLASS</a>                 (_c_)
+#define             <a class="link" href="GXimICAttr.html#G-IS-XIM-IC-ATTR:CAPS" title="G_IS_XIM_IC_ATTR()">G_IS_XIM_IC_ATTR</a>                    (_o_)
+#define             <a class="link" href="GXimICAttr.html#G-IS-XIM-IC-ATTR-CLASS:CAPS" title="G_IS_XIM_IC_ATTR_CLASS()">G_IS_XIM_IC_ATTR_CLASS</a>              (_c_)
+#define             <a class="link" href="GXimICAttr.html#G-XIM-IC-ATTR-GET-CLASS:CAPS" title="G_XIM_IC_ATTR_GET_CLASS()">G_XIM_IC_ATTR_GET_CLASS</a>             (_o_)
+#define             <a class="link" href="GXimICAttr.html#G-XIM-ATTR-ERROR:CAPS" title="G_XIM_ATTR_ERROR">G_XIM_ATTR_ERROR</a>
+#define             <a class="link" href="GXimICAttr.html#XNQueryInputStyle" title="XNQueryInputStyle">XNQueryInputStyle</a>
+#define             <a class="link" href="GXimICAttr.html#XNClientWindow" title="XNClientWindow">XNClientWindow</a>
+#define             <a class="link" href="GXimICAttr.html#XNInputStyle" title="XNInputStyle">XNInputStyle</a>
+#define             <a class="link" href="GXimICAttr.html#XNFocusWindow" title="XNFocusWindow">XNFocusWindow</a>
+#define             <a class="link" href="GXimICAttr.html#XNFilterEvents" title="XNFilterEvents">XNFilterEvents</a>
+#define             <a class="link" href="GXimICAttr.html#XNPreeditAttributes" title="XNPreeditAttributes">XNPreeditAttributes</a>
+#define             <a class="link" href="GXimICAttr.html#XNStatusAttributes" title="XNStatusAttributes">XNStatusAttributes</a>
+#define             <a class="link" href="GXimICAttr.html#XNArea" title="XNArea">XNArea</a>
+#define             <a class="link" href="GXimICAttr.html#XNAreaNeeded" title="XNAreaNeeded">XNAreaNeeded</a>
+#define             <a class="link" href="GXimICAttr.html#XNSpotLocation" title="XNSpotLocation">XNSpotLocation</a>
+#define             <a class="link" href="GXimICAttr.html#XNColormap" title="XNColormap">XNColormap</a>
+#define             <a class="link" href="GXimICAttr.html#XNStdColormap" title="XNStdColormap">XNStdColormap</a>
+#define             <a class="link" href="GXimICAttr.html#XNForeground" title="XNForeground">XNForeground</a>
+#define             <a class="link" href="GXimICAttr.html#XNBackground" title="XNBackground">XNBackground</a>
+#define             <a class="link" href="GXimICAttr.html#XNBackgroundPixmap" title="XNBackgroundPixmap">XNBackgroundPixmap</a>
+#define             <a class="link" href="GXimICAttr.html#XNFontSet" title="XNFontSet">XNFontSet</a>
+#define             <a class="link" href="GXimICAttr.html#XNLineSpace" title="XNLineSpace">XNLineSpace</a>
+#define             <a class="link" href="GXimICAttr.html#XNCursor" title="XNCursor">XNCursor</a>
+#define             <a class="link" href="GXimICAttr.html#XNResetState" title="XNResetState">XNResetState</a>
+#define             <a class="link" href="GXimICAttr.html#XNPreeditState" title="XNPreeditState">XNPreeditState</a>
+#define             <a class="link" href="GXimICAttr.html#XNSeparatorofNestedList" title="XNSeparatorofNestedList">XNSeparatorofNestedList</a>
+                    <a class="link" href="GXimICAttr.html#GXimAttrClass" title="GXimAttrClass">GXimAttrClass</a>;
+                    <a class="link" href="GXimICAttr.html#GXimAttrPrivate" title="GXimAttrPrivate">GXimAttrPrivate</a>;
+                    <a class="link" href="GXimICAttr.html#GXimAttr-struct" title="GXimAttr">GXimAttr</a>;
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Quarks.html#GQuark"
+>GQuark</a>              <a class="link" href="GXimICAttr.html#g-xim-attr-get-error-quark" title="g_xim_attr_get_error_quark ()">g_xim_attr_get_error_quark</a>          (void);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a>*             <a class="link" href="GXimICAttr.html#g-xim-attr-get-supported-attributes" title="g_xim_attr_get_supported_attributes ()">g_xim_attr_get_supported_attributes</a> (<a class="link" href="GXimICAttr.html#GXimAttr">GXimAttr</a> *attr);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a>               <a class="link" href="GXimICAttr.html#g-xim-attr-get-n-supported-attributes" title="g_xim_attr_get_n_supported_attributes ()">g_xim_attr_get_n_supported_attributes</a>
+                                                        (<a class="link" href="GXimICAttr.html#GXimAttr">GXimAttr</a> *attr);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GXimICAttr.html#g-xim-attr-attribute-is-enabled" title="g_xim_attr_attribute_is_enabled ()">g_xim_attr_attribute_is_enabled</a>     (<a class="link" href="GXimICAttr.html#GXimAttr">GXimAttr</a> *attr,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *attribute_name);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a>                <a class="link" href="GXimICAttr.html#g-xim-attr-get-attribute-id" title="g_xim_attr_get_attribute_id ()">g_xim_attr_get_attribute_id</a>         (<a class="link" href="GXimICAttr.html#GXimAttr">GXimAttr</a> *attr,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *attribute_name);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>*              <a class="link" href="GXimICAttr.html#g-xim-attr-get-attribute-name" title="g_xim_attr_get_attribute_name ()">g_xim_attr_get_attribute_name</a>       (<a class="link" href="GXimICAttr.html#GXimAttr">GXimAttr</a> *attr,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> attribute_id);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a>            <a class="link" href="GXimICAttr.html#g-xim-attr-get-value-by-id" title="g_xim_attr_get_value_by_id ()">g_xim_attr_get_value_by_id</a>          (<a class="link" href="GXimICAttr.html#GXimAttr">GXimAttr</a> *attr,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> attribute_id);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a>            <a class="link" href="GXimICAttr.html#g-xim-attr-get-value-by-name" title="g_xim_attr_get_value_by_name ()">g_xim_attr_get_value_by_name</a>        (<a class="link" href="GXimICAttr.html#GXimAttr">GXimAttr</a> *attr,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *attribute_name);
+<a
+href="/usr/share/gtk-doc/html/gobject/gobject-Type-Information.html#GType"
+>GType</a>               <a class="link" href="GXimICAttr.html#g-xim-attr-get-gtype-by-id" title="g_xim_attr_get_gtype_by_id ()">g_xim_attr_get_gtype_by_id</a>          (<a class="link" href="GXimICAttr.html#GXimAttr">GXimAttr</a> *attr,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> attribute_id);
+<a
+href="/usr/share/gtk-doc/html/gobject/gobject-Type-Information.html#GType"
+>GType</a>               <a class="link" href="GXimICAttr.html#g-xim-attr-get-gtype-by-name" title="g_xim_attr_get_gtype_by_name ()">g_xim_attr_get_gtype_by_name</a>        (<a class="link" href="GXimICAttr.html#GXimAttr">GXimAttr</a> *attr,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *attribute_name);
+void                <a class="link" href="GXimICAttr.html#g-xim-attr-set-raw-attr" title="g_xim_attr_set_raw_attr ()">g_xim_attr_set_raw_attr</a>             (<a class="link" href="GXimICAttr.html#GXimAttr">GXimAttr</a> *attr,
+                                                         GXimRawAttr *raw);
+                    <a class="link" href="GXimICAttr.html#GXimIMAttrPrivate" title="GXimIMAttrPrivate">GXimIMAttrPrivate</a>;
+                    <a class="link" href="GXimICAttr.html#GXimIMAttr-struct" title="GXimIMAttr">GXimIMAttr</a>;
+<a
+href="/usr/share/gtk-doc/html/gobject/gobject-Type-Information.html#GType"
+>GType</a>               <a class="link" href="GXimICAttr.html#g-xim-im-attr-get-type" title="g_xim_im_attr_get_type ()">g_xim_im_attr_get_type</a>              (void);
+<a class="link" href="GXimICAttr.html#GXimIMAttr">GXimIMAttr</a>*         <a class="link" href="GXimICAttr.html#g-xim-im-attr-new" title="g_xim_im_attr_new ()">g_xim_im_attr_new</a>                   (const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *attrs);
+void                <a class="link" href="GXimICAttr.html#g-xim-im-attr-set-input-styles" title="g_xim_im_attr_set_input_styles ()">g_xim_im_attr_set_input_styles</a>      (<a class="link" href="GXimICAttr.html#GXimIMAttr">GXimIMAttr</a> *attr,
+                                                         GXimStyles *style);
+const GXimStyles*   <a class="link" href="GXimICAttr.html#g-xim-im-attr-get-input-styles" title="g_xim_im_attr_get_input_styles ()">g_xim_im_attr_get_input_styles</a>      (<a class="link" href="GXimICAttr.html#GXimIMAttr">GXimIMAttr</a> *attr);
+                    <a class="link" href="GXimICAttr.html#GXimICAttrPrivate" title="GXimICAttrPrivate">GXimICAttrPrivate</a>;
+                    <a class="link" href="GXimICAttr.html#GXimICAttr-struct" title="GXimICAttr">GXimICAttr</a>;
+<a
+href="/usr/share/gtk-doc/html/gobject/gobject-Type-Information.html#GType"
+>GType</a>               <a class="link" href="GXimICAttr.html#g-xim-ic-attr-get-type" title="g_xim_ic_attr_get_type ()">g_xim_ic_attr_get_type</a>              (void);
+<a class="link" href="GXimICAttr.html" title="GXimICAttr">GXimICAttr</a>*         <a class="link" href="GXimICAttr.html#g-xim-ic-attr-new" title="g_xim_ic_attr_new ()">g_xim_ic_attr_new</a>                   (const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *attrs);
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="GXimICAttr.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a
+href="/usr/share/gtk-doc/html/gobject/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a>
+   +----GXimAttr
+         +----<a class="link" href="GXimICAttr.html#GXimIMAttr">GXimIMAttr</a>
+         +----<a class="link" href="GXimICAttr.html" title="GXimICAttr">GXimICAttr</a>
+</pre>
+<pre class="synopsis">
+  <a
+href="/usr/share/gtk-doc/html/gobject/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a>
+   +----<a class="link" href="GXimICAttr.html#GXimAttr">GXimAttr</a>
+         +----GXimIMAttr
+</pre>
+<pre class="synopsis">
+  <a
+href="/usr/share/gtk-doc/html/gobject/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a>
+   +----<a class="link" href="GXimICAttr.html#GXimAttr">GXimAttr</a>
+         +----GXimICAttr
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="GXimICAttr.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="GXimICAttr.html#GXimAttr--attrs-enabled" title='The "attrs-enabled" property'>attrs-enabled</a>"            <a
+href="/usr/share/gtk-doc/html/gobject/gobject-Boxed-Types.html#GStrv"
+>GStrv</a>*                : Read / Write
+  "<a class="link" href="GXimICAttr.html#GXimIMAttr--queryInputStyle" title='The "queryInputStyle" property'>queryInputStyle</a>"          GXimStyles*           : Read / Write
+  "<a class="link" href="GXimICAttr.html#GXimICAttr--area" title='The "area" property'>area</a>"                     GXimRectangle*        : Read / Write
+  "<a class="link" href="GXimICAttr.html#GXimICAttr--areaNeeded" title='The "areaNeeded" property'>areaNeeded</a>"               GXimRectangle*        : Read / Write
+  "<a class="link" href="GXimICAttr.html#GXimICAttr--background" title='The "background" property'>background</a>"               <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gulong"
+>gulong</a>                : Read / Write
+  "<a class="link" href="GXimICAttr.html#GXimICAttr--backgroundPixmap" title='The "backgroundPixmap" property'>backgroundPixmap</a>"         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gulong"
+>gulong</a>                : Read / Write
+  "<a class="link" href="GXimICAttr.html#GXimICAttr--clientWindow" title='The "clientWindow" property'>clientWindow</a>"             <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Windows.html#GdkWindow"
+>GdkWindow</a>*            : Read / Write
+  "<a class="link" href="GXimICAttr.html#GXimICAttr--colorMap" title='The "colorMap" property'>colorMap</a>"                 <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gulong"
+>gulong</a>                : Read / Write
+  "<a class="link" href="GXimICAttr.html#GXimICAttr--cursor" title='The "cursor" property'>cursor</a>"                   <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gulong"
+>gulong</a>                : Read / Write
+  "<a class="link" href="GXimICAttr.html#GXimICAttr--filterEvents" title='The "filterEvents" property'>filterEvents</a>"             <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gulong"
+>gulong</a>                : Read / Write
+  "<a class="link" href="GXimICAttr.html#GXimICAttr--focusWindow" title='The "focusWindow" property'>focusWindow</a>"              <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Windows.html#GdkWindow"
+>GdkWindow</a>*            : Read / Write
+  "<a class="link" href="GXimICAttr.html#GXimICAttr--fontSet" title='The "fontSet" property'>fontSet</a>"                  GXimFontSet*          : Read / Write
+  "<a class="link" href="GXimICAttr.html#GXimICAttr--foreground" title='The "foreground" property'>foreground</a>"               <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gulong"
+>gulong</a>                : Read / Write
+  "<a class="link" href="GXimICAttr.html#GXimICAttr--inputStyle" title='The "inputStyle" property'>inputStyle</a>"               <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gulong"
+>gulong</a>                : Read / Write
+  "<a class="link" href="GXimICAttr.html#GXimICAttr--lineSpace" title='The "lineSpace" property'>lineSpace</a>"                <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gulong"
+>gulong</a>                : Read / Write
+  "<a class="link" href="GXimICAttr.html#GXimICAttr--preeditAttributes" title='The "preeditAttributes" property'>preeditAttributes</a>"        NESTEDLIST*           : Read / Write
+  "<a class="link" href="GXimICAttr.html#GXimICAttr--preeditState" title='The "preeditState" property'>preeditState</a>"             <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gulong"
+>gulong</a>                : Read / Write
+  "<a class="link" href="GXimICAttr.html#GXimICAttr--resetState" title='The "resetState" property'>resetState</a>"               <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gulong"
+>gulong</a>                : Read / Write
+  "<a class="link" href="GXimICAttr.html#GXimICAttr--separatorofNestedList" title='The "separatorofNestedList" property'>separatorofNestedList</a>"    SeparatorofNestedList*  : Read / Write
+  "<a class="link" href="GXimICAttr.html#GXimICAttr--spotLocation" title='The "spotLocation" property'>spotLocation</a>"             GXimPoint*            : Read / Write
+  "<a class="link" href="GXimICAttr.html#GXimICAttr--statusAttributes" title='The "statusAttributes" property'>statusAttributes</a>"         NESTEDLIST*           : Read / Write
+  "<a class="link" href="GXimICAttr.html#GXimICAttr--stdColorMap" title='The "stdColorMap" property'>stdColorMap</a>"              <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gulong"
+>gulong</a>                : Read / Write
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="GXimICAttr.description"></a><h2>Description</h2>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="GXimICAttr.details"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="G-TYPE-XIM-IM-ATTR:CAPS"></a><h3>G_TYPE_XIM_IM_ATTR</h3>
+<pre class="programlisting">#define G_TYPE_XIM_IM_ATTR		(g_xim_im_attr_get_type())
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="G-XIM-IM-ATTR:CAPS"></a><h3>G_XIM_IM_ATTR()</h3>
+<pre class="programlisting">#define G_XIM_IM_ATTR(_o_)		(G_TYPE_CHECK_INSTANCE_CAST ((_o_), G_TYPE_XIM_IM_ATTR, GXimIMAttr))
+</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>_o_</code></em> :</span></p></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="G-XIM-IM-ATTR-CLASS:CAPS"></a><h3>G_XIM_IM_ATTR_CLASS()</h3>
+<pre class="programlisting">#define G_XIM_IM_ATTR_CLASS(_c_)	(G_TYPE_CHECK_CLASS_CAST ((_c_), G_TYPE_XIM_IM_ATTR, GXimIMAttrClass))
+</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>_c_</code></em> :</span></p></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="G-IS-XIM-IM-ATTR:CAPS"></a><h3>G_IS_XIM_IM_ATTR()</h3>
+<pre class="programlisting">#define G_IS_XIM_IM_ATTR(_o_)		(G_TYPE_CHECK_INSTANCE_TYPE ((_o_), G_TYPE_XIM_IM_ATTR))
+</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>_o_</code></em> :</span></p></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="G-IS-XIM-IM-ATTR-CLASS:CAPS"></a><h3>G_IS_XIM_IM_ATTR_CLASS()</h3>
+<pre class="programlisting">#define G_IS_XIM_IM_ATTR_CLASS(_c_)	(G_TYPE_CHECK_CLASS_TYPE ((_c_), G_TYPE_XIM_IM_ATTR))
+</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>_c_</code></em> :</span></p></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="G-XIM-IM-ATTR-GET-CLASS:CAPS"></a><h3>G_XIM_IM_ATTR_GET_CLASS()</h3>
+<pre class="programlisting">#define G_XIM_IM_ATTR_GET_CLASS(_o_)	(G_TYPE_INSTANCE_GET_CLASS ((_o_), G_TYPE_XIM_IM_ATTR, GXimIMAttrClass))
+</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>_o_</code></em> :</span></p></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="G-TYPE-XIM-IC-ATTR:CAPS"></a><h3>G_TYPE_XIM_IC_ATTR</h3>
+<pre class="programlisting">#define G_TYPE_XIM_IC_ATTR		(g_xim_ic_attr_get_type())
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="G-XIM-IC-ATTR:CAPS"></a><h3>G_XIM_IC_ATTR()</h3>
+<pre class="programlisting">#define G_XIM_IC_ATTR(_o_)		(G_TYPE_CHECK_INSTANCE_CAST ((_o_), G_TYPE_XIM_IC_ATTR, GXimICAttr))
+</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>_o_</code></em> :</span></p></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="G-XIM-IC-ATTR-CLASS:CAPS"></a><h3>G_XIM_IC_ATTR_CLASS()</h3>
+<pre class="programlisting">#define G_XIM_IC_ATTR_CLASS(_c_)	(G_TYPE_CHECK_CLASS_CAST ((_c_), G_TYPE_XIM_IC_ATTR, GXimICAttrClass))
+</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>_c_</code></em> :</span></p></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="G-IS-XIM-IC-ATTR:CAPS"></a><h3>G_IS_XIM_IC_ATTR()</h3>
+<pre class="programlisting">#define G_IS_XIM_IC_ATTR(_o_)		(G_TYPE_CHECK_INSTANCE_TYPE ((_o_), G_TYPE_XIM_IC_ATTR))
+</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>_o_</code></em> :</span></p></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="G-IS-XIM-IC-ATTR-CLASS:CAPS"></a><h3>G_IS_XIM_IC_ATTR_CLASS()</h3>
+<pre class="programlisting">#define G_IS_XIM_IC_ATTR_CLASS(_c_)	(G_TYPE_CHECK_CLASS_TYPE ((_c_), G_TYPE_XIM_IC_ATTR))
+</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>_c_</code></em> :</span></p></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="G-XIM-IC-ATTR-GET-CLASS:CAPS"></a><h3>G_XIM_IC_ATTR_GET_CLASS()</h3>
+<pre class="programlisting">#define G_XIM_IC_ATTR_GET_CLASS(_o_)	(G_TYPE_INSTANCE_GET_CLASS ((_o_), G_TYPE_XIM_IC_ATTR, GXimICAttrClass))
+</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>_o_</code></em> :</span></p></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="G-XIM-ATTR-ERROR:CAPS"></a><h3>G_XIM_ATTR_ERROR</h3>
+<pre class="programlisting">#define G_XIM_ATTR_ERROR		(g_xim_attr_get_error_quark())
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="XNQueryInputStyle"></a><h3>XNQueryInputStyle</h3>
+<pre class="programlisting">#define XNQueryInputStyle		"queryInputStyle"
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="XNClientWindow"></a><h3>XNClientWindow</h3>
+<pre class="programlisting">#define XNClientWindow			"clientWindow"
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="XNInputStyle"></a><h3>XNInputStyle</h3>
+<pre class="programlisting">#define XNInputStyle			"inputStyle"
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="XNFocusWindow"></a><h3>XNFocusWindow</h3>
+<pre class="programlisting">#define XNFocusWindow			"focusWindow"
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="XNFilterEvents"></a><h3>XNFilterEvents</h3>
+<pre class="programlisting">#define XNFilterEvents			"filterEvents"
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="XNPreeditAttributes"></a><h3>XNPreeditAttributes</h3>
+<pre class="programlisting">#define XNPreeditAttributes		"preeditAttributes"
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="XNStatusAttributes"></a><h3>XNStatusAttributes</h3>
+<pre class="programlisting">#define XNStatusAttributes		"statusAttributes"
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="XNArea"></a><h3>XNArea</h3>
+<pre class="programlisting">#define XNArea				"area"
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="XNAreaNeeded"></a><h3>XNAreaNeeded</h3>
+<pre class="programlisting">#define XNAreaNeeded			"areaNeeded"
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="XNSpotLocation"></a><h3>XNSpotLocation</h3>
+<pre class="programlisting">#define XNSpotLocation			"spotLocation"
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="XNColormap"></a><h3>XNColormap</h3>
+<pre class="programlisting">#define XNColormap			"colorMap"
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="XNStdColormap"></a><h3>XNStdColormap</h3>
+<pre class="programlisting">#define XNStdColormap			"stdColorMap"
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="XNForeground"></a><h3>XNForeground</h3>
+<pre class="programlisting">#define XNForeground			"foreground"
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="XNBackground"></a><h3>XNBackground</h3>
+<pre class="programlisting">#define XNBackground			"background"
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="XNBackgroundPixmap"></a><h3>XNBackgroundPixmap</h3>
+<pre class="programlisting">#define XNBackgroundPixmap		"backgroundPixmap"
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="XNFontSet"></a><h3>XNFontSet</h3>
+<pre class="programlisting">#define XNFontSet			"fontSet"
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="XNLineSpace"></a><h3>XNLineSpace</h3>
+<pre class="programlisting">#define XNLineSpace			"lineSpace"
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="XNCursor"></a><h3>XNCursor</h3>
+<pre class="programlisting">#define XNCursor			"cursor"
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="XNResetState"></a><h3>XNResetState</h3>
+<pre class="programlisting">#define XNResetState			"resetState"
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="XNPreeditState"></a><h3>XNPreeditState</h3>
+<pre class="programlisting">#define XNPreeditState			"preeditState"
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="XNSeparatorofNestedList"></a><h3>XNSeparatorofNestedList</h3>
+<pre class="programlisting">#define XNSeparatorofNestedList		"separatorofNestedList"
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GXimAttrClass"></a><h3>GXimAttrClass</h3>
+<pre class="programlisting">typedef struct _GXimAttrClass GXimAttrClass;</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GXimAttrPrivate"></a><h3>GXimAttrPrivate</h3>
+<pre class="programlisting">typedef struct _GXimAttrPrivate GXimAttrPrivate;</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GXimAttr-struct"></a><h3>GXimAttr</h3>
+<pre class="programlisting">typedef struct _GXimAttr GXimAttr;</pre>
+<p>
+</p>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-attr-get-error-quark"></a><h3>g_xim_attr_get_error_quark ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Quarks.html#GQuark"
+>GQuark</a>              g_xim_attr_get_error_quark          (void);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-attr-get-supported-attributes"></a><h3>g_xim_attr_get_supported_attributes ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a>*             g_xim_attr_get_supported_attributes (<a class="link" href="GXimICAttr.html#GXimAttr">GXimAttr</a> *attr);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attr</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-attr-get-n-supported-attributes"></a><h3>g_xim_attr_get_n_supported_attributes ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a>               g_xim_attr_get_n_supported_attributes
+                                                        (<a class="link" href="GXimICAttr.html#GXimAttr">GXimAttr</a> *attr);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attr</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-attr-attribute-is-enabled"></a><h3>g_xim_attr_attribute_is_enabled ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_attr_attribute_is_enabled     (<a class="link" href="GXimICAttr.html#GXimAttr">GXimAttr</a> *attr,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *attribute_name);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attr</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attribute_name</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-attr-get-attribute-id"></a><h3>g_xim_attr_get_attribute_id ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a>                g_xim_attr_get_attribute_id         (<a class="link" href="GXimICAttr.html#GXimAttr">GXimAttr</a> *attr,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *attribute_name);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attr</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attribute_name</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-attr-get-attribute-name"></a><h3>g_xim_attr_get_attribute_name ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>*              g_xim_attr_get_attribute_name       (<a class="link" href="GXimICAttr.html#GXimAttr">GXimAttr</a> *attr,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> attribute_id);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attr</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attribute_id</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-attr-get-value-by-id"></a><h3>g_xim_attr_get_value_by_id ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a>            g_xim_attr_get_value_by_id          (<a class="link" href="GXimICAttr.html#GXimAttr">GXimAttr</a> *attr,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> attribute_id);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attr</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attribute_id</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-attr-get-value-by-name"></a><h3>g_xim_attr_get_value_by_name ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a>            g_xim_attr_get_value_by_name        (<a class="link" href="GXimICAttr.html#GXimAttr">GXimAttr</a> *attr,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *attribute_name);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attr</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attribute_name</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-attr-get-gtype-by-id"></a><h3>g_xim_attr_get_gtype_by_id ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/gobject/gobject-Type-Information.html#GType"
+>GType</a>               g_xim_attr_get_gtype_by_id          (<a class="link" href="GXimICAttr.html#GXimAttr">GXimAttr</a> *attr,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> attribute_id);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attr</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attribute_id</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-attr-get-gtype-by-name"></a><h3>g_xim_attr_get_gtype_by_name ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/gobject/gobject-Type-Information.html#GType"
+>GType</a>               g_xim_attr_get_gtype_by_name        (<a class="link" href="GXimICAttr.html#GXimAttr">GXimAttr</a> *attr,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *attribute_name);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attr</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attribute_name</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-attr-set-raw-attr"></a><h3>g_xim_attr_set_raw_attr ()</h3>
+<pre class="programlisting">void                g_xim_attr_set_raw_attr             (<a class="link" href="GXimICAttr.html#GXimAttr">GXimAttr</a> *attr,
+                                                         GXimRawAttr *raw);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attr</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>raw</code></em> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GXimIMAttrPrivate"></a><h3>GXimIMAttrPrivate</h3>
+<pre class="programlisting">typedef struct _GXimIMAttrPrivate GXimIMAttrPrivate;</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GXimIMAttr-struct"></a><h3>GXimIMAttr</h3>
+<pre class="programlisting">typedef struct _GXimIMAttr GXimIMAttr;</pre>
+<p>
+An implementation of XIM IM Attributes class</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-im-attr-get-type"></a><h3>g_xim_im_attr_get_type ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/gobject/gobject-Type-Information.html#GType"
+>GType</a>               g_xim_im_attr_get_type              (void);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-im-attr-new"></a><h3>g_xim_im_attr_new ()</h3>
+<pre class="programlisting"><a class="link" href="GXimICAttr.html#GXimIMAttr">GXimIMAttr</a>*         g_xim_im_attr_new                   (const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *attrs);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attrs</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-im-attr-set-input-styles"></a><h3>g_xim_im_attr_set_input_styles ()</h3>
+<pre class="programlisting">void                g_xim_im_attr_set_input_styles      (<a class="link" href="GXimICAttr.html#GXimIMAttr">GXimIMAttr</a> *attr,
+                                                         GXimStyles *style);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attr</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>style</code></em> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-im-attr-get-input-styles"></a><h3>g_xim_im_attr_get_input_styles ()</h3>
+<pre class="programlisting">const GXimStyles*   g_xim_im_attr_get_input_styles      (<a class="link" href="GXimICAttr.html#GXimIMAttr">GXimIMAttr</a> *attr);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attr</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GXimICAttrPrivate"></a><h3>GXimICAttrPrivate</h3>
+<pre class="programlisting">typedef struct _GXimICAttrPrivate GXimICAttrPrivate;</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GXimICAttr-struct"></a><h3>GXimICAttr</h3>
+<pre class="programlisting">typedef struct _GXimICAttr GXimICAttr;</pre>
+<p>
+An implementation of XIM IC Attributes class</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-ic-attr-get-type"></a><h3>g_xim_ic_attr_get_type ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/gobject/gobject-Type-Information.html#GType"
+>GType</a>               g_xim_ic_attr_get_type              (void);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-ic-attr-new"></a><h3>g_xim_ic_attr_new ()</h3>
+<pre class="programlisting"><a class="link" href="GXimICAttr.html" title="GXimICAttr">GXimICAttr</a>*         g_xim_ic_attr_new                   (const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *attrs);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attrs</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" lang="en">
+<a name="GXimICAttr.property-details"></a><h2>Property Details</h2>
+<div class="refsect2" lang="en">
+<a name="GXimAttr--attrs-enabled"></a><h3>The <code class="literal">"attrs-enabled"</code> property</h3>
+<pre class="programlisting">  "attrs-enabled"            <a
+href="/usr/share/gtk-doc/html/gobject/gobject-Boxed-Types.html#GStrv"
+>GStrv</a>*                : Read / Write</pre>
+<p>XIM Attributes allowed to use.</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GXimIMAttr--queryInputStyle"></a><h3>The <code class="literal">"queryInputStyle"</code> property</h3>
+<pre class="programlisting">  "queryInputStyle"          GXimStyles*           : Read / Write</pre>
+<p>queryInputStyle.</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GXimICAttr--area"></a><h3>The <code class="literal">"area"</code> property</h3>
+<pre class="programlisting">  "area"                     GXimRectangle*        : Read / Write</pre>
+<p>area.</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GXimICAttr--areaNeeded"></a><h3>The <code class="literal">"areaNeeded"</code> property</h3>
+<pre class="programlisting">  "areaNeeded"               GXimRectangle*        : Read / Write</pre>
+<p>areaNeeded.</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GXimICAttr--background"></a><h3>The <code class="literal">"background"</code> property</h3>
+<pre class="programlisting">  "background"               <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gulong"
+>gulong</a>                : Read / Write</pre>
+<p>background.</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GXimICAttr--backgroundPixmap"></a><h3>The <code class="literal">"backgroundPixmap"</code> property</h3>
+<pre class="programlisting">  "backgroundPixmap"         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gulong"
+>gulong</a>                : Read / Write</pre>
+<p>backgroundPixmap.</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GXimICAttr--clientWindow"></a><h3>The <code class="literal">"clientWindow"</code> property</h3>
+<pre class="programlisting">  "clientWindow"             <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Windows.html#GdkWindow"
+>GdkWindow</a>*            : Read / Write</pre>
+<p>clientWindow.</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GXimICAttr--colorMap"></a><h3>The <code class="literal">"colorMap"</code> property</h3>
+<pre class="programlisting">  "colorMap"                 <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gulong"
+>gulong</a>                : Read / Write</pre>
+<p>colorMap.</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GXimICAttr--cursor"></a><h3>The <code class="literal">"cursor"</code> property</h3>
+<pre class="programlisting">  "cursor"                   <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gulong"
+>gulong</a>                : Read / Write</pre>
+<p>cursor.</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GXimICAttr--filterEvents"></a><h3>The <code class="literal">"filterEvents"</code> property</h3>
+<pre class="programlisting">  "filterEvents"             <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gulong"
+>gulong</a>                : Read / Write</pre>
+<p>filterEvents.</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GXimICAttr--focusWindow"></a><h3>The <code class="literal">"focusWindow"</code> property</h3>
+<pre class="programlisting">  "focusWindow"              <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Windows.html#GdkWindow"
+>GdkWindow</a>*            : Read / Write</pre>
+<p>focusWindow.</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GXimICAttr--fontSet"></a><h3>The <code class="literal">"fontSet"</code> property</h3>
+<pre class="programlisting">  "fontSet"                  GXimFontSet*          : Read / Write</pre>
+<p>fontSet.</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GXimICAttr--foreground"></a><h3>The <code class="literal">"foreground"</code> property</h3>
+<pre class="programlisting">  "foreground"               <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gulong"
+>gulong</a>                : Read / Write</pre>
+<p>foreground.</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GXimICAttr--inputStyle"></a><h3>The <code class="literal">"inputStyle"</code> property</h3>
+<pre class="programlisting">  "inputStyle"               <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gulong"
+>gulong</a>                : Read / Write</pre>
+<p>inputStyle.</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GXimICAttr--lineSpace"></a><h3>The <code class="literal">"lineSpace"</code> property</h3>
+<pre class="programlisting">  "lineSpace"                <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gulong"
+>gulong</a>                : Read / Write</pre>
+<p>lineSpace.</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GXimICAttr--preeditAttributes"></a><h3>The <code class="literal">"preeditAttributes"</code> property</h3>
+<pre class="programlisting">  "preeditAttributes"        NESTEDLIST*           : Read / Write</pre>
+<p>preeditAttributes.</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GXimICAttr--preeditState"></a><h3>The <code class="literal">"preeditState"</code> property</h3>
+<pre class="programlisting">  "preeditState"             <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gulong"
+>gulong</a>                : Read / Write</pre>
+<p>preeditState.</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GXimICAttr--resetState"></a><h3>The <code class="literal">"resetState"</code> property</h3>
+<pre class="programlisting">  "resetState"               <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gulong"
+>gulong</a>                : Read / Write</pre>
+<p>resetState.</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GXimICAttr--separatorofNestedList"></a><h3>The <code class="literal">"separatorofNestedList"</code> property</h3>
+<pre class="programlisting">  "separatorofNestedList"    SeparatorofNestedList*  : Read / Write</pre>
+<p>separatorofNestedList.</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GXimICAttr--spotLocation"></a><h3>The <code class="literal">"spotLocation"</code> property</h3>
+<pre class="programlisting">  "spotLocation"             GXimPoint*            : Read / Write</pre>
+<p>spotLocation.</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GXimICAttr--statusAttributes"></a><h3>The <code class="literal">"statusAttributes"</code> property</h3>
+<pre class="programlisting">  "statusAttributes"         NESTEDLIST*           : Read / Write</pre>
+<p>statusAttributes.</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GXimICAttr--stdColorMap"></a><h3>The <code class="literal">"stdColorMap"</code> property</h3>
+<pre class="programlisting">  "stdColorMap"              <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gulong"
+>gulong</a>                : Read / Write</pre>
+<p>stdColorMap.</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.10</div>
+</body>
+</html>

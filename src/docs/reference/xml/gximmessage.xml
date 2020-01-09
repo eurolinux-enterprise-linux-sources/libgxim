@@ -1,0 +1,648 @@
+<refentry id="GXimMessage">
+<refmeta>
+<refentrytitle role="top_of_page" id="GXimMessage.top_of_page">GXimMessage</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGXIM Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>GXimMessage</refname>
+<refpurpose>Logging facility class</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="GXimMessage.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+#define             <link linkend="g-xim-message-gerror">g_xim_message_gerror</link>                (_i_,_e_)
+#define             <link linkend="g-xim-message">g_xim_message</link>                       (_i_,_f_,...)
+#define             <link linkend="g-xim-message-info">g_xim_message_info</link>                  (_i_,_f_,...)
+#define             <link linkend="g-xim-message-warning">g_xim_message_warning</link>               (_i_,...)
+#define             <link linkend="g-xim-message-error">g_xim_message_error</link>                 (_i_,...)
+#define             <link linkend="g-xim-message-critical">g_xim_message_critical</link>              (_i_,...)
+#define             <link linkend="g-xim-message-debug">g_xim_message_debug</link>                 (_i_,_f_,...)
+#define             <link linkend="g-xim-message-bug">g_xim_message_bug</link>                   (_i_,...)
+enum                <link linkend="GXimMessageType">GXimMessageType</link>;
+                    <link linkend="GXimMessage-struct">GXimMessage</link>;
+<link linkend="GXimMessage">GXimMessage</link>*        <link linkend="g-xim-message-new">g_xim_message_new</link>                   (void);
+<link linkend="void">void</link>                <link linkend="g-xim-message-activate">g_xim_message_activate</link>              (<link linkend="GXimMessage">GXimMessage</link> *message,
+                                                         <link linkend="gboolean">gboolean</link> flag);
+<link linkend="void">void</link>                <link linkend="g-xim-message-set-filename">g_xim_message_set_filename</link>          (<link linkend="GXimMessage">GXimMessage</link> *message,
+                                                         const <link linkend="gchar">gchar</link> *filename);
+<link linkend="void">void</link>                <link linkend="g-xim-message-clear-filter">g_xim_message_clear_filter</link>          (<link linkend="GXimMessage">GXimMessage</link> *message);
+<link linkend="void">void</link>                <link linkend="g-xim-message-enable-filter">g_xim_message_enable_filter</link>         (<link linkend="GXimMessage">GXimMessage</link> *message,
+                                                         const <link linkend="gchar">gchar</link> *filter_name);
+<link linkend="void">void</link>                <link linkend="g-xim-message-vprintf">g_xim_message_vprintf</link>               (<link linkend="GXimMessage">GXimMessage</link> *message,
+                                                         const <link linkend="gchar">gchar</link> *filter,
+                                                         <link linkend="GXimMessageType">GXimMessageType</link> type,
+                                                         const <link linkend="gchar">gchar</link> *format,
+                                                         <link linkend="va-list">va_list</link> args);
+<link linkend="void">void</link>                <link linkend="g-xim-message-printf">g_xim_message_printf</link>                (<link linkend="GXimMessage">GXimMessage</link> *message,
+                                                         const <link linkend="gchar">gchar</link> *filter,
+                                                         <link linkend="GXimMessageType">GXimMessageType</link> type,
+                                                         const <link linkend="gchar">gchar</link> *format,
+                                                         ...);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="GXimMessage.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----GXimMessage
+</synopsis>
+
+</refsect1>
+
+
+
+
+
+<refsect1 id="GXimMessage.properties" role="properties">
+<title role="properties.title">Properties</title>
+<synopsis>
+  &quot;<link linkend="GXimMessage--all-filters">all-filters</link>&quot;              <link linkend="gboolean">gboolean</link>              : Read / Write
+  &quot;<link linkend="GXimMessage--master">master</link>&quot;                   <link linkend="gboolean">gboolean</link>              : Read / Write
+</synopsis>
+</refsect1>
+
+<refsect1 id="GXimMessage.signals" role="signal_proto">
+<title role="signal_proto.title">Signals</title>
+<synopsis>
+  &quot;<link linkend="GXimMessage-activated">activated</link>&quot;                                      : Run Last
+  &quot;<link linkend="GXimMessage-created">created</link>&quot;                                        : Run First
+  &quot;<link linkend="GXimMessage-filename-changed">filename-changed</link>&quot;                               : Run Last
+  &quot;<link linkend="GXimMessage-filter-added">filter-added</link>&quot;                                   : Run Last
+  &quot;<link linkend="GXimMessage-filter-cleared">filter-cleared</link>&quot;                                 : Run Last
+</synopsis>
+</refsect1>
+
+
+<refsect1 id="GXimMessage.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+GXimMessage provides a logging facility. this allows you to output messages
+any time you want. you can manage it with DBus as well. so you don't even
+restart processes to do something with this then.
+</para>
+<para>
+</para><refsect2 id="GXimMessage-DBus">
+<title>DBus signals</title><para>
+Right now the following signals are available to manage the logging facility.
+you can emits signals any time as following:
+</para>
+<para>
+<informalexample><programlisting>
+$ dbus-send --session --type=signal /org/tagoh/libgxim org.tagoh.libgxim.<replaceable>SignalName</replaceable> type:<replaceable>value</replaceable>
+</programlisting></informalexample>
+</para>
+<para>
+<replaceable>SignalName</replaceable> will be replaced with following signal names. See manpage for
+<command>dbus-send</command> to learn usage for others.
+</para>
+<para>
+</para><variablelist>
+<varlistentry><term>Activate</term>
+ <listitem><para>
+  Sets the activity of the logging facility. a boolean value is required
+  as a parameter. See <link linkend="g-xim-message-activate"><function>g_xim_message_activate()</function></link> for more details.
+ </para></listitem>
+</varlistentry>
+<varlistentry><term>SetFilename</term>
+ <listitem><para>
+  Sets the filename to be logged messages into. a string value is required
+  as a parameter. See <link linkend="g-xim-message-set-filename"><function>g_xim_message_set_filename()</function></link> for more details.
+ </para></listitem>
+</varlistentry>
+<varlistentry><term>RemoveAllFilters</term>
+ <listitem><para>
+  Resets filters to output. See <link linkend="g-xim-message-clear-filter"><function>g_xim_message_clear_filter()</function></link> for more details.
+ </para></listitem>
+</varlistentry>
+<varlistentry><term>AddFilter</term>
+ <listitem><para>
+  Adds a filter which you want to see a message. a string value is required
+  as a parameter. See <link linkend="g-xim-message-enable-filter"><function>g_xim_message_enable_filter()</function></link> for more details.
+ </para></listitem>
+</varlistentry>
+</variablelist>
+</refsect2><para></para>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 id="GXimMessage.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="g-xim-message-gerror" role="macro">
+<title>g_xim_message_gerror()</title>
+<indexterm zone="g-xim-message-gerror"><primary>g_xim_message_gerror</primary></indexterm><programlisting>#define             g_xim_message_gerror(_i_,_e_)</programlisting>
+<para>
+Outputs a <link linkend="GError"><type>GError</type></link> with <link linkend="g-xim-message-printf"><function>g_xim_message_printf()</function></link>.
+</para>
+<para>
+This is a convenience macro to output a message. the message type depends
+on the error code which would be logically added with <link linkend="GXimErrorType"><type>GXimErrorType</type></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>_i_</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimMessage"><type>GXimMessage</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>_e_</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GError"><type>GError</type></link> to output.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-message" role="macro">
+<title>g_xim_message()</title>
+<indexterm zone="g-xim-message"><primary>g_xim_message</primary></indexterm><programlisting>#define             g_xim_message(_i_,_f_,...)</programlisting>
+<para>
+Outputs a message with <link linkend="g-xim-message-printf"><function>g_xim_message_printf()</function></link>.
+</para>
+<para>
+This is a convenience macro to output a message with <link linkend="G-XIM-MESSAGE-MESSAGE:CAPS"><literal>G_XIM_MESSAGE_MESSAGE</literal></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>_i_</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimMessage"><type>GXimMessage</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>_f_</parameter>&nbsp;:</term>
+<listitem><simpara> a unique filter name.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter>&nbsp;:</term>
+<listitem><simpara> arguments include the format string
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-message-info" role="macro">
+<title>g_xim_message_info()</title>
+<indexterm zone="g-xim-message-info"><primary>g_xim_message_info</primary></indexterm><programlisting>#define             g_xim_message_info(_i_,_f_,...)</programlisting>
+<para>
+Outputs a message with <link linkend="g-xim-message-printf"><function>g_xim_message_printf()</function></link>.
+</para>
+<para>
+This is a convenience macro to output a message with <link linkend="G-XIM-MESSAGE-INFO:CAPS"><literal>G_XIM_MESSAGE_INFO</literal></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>_i_</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimMessage"><type>GXimMessage</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>_f_</parameter>&nbsp;:</term>
+<listitem><simpara> a unique filter name.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter>&nbsp;:</term>
+<listitem><simpara> arguments include the format string.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-message-warning" role="macro">
+<title>g_xim_message_warning()</title>
+<indexterm zone="g-xim-message-warning"><primary>g_xim_message_warning</primary></indexterm><programlisting>#define             g_xim_message_warning(_i_,...)</programlisting>
+<para>
+Outputs a message with <link linkend="g-xim-message-printf"><function>g_xim_message_printf()</function></link>.
+</para>
+<para>
+This is a convenience macro to output a message with <link linkend="G-XIM-MESSAGE-WARNING:CAPS"><literal>G_XIM_MESSAGE_WARNING</literal></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>_i_</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimMessage"><type>GXimMessage</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter>&nbsp;:</term>
+<listitem><simpara> arguments include the format string.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-message-error" role="macro">
+<title>g_xim_message_error()</title>
+<indexterm zone="g-xim-message-error"><primary>g_xim_message_error</primary></indexterm><programlisting>#define             g_xim_message_error(_i_,...)</programlisting>
+<para>
+Outputs a message with <link linkend="g-xim-message-printf"><function>g_xim_message_printf()</function></link>.
+</para>
+<para>
+This is a convenience macro to output a message with <link linkend="G-XIM-MESSAGE-ERROR:CAPS"><literal>G_XIM_MESSAGE_ERROR</literal></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>_i_</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimMessage"><type>GXimMessage</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter>&nbsp;:</term>
+<listitem><simpara> arguments include the format string.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-message-critical" role="macro">
+<title>g_xim_message_critical()</title>
+<indexterm zone="g-xim-message-critical"><primary>g_xim_message_critical</primary></indexterm><programlisting>#define             g_xim_message_critical(_i_,...)</programlisting>
+<para>
+Outputs a message with <link linkend="g-xim-message-printf"><function>g_xim_message_printf()</function></link>.
+</para>
+<para>
+This is a convenience macro to output a message with <link linkend="G-XIM-MESSAGE-CRITICAL:CAPS"><literal>G_XIM_MESSAGE_CRITICAL</literal></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>_i_</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimMessage"><type>GXimMessage</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter>&nbsp;:</term>
+<listitem><simpara> arguments include the format string.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-message-debug" role="macro">
+<title>g_xim_message_debug()</title>
+<indexterm zone="g-xim-message-debug"><primary>g_xim_message_debug</primary></indexterm><programlisting>#define             g_xim_message_debug(_i_,_f_,...)</programlisting>
+<para>
+Outputs a message with <link linkend="g-xim-message-printf"><function>g_xim_message_printf()</function></link>.
+</para>
+<para>
+This is a convenience macro to output a message with <link linkend="G-XIM-MESSAGE-DEBUG:CAPS"><literal>G_XIM_MESSAGE_DEBUG</literal></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>_i_</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimMessage"><type>GXimMessage</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>_f_</parameter>&nbsp;:</term>
+<listitem><simpara> a unique filter name.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter>&nbsp;:</term>
+<listitem><simpara> arguments include the format string.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-message-bug" role="macro">
+<title>g_xim_message_bug()</title>
+<indexterm zone="g-xim-message-bug"><primary>g_xim_message_bug</primary></indexterm><programlisting>#define             g_xim_message_bug(_i_,...)</programlisting>
+<para>
+Outputs a message with <link linkend="g-xim-message-printf"><function>g_xim_message_printf()</function></link>.
+</para>
+<para>
+This is a convenience macro to output a message with <link linkend="G-XIM-MESSAGE-BUG:CAPS"><literal>G_XIM_MESSAGE_BUG</literal></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>_i_</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimMessage"><type>GXimMessage</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter>&nbsp;:</term>
+<listitem><simpara> arguments include the format string.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="GXimMessageType" role="enum">
+<title>enum GXimMessageType</title>
+<indexterm zone="GXimMessageType"><primary>GXimMessageType</primary></indexterm><programlisting>typedef enum {
+	G_XIM_MESSAGE_MESSAGE,
+	G_XIM_MESSAGE_DEBUG,
+	G_XIM_MESSAGE_INFO,
+	G_XIM_MESSAGE_WARNING,
+	G_XIM_MESSAGE_ERROR,
+	G_XIM_MESSAGE_CRITICAL,
+	G_XIM_MESSAGE_BUG
+} GXimMessageType;
+</programlisting>
+<para>
+Flags specifying the type of messages.</para>
+<para>
+
+</para><variablelist role="enum">
+<varlistentry id="G-XIM-MESSAGE-MESSAGE:CAPS" role="constant">
+<term><literal>G_XIM_MESSAGE_MESSAGE</literal></term>
+<listitem><simpara> a message type for usual messages, see <link linkend="g-xim-message"><function>g_xim_message()</function></link>.
+</simpara></listitem>
+</varlistentry>
+<varlistentry id="G-XIM-MESSAGE-DEBUG:CAPS" role="constant">
+<term><literal>G_XIM_MESSAGE_DEBUG</literal></term>
+<listitem><simpara> a message type for debug, see <link linkend="g-xim-message-debug"><function>g_xim_message_debug()</function></link>.
+</simpara></listitem>
+</varlistentry>
+<varlistentry id="G-XIM-MESSAGE-INFO:CAPS" role="constant">
+<term><literal>G_XIM_MESSAGE_INFO</literal></term>
+<listitem><simpara> a message type for information, see <link linkend="g-xim-message-info"><function>g_xim_message_info()</function></link>.
+</simpara></listitem>
+</varlistentry>
+<varlistentry id="G-XIM-MESSAGE-WARNING:CAPS" role="constant">
+<term><literal>G_XIM_MESSAGE_WARNING</literal></term>
+<listitem><simpara> a message type for warnings, see <link linkend="g-xim-message-warning"><function>g_xim_message_warning()</function></link>.
+</simpara></listitem>
+</varlistentry>
+<varlistentry id="G-XIM-MESSAGE-ERROR:CAPS" role="constant">
+<term><literal>G_XIM_MESSAGE_ERROR</literal></term>
+<listitem><simpara> a message type for errors, see <link linkend="g-xim-message-error"><function>g_xim_message_error()</function></link>.
+</simpara></listitem>
+</varlistentry>
+<varlistentry id="G-XIM-MESSAGE-CRITICAL:CAPS" role="constant">
+<term><literal>G_XIM_MESSAGE_CRITICAL</literal></term>
+<listitem><simpara> a message type for critical errors, see <link linkend="g-xim-message-critical"><function>g_xim_message_critical()</function></link>.
+</simpara></listitem>
+</varlistentry>
+<varlistentry id="G-XIM-MESSAGE-BUG:CAPS" role="constant">
+<term><literal>G_XIM_MESSAGE_BUG</literal></term>
+<listitem><simpara> a message type for bugs, see <link linkend="g-xim-message-bug"><function>g_xim_message_bug()</function></link>.
+</simpara></listitem>
+</varlistentry>
+</variablelist></refsect2>
+<refsect2 id="GXimMessage-struct" role="struct">
+<title>GXimMessage</title>
+<indexterm zone="GXimMessage-struct"><primary>GXimMessage</primary></indexterm><programlisting>typedef struct _GXimMessage GXimMessage;</programlisting>
+<para>
+An implementation of message handler class</para>
+<para>
+
+</para><variablelist role="struct">
+</variablelist></refsect2>
+<refsect2 id="g-xim-message-new" role="function">
+<title>g_xim_message_new ()</title>
+<indexterm zone="g-xim-message-new"><primary>g_xim_message_new</primary></indexterm><programlisting><link linkend="GXimMessage">GXimMessage</link>*        g_xim_message_new                   (void);</programlisting>
+<para>
+Creates an instance to provide you a logging facility. when an instance
+is created, GXimMessage::created signal will be emitted.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a <link linkend="GXimMessage"><type>GXimMessage</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-message-activate" role="function">
+<title>g_xim_message_activate ()</title>
+<indexterm zone="g-xim-message-activate"><primary>g_xim_message_activate</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_message_activate              (<link linkend="GXimMessage">GXimMessage</link> *message,
+                                                         <link linkend="gboolean">gboolean</link> flag);</programlisting>
+<para>
+Sets the activity of the logging facility.
+</para>
+<para>
+This affects all of the instance of <link linkend="GXimMessage"><type>GXimMessage</type></link> in the process.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>message</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimMessage"><type>GXimMessage</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>flag</parameter>&nbsp;:</term>
+<listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to enable logging. <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> to disable logging.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-message-set-filename" role="function">
+<title>g_xim_message_set_filename ()</title>
+<indexterm zone="g-xim-message-set-filename"><primary>g_xim_message_set_filename</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_message_set_filename          (<link linkend="GXimMessage">GXimMessage</link> *message,
+                                                         const <link linkend="gchar">gchar</link> *filename);</programlisting>
+<para>
+Sets the filename.
+</para>
+<para>
+This affects all of the instance of <link linkend="GXimMessage"><type>GXimMessage</type></link> in the process.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>message</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimMessage"><type>GXimMessage</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>filename</parameter>&nbsp;:</term>
+<listitem><simpara> the filename to be logged a message into.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-message-clear-filter" role="function">
+<title>g_xim_message_clear_filter ()</title>
+<indexterm zone="g-xim-message-clear-filter"><primary>g_xim_message_clear_filter</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_message_clear_filter          (<link linkend="GXimMessage">GXimMessage</link> *message);</programlisting>
+<para>
+Resets all of the filters you wanted to allow a message.
+</para>
+<para>
+This affects all of the instance of <link linkend="GXimMessage"><type>GXimMessage</type></link> in the process.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>message</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimMessage"><type>GXimMessage</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-message-enable-filter" role="function">
+<title>g_xim_message_enable_filter ()</title>
+<indexterm zone="g-xim-message-enable-filter"><primary>g_xim_message_enable_filter</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_message_enable_filter         (<link linkend="GXimMessage">GXimMessage</link> *message,
+                                                         const <link linkend="gchar">gchar</link> *filter_name);</programlisting>
+<para>
+Allows logging a message categorized to <parameter>filter_name</parameter>. "all" and "noall"
+filter name is reserved. "all" to enable all of filters no matter what
+filters are enabled. "noall" to enable filters specified by this function.
+</para>
+<para>
+This affects all of the instance of <link linkend="GXimMessage"><type>GXimMessage</type></link> in the process.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>message</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimMessage"><type>GXimMessage</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>filter_name</parameter>&nbsp;:</term>
+<listitem><simpara> a unique filter name to be categorized.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-message-vprintf" role="function">
+<title>g_xim_message_vprintf ()</title>
+<indexterm zone="g-xim-message-vprintf"><primary>g_xim_message_vprintf</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_message_vprintf               (<link linkend="GXimMessage">GXimMessage</link> *message,
+                                                         const <link linkend="gchar">gchar</link> *filter,
+                                                         <link linkend="GXimMessageType">GXimMessageType</link> type,
+                                                         const <link linkend="gchar">gchar</link> *format,
+                                                         <link linkend="va-list">va_list</link> args);</programlisting>
+<para>
+Outputs a message. when <link linkend="G-XIM-MESSAGE-WARNING:CAPS"><literal>G_XIM_MESSAGE_WARNING</literal></link>, <link linkend="G-XIM-MESSAGE-ERROR:CAPS"><literal>G_XIM_MESSAGE_ERROR</literal></link>,
+<link linkend="G-XIM-MESSAGE-CRITICAL:CAPS"><literal>G_XIM_MESSAGE_CRITICAL</literal></link> or <link linkend="G-XIM-MESSAGE-BUG:CAPS"><literal>G_XIM_MESSAGE_BUG</literal></link> is specified to <parameter>type</parameter>,
+a message will be output regardless of what filter is given to <parameter>filter</parameter>.
+Otherwise if <parameter>filter</parameter> isn't enabled, this just will be ignored.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>message</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimMessage"><type>GXimMessage</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>filter</parameter>&nbsp;:</term>
+<listitem><simpara> a unique filter name to be categorized.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>type</parameter>&nbsp;:</term>
+<listitem><simpara> an urgency of the message.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>format</parameter>&nbsp;:</term>
+<listitem><simpara> the message format. See the <link linkend="printf"><function>printf()</function></link> documentation.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>args</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="va-list"><type>va_list</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-message-printf" role="function">
+<title>g_xim_message_printf ()</title>
+<indexterm zone="g-xim-message-printf"><primary>g_xim_message_printf</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_message_printf                (<link linkend="GXimMessage">GXimMessage</link> *message,
+                                                         const <link linkend="gchar">gchar</link> *filter,
+                                                         <link linkend="GXimMessageType">GXimMessageType</link> type,
+                                                         const <link linkend="gchar">gchar</link> *format,
+                                                         ...);</programlisting>
+<para>
+Outputs a message. when <link linkend="G-XIM-MESSAGE-WARNING:CAPS"><literal>G_XIM_MESSAGE_WARNING</literal></link>, <link linkend="G-XIM-MESSAGE-ERROR:CAPS"><literal>G_XIM_MESSAGE_ERROR</literal></link>,
+<link linkend="G-XIM-MESSAGE-CRITICAL:CAPS"><literal>G_XIM_MESSAGE_CRITICAL</literal></link> or <link linkend="G-XIM-MESSAGE-BUG:CAPS"><literal>G_XIM_MESSAGE_BUG</literal></link> is specified to <parameter>type</parameter>,
+a message will be output regardless of what filter is given to <parameter>filter</parameter>.
+Otherwise if <parameter>filter</parameter> isn't enabled, this just will be ignored.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>message</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimMessage"><type>GXimMessage</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>filter</parameter>&nbsp;:</term>
+<listitem><simpara> a unique filter name to be categorized.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>type</parameter>&nbsp;:</term>
+<listitem><simpara> an urgency of the message.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>format</parameter>&nbsp;:</term>
+<listitem><simpara> the message format. See the <link linkend="printf"><function>printf()</function></link> documentation.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter>&nbsp;:</term>
+<listitem><simpara> arguments to <parameter>format</parameter>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+<refsect1 id="GXimMessage.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GXimMessage--all-filters"><title>The <literal>&quot;all-filters&quot;</literal> property</title>
+<indexterm zone="GXimMessage--all-filters"><primary>GXimMessage:all-filters</primary></indexterm><programlisting>  &quot;all-filters&quot;              <link linkend="gboolean">gboolean</link>              : Read / Write</programlisting>
+<para>
+<link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to enable all of the message filters. <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> to deal with each filters added by <link linkend="GXimMessage-filter-added"><type>"filter-added"</type></link> signal.</para>
+<para>
+
+</para><para>Default value: FALSE</para>
+</refsect2>
+<refsect2 id="GXimMessage--master"><title>The <literal>&quot;master&quot;</literal> property</title>
+<indexterm zone="GXimMessage--master"><primary>GXimMessage:master</primary></indexterm><programlisting>  &quot;master&quot;                   <link linkend="gboolean">gboolean</link>              : Read / Write</programlisting>
+<para>
+<link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to be a master instance of <link linkend="GXimMessage"><type>GXimMessage</type></link>. <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> to be a slave instance of <link linkend="GXimMessage"><type>GXimMessage</type></link>.</para>
+<para>
+
+</para><para>Default value: FALSE</para>
+</refsect2>
+
+</refsect1>
+
+<refsect1 id="GXimMessage.signal-details" role="signals">
+<title role="signals.title">Signal Details</title>
+<refsect2 id="GXimMessage-activated"><title>The <literal>&quot;activated&quot;</literal> signal</title>
+<indexterm zone="GXimMessage-activated"><primary>GXimMessage::activated</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            user_function                      (<link linkend="GXimMessage">GXimMessage</link> *message,
+                                                        <link linkend="gboolean">gboolean</link>     flag,
+                                                        <link linkend="gpointer">gpointer</link>     user_data)      : Run Last</programlisting>
+<para>
+The ::activated signal will be emitted when someone calls
+<link linkend="g-xim-message-activate"><function>g_xim_message_activate()</function></link> or when someone emits Activate signal
+through DBus.</para>
+<para>
+
+</para>
+
+@: 
+@:<variablelist role="params">
+<varlistentry><term><parameter>message</parameter>&nbsp;:</term>
+<listitem><simpara> the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>flag</parameter>&nbsp;:</term>
+<listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to enable the logging facility.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to stop other handlers from being invoked for
+the event. <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> to propagate the event further.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2 id="GXimMessage-created"><title>The <literal>&quot;created&quot;</literal> signal</title>
+<indexterm zone="GXimMessage-created"><primary>GXimMessage::created</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="GXimMessage">GXimMessage</link> *message,
+                                                        <link linkend="GXimMessage">GXimMessage</link> *created_object,
+                                                        <link linkend="gpointer">gpointer</link>     user_data)           : Run First</programlisting>
+<para>
+The ::created signal will be emitted when an instance of <link linkend="GXimMessage"><type>GXimMessage</type></link>
+is created. the master object only receives this signal.</para>
+<para>
+
+</para>
+
+@: 
+@:<variablelist role="params">
+<varlistentry><term><parameter>message</parameter>&nbsp;:</term>
+<listitem><simpara> the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>created_object</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimMessage"><type>GXimMessage</type></link> which newly created somewhere in the process.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2 id="GXimMessage-filename-changed"><title>The <literal>&quot;filename-changed&quot;</literal> signal</title>
+<indexterm zone="GXimMessage-filename-changed"><primary>GXimMessage::filename-changed</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            user_function                      (<link linkend="GXimMessage">GXimMessage</link> *message,
+                                                        <link linkend="gchar">gchar</link>       *filename,
+                                                        <link linkend="gpointer">gpointer</link>     user_data)      : Run Last</programlisting>
+<para>
+The ::filename-changed signal will be emitted when someone calls
+<link linkend="g-xim-message-set-filename"><function>g_xim_message_set_filename()</function></link> or when someone emits SetFilename signal
+through DBus.</para>
+<para>
+
+</para>
+
+@: 
+@:<variablelist role="params">
+<varlistentry><term><parameter>message</parameter>&nbsp;:</term>
+<listitem><simpara> the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>filename</parameter>&nbsp;:</term>
+<listitem><simpara> a filename to be logged into.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to stop other handlers from being invoked for
+the event. <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> to propagate the event further.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2 id="GXimMessage-filter-added"><title>The <literal>&quot;filter-added&quot;</literal> signal</title>
+<indexterm zone="GXimMessage-filter-added"><primary>GXimMessage::filter-added</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            user_function                      (<link linkend="GXimMessage">GXimMessage</link> *message,
+                                                        <link linkend="gchar">gchar</link>       *filter,
+                                                        <link linkend="gpointer">gpointer</link>     user_data)      : Run Last</programlisting>
+<para>
+The ::filter-added signal will be emitted when someone calls
+<link linkend="g-xim-message-enable-filter"><function>g_xim_message_enable_filter()</function></link> or when someone emits AddFilter signal
+through DBus.</para>
+<para>
+
+</para>
+
+@: 
+@:<variablelist role="params">
+<varlistentry><term><parameter>message</parameter>&nbsp;:</term>
+<listitem><simpara> the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>filter</parameter>&nbsp;:</term>
+<listitem><simpara> the filter name to enable logging.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to stop other handlers from being invoked for
+the event. <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> to propagate the event further.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2 id="GXimMessage-filter-cleared"><title>The <literal>&quot;filter-cleared&quot;</literal> signal</title>
+<indexterm zone="GXimMessage-filter-cleared"><primary>GXimMessage::filter-cleared</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            user_function                      (<link linkend="GXimMessage">GXimMessage</link> *message,
+                                                        <link linkend="gpointer">gpointer</link>     user_data)      : Run Last</programlisting>
+<para>
+The ::filter-cleared signal will be emitted when someone calls
+<link linkend="g-xim-message-clear-filter"><function>g_xim_message_clear_filter()</function></link> or when someone emits RemoveAllFilters
+signal through DBus.</para>
+<para>
+
+</para>
+
+@:<variablelist role="params">
+<varlistentry><term><parameter>message</parameter>&nbsp;:</term>
+<listitem><simpara> the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to stop other handlers from being invoked for
+the event. <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> to propagate the event further.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+</refsect1>
+
+
+
+</refentry>

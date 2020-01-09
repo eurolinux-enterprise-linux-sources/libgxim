@@ -1,0 +1,809 @@
+<refentry id="GXimServerConnection">
+<refmeta>
+<refentrytitle role="top_of_page" id="GXimServerConnection.top_of_page">GXimServerConnection</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGXIM Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>GXimServerConnection</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="GXimServerConnection.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="GXimServerConnection-struct">GXimServerConnection</link>;
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-server-connection-cmd-connect-reply">g_xim_server_connection_cmd_connect_reply</link>
+                                                        (<link linkend="GXimServerConnection">GXimServerConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> major_version,
+                                                         <link linkend="guint16">guint16</link> minor_version);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-server-connection-cmd-disconnect-reply">g_xim_server_connection_cmd_disconnect_reply</link>
+                                                        (<link linkend="GXimServerConnection">GXimServerConnection</link> *conn);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-server-connection-cmd-open-reply">g_xim_server_connection_cmd_open_reply</link>
+                                                        (<link linkend="GXimServerConnection">GXimServerConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         const <link linkend="GSList">GSList</link> *imattr_list,
+                                                         const <link linkend="GSList">GSList</link> *icattr_list);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-server-connection-cmd-close-reply">g_xim_server_connection_cmd_close_reply</link>
+                                                        (<link linkend="GXimServerConnection">GXimServerConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-server-connection-cmd-register-triggerkeys">g_xim_server_connection_cmd_register_triggerkeys</link>
+                                                        (<link linkend="GXimServerConnection">GXimServerConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         const <link linkend="GSList">GSList</link> *onkeys,
+                                                         const <link linkend="GSList">GSList</link> *offkeys);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-server-connection-cmd-trigger-notify-reply">g_xim_server_connection_cmd_trigger_notify_reply</link>
+                                                        (<link linkend="GXimServerConnection">GXimServerConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-server-connection-cmd-set-event-mask">g_xim_server_connection_cmd_set_event_mask</link>
+                                                        (<link linkend="GXimServerConnection">GXimServerConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid,
+                                                         <link linkend="guint32">guint32</link> forward_event,
+                                                         <link linkend="guint32">guint32</link> sync_event);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-server-connection-cmd-encoding-negotiation-reply">g_xim_server_connection_cmd_encoding_negotiation_reply</link>
+                                                        (<link linkend="GXimServerConnection">GXimServerConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> category,
+                                                         <link linkend="gint16">gint16</link> index_);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-server-connection-cmd-query-extension-reply">g_xim_server_connection_cmd_query_extension_reply</link>
+                                                        (<link linkend="GXimServerConnection">GXimServerConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         const <link linkend="GSList">GSList</link> *extensions);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-server-connection-cmd-set-im-values-reply">g_xim_server_connection_cmd_set_im_values_reply</link>
+                                                        (<link linkend="GXimServerConnection">GXimServerConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-server-connection-cmd-get-im-values-reply">g_xim_server_connection_cmd_get_im_values_reply</link>
+                                                        (<link linkend="GXimServerConnection">GXimServerConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         const <link linkend="GSList">GSList</link> *attributes);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-server-connection-cmd-create-ic-reply">g_xim_server_connection_cmd_create_ic_reply</link>
+                                                        (<link linkend="GXimServerConnection">GXimServerConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-server-connection-cmd-destroy-ic-reply">g_xim_server_connection_cmd_destroy_ic_reply</link>
+                                                        (<link linkend="GXimServerConnection">GXimServerConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-server-connection-cmd-set-ic-values-reply">g_xim_server_connection_cmd_set_ic_values_reply</link>
+                                                        (<link linkend="GXimServerConnection">GXimServerConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-server-connection-cmd-get-ic-values-reply">g_xim_server_connection_cmd_get_ic_values_reply</link>
+                                                        (<link linkend="GXimServerConnection">GXimServerConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid,
+                                                         const <link linkend="GSList">GSList</link> *attributes);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-server-connection-cmd-sync">g_xim_server_connection_cmd_sync</link>    (<link linkend="GXimServerConnection">GXimServerConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-server-connection-cmd-commit">g_xim_server_connection_cmd_commit</link>  (<link linkend="GXimServerConnection">GXimServerConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid,
+                                                         <link linkend="guint16">guint16</link> flag,
+                                                         <link linkend="guint32">guint32</link> keysym,
+                                                         <link linkend="GString">GString</link> *string);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-server-connection-cmd-reset-ic-reply">g_xim_server_connection_cmd_reset_ic_reply</link>
+                                                        (<link linkend="GXimServerConnection">GXimServerConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid,
+                                                         const <link linkend="GString">GString</link> *preedit_string);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-server-connection-cmd-preedit-start">g_xim_server_connection_cmd_preedit_start</link>
+                                                        (<link linkend="GXimServerConnection">GXimServerConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-server-connection-cmd-preedit-draw">g_xim_server_connection_cmd_preedit_draw</link>
+                                                        (<link linkend="GXimServerConnection">GXimServerConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid,
+                                                         <link linkend="GXimPreeditDraw">GXimPreeditDraw</link> *draw);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-server-connection-cmd-preedit-caret">g_xim_server_connection_cmd_preedit_caret</link>
+                                                        (<link linkend="GXimServerConnection">GXimServerConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid,
+                                                         <link linkend="GXimPreeditCaret">GXimPreeditCaret</link> *caret);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-server-connection-cmd-preedit-done">g_xim_server_connection_cmd_preedit_done</link>
+                                                        (<link linkend="GXimServerConnection">GXimServerConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-server-connection-cmd-status-start">g_xim_server_connection_cmd_status_start</link>
+                                                        (<link linkend="GXimServerConnection">GXimServerConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-server-connection-cmd-status-draw">g_xim_server_connection_cmd_status_draw</link>
+                                                        (<link linkend="GXimServerConnection">GXimServerConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid,
+                                                         <link linkend="GXimStatusDraw">GXimStatusDraw</link> *draw);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-server-connection-cmd-status-done">g_xim_server_connection_cmd_status_done</link>
+                                                        (<link linkend="GXimServerConnection">GXimServerConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="GXimServerConnection.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GXimConnection">GXimConnection</link>
+         +----GXimServerConnection
+</synopsis>
+
+</refsect1>
+
+
+
+<refsect1 id="GXimServerConnection.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+GXimServerConnection implements
+ <link linkend="GXimTransport">GXimTransport</link> and  <link linkend="GXimProtocol">GXimProtocol</link>.</para>
+
+</refsect1>
+
+
+
+<refsect1 id="GXimServerConnection.signals" role="signal_proto">
+<title role="signal_proto.title">Signals</title>
+<synopsis>
+  &quot;<link linkend="GXimServerConnection-is-auth-required">is-auth-required</link>&quot;                               : Run Last
+</synopsis>
+</refsect1>
+
+
+<refsect1 id="GXimServerConnection.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 id="GXimServerConnection.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GXimServerConnection-struct" role="struct">
+<title>GXimServerConnection</title>
+<indexterm zone="GXimServerConnection-struct"><primary>GXimServerConnection</primary></indexterm><programlisting>typedef struct _GXimServerConnection GXimServerConnection;</programlisting>
+<para>
+An implementation of server connection class</para>
+<para>
+
+</para><variablelist role="struct">
+</variablelist></refsect2>
+<refsect2 id="g-xim-server-connection-cmd-connect-reply" role="function">
+<title>g_xim_server_connection_cmd_connect_reply ()</title>
+<indexterm zone="g-xim-server-connection-cmd-connect-reply"><primary>g_xim_server_connection_cmd_connect_reply</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_server_connection_cmd_connect_reply
+                                                        (<link linkend="GXimServerConnection">GXimServerConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> major_version,
+                                                         <link linkend="guint16">guint16</link> minor_version);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>major_version</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>minor_version</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-server-connection-cmd-disconnect-reply" role="function">
+<title>g_xim_server_connection_cmd_disconnect_reply ()</title>
+<indexterm zone="g-xim-server-connection-cmd-disconnect-reply"><primary>g_xim_server_connection_cmd_disconnect_reply</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_server_connection_cmd_disconnect_reply
+                                                        (<link linkend="GXimServerConnection">GXimServerConnection</link> *conn);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-server-connection-cmd-open-reply" role="function">
+<title>g_xim_server_connection_cmd_open_reply ()</title>
+<indexterm zone="g-xim-server-connection-cmd-open-reply"><primary>g_xim_server_connection_cmd_open_reply</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_server_connection_cmd_open_reply
+                                                        (<link linkend="GXimServerConnection">GXimServerConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         const <link linkend="GSList">GSList</link> *imattr_list,
+                                                         const <link linkend="GSList">GSList</link> *icattr_list);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>imid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>imattr_list</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>icattr_list</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-server-connection-cmd-close-reply" role="function">
+<title>g_xim_server_connection_cmd_close_reply ()</title>
+<indexterm zone="g-xim-server-connection-cmd-close-reply"><primary>g_xim_server_connection_cmd_close_reply</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_server_connection_cmd_close_reply
+                                                        (<link linkend="GXimServerConnection">GXimServerConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>imid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-server-connection-cmd-register-triggerkeys" role="function">
+<title>g_xim_server_connection_cmd_register_triggerkeys ()</title>
+<indexterm zone="g-xim-server-connection-cmd-register-triggerkeys"><primary>g_xim_server_connection_cmd_register_triggerkeys</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_server_connection_cmd_register_triggerkeys
+                                                        (<link linkend="GXimServerConnection">GXimServerConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         const <link linkend="GSList">GSList</link> *onkeys,
+                                                         const <link linkend="GSList">GSList</link> *offkeys);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>imid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>onkeys</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>offkeys</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-server-connection-cmd-trigger-notify-reply" role="function">
+<title>g_xim_server_connection_cmd_trigger_notify_reply ()</title>
+<indexterm zone="g-xim-server-connection-cmd-trigger-notify-reply"><primary>g_xim_server_connection_cmd_trigger_notify_reply</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_server_connection_cmd_trigger_notify_reply
+                                                        (<link linkend="GXimServerConnection">GXimServerConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>imid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>icid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-server-connection-cmd-set-event-mask" role="function">
+<title>g_xim_server_connection_cmd_set_event_mask ()</title>
+<indexterm zone="g-xim-server-connection-cmd-set-event-mask"><primary>g_xim_server_connection_cmd_set_event_mask</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_server_connection_cmd_set_event_mask
+                                                        (<link linkend="GXimServerConnection">GXimServerConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid,
+                                                         <link linkend="guint32">guint32</link> forward_event,
+                                                         <link linkend="guint32">guint32</link> sync_event);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>imid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>icid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>forward_event</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>sync_event</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-server-connection-cmd-encoding-negotiation-reply" role="function">
+<title>g_xim_server_connection_cmd_encoding_negotiation_reply ()</title>
+<indexterm zone="g-xim-server-connection-cmd-encoding-negotiation-reply"><primary>g_xim_server_connection_cmd_encoding_negotiation_reply</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_server_connection_cmd_encoding_negotiation_reply
+                                                        (<link linkend="GXimServerConnection">GXimServerConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> category,
+                                                         <link linkend="gint16">gint16</link> index_);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>imid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>category</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>index_</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-server-connection-cmd-query-extension-reply" role="function">
+<title>g_xim_server_connection_cmd_query_extension_reply ()</title>
+<indexterm zone="g-xim-server-connection-cmd-query-extension-reply"><primary>g_xim_server_connection_cmd_query_extension_reply</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_server_connection_cmd_query_extension_reply
+                                                        (<link linkend="GXimServerConnection">GXimServerConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         const <link linkend="GSList">GSList</link> *extensions);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>imid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>extensions</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-server-connection-cmd-set-im-values-reply" role="function">
+<title>g_xim_server_connection_cmd_set_im_values_reply ()</title>
+<indexterm zone="g-xim-server-connection-cmd-set-im-values-reply"><primary>g_xim_server_connection_cmd_set_im_values_reply</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_server_connection_cmd_set_im_values_reply
+                                                        (<link linkend="GXimServerConnection">GXimServerConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>imid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-server-connection-cmd-get-im-values-reply" role="function">
+<title>g_xim_server_connection_cmd_get_im_values_reply ()</title>
+<indexterm zone="g-xim-server-connection-cmd-get-im-values-reply"><primary>g_xim_server_connection_cmd_get_im_values_reply</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_server_connection_cmd_get_im_values_reply
+                                                        (<link linkend="GXimServerConnection">GXimServerConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         const <link linkend="GSList">GSList</link> *attributes);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>imid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>attributes</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-server-connection-cmd-create-ic-reply" role="function">
+<title>g_xim_server_connection_cmd_create_ic_reply ()</title>
+<indexterm zone="g-xim-server-connection-cmd-create-ic-reply"><primary>g_xim_server_connection_cmd_create_ic_reply</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_server_connection_cmd_create_ic_reply
+                                                        (<link linkend="GXimServerConnection">GXimServerConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>imid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>icid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-server-connection-cmd-destroy-ic-reply" role="function">
+<title>g_xim_server_connection_cmd_destroy_ic_reply ()</title>
+<indexterm zone="g-xim-server-connection-cmd-destroy-ic-reply"><primary>g_xim_server_connection_cmd_destroy_ic_reply</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_server_connection_cmd_destroy_ic_reply
+                                                        (<link linkend="GXimServerConnection">GXimServerConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>imid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>icid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-server-connection-cmd-set-ic-values-reply" role="function">
+<title>g_xim_server_connection_cmd_set_ic_values_reply ()</title>
+<indexterm zone="g-xim-server-connection-cmd-set-ic-values-reply"><primary>g_xim_server_connection_cmd_set_ic_values_reply</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_server_connection_cmd_set_ic_values_reply
+                                                        (<link linkend="GXimServerConnection">GXimServerConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>imid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>icid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-server-connection-cmd-get-ic-values-reply" role="function">
+<title>g_xim_server_connection_cmd_get_ic_values_reply ()</title>
+<indexterm zone="g-xim-server-connection-cmd-get-ic-values-reply"><primary>g_xim_server_connection_cmd_get_ic_values_reply</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_server_connection_cmd_get_ic_values_reply
+                                                        (<link linkend="GXimServerConnection">GXimServerConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid,
+                                                         const <link linkend="GSList">GSList</link> *attributes);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>imid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>icid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>attributes</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-server-connection-cmd-sync" role="function">
+<title>g_xim_server_connection_cmd_sync ()</title>
+<indexterm zone="g-xim-server-connection-cmd-sync"><primary>g_xim_server_connection_cmd_sync</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_server_connection_cmd_sync    (<link linkend="GXimServerConnection">GXimServerConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>imid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>icid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-server-connection-cmd-commit" role="function">
+<title>g_xim_server_connection_cmd_commit ()</title>
+<indexterm zone="g-xim-server-connection-cmd-commit"><primary>g_xim_server_connection_cmd_commit</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_server_connection_cmd_commit  (<link linkend="GXimServerConnection">GXimServerConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid,
+                                                         <link linkend="guint16">guint16</link> flag,
+                                                         <link linkend="guint32">guint32</link> keysym,
+                                                         <link linkend="GString">GString</link> *string);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>imid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>icid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>flag</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>keysym</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>string</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-server-connection-cmd-reset-ic-reply" role="function">
+<title>g_xim_server_connection_cmd_reset_ic_reply ()</title>
+<indexterm zone="g-xim-server-connection-cmd-reset-ic-reply"><primary>g_xim_server_connection_cmd_reset_ic_reply</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_server_connection_cmd_reset_ic_reply
+                                                        (<link linkend="GXimServerConnection">GXimServerConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid,
+                                                         const <link linkend="GString">GString</link> *preedit_string);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>imid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>icid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>preedit_string</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-server-connection-cmd-preedit-start" role="function">
+<title>g_xim_server_connection_cmd_preedit_start ()</title>
+<indexterm zone="g-xim-server-connection-cmd-preedit-start"><primary>g_xim_server_connection_cmd_preedit_start</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_server_connection_cmd_preedit_start
+                                                        (<link linkend="GXimServerConnection">GXimServerConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>imid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>icid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-server-connection-cmd-preedit-draw" role="function">
+<title>g_xim_server_connection_cmd_preedit_draw ()</title>
+<indexterm zone="g-xim-server-connection-cmd-preedit-draw"><primary>g_xim_server_connection_cmd_preedit_draw</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_server_connection_cmd_preedit_draw
+                                                        (<link linkend="GXimServerConnection">GXimServerConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid,
+                                                         <link linkend="GXimPreeditDraw">GXimPreeditDraw</link> *draw);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>imid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>icid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>draw</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-server-connection-cmd-preedit-caret" role="function">
+<title>g_xim_server_connection_cmd_preedit_caret ()</title>
+<indexterm zone="g-xim-server-connection-cmd-preedit-caret"><primary>g_xim_server_connection_cmd_preedit_caret</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_server_connection_cmd_preedit_caret
+                                                        (<link linkend="GXimServerConnection">GXimServerConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid,
+                                                         <link linkend="GXimPreeditCaret">GXimPreeditCaret</link> *caret);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>imid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>icid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>caret</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-server-connection-cmd-preedit-done" role="function">
+<title>g_xim_server_connection_cmd_preedit_done ()</title>
+<indexterm zone="g-xim-server-connection-cmd-preedit-done"><primary>g_xim_server_connection_cmd_preedit_done</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_server_connection_cmd_preedit_done
+                                                        (<link linkend="GXimServerConnection">GXimServerConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>imid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>icid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-server-connection-cmd-status-start" role="function">
+<title>g_xim_server_connection_cmd_status_start ()</title>
+<indexterm zone="g-xim-server-connection-cmd-status-start"><primary>g_xim_server_connection_cmd_status_start</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_server_connection_cmd_status_start
+                                                        (<link linkend="GXimServerConnection">GXimServerConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>imid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>icid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-server-connection-cmd-status-draw" role="function">
+<title>g_xim_server_connection_cmd_status_draw ()</title>
+<indexterm zone="g-xim-server-connection-cmd-status-draw"><primary>g_xim_server_connection_cmd_status_draw</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_server_connection_cmd_status_draw
+                                                        (<link linkend="GXimServerConnection">GXimServerConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid,
+                                                         <link linkend="GXimStatusDraw">GXimStatusDraw</link> *draw);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>imid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>icid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>draw</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-server-connection-cmd-status-done" role="function">
+<title>g_xim_server_connection_cmd_status_done ()</title>
+<indexterm zone="g-xim-server-connection-cmd-status-done"><primary>g_xim_server_connection_cmd_status_done</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_server_connection_cmd_status_done
+                                                        (<link linkend="GXimServerConnection">GXimServerConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>imid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>icid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+<refsect1 id="GXimServerConnection.signal-details" role="signals">
+<title role="signals.title">Signal Details</title>
+<refsect2 id="GXimServerConnection-is-auth-required"><title>The <literal>&quot;is-auth-required&quot;</literal> signal</title>
+<indexterm zone="GXimServerConnection-is-auth-required"><primary>GXimServerConnection::is-auth-required</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            user_function                      (<link linkend="GXimServerConnection">GXimServerConnection</link> *gximserverconnection,
+                                                        <link linkend="gpointer">gpointer</link>              user_data)                 : Run Last</programlisting>
+<para>
+
+</para>
+
+@:<variablelist role="params">
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+</refsect1>
+
+
+
+</refentry>

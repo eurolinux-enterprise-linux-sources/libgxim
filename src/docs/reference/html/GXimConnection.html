@@ -1,0 +1,411 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GXimConnection</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.74.0">
+<link rel="home" href="index.html" title="libgxim Reference Manual">
+<link rel="up" href="ch01.html" title="Abstract Base Classes">
+<link rel="prev" href="GXimClientTemplate.html" title="GXimClientTemplate">
+<link rel="next" href="ch02.html" title="Interfaces">
+<meta name="generator" content="GTK-Doc V1.10 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="reference" href="libgxim.html" title="libgxim API Reference">
+<link rel="chapter" href="ch01.html" title="Abstract Base Classes">
+<link rel="chapter" href="ch02.html" title="Interfaces">
+<link rel="chapter" href="ch03.html" title="Connection classes">
+<link rel="chapter" href="ch04.html" title="XIM attributes classes">
+<link rel="chapter" href="ch05.html" title="Miscelleneous">
+<link rel="index" href="ix01.html" title="Index">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="GXimClientTemplate.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libgxim Reference Manual</th>
+<td><a accesskey="n" href="ch02.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#GXimConnection.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#GXimConnection.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#GXimConnection.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#GXimConnection.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
+                   | 
+                  <a href="#GXimConnection.properties" class="shortcut">Properties</a></nobr></td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="GXimConnection"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GXimConnection.top_of_page"></a>GXimConnection</span></h2>
+<p>GXimConnection — Base class for XIM connection</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="GXimConnection.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+                    <a class="link" href="GXimConnection.html#GXimConnection-struct" title="GXimConnection">GXimConnection</a>;
+void                <a class="link" href="GXimConnection.html#g-xim-connection-setup" title="g_xim_connection_setup ()">g_xim_connection_setup</a>              (<a class="link" href="GXimConnection.html" title="GXimConnection">GXimConnection</a> *conn);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GXimConnection.html#g-xim-connection-cmd-error" title="g_xim_connection_cmd_error ()">g_xim_connection_cmd_error</a>          (<a class="link" href="GXimConnection.html" title="GXimConnection">GXimConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid,
+                                                         GXimErrorMask flag,
+                                                         GXimErrorCode error_code,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> detail,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *error_message);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GXimConnection.html#g-xim-connection-cmd-auth-ng" title="g_xim_connection_cmd_auth_ng ()">g_xim_connection_cmd_auth_ng</a>        (<a class="link" href="GXimConnection.html" title="GXimConnection">GXimConnection</a> *conn);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GXimConnection.html#g-xim-connection-cmd-forward-event" title="g_xim_connection_cmd_forward_event ()">g_xim_connection_cmd_forward_event</a>  (<a class="link" href="GXimConnection.html" title="GXimConnection">GXimConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> flag,
+                                                         <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Event-Structures.html#GdkEvent"
+>GdkEvent</a> *event);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GXimConnection.html#g-xim-connection-cmd-sync-reply" title="g_xim_connection_cmd_sync_reply ()">g_xim_connection_cmd_sync_reply</a>     (<a class="link" href="GXimConnection.html" title="GXimConnection">GXimConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid);
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="GXimConnection.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a
+href="/usr/share/gtk-doc/html/gobject/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a>
+   +----GXimConnection
+         +----<a class="link" href="GXimClientConnection.html" title="GXimClientConnection">GXimClientConnection</a>
+         +----<a class="link" href="GXimServerConnection.html" title="GXimServerConnection">GXimServerConnection</a>
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="GXimConnection.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+GXimConnection implements
+ GXimTransport and  GXimProtocol.</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="GXimConnection.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="GXimConnection.html#GXimConnection--proto-signals" title='The "proto-signals" property'>proto-signals</a>"            <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a>              : Read / Write / Construct Only
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="GXimConnection.description"></a><h2>Description</h2>
+<p>
+GXimConnection provides a common facility to deal with XIM protocol events
+after the connection established.</p>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="GXimConnection.details"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="GXimConnection-struct"></a><h3>GXimConnection</h3>
+<pre class="programlisting">typedef struct _GXimConnection GXimConnection;</pre>
+<p>
+An abstract implementation of connection class</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-connection-setup"></a><h3>g_xim_connection_setup ()</h3>
+<pre class="programlisting">void                g_xim_connection_setup              (<a class="link" href="GXimConnection.html" title="GXimConnection">GXimConnection</a> *conn);</pre>
+<p>
+Configures <em class="parameter"><code>conn</code></em> to get it working. this is a helper function since
+<a class="link" href="GXimConnection.html" title="GXimConnection"><span class="type">GXimConnection</span></a> is an abstract class. if you have any connection class being
+inherited from <a class="link" href="GXimConnection.html" title="GXimConnection"><span class="type">GXimConnection</span></a>, you will have to invoke this function in
+appropriate timing.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td> a <a class="link" href="GXimConnection.html" title="GXimConnection"><span class="type">GXimConnection</span></a>.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-connection-cmd-error"></a><h3>g_xim_connection_cmd_error ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_connection_cmd_error          (<a class="link" href="GXimConnection.html" title="GXimConnection">GXimConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid,
+                                                         GXimErrorMask flag,
+                                                         GXimErrorCode error_code,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> detail,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *error_message);</pre>
+<p>
+Sends <code class="literal">XIM_ERROR</code> to the opposite direction on the connection. which would
+respond a request as error.
+</p>
+<p>
+This is asynchronous event so it doesn't ensure if the client really receives
+this event.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td> a <a class="link" href="GXimConnection.html" title="GXimConnection"><span class="type">GXimConnection</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>imid</code></em> :</span></p></td>
+<td> input-method ID
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icid</code></em> :</span></p></td>
+<td> input-context ID
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>flag</code></em> :</span></p></td>
+<td> a flag to validate the parameters, which should be <span class="type">GXimErrorMask</span>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error_code</code></em> :</span></p></td>
+<td> error code returned by XIM protocol events.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>detail</code></em> :</span></p></td>
+<td> unused in XIM protocol but just reserved.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error_message</code></em> :</span></p></td>
+<td> error message which should be more human readable.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <code class="literal">TRUE</code> to be sent the event successfully.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-connection-cmd-auth-ng"></a><h3>g_xim_connection_cmd_auth_ng ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_connection_cmd_auth_ng        (<a class="link" href="GXimConnection.html" title="GXimConnection">GXimConnection</a> *conn);</pre>
+<p>
+Sends <code class="literal">XIM_AUTH_NG</code> to the opposite direction on the connection. which would
+respond the authentication request as error.
+</p>
+<p>
+This is asynchronous event so it doesn't ensure if the client really receives
+this event.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td> a <a class="link" href="GXimConnection.html" title="GXimConnection"><span class="type">GXimConnection</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <code class="literal">TRUE</code> to be sent the event successfully.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-connection-cmd-forward-event"></a><h3>g_xim_connection_cmd_forward_event ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_connection_cmd_forward_event  (<a class="link" href="GXimConnection.html" title="GXimConnection">GXimConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> flag,
+                                                         <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Event-Structures.html#GdkEvent"
+>GdkEvent</a> *event);</pre>
+<p>
+Sends <code class="literal">XIM_FORWARD_EVENT</code> to the opposite direction on the connection. which would
+notify the key event or respond <code class="literal">XIM_FORWARD_EVENT</code>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td> a <a class="link" href="GXimConnection.html" title="GXimConnection"><span class="type">GXimConnection</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>imid</code></em> :</span></p></td>
+<td> input-method ID
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icid</code></em> :</span></p></td>
+<td> input-context ID
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>flag</code></em> :</span></p></td>
+<td> a flag to give additional requests, which is <span class="type">GXimEventFlags</span>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td> the <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Event-Structures.html#GdkEvent"
+><span class="type">GdkEvent</span></a> which send to the opposite direction on the connection.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <code class="literal">TRUE</code> to be sent the event successfully.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-connection-cmd-sync-reply"></a><h3>g_xim_connection_cmd_sync_reply ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_connection_cmd_sync_reply     (<a class="link" href="GXimConnection.html" title="GXimConnection">GXimConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid);</pre>
+<p>
+Sends <code class="literal">XIM_SYNC_REPLY</code> to the opposite direction on the connection. which would
+respond <code class="literal">XIM_SYNC</code> or any synchronous requests.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td> a <a class="link" href="GXimConnection.html" title="GXimConnection"><span class="type">GXimConnection</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>imid</code></em> :</span></p></td>
+<td> input-method ID
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icid</code></em> :</span></p></td>
+<td> input-context ID
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <code class="literal">TRUE</code> to be sent the event successfully.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" lang="en">
+<a name="GXimConnection.property-details"></a><h2>Property Details</h2>
+<div class="refsect2" lang="en">
+<a name="GXimConnection--proto-signals"></a><h3>The <code class="literal">"proto-signals"</code> property</h3>
+<pre class="programlisting">  "proto-signals"            <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a>              : Read / Write / Construct Only</pre>
+<p>
+a <a
+href="/usr/share/gtk-doc/html/glib/glib-Singly-Linked-Lists.html#GSList"
+><span class="type">GSList</span></a> contains <span class="type">GXimLazySignalConnector</span> to connected the signals
+when the connection is configured.</p>
+<p>
+
+</p>
+</div>
+</div>
+<div class="refsect1" lang="en">
+<a name="GXimConnection.see-also"></a><h2>See Also</h2>
+<span class="type">GXimProtocol</span>, <span class="type">GXimTransport</span>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.10</div>
+</body>
+</html>

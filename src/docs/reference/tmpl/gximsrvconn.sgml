@@ -1,0 +1,319 @@
+<!-- ##### SECTION Title ##### -->
+GXimServerConnection
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### STRUCT GXimServerConnection ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SIGNAL GXimServerConnection::is-auth-required ##### -->
+<para>
+
+</para>
+
+@:
+
+@Returns: 
+@Returns: 
+
+<!-- ##### FUNCTION g_xim_server_connection_cmd_connect_reply ##### -->
+<para>
+
+</para>
+
+@conn: 
+@major_version: 
+@minor_version: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_server_connection_cmd_disconnect_reply ##### -->
+<para>
+
+</para>
+
+@conn: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_server_connection_cmd_open_reply ##### -->
+<para>
+
+</para>
+
+@conn: 
+@imid: 
+@imattr_list: 
+@icattr_list: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_server_connection_cmd_close_reply ##### -->
+<para>
+
+</para>
+
+@conn: 
+@imid: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_server_connection_cmd_register_triggerkeys ##### -->
+<para>
+
+</para>
+
+@conn: 
+@imid: 
+@onkeys: 
+@offkeys: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_server_connection_cmd_trigger_notify_reply ##### -->
+<para>
+
+</para>
+
+@conn: 
+@imid: 
+@icid: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_server_connection_cmd_set_event_mask ##### -->
+<para>
+
+</para>
+
+@conn: 
+@imid: 
+@icid: 
+@forward_event: 
+@sync_event: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_server_connection_cmd_encoding_negotiation_reply ##### -->
+<para>
+
+</para>
+
+@conn: 
+@imid: 
+@category: 
+@index_: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_server_connection_cmd_query_extension_reply ##### -->
+<para>
+
+</para>
+
+@conn: 
+@imid: 
+@extensions: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_server_connection_cmd_set_im_values_reply ##### -->
+<para>
+
+</para>
+
+@conn: 
+@imid: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_server_connection_cmd_get_im_values_reply ##### -->
+<para>
+
+</para>
+
+@conn: 
+@imid: 
+@attributes: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_server_connection_cmd_create_ic_reply ##### -->
+<para>
+
+</para>
+
+@conn: 
+@imid: 
+@icid: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_server_connection_cmd_destroy_ic_reply ##### -->
+<para>
+
+</para>
+
+@conn: 
+@imid: 
+@icid: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_server_connection_cmd_set_ic_values_reply ##### -->
+<para>
+
+</para>
+
+@conn: 
+@imid: 
+@icid: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_server_connection_cmd_get_ic_values_reply ##### -->
+<para>
+
+</para>
+
+@conn: 
+@imid: 
+@icid: 
+@attributes: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_server_connection_cmd_sync ##### -->
+<para>
+
+</para>
+
+@conn: 
+@imid: 
+@icid: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_server_connection_cmd_commit ##### -->
+<para>
+
+</para>
+
+@conn: 
+@imid: 
+@icid: 
+@flag: 
+@keysym: 
+@string: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_server_connection_cmd_reset_ic_reply ##### -->
+<para>
+
+</para>
+
+@conn: 
+@imid: 
+@icid: 
+@preedit_string: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_server_connection_cmd_preedit_start ##### -->
+<para>
+
+</para>
+
+@conn: 
+@imid: 
+@icid: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_server_connection_cmd_preedit_draw ##### -->
+<para>
+
+</para>
+
+@conn: 
+@imid: 
+@icid: 
+@draw: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_server_connection_cmd_preedit_caret ##### -->
+<para>
+
+</para>
+
+@conn: 
+@imid: 
+@icid: 
+@caret: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_server_connection_cmd_preedit_done ##### -->
+<para>
+
+</para>
+
+@conn: 
+@imid: 
+@icid: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_server_connection_cmd_status_start ##### -->
+<para>
+
+</para>
+
+@conn: 
+@imid: 
+@icid: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_server_connection_cmd_status_draw ##### -->
+<para>
+
+</para>
+
+@conn: 
+@imid: 
+@icid: 
+@draw: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_server_connection_cmd_status_done ##### -->
+<para>
+
+</para>
+
+@conn: 
+@imid: 
+@icid: 
+@Returns: 
+
+

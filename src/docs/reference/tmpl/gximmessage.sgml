@@ -1,0 +1,247 @@
+<!-- ##### SECTION Title ##### -->
+GXimMessage
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### MACRO g_xim_message_gerror ##### -->
+<para>
+
+</para>
+
+@_i_: 
+@_e_: 
+
+
+<!-- ##### MACRO g_xim_message ##### -->
+<para>
+
+</para>
+
+@_i_: 
+@_f_: 
+@...: 
+
+
+<!-- ##### MACRO g_xim_message_info ##### -->
+<para>
+
+</para>
+
+@_i_: 
+@_f_: 
+@...: 
+
+
+<!-- ##### MACRO g_xim_message_warning ##### -->
+<para>
+
+</para>
+
+@_i_: 
+@...: 
+
+
+<!-- ##### MACRO g_xim_message_error ##### -->
+<para>
+
+</para>
+
+@_i_: 
+@...: 
+
+
+<!-- ##### MACRO g_xim_message_critical ##### -->
+<para>
+
+</para>
+
+@_i_: 
+@...: 
+
+
+<!-- ##### MACRO g_xim_message_debug ##### -->
+<para>
+
+</para>
+
+@_i_: 
+@_f_: 
+@...: 
+
+
+<!-- ##### MACRO g_xim_message_bug ##### -->
+<para>
+
+</para>
+
+@_i_: 
+@...: 
+
+
+<!-- ##### ENUM GXimMessageType ##### -->
+<para>
+
+</para>
+
+@G_XIM_MESSAGE_MESSAGE: 
+@G_XIM_MESSAGE_DEBUG: 
+@G_XIM_MESSAGE_INFO: 
+@G_XIM_MESSAGE_WARNING: 
+@G_XIM_MESSAGE_ERROR: 
+@G_XIM_MESSAGE_CRITICAL: 
+@G_XIM_MESSAGE_BUG: 
+
+<!-- ##### STRUCT GXimMessage ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SIGNAL GXimMessage::activated ##### -->
+<para>
+
+</para>
+
+@: 
+@:
+
+@Returns: 
+@Param2: 
+@Returns: 
+
+<!-- ##### SIGNAL GXimMessage::created ##### -->
+<para>
+
+</para>
+
+@: 
+@:
+
+@gximmessage: the object which received the signal.
+@arg1: 
+
+<!-- ##### SIGNAL GXimMessage::filename-changed ##### -->
+<para>
+
+</para>
+
+@: 
+@:
+
+@Returns: 
+@Param2: 
+@Returns: 
+
+<!-- ##### SIGNAL GXimMessage::filter-added ##### -->
+<para>
+
+</para>
+
+@: 
+@:
+
+@Returns: 
+@Param2: 
+@Returns: 
+
+<!-- ##### SIGNAL GXimMessage::filter-cleared ##### -->
+<para>
+
+</para>
+
+@:
+
+@Returns: 
+@Returns: 
+
+<!-- ##### ARG GXimMessage:all-filters ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG GXimMessage:master ##### -->
+<para>
+
+</para>
+
+<!-- ##### FUNCTION g_xim_message_new ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_message_activate ##### -->
+<para>
+
+</para>
+
+@message: 
+@flag: 
+
+
+<!-- ##### FUNCTION g_xim_message_set_filename ##### -->
+<para>
+
+</para>
+
+@message: 
+@filename: 
+
+
+<!-- ##### FUNCTION g_xim_message_clear_filter ##### -->
+<para>
+
+</para>
+
+@message: 
+
+
+<!-- ##### FUNCTION g_xim_message_enable_filter ##### -->
+<para>
+
+</para>
+
+@message: 
+@filter_name: 
+
+
+<!-- ##### FUNCTION g_xim_message_vprintf ##### -->
+<para>
+
+</para>
+
+@message: 
+@filter: 
+@type: 
+@format: 
+@args: 
+
+
+<!-- ##### FUNCTION g_xim_message_printf ##### -->
+<para>
+
+</para>
+
+@message: 
+@filter: 
+@type: 
+@format: 
+@Varargs: 
+
+

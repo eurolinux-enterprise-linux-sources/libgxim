@@ -1,0 +1,311 @@
+<!-- ##### SECTION Title ##### -->
+gximtransport
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### MACRO G_XIM_TRANSPORT_SIZE ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO G_XIM_TRANSPORT_MAX ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### STRUCT GXimTransportIface ##### -->
+<para>
+
+</para>
+
+@parent_iface: 
+@message: 
+@atom_xim_protocol: 
+@atom_xim_moredata: 
+
+<!-- ##### STRUCT GXimTransportPrivate ##### -->
+<para>
+
+</para>
+
+@display: 
+@comm_window: 
+@prop_offset: 
+@atom_comm: 
+@client_window: 
+@transport_size: 
+@transport_max: 
+@direction: 
+@major_version: 
+@minor_version: 
+
+<!-- ##### ENUM GXimDirection ##### -->
+<para>
+
+</para>
+
+@G_XIM_DIR_RIGHT: 
+@G_XIM_DIR_LEFT: 
+
+<!-- ##### FUNCTION g_xim_transport_init ##### -->
+<para>
+
+</para>
+
+@trans: 
+
+
+<!-- ##### FUNCTION g_xim_transport_finalize ##### -->
+<para>
+
+</para>
+
+@trans: 
+
+
+<!-- ##### FUNCTION g_xim_transport_get_private ##### -->
+<para>
+
+</para>
+
+@trans: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_transport_destroy ##### -->
+<para>
+
+</para>
+
+@trans: 
+
+
+<!-- ##### FUNCTION g_xim_transport_set_version ##### -->
+<para>
+
+</para>
+
+@trans: 
+@major_version: 
+@minor_version: 
+
+
+<!-- ##### FUNCTION g_xim_transport_get_version ##### -->
+<para>
+
+</para>
+
+@trans: 
+@major_version: 
+@minor_version: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_transport_set_transport_size ##### -->
+<para>
+
+</para>
+
+@trans: 
+@size: 
+
+
+<!-- ##### FUNCTION g_xim_transport_get_transport_size ##### -->
+<para>
+
+</para>
+
+@trans: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_transport_set_transport_max ##### -->
+<para>
+
+</para>
+
+@trans: 
+@size: 
+
+
+<!-- ##### FUNCTION g_xim_transport_get_transport_max ##### -->
+<para>
+
+</para>
+
+@trans: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_transport_set_display ##### -->
+<para>
+
+</para>
+
+@trans: 
+@dpy: 
+
+
+<!-- ##### FUNCTION g_xim_transport_get_display ##### -->
+<para>
+
+</para>
+
+@trans: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_transport_get_atom ##### -->
+<para>
+
+</para>
+
+@trans: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_transport_set_client_window ##### -->
+<para>
+
+</para>
+
+@trans: 
+@client_window: 
+
+
+<!-- ##### FUNCTION g_xim_transport_get_client_window ##### -->
+<para>
+
+</para>
+
+@trans: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_transport_get_native_channel ##### -->
+<para>
+
+</para>
+
+@trans: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_transport_get_native_channel_from ##### -->
+<para>
+
+</para>
+
+@trans: 
+@drawable: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_transport_get_channel ##### -->
+<para>
+
+</para>
+
+@trans: 
+@parent_window: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_transport_send_via_property ##### -->
+<para>
+
+</para>
+
+@trans: 
+@data: 
+@length: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_transport_send_via_cm ##### -->
+<para>
+
+</para>
+
+@trans: 
+@data: 
+@length: 
+@threshold: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_transport_send_via_property_notify ##### -->
+<para>
+
+</para>
+
+@trans: 
+@data: 
+@length: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_transport_set_direction ##### -->
+<para>
+
+</para>
+
+@trans: 
+@direction: 
+
+
+<!-- ##### FUNCTION g_xim_transport_get_direction ##### -->
+<para>
+
+</para>
+
+@trans: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_transport_get_property ##### -->
+<para>
+
+</para>
+
+@trans: 
+@window: 
+@property: 
+@type: 
+@length: 
+@actual_property_type: 
+@actual_format: 
+@actual_length: 
+@data: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_transport_dump ##### -->
+<para>
+
+</para>
+
+@trans: 
+@data: 
+@length: 
+@is_sent: 
+
+

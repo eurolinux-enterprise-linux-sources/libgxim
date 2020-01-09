@@ -1,0 +1,244 @@
+<refentry id="GXimConnection">
+<refmeta>
+<refentrytitle role="top_of_page" id="GXimConnection.top_of_page">GXimConnection</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGXIM Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>GXimConnection</refname>
+<refpurpose>Base class for XIM connection</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="GXimConnection.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="GXimConnection-struct">GXimConnection</link>;
+<link linkend="void">void</link>                <link linkend="g-xim-connection-setup">g_xim_connection_setup</link>              (<link linkend="GXimConnection">GXimConnection</link> *conn);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-connection-cmd-error">g_xim_connection_cmd_error</link>          (<link linkend="GXimConnection">GXimConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid,
+                                                         <link linkend="GXimErrorMask">GXimErrorMask</link> flag,
+                                                         <link linkend="GXimErrorCode">GXimErrorCode</link> error_code,
+                                                         <link linkend="guint16">guint16</link> detail,
+                                                         const <link linkend="gchar">gchar</link> *error_message);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-connection-cmd-auth-ng">g_xim_connection_cmd_auth_ng</link>        (<link linkend="GXimConnection">GXimConnection</link> *conn);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-connection-cmd-forward-event">g_xim_connection_cmd_forward_event</link>  (<link linkend="GXimConnection">GXimConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid,
+                                                         <link linkend="guint16">guint16</link> flag,
+                                                         <link linkend="GdkEvent">GdkEvent</link> *event);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-connection-cmd-sync-reply">g_xim_connection_cmd_sync_reply</link>     (<link linkend="GXimConnection">GXimConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="GXimConnection.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----GXimConnection
+         +----<link linkend="GXimClientConnection">GXimClientConnection</link>
+         +----<link linkend="GXimServerConnection">GXimServerConnection</link>
+</synopsis>
+
+</refsect1>
+
+
+
+<refsect1 id="GXimConnection.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+GXimConnection implements
+ <link linkend="GXimTransport">GXimTransport</link> and  <link linkend="GXimProtocol">GXimProtocol</link>.</para>
+
+</refsect1>
+
+
+<refsect1 id="GXimConnection.properties" role="properties">
+<title role="properties.title">Properties</title>
+<synopsis>
+  &quot;<link linkend="GXimConnection--proto-signals">proto-signals</link>&quot;            <link linkend="gpointer">gpointer</link>              : Read / Write / Construct Only
+</synopsis>
+</refsect1>
+
+
+
+<refsect1 id="GXimConnection.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+GXimConnection provides a common facility to deal with XIM protocol events
+after the connection established.</para>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 id="GXimConnection.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GXimConnection-struct" role="struct">
+<title>GXimConnection</title>
+<indexterm zone="GXimConnection-struct"><primary>GXimConnection</primary></indexterm><programlisting>typedef struct _GXimConnection GXimConnection;</programlisting>
+<para>
+An abstract implementation of connection class</para>
+<para>
+
+</para><variablelist role="struct">
+</variablelist></refsect2>
+<refsect2 id="g-xim-connection-setup" role="function">
+<title>g_xim_connection_setup ()</title>
+<indexterm zone="g-xim-connection-setup"><primary>g_xim_connection_setup</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_connection_setup              (<link linkend="GXimConnection">GXimConnection</link> *conn);</programlisting>
+<para>
+Configures <parameter>conn</parameter> to get it working. this is a helper function since
+<link linkend="GXimConnection"><type>GXimConnection</type></link> is an abstract class. if you have any connection class being
+inherited from <link linkend="GXimConnection"><type>GXimConnection</type></link>, you will have to invoke this function in
+appropriate timing.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimConnection"><type>GXimConnection</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-connection-cmd-error" role="function">
+<title>g_xim_connection_cmd_error ()</title>
+<indexterm zone="g-xim-connection-cmd-error"><primary>g_xim_connection_cmd_error</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_connection_cmd_error          (<link linkend="GXimConnection">GXimConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid,
+                                                         <link linkend="GXimErrorMask">GXimErrorMask</link> flag,
+                                                         <link linkend="GXimErrorCode">GXimErrorCode</link> error_code,
+                                                         <link linkend="guint16">guint16</link> detail,
+                                                         const <link linkend="gchar">gchar</link> *error_message);</programlisting>
+<para>
+Sends <link linkend="XIM-ERROR:CAPS"><literal>XIM_ERROR</literal></link> to the opposite direction on the connection. which would
+respond a request as error.
+</para>
+<para>
+This is asynchronous event so it doesn't ensure if the client really receives
+this event.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimConnection"><type>GXimConnection</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>imid</parameter>&nbsp;:</term>
+<listitem><simpara> input-method ID
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>icid</parameter>&nbsp;:</term>
+<listitem><simpara> input-context ID
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>flag</parameter>&nbsp;:</term>
+<listitem><simpara> a flag to validate the parameters, which should be <link linkend="GXimErrorMask"><type>GXimErrorMask</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error_code</parameter>&nbsp;:</term>
+<listitem><simpara> error code returned by XIM protocol events.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>detail</parameter>&nbsp;:</term>
+<listitem><simpara> unused in XIM protocol but just reserved.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error_message</parameter>&nbsp;:</term>
+<listitem><simpara> error message which should be more human readable.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to be sent the event successfully.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-connection-cmd-auth-ng" role="function">
+<title>g_xim_connection_cmd_auth_ng ()</title>
+<indexterm zone="g-xim-connection-cmd-auth-ng"><primary>g_xim_connection_cmd_auth_ng</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_connection_cmd_auth_ng        (<link linkend="GXimConnection">GXimConnection</link> *conn);</programlisting>
+<para>
+Sends <link linkend="XIM-AUTH-NG:CAPS"><literal>XIM_AUTH_NG</literal></link> to the opposite direction on the connection. which would
+respond the authentication request as error.
+</para>
+<para>
+This is asynchronous event so it doesn't ensure if the client really receives
+this event.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimConnection"><type>GXimConnection</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to be sent the event successfully.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-connection-cmd-forward-event" role="function">
+<title>g_xim_connection_cmd_forward_event ()</title>
+<indexterm zone="g-xim-connection-cmd-forward-event"><primary>g_xim_connection_cmd_forward_event</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_connection_cmd_forward_event  (<link linkend="GXimConnection">GXimConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid,
+                                                         <link linkend="guint16">guint16</link> flag,
+                                                         <link linkend="GdkEvent">GdkEvent</link> *event);</programlisting>
+<para>
+Sends <link linkend="XIM-FORWARD-EVENT:CAPS"><literal>XIM_FORWARD_EVENT</literal></link> to the opposite direction on the connection. which would
+notify the key event or respond <link linkend="XIM-FORWARD-EVENT:CAPS"><literal>XIM_FORWARD_EVENT</literal></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimConnection"><type>GXimConnection</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>imid</parameter>&nbsp;:</term>
+<listitem><simpara> input-method ID
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>icid</parameter>&nbsp;:</term>
+<listitem><simpara> input-context ID
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>flag</parameter>&nbsp;:</term>
+<listitem><simpara> a flag to give additional requests, which is <link linkend="GXimEventFlags"><type>GXimEventFlags</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>event</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="GdkEvent"><type>GdkEvent</type></link> which send to the opposite direction on the connection.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to be sent the event successfully.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-connection-cmd-sync-reply" role="function">
+<title>g_xim_connection_cmd_sync_reply ()</title>
+<indexterm zone="g-xim-connection-cmd-sync-reply"><primary>g_xim_connection_cmd_sync_reply</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_connection_cmd_sync_reply     (<link linkend="GXimConnection">GXimConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid);</programlisting>
+<para>
+Sends <link linkend="XIM-SYNC-REPLY:CAPS"><literal>XIM_SYNC_REPLY</literal></link> to the opposite direction on the connection. which would
+respond <link linkend="XIM-SYNC:CAPS"><literal>XIM_SYNC</literal></link> or any synchronous requests.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimConnection"><type>GXimConnection</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>imid</parameter>&nbsp;:</term>
+<listitem><simpara> input-method ID
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>icid</parameter>&nbsp;:</term>
+<listitem><simpara> input-context ID
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to be sent the event successfully.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+<refsect1 id="GXimConnection.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GXimConnection--proto-signals"><title>The <literal>&quot;proto-signals&quot;</literal> property</title>
+<indexterm zone="GXimConnection--proto-signals"><primary>GXimConnection:proto-signals</primary></indexterm><programlisting>  &quot;proto-signals&quot;            <link linkend="gpointer">gpointer</link>              : Read / Write / Construct Only</programlisting>
+<para>
+a <link linkend="GSList"><type>GSList</type></link> contains <link linkend="GXimLazySignalConnector"><type>GXimLazySignalConnector</type></link> to connected the signals
+when the connection is configured.</para>
+<para>
+
+</para></refsect2>
+
+</refsect1>
+
+
+
+<refsect1 id="GXimConnection.see-also">
+<title>See Also</title>
+<link linkend="GXimProtocol"><type>GXimProtocol</type></link>, <link linkend="GXimTransport"><type>GXimTransport</type></link>
+</refsect1>
+
+</refentry>

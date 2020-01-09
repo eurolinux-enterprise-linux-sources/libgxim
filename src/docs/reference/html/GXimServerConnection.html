@@ -1,0 +1,1568 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GXimServerConnection</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.74.0">
+<link rel="home" href="index.html" title="libgxim Reference Manual">
+<link rel="up" href="ch03.html" title="Connection classes">
+<link rel="prev" href="ch03.html" title="Connection classes">
+<link rel="next" href="GXimClientConnection.html" title="GXimClientConnection">
+<meta name="generator" content="GTK-Doc V1.10 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="reference" href="libgxim.html" title="libgxim API Reference">
+<link rel="chapter" href="ch01.html" title="Abstract Base Classes">
+<link rel="chapter" href="ch02.html" title="Interfaces">
+<link rel="chapter" href="ch03.html" title="Connection classes">
+<link rel="chapter" href="ch04.html" title="XIM attributes classes">
+<link rel="chapter" href="ch05.html" title="Miscelleneous">
+<link rel="index" href="ix01.html" title="Index">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="ch03.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch03.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libgxim Reference Manual</th>
+<td><a accesskey="n" href="GXimClientConnection.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#GXimServerConnection.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#GXimServerConnection.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#GXimServerConnection.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#GXimServerConnection.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
+                   | 
+                  <a href="#GXimServerConnection.signals" class="shortcut">Signals</a></nobr></td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="GXimServerConnection"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GXimServerConnection.top_of_page"></a>GXimServerConnection</span></h2>
+<p>GXimServerConnection</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="GXimServerConnection.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+                    <a class="link" href="GXimServerConnection.html#GXimServerConnection-struct" title="GXimServerConnection">GXimServerConnection</a>;
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GXimServerConnection.html#g-xim-server-connection-cmd-connect-reply" title="g_xim_server_connection_cmd_connect_reply ()">g_xim_server_connection_cmd_connect_reply</a>
+                                                        (<a class="link" href="GXimServerConnection.html" title="GXimServerConnection">GXimServerConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> major_version,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> minor_version);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GXimServerConnection.html#g-xim-server-connection-cmd-disconnect-reply" title="g_xim_server_connection_cmd_disconnect_reply ()">g_xim_server_connection_cmd_disconnect_reply</a>
+                                                        (<a class="link" href="GXimServerConnection.html" title="GXimServerConnection">GXimServerConnection</a> *conn);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GXimServerConnection.html#g-xim-server-connection-cmd-open-reply" title="g_xim_server_connection_cmd_open_reply ()">g_xim_server_connection_cmd_open_reply</a>
+                                                        (<a class="link" href="GXimServerConnection.html" title="GXimServerConnection">GXimServerConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a> *imattr_list,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a> *icattr_list);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GXimServerConnection.html#g-xim-server-connection-cmd-close-reply" title="g_xim_server_connection_cmd_close_reply ()">g_xim_server_connection_cmd_close_reply</a>
+                                                        (<a class="link" href="GXimServerConnection.html" title="GXimServerConnection">GXimServerConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GXimServerConnection.html#g-xim-server-connection-cmd-register-triggerkeys" title="g_xim_server_connection_cmd_register_triggerkeys ()">g_xim_server_connection_cmd_register_triggerkeys</a>
+                                                        (<a class="link" href="GXimServerConnection.html" title="GXimServerConnection">GXimServerConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a> *onkeys,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a> *offkeys);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GXimServerConnection.html#g-xim-server-connection-cmd-trigger-notify-reply" title="g_xim_server_connection_cmd_trigger_notify_reply ()">g_xim_server_connection_cmd_trigger_notify_reply</a>
+                                                        (<a class="link" href="GXimServerConnection.html" title="GXimServerConnection">GXimServerConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GXimServerConnection.html#g-xim-server-connection-cmd-set-event-mask" title="g_xim_server_connection_cmd_set_event_mask ()">g_xim_server_connection_cmd_set_event_mask</a>
+                                                        (<a class="link" href="GXimServerConnection.html" title="GXimServerConnection">GXimServerConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint32"
+>guint32</a> forward_event,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint32"
+>guint32</a> sync_event);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GXimServerConnection.html#g-xim-server-connection-cmd-encoding-negotiation-reply" title="g_xim_server_connection_cmd_encoding_negotiation_reply ()">g_xim_server_connection_cmd_encoding_negotiation_reply</a>
+                                                        (<a class="link" href="GXimServerConnection.html" title="GXimServerConnection">GXimServerConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> category,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint16"
+>gint16</a> index_);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GXimServerConnection.html#g-xim-server-connection-cmd-query-extension-reply" title="g_xim_server_connection_cmd_query_extension_reply ()">g_xim_server_connection_cmd_query_extension_reply</a>
+                                                        (<a class="link" href="GXimServerConnection.html" title="GXimServerConnection">GXimServerConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a> *extensions);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GXimServerConnection.html#g-xim-server-connection-cmd-set-im-values-reply" title="g_xim_server_connection_cmd_set_im_values_reply ()">g_xim_server_connection_cmd_set_im_values_reply</a>
+                                                        (<a class="link" href="GXimServerConnection.html" title="GXimServerConnection">GXimServerConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GXimServerConnection.html#g-xim-server-connection-cmd-get-im-values-reply" title="g_xim_server_connection_cmd_get_im_values_reply ()">g_xim_server_connection_cmd_get_im_values_reply</a>
+                                                        (<a class="link" href="GXimServerConnection.html" title="GXimServerConnection">GXimServerConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a> *attributes);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GXimServerConnection.html#g-xim-server-connection-cmd-create-ic-reply" title="g_xim_server_connection_cmd_create_ic_reply ()">g_xim_server_connection_cmd_create_ic_reply</a>
+                                                        (<a class="link" href="GXimServerConnection.html" title="GXimServerConnection">GXimServerConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GXimServerConnection.html#g-xim-server-connection-cmd-destroy-ic-reply" title="g_xim_server_connection_cmd_destroy_ic_reply ()">g_xim_server_connection_cmd_destroy_ic_reply</a>
+                                                        (<a class="link" href="GXimServerConnection.html" title="GXimServerConnection">GXimServerConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GXimServerConnection.html#g-xim-server-connection-cmd-set-ic-values-reply" title="g_xim_server_connection_cmd_set_ic_values_reply ()">g_xim_server_connection_cmd_set_ic_values_reply</a>
+                                                        (<a class="link" href="GXimServerConnection.html" title="GXimServerConnection">GXimServerConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GXimServerConnection.html#g-xim-server-connection-cmd-get-ic-values-reply" title="g_xim_server_connection_cmd_get_ic_values_reply ()">g_xim_server_connection_cmd_get_ic_values_reply</a>
+                                                        (<a class="link" href="GXimServerConnection.html" title="GXimServerConnection">GXimServerConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a> *attributes);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GXimServerConnection.html#g-xim-server-connection-cmd-sync" title="g_xim_server_connection_cmd_sync ()">g_xim_server_connection_cmd_sync</a>    (<a class="link" href="GXimServerConnection.html" title="GXimServerConnection">GXimServerConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GXimServerConnection.html#g-xim-server-connection-cmd-commit" title="g_xim_server_connection_cmd_commit ()">g_xim_server_connection_cmd_commit</a>  (<a class="link" href="GXimServerConnection.html" title="GXimServerConnection">GXimServerConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> flag,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint32"
+>guint32</a> keysym,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Strings.html#GString"
+>GString</a> *string);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GXimServerConnection.html#g-xim-server-connection-cmd-reset-ic-reply" title="g_xim_server_connection_cmd_reset_ic_reply ()">g_xim_server_connection_cmd_reset_ic_reply</a>
+                                                        (<a class="link" href="GXimServerConnection.html" title="GXimServerConnection">GXimServerConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Strings.html#GString"
+>GString</a> *preedit_string);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GXimServerConnection.html#g-xim-server-connection-cmd-preedit-start" title="g_xim_server_connection_cmd_preedit_start ()">g_xim_server_connection_cmd_preedit_start</a>
+                                                        (<a class="link" href="GXimServerConnection.html" title="GXimServerConnection">GXimServerConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GXimServerConnection.html#g-xim-server-connection-cmd-preedit-draw" title="g_xim_server_connection_cmd_preedit_draw ()">g_xim_server_connection_cmd_preedit_draw</a>
+                                                        (<a class="link" href="GXimServerConnection.html" title="GXimServerConnection">GXimServerConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid,
+                                                         GXimPreeditDraw *draw);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GXimServerConnection.html#g-xim-server-connection-cmd-preedit-caret" title="g_xim_server_connection_cmd_preedit_caret ()">g_xim_server_connection_cmd_preedit_caret</a>
+                                                        (<a class="link" href="GXimServerConnection.html" title="GXimServerConnection">GXimServerConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid,
+                                                         GXimPreeditCaret *caret);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GXimServerConnection.html#g-xim-server-connection-cmd-preedit-done" title="g_xim_server_connection_cmd_preedit_done ()">g_xim_server_connection_cmd_preedit_done</a>
+                                                        (<a class="link" href="GXimServerConnection.html" title="GXimServerConnection">GXimServerConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GXimServerConnection.html#g-xim-server-connection-cmd-status-start" title="g_xim_server_connection_cmd_status_start ()">g_xim_server_connection_cmd_status_start</a>
+                                                        (<a class="link" href="GXimServerConnection.html" title="GXimServerConnection">GXimServerConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GXimServerConnection.html#g-xim-server-connection-cmd-status-draw" title="g_xim_server_connection_cmd_status_draw ()">g_xim_server_connection_cmd_status_draw</a>
+                                                        (<a class="link" href="GXimServerConnection.html" title="GXimServerConnection">GXimServerConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid,
+                                                         GXimStatusDraw *draw);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GXimServerConnection.html#g-xim-server-connection-cmd-status-done" title="g_xim_server_connection_cmd_status_done ()">g_xim_server_connection_cmd_status_done</a>
+                                                        (<a class="link" href="GXimServerConnection.html" title="GXimServerConnection">GXimServerConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid);
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="GXimServerConnection.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a
+href="/usr/share/gtk-doc/html/gobject/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a>
+   +----<a class="link" href="GXimConnection.html" title="GXimConnection">GXimConnection</a>
+         +----GXimServerConnection
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="GXimServerConnection.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+GXimServerConnection implements
+ GXimTransport and  GXimProtocol.</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="GXimServerConnection.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="GXimServerConnection.html#GXimServerConnection-is-auth-required" title='The "is-auth-required" signal'>is-auth-required</a>"                               : Run Last
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="GXimServerConnection.description"></a><h2>Description</h2>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="GXimServerConnection.details"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="GXimServerConnection-struct"></a><h3>GXimServerConnection</h3>
+<pre class="programlisting">typedef struct _GXimServerConnection GXimServerConnection;</pre>
+<p>
+An implementation of server connection class</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-server-connection-cmd-connect-reply"></a><h3>g_xim_server_connection_cmd_connect_reply ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_server_connection_cmd_connect_reply
+                                                        (<a class="link" href="GXimServerConnection.html" title="GXimServerConnection">GXimServerConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> major_version,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> minor_version);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>major_version</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>minor_version</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-server-connection-cmd-disconnect-reply"></a><h3>g_xim_server_connection_cmd_disconnect_reply ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_server_connection_cmd_disconnect_reply
+                                                        (<a class="link" href="GXimServerConnection.html" title="GXimServerConnection">GXimServerConnection</a> *conn);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-server-connection-cmd-open-reply"></a><h3>g_xim_server_connection_cmd_open_reply ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_server_connection_cmd_open_reply
+                                                        (<a class="link" href="GXimServerConnection.html" title="GXimServerConnection">GXimServerConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a> *imattr_list,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a> *icattr_list);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>imid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>imattr_list</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icattr_list</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-server-connection-cmd-close-reply"></a><h3>g_xim_server_connection_cmd_close_reply ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_server_connection_cmd_close_reply
+                                                        (<a class="link" href="GXimServerConnection.html" title="GXimServerConnection">GXimServerConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>imid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-server-connection-cmd-register-triggerkeys"></a><h3>g_xim_server_connection_cmd_register_triggerkeys ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_server_connection_cmd_register_triggerkeys
+                                                        (<a class="link" href="GXimServerConnection.html" title="GXimServerConnection">GXimServerConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a> *onkeys,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a> *offkeys);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>imid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>onkeys</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>offkeys</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-server-connection-cmd-trigger-notify-reply"></a><h3>g_xim_server_connection_cmd_trigger_notify_reply ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_server_connection_cmd_trigger_notify_reply
+                                                        (<a class="link" href="GXimServerConnection.html" title="GXimServerConnection">GXimServerConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>imid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-server-connection-cmd-set-event-mask"></a><h3>g_xim_server_connection_cmd_set_event_mask ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_server_connection_cmd_set_event_mask
+                                                        (<a class="link" href="GXimServerConnection.html" title="GXimServerConnection">GXimServerConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint32"
+>guint32</a> forward_event,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint32"
+>guint32</a> sync_event);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>imid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>forward_event</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sync_event</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-server-connection-cmd-encoding-negotiation-reply"></a><h3>g_xim_server_connection_cmd_encoding_negotiation_reply ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_server_connection_cmd_encoding_negotiation_reply
+                                                        (<a class="link" href="GXimServerConnection.html" title="GXimServerConnection">GXimServerConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> category,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint16"
+>gint16</a> index_);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>imid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>category</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>index_</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-server-connection-cmd-query-extension-reply"></a><h3>g_xim_server_connection_cmd_query_extension_reply ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_server_connection_cmd_query_extension_reply
+                                                        (<a class="link" href="GXimServerConnection.html" title="GXimServerConnection">GXimServerConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a> *extensions);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>imid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>extensions</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-server-connection-cmd-set-im-values-reply"></a><h3>g_xim_server_connection_cmd_set_im_values_reply ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_server_connection_cmd_set_im_values_reply
+                                                        (<a class="link" href="GXimServerConnection.html" title="GXimServerConnection">GXimServerConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>imid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-server-connection-cmd-get-im-values-reply"></a><h3>g_xim_server_connection_cmd_get_im_values_reply ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_server_connection_cmd_get_im_values_reply
+                                                        (<a class="link" href="GXimServerConnection.html" title="GXimServerConnection">GXimServerConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a> *attributes);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>imid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attributes</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-server-connection-cmd-create-ic-reply"></a><h3>g_xim_server_connection_cmd_create_ic_reply ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_server_connection_cmd_create_ic_reply
+                                                        (<a class="link" href="GXimServerConnection.html" title="GXimServerConnection">GXimServerConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>imid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-server-connection-cmd-destroy-ic-reply"></a><h3>g_xim_server_connection_cmd_destroy_ic_reply ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_server_connection_cmd_destroy_ic_reply
+                                                        (<a class="link" href="GXimServerConnection.html" title="GXimServerConnection">GXimServerConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>imid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-server-connection-cmd-set-ic-values-reply"></a><h3>g_xim_server_connection_cmd_set_ic_values_reply ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_server_connection_cmd_set_ic_values_reply
+                                                        (<a class="link" href="GXimServerConnection.html" title="GXimServerConnection">GXimServerConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>imid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-server-connection-cmd-get-ic-values-reply"></a><h3>g_xim_server_connection_cmd_get_ic_values_reply ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_server_connection_cmd_get_ic_values_reply
+                                                        (<a class="link" href="GXimServerConnection.html" title="GXimServerConnection">GXimServerConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a> *attributes);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>imid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attributes</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-server-connection-cmd-sync"></a><h3>g_xim_server_connection_cmd_sync ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_server_connection_cmd_sync    (<a class="link" href="GXimServerConnection.html" title="GXimServerConnection">GXimServerConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>imid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-server-connection-cmd-commit"></a><h3>g_xim_server_connection_cmd_commit ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_server_connection_cmd_commit  (<a class="link" href="GXimServerConnection.html" title="GXimServerConnection">GXimServerConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> flag,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint32"
+>guint32</a> keysym,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Strings.html#GString"
+>GString</a> *string);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>imid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>flag</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>keysym</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>string</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-server-connection-cmd-reset-ic-reply"></a><h3>g_xim_server_connection_cmd_reset_ic_reply ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_server_connection_cmd_reset_ic_reply
+                                                        (<a class="link" href="GXimServerConnection.html" title="GXimServerConnection">GXimServerConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Strings.html#GString"
+>GString</a> *preedit_string);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>imid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>preedit_string</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-server-connection-cmd-preedit-start"></a><h3>g_xim_server_connection_cmd_preedit_start ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_server_connection_cmd_preedit_start
+                                                        (<a class="link" href="GXimServerConnection.html" title="GXimServerConnection">GXimServerConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>imid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-server-connection-cmd-preedit-draw"></a><h3>g_xim_server_connection_cmd_preedit_draw ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_server_connection_cmd_preedit_draw
+                                                        (<a class="link" href="GXimServerConnection.html" title="GXimServerConnection">GXimServerConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid,
+                                                         GXimPreeditDraw *draw);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>imid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>draw</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-server-connection-cmd-preedit-caret"></a><h3>g_xim_server_connection_cmd_preedit_caret ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_server_connection_cmd_preedit_caret
+                                                        (<a class="link" href="GXimServerConnection.html" title="GXimServerConnection">GXimServerConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid,
+                                                         GXimPreeditCaret *caret);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>imid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>caret</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-server-connection-cmd-preedit-done"></a><h3>g_xim_server_connection_cmd_preedit_done ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_server_connection_cmd_preedit_done
+                                                        (<a class="link" href="GXimServerConnection.html" title="GXimServerConnection">GXimServerConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>imid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-server-connection-cmd-status-start"></a><h3>g_xim_server_connection_cmd_status_start ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_server_connection_cmd_status_start
+                                                        (<a class="link" href="GXimServerConnection.html" title="GXimServerConnection">GXimServerConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>imid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-server-connection-cmd-status-draw"></a><h3>g_xim_server_connection_cmd_status_draw ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_server_connection_cmd_status_draw
+                                                        (<a class="link" href="GXimServerConnection.html" title="GXimServerConnection">GXimServerConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid,
+                                                         GXimStatusDraw *draw);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>imid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>draw</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-server-connection-cmd-status-done"></a><h3>g_xim_server_connection_cmd_status_done ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_server_connection_cmd_status_done
+                                                        (<a class="link" href="GXimServerConnection.html" title="GXimServerConnection">GXimServerConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>imid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" lang="en">
+<a name="GXimServerConnection.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2" lang="en">
+<a name="GXimServerConnection-is-auth-required"></a><h3>The <code class="literal">"is-auth-required"</code> signal</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            user_function                      (<a class="link" href="GXimServerConnection.html" title="GXimServerConnection">GXimServerConnection</a> *gximserverconnection,
+                                                        <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a>              user_data)                 : Run Last</pre>
+<p>
+
+</p>
+
+@:<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.10</div>
+</body>
+</html>

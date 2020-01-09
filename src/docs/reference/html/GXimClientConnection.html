@@ -1,0 +1,1332 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GXimClientConnection</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.74.0">
+<link rel="home" href="index.html" title="libgxim Reference Manual">
+<link rel="up" href="ch03.html" title="Connection classes">
+<link rel="prev" href="GXimServerConnection.html" title="GXimServerConnection">
+<link rel="next" href="ch04.html" title="XIM attributes classes">
+<meta name="generator" content="GTK-Doc V1.10 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="reference" href="libgxim.html" title="libgxim API Reference">
+<link rel="chapter" href="ch01.html" title="Abstract Base Classes">
+<link rel="chapter" href="ch02.html" title="Interfaces">
+<link rel="chapter" href="ch03.html" title="Connection classes">
+<link rel="chapter" href="ch04.html" title="XIM attributes classes">
+<link rel="chapter" href="ch05.html" title="Miscelleneous">
+<link rel="index" href="ix01.html" title="Index">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="GXimServerConnection.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch03.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libgxim Reference Manual</th>
+<td><a accesskey="n" href="ch04.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#GXimClientConnection.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#GXimClientConnection.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#GXimClientConnection.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#GXimClientConnection.implemented-interfaces" class="shortcut">Implemented Interfaces</a></nobr></td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="GXimClientConnection"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GXimClientConnection.top_of_page"></a>GXimClientConnection</span></h2>
+<p>GXimClientConnection</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="GXimClientConnection.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+                    <a class="link" href="GXimClientConnection.html#GXimClientConnection-struct" title="GXimClientConnection">GXimClientConnection</a>;
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GXimClientConnection.html#g-xim-client-connection-cmd-connect" title="g_xim_client_connection_cmd_connect ()">g_xim_client_connection_cmd_connect</a> (<a class="link" href="GXimClientConnection.html" title="GXimClientConnection">GXimClientConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> protocol_major_version,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> protocol_minor_version,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a> *auth_list,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a> is_async);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GXimClientConnection.html#g-xim-client-connection-cmd-disconnect" title="g_xim_client_connection_cmd_disconnect ()">g_xim_client_connection_cmd_disconnect</a>
+                                                        (<a class="link" href="GXimClientConnection.html" title="GXimClientConnection">GXimClientConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a> is_async);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GXimClientConnection.html#g-xim-client-connection-cmd-open-im" title="g_xim_client_connection_cmd_open_im ()">g_xim_client_connection_cmd_open_im</a> (<a class="link" href="GXimClientConnection.html" title="GXimClientConnection">GXimClientConnection</a> *conn,
+                                                         const GXimStr *locale,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a> is_async);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GXimClientConnection.html#g-xim-client-connection-cmd-close-im" title="g_xim_client_connection_cmd_close_im ()">g_xim_client_connection_cmd_close_im</a>
+                                                        (<a class="link" href="GXimClientConnection.html" title="GXimClientConnection">GXimClientConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a> is_async);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GXimClientConnection.html#g-xim-client-connection-cmd-trigger-notify" title="g_xim_client_connection_cmd_trigger_notify ()">g_xim_client_connection_cmd_trigger_notify</a>
+                                                        (<a class="link" href="GXimClientConnection.html" title="GXimClientConnection">GXimClientConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint32"
+>guint32</a> flag,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint32"
+>guint32</a> index_,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint32"
+>guint32</a> event_mask,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a> is_async);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GXimClientConnection.html#g-xim-client-connection-cmd-encoding-negotiation" title="g_xim_client_connection_cmd_encoding_negotiation ()">g_xim_client_connection_cmd_encoding_negotiation</a>
+                                                        (<a class="link" href="GXimClientConnection.html" title="GXimClientConnection">GXimClientConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a> *encodings,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a> *details,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a> is_async);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GXimClientConnection.html#g-xim-client-connection-cmd-query-extension" title="g_xim_client_connection_cmd_query_extension ()">g_xim_client_connection_cmd_query_extension</a>
+                                                        (<a class="link" href="GXimClientConnection.html" title="GXimClientConnection">GXimClientConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a> *extensions,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a> is_async);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GXimClientConnection.html#g-xim-client-connection-cmd-set-im-values" title="g_xim_client_connection_cmd_set_im_values ()">g_xim_client_connection_cmd_set_im_values</a>
+                                                        (<a class="link" href="GXimClientConnection.html" title="GXimClientConnection">GXimClientConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a> *attributes,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a> is_async);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GXimClientConnection.html#g-xim-client-connection-cmd-get-im-values" title="g_xim_client_connection_cmd_get_im_values ()">g_xim_client_connection_cmd_get_im_values</a>
+                                                        (<a class="link" href="GXimClientConnection.html" title="GXimClientConnection">GXimClientConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a> *attr_id,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a> is_async);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GXimClientConnection.html#g-xim-client-connection-cmd-create-ic" title="g_xim_client_connection_cmd_create_ic ()">g_xim_client_connection_cmd_create_ic</a>
+                                                        (<a class="link" href="GXimClientConnection.html" title="GXimClientConnection">GXimClientConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a> *attributes,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a> is_async);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GXimClientConnection.html#g-xim-client-connection-cmd-destroy-ic" title="g_xim_client_connection_cmd_destroy_ic ()">g_xim_client_connection_cmd_destroy_ic</a>
+                                                        (<a class="link" href="GXimClientConnection.html" title="GXimClientConnection">GXimClientConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a> is_async);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GXimClientConnection.html#g-xim-client-connection-cmd-set-ic-values" title="g_xim_client_connection_cmd_set_ic_values ()">g_xim_client_connection_cmd_set_ic_values</a>
+                                                        (<a class="link" href="GXimClientConnection.html" title="GXimClientConnection">GXimClientConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a> *attributes,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a> is_async);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GXimClientConnection.html#g-xim-client-connection-cmd-get-ic-values" title="g_xim_client_connection_cmd_get_ic_values ()">g_xim_client_connection_cmd_get_ic_values</a>
+                                                        (<a class="link" href="GXimClientConnection.html" title="GXimClientConnection">GXimClientConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a> *attr_id,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a> is_async);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GXimClientConnection.html#g-xim-client-connection-cmd-set-ic-focus" title="g_xim_client_connection_cmd_set_ic_focus ()">g_xim_client_connection_cmd_set_ic_focus</a>
+                                                        (<a class="link" href="GXimClientConnection.html" title="GXimClientConnection">GXimClientConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GXimClientConnection.html#g-xim-client-connection-cmd-unset-ic-focus" title="g_xim_client_connection_cmd_unset_ic_focus ()">g_xim_client_connection_cmd_unset_ic_focus</a>
+                                                        (<a class="link" href="GXimClientConnection.html" title="GXimClientConnection">GXimClientConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GXimClientConnection.html#g-xim-client-connection-cmd-sync" title="g_xim_client_connection_cmd_sync ()">g_xim_client_connection_cmd_sync</a>    (<a class="link" href="GXimClientConnection.html" title="GXimClientConnection">GXimClientConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a> is_async);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GXimClientConnection.html#g-xim-client-connection-cmd-reset-ic" title="g_xim_client_connection_cmd_reset_ic ()">g_xim_client_connection_cmd_reset_ic</a>
+                                                        (<a class="link" href="GXimClientConnection.html" title="GXimClientConnection">GXimClientConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a> is_async);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GXimClientConnection.html#g-xim-client-connection-cmd-preedit-start-reply" title="g_xim_client_connection_cmd_preedit_start_reply ()">g_xim_client_connection_cmd_preedit_start_reply</a>
+                                                        (<a class="link" href="GXimClientConnection.html" title="GXimClientConnection">GXimClientConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint32"
+>gint32</a> return_value);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GXimClientConnection.html#g-xim-client-connection-cmd-preedit-caret-reply" title="g_xim_client_connection_cmd_preedit_caret_reply ()">g_xim_client_connection_cmd_preedit_caret_reply</a>
+                                                        (<a class="link" href="GXimClientConnection.html" title="GXimClientConnection">GXimClientConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint32"
+>guint32</a> position);
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="GXimClientConnection.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a
+href="/usr/share/gtk-doc/html/gobject/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a>
+   +----<a class="link" href="GXimConnection.html" title="GXimConnection">GXimConnection</a>
+         +----GXimClientConnection
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="GXimClientConnection.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+GXimClientConnection implements
+ GXimTransport and  GXimProtocol.</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="GXimClientConnection.description"></a><h2>Description</h2>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="GXimClientConnection.details"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="GXimClientConnection-struct"></a><h3>GXimClientConnection</h3>
+<pre class="programlisting">typedef struct _GXimClientConnection GXimClientConnection;</pre>
+<p>
+An implementation of client connection class</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-client-connection-cmd-connect"></a><h3>g_xim_client_connection_cmd_connect ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_client_connection_cmd_connect (<a class="link" href="GXimClientConnection.html" title="GXimClientConnection">GXimClientConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> protocol_major_version,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> protocol_minor_version,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a> *auth_list,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a> is_async);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>protocol_major_version</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>protocol_minor_version</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>auth_list</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>is_async</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-client-connection-cmd-disconnect"></a><h3>g_xim_client_connection_cmd_disconnect ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_client_connection_cmd_disconnect
+                                                        (<a class="link" href="GXimClientConnection.html" title="GXimClientConnection">GXimClientConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a> is_async);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>is_async</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-client-connection-cmd-open-im"></a><h3>g_xim_client_connection_cmd_open_im ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_client_connection_cmd_open_im (<a class="link" href="GXimClientConnection.html" title="GXimClientConnection">GXimClientConnection</a> *conn,
+                                                         const GXimStr *locale,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a> is_async);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>locale</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>is_async</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-client-connection-cmd-close-im"></a><h3>g_xim_client_connection_cmd_close_im ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_client_connection_cmd_close_im
+                                                        (<a class="link" href="GXimClientConnection.html" title="GXimClientConnection">GXimClientConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a> is_async);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>imid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>is_async</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-client-connection-cmd-trigger-notify"></a><h3>g_xim_client_connection_cmd_trigger_notify ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_client_connection_cmd_trigger_notify
+                                                        (<a class="link" href="GXimClientConnection.html" title="GXimClientConnection">GXimClientConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint32"
+>guint32</a> flag,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint32"
+>guint32</a> index_,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint32"
+>guint32</a> event_mask,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a> is_async);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>imid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>flag</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>index_</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event_mask</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>is_async</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-client-connection-cmd-encoding-negotiation"></a><h3>g_xim_client_connection_cmd_encoding_negotiation ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_client_connection_cmd_encoding_negotiation
+                                                        (<a class="link" href="GXimClientConnection.html" title="GXimClientConnection">GXimClientConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a> *encodings,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a> *details,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a> is_async);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>imid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>encodings</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>details</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>is_async</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-client-connection-cmd-query-extension"></a><h3>g_xim_client_connection_cmd_query_extension ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_client_connection_cmd_query_extension
+                                                        (<a class="link" href="GXimClientConnection.html" title="GXimClientConnection">GXimClientConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a> *extensions,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a> is_async);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>imid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>extensions</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>is_async</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-client-connection-cmd-set-im-values"></a><h3>g_xim_client_connection_cmd_set_im_values ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_client_connection_cmd_set_im_values
+                                                        (<a class="link" href="GXimClientConnection.html" title="GXimClientConnection">GXimClientConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a> *attributes,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a> is_async);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>imid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attributes</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>is_async</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-client-connection-cmd-get-im-values"></a><h3>g_xim_client_connection_cmd_get_im_values ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_client_connection_cmd_get_im_values
+                                                        (<a class="link" href="GXimClientConnection.html" title="GXimClientConnection">GXimClientConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a> *attr_id,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a> is_async);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>imid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attr_id</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>is_async</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-client-connection-cmd-create-ic"></a><h3>g_xim_client_connection_cmd_create_ic ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_client_connection_cmd_create_ic
+                                                        (<a class="link" href="GXimClientConnection.html" title="GXimClientConnection">GXimClientConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a> *attributes,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a> is_async);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>imid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attributes</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>is_async</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-client-connection-cmd-destroy-ic"></a><h3>g_xim_client_connection_cmd_destroy_ic ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_client_connection_cmd_destroy_ic
+                                                        (<a class="link" href="GXimClientConnection.html" title="GXimClientConnection">GXimClientConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a> is_async);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>imid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>is_async</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-client-connection-cmd-set-ic-values"></a><h3>g_xim_client_connection_cmd_set_ic_values ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_client_connection_cmd_set_ic_values
+                                                        (<a class="link" href="GXimClientConnection.html" title="GXimClientConnection">GXimClientConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a> *attributes,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a> is_async);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>imid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attributes</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>is_async</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-client-connection-cmd-get-ic-values"></a><h3>g_xim_client_connection_cmd_get_ic_values ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_client_connection_cmd_get_ic_values
+                                                        (<a class="link" href="GXimClientConnection.html" title="GXimClientConnection">GXimClientConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a> *attr_id,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a> is_async);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>imid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attr_id</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>is_async</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-client-connection-cmd-set-ic-focus"></a><h3>g_xim_client_connection_cmd_set_ic_focus ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_client_connection_cmd_set_ic_focus
+                                                        (<a class="link" href="GXimClientConnection.html" title="GXimClientConnection">GXimClientConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>imid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-client-connection-cmd-unset-ic-focus"></a><h3>g_xim_client_connection_cmd_unset_ic_focus ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_client_connection_cmd_unset_ic_focus
+                                                        (<a class="link" href="GXimClientConnection.html" title="GXimClientConnection">GXimClientConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>imid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-client-connection-cmd-sync"></a><h3>g_xim_client_connection_cmd_sync ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_client_connection_cmd_sync    (<a class="link" href="GXimClientConnection.html" title="GXimClientConnection">GXimClientConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a> is_async);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>imid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>is_async</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-client-connection-cmd-reset-ic"></a><h3>g_xim_client_connection_cmd_reset_ic ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_client_connection_cmd_reset_ic
+                                                        (<a class="link" href="GXimClientConnection.html" title="GXimClientConnection">GXimClientConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a> is_async);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>imid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>is_async</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-client-connection-cmd-preedit-start-reply"></a><h3>g_xim_client_connection_cmd_preedit_start_reply ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_client_connection_cmd_preedit_start_reply
+                                                        (<a class="link" href="GXimClientConnection.html" title="GXimClientConnection">GXimClientConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint32"
+>gint32</a> return_value);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>imid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>return_value</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-client-connection-cmd-preedit-caret-reply"></a><h3>g_xim_client_connection_cmd_preedit_caret_reply ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_client_connection_cmd_preedit_caret_reply
+                                                        (<a class="link" href="GXimClientConnection.html" title="GXimClientConnection">GXimClientConnection</a> *conn,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> icid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint32"
+>guint32</a> position);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>imid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icid</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>position</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.10</div>
+</body>
+</html>

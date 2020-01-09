@@ -1,0 +1,208 @@
+<!-- ##### SECTION Title ##### -->
+GXimCore
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### STRUCT GXimCore ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SIGNAL GXimCore::client-event ##### -->
+<para>
+
+</para>
+
+@: 
+@:
+
+@Returns: 
+@Param2: 
+@Returns: 
+
+<!-- ##### SIGNAL GXimCore::destroy-event ##### -->
+<para>
+
+</para>
+
+@: 
+@:
+
+@Returns: 
+@Param2: 
+@Returns: 
+
+<!-- ##### SIGNAL GXimCore::expose-event ##### -->
+<para>
+
+</para>
+
+@: 
+@:
+
+@Returns: 
+@Param2: 
+@Returns: 
+
+<!-- ##### SIGNAL GXimCore::selection-clear-event ##### -->
+<para>
+
+</para>
+
+@: 
+@:
+
+@Returns: 
+@Param2: 
+@Returns: 
+
+<!-- ##### SIGNAL GXimCore::selection-notify-event ##### -->
+<para>
+
+</para>
+
+@: 
+@:
+
+@Returns: 
+@Param2: 
+@Returns: 
+
+<!-- ##### SIGNAL GXimCore::selection-request-event ##### -->
+<para>
+
+</para>
+
+@: 
+@:
+
+@Returns: 
+@Param2: 
+@Returns: 
+
+<!-- ##### ARG GXimCore:connection-gtype ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG GXimCore:display ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG GXimCore:proto-signals ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG GXimCore:selection-window ##### -->
+<para>
+
+</para>
+
+<!-- ##### FUNCTION g_xim_core_watch_event ##### -->
+<para>
+
+</para>
+
+@core: 
+@window: 
+
+
+<!-- ##### FUNCTION g_xim_core_unwatch_event ##### -->
+<para>
+
+</para>
+
+@core: 
+@window: 
+
+
+<!-- ##### FUNCTION g_xim_core_get_display ##### -->
+<para>
+
+</para>
+
+@core: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_core_get_selection_window ##### -->
+<para>
+
+</para>
+
+@core: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_core_get_connection_gtype ##### -->
+<para>
+
+</para>
+
+@core: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_core_get_protocol_signal_connector ##### -->
+<para>
+
+</para>
+
+@core: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_core_setup_connection ##### -->
+<para>
+
+</para>
+
+@core: 
+@conn: 
+
+
+<!-- ##### FUNCTION g_xim_core_add_client_message_filter ##### -->
+<para>
+
+</para>
+
+@core: 
+@atom: 
+
+
+<!-- ##### FUNCTION g_xim_core_remove_client_message_filter ##### -->
+<para>
+
+</para>
+
+@core: 
+@atom: 
+
+
+<!-- ##### FUNCTION g_xim_core_lookup_client_message_filter ##### -->
+<para>
+
+</para>
+
+@core: 
+@atom: 
+@Returns: 
+
+

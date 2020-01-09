@@ -1,0 +1,1743 @@
+<!-- ##### SECTION Title ##### -->
+gximmisc
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### MACRO G_XIM_GERROR_RESET_NOTICE_FLAG ##### -->
+<para>
+
+</para>
+
+@_e_: 
+
+
+<!-- ##### MACRO G_XIM_GERROR_SET_NOTICE_FLAG ##### -->
+<para>
+
+</para>
+
+@_e_: 
+@_f_: 
+
+
+<!-- ##### MACRO G_XIM_CHECK_ALLOC_WITH_CODE ##### -->
+<para>
+
+</para>
+
+@_v_: 
+@_c_: 
+@_r_: 
+
+
+<!-- ##### MACRO G_XIM_CHECK_ALLOC ##### -->
+<para>
+
+</para>
+
+@_v_: 
+@_r_: 
+
+
+<!-- ##### MACRO G_XIM_CHECK_ALLOC_WITH_NO_RET ##### -->
+<para>
+
+</para>
+
+@_v_: 
+
+
+<!-- ##### MACRO G_XIM_GERROR_CHECK_ALLOC_WITH_CODE ##### -->
+<para>
+
+</para>
+
+@_v_: 
+@_e_: 
+@_t_: 
+@_c_: 
+@_r_: 
+
+
+<!-- ##### MACRO G_XIM_GERROR_CHECK_ALLOC ##### -->
+<para>
+
+</para>
+
+@_v_: 
+@_e_: 
+@_t_: 
+@_r_: 
+
+
+<!-- ##### FUNCTION g_xim_init ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### FUNCTION g_xim_finalize ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### FUNCTION g_xim_get_byte_order ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_gtype_to_value_type ##### -->
+<para>
+
+</para>
+
+@gtype: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_value_type_to_gtype ##### -->
+<para>
+
+</para>
+
+@vtype: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_value_type_name ##### -->
+<para>
+
+</para>
+
+@vtype: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_protocol_name ##### -->
+<para>
+
+</para>
+
+@major_opcode: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_get_window ##### -->
+<para>
+
+</para>
+
+@dpy: 
+@window: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_get_pixmap ##### -->
+<para>
+
+</para>
+
+@dpy: 
+@window: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_get_selection_owner ##### -->
+<para>
+
+</para>
+
+@display: 
+@selection: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_lookup_xim_server ##### -->
+<para>
+
+</para>
+
+@dpy: 
+@atom_server: 
+@is_valid: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_lookup_xim_server_from_string ##### -->
+<para>
+
+</para>
+
+@dpy: 
+@server_name: 
+@is_valid: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_get_server_atom ##### -->
+<para>
+
+</para>
+
+@server_name: 
+@Returns: 
+
+
+<!-- ##### STRUCT GXimStrConvText ##### -->
+<para>
+
+</para>
+
+@feedback: 
+@length: 
+@string: 
+
+<!-- ##### FUNCTION g_xim_str_conv_text_new ##### -->
+<para>
+
+</para>
+
+@string: 
+@length: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_str_conv_text_new_full ##### -->
+<para>
+
+</para>
+
+@string: 
+@length: 
+@feedback: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_str_conv_text_free ##### -->
+<para>
+
+</para>
+
+@text: 
+
+
+<!-- ##### FUNCTION g_xim_str_conv_set_feedback ##### -->
+<para>
+
+</para>
+
+@text: 
+@feedback: 
+
+
+<!-- ##### FUNCTION g_xim_str_conv_get_feedback ##### -->
+<para>
+
+</para>
+
+@text: 
+@Returns: 
+
+
+<!-- ##### MACRO G_TYPE_XIM_STYLES ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO G_XIM_STYLES_ERROR ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### ENUM GXimStyle ##### -->
+<para>
+
+</para>
+
+@G_XIM_PreeditArea: 
+@G_XIM_PreeditCallbacks: 
+@G_XIM_PreeditPosition: 
+@G_XIM_PreeditNothing: 
+@G_XIM_PreeditNone: 
+@G_XIM_StatusArea: 
+@G_XIM_StatusCallbacks: 
+@G_XIM_StatusNothing: 
+@G_XIM_StatusNone: 
+
+<!-- ##### STRUCT GXimStyles ##### -->
+<para>
+
+</para>
+
+@count_styles: 
+@supported_styles: 
+
+<!-- ##### FUNCTION g_xim_styles_get_error_quark ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_styles_new ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_styles_append ##### -->
+<para>
+
+</para>
+
+@styles: 
+@style: 
+@error: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_styles_insert ##### -->
+<para>
+
+</para>
+
+@styles: 
+@index_: 
+@style: 
+@error: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_styles_copy ##### -->
+<para>
+
+</para>
+
+@boxed: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_styles_free ##### -->
+<para>
+
+</para>
+
+@boxed: 
+
+
+<!-- ##### FUNCTION g_xim_styles_put_to_stream ##### -->
+<para>
+
+</para>
+
+@styles: 
+@proto: 
+@cancellable: 
+@error: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_styles_get_from_stream ##### -->
+<para>
+
+</para>
+
+@proto: 
+@stream: 
+@cancellable: 
+@error: 
+@Returns: 
+
+
+<!-- ##### MACRO G_TYPE_XIM_RECTANGLE ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### STRUCT GXimRectangle ##### -->
+<para>
+
+</para>
+
+@width: 
+@height: 
+
+<!-- ##### FUNCTION g_xim_rectangle_get_type ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_rectangle_new ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_rectangle_copy ##### -->
+<para>
+
+</para>
+
+@boxed: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_rectangle_free ##### -->
+<para>
+
+</para>
+
+@boxed: 
+
+
+<!-- ##### FUNCTION g_xim_rectangle_put_to_stream ##### -->
+<para>
+
+</para>
+
+@rectangle: 
+@proto: 
+@cancellable: 
+@error: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_rectangle_get_from_stream ##### -->
+<para>
+
+</para>
+
+@proto: 
+@stream: 
+@cancellable: 
+@error: 
+@Returns: 
+
+
+<!-- ##### MACRO G_TYPE_XIM_POINT ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### STRUCT GXimPoint ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### FUNCTION g_xim_point_get_type ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_point_new ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_point_copy ##### -->
+<para>
+
+</para>
+
+@boxed: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_point_free ##### -->
+<para>
+
+</para>
+
+@boxed: 
+
+
+<!-- ##### FUNCTION g_xim_point_put_to_stream ##### -->
+<para>
+
+</para>
+
+@point: 
+@proto: 
+@cancellable: 
+@error: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_point_get_from_stream ##### -->
+<para>
+
+</para>
+
+@proto: 
+@stream: 
+@cancellable: 
+@error: 
+@Returns: 
+
+
+<!-- ##### MACRO G_TYPE_XIM_FONTSET ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### FUNCTION g_xim_fontset_get_type ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_fontset_copy ##### -->
+<para>
+
+</para>
+
+@boxed: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_fontset_free ##### -->
+<para>
+
+</para>
+
+@boxed: 
+
+
+<!-- ##### FUNCTION g_xim_fontset_put_to_stream ##### -->
+<para>
+
+</para>
+
+@fontset: 
+@proto: 
+@cancellable: 
+@error: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_fontset_get_from_stream ##### -->
+<para>
+
+</para>
+
+@proto: 
+@stream: 
+@cancellable: 
+@error: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_gstring_put_to_stream ##### -->
+<para>
+
+</para>
+
+@string: 
+@stream: 
+@cancellable: 
+@error: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_gstring_get_from_stream ##### -->
+<para>
+
+</para>
+
+@stream: 
+@cancellable: 
+@error: 
+@Returns: 
+
+
+<!-- ##### MACRO G_TYPE_XIM_STRING ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### FUNCTION g_xim_string_get_type ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_string_new ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_string_copy ##### -->
+<para>
+
+</para>
+
+@boxed: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_string_free ##### -->
+<para>
+
+</para>
+
+@boxed: 
+
+
+<!-- ##### FUNCTION g_xim_string_get_string ##### -->
+<para>
+
+</para>
+
+@string: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_string_get_length ##### -->
+<para>
+
+</para>
+
+@string: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_string_put_to_stream ##### -->
+<para>
+
+</para>
+
+@string: 
+@stream: 
+@cancellable: 
+@error: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_string_get_from_stream ##### -->
+<para>
+
+</para>
+
+@stream: 
+@cancellable: 
+@error: 
+@Returns: 
+
+
+<!-- ##### MACRO G_TYPE_XIM_STR ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### FUNCTION g_xim_str_get_type ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_str_new ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_str_copy ##### -->
+<para>
+
+</para>
+
+@boxed: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_str_free ##### -->
+<para>
+
+</para>
+
+@boxed: 
+
+
+<!-- ##### FUNCTION g_xim_str_get_string ##### -->
+<para>
+
+</para>
+
+@string: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_str_get_length ##### -->
+<para>
+
+</para>
+
+@string: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_str_append ##### -->
+<para>
+
+</para>
+
+@string: 
+@val: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_str_append_len ##### -->
+<para>
+
+</para>
+
+@string: 
+@val: 
+@len: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_str_put_to_stream ##### -->
+<para>
+
+</para>
+
+@string: 
+@stream: 
+@cancellable: 
+@error: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_str_get_from_stream ##### -->
+<para>
+
+</para>
+
+@stream: 
+@cancellable: 
+@error: 
+@Returns: 
+
+
+<!-- ##### MACRO G_TYPE_XIM_ENCODINGINFO ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### FUNCTION g_xim_encodinginfo_get_type ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_encodinginfo_new ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_encodinginfo_copy ##### -->
+<para>
+
+</para>
+
+@boxed: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_encodinginfo_free ##### -->
+<para>
+
+</para>
+
+@boxed: 
+
+
+<!-- ##### FUNCTION g_xim_encodinginfo_get_string ##### -->
+<para>
+
+</para>
+
+@encoding: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_encodinginfo_get_length ##### -->
+<para>
+
+</para>
+
+@encoding: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_encodinginfo_put_to_stream ##### -->
+<para>
+
+</para>
+
+@encoding: 
+@stream: 
+@cancellable: 
+@error: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_encodinginfo_get_from_stream ##### -->
+<para>
+
+</para>
+
+@stream: 
+@cancellable: 
+@error: 
+@Returns: 
+
+
+<!-- ##### MACRO G_TYPE_XIM_NESTEDLIST ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### STRUCT GXimNestedListNode ##### -->
+<para>
+
+</para>
+
+@vtype: 
+@name: 
+@value: 
+
+<!-- ##### USER_FUNCTION GXimNestedFunc ##### -->
+<para>
+
+</para>
+
+@node: 
+@user_data: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_nested_list_get_type ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_nested_list_new ##### -->
+<para>
+
+</para>
+
+@attr: 
+@n_nodes: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_nested_list_copy ##### -->
+<para>
+
+</para>
+
+@boxed: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_nested_list_free ##### -->
+<para>
+
+</para>
+
+@boxed: 
+
+
+<!-- ##### FUNCTION g_xim_nested_list_append ##### -->
+<para>
+
+</para>
+
+@list: 
+@name: 
+@value: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_nested_list_foreach ##### -->
+<para>
+
+</para>
+
+@list: 
+@func: 
+@data: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_nested_list_put_to_stream ##### -->
+<para>
+
+</para>
+
+@list: 
+@proto: 
+@cancellable: 
+@error: 
+@Returns: 
+
+
+<!-- ##### MACRO G_TYPE_XIM_SEP_NESTEDLIST ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### STRUCT GXimSepNestedList ##### -->
+<para>
+
+</para>
+
+@dummy: 
+
+<!-- ##### FUNCTION g_xim_sep_nested_list_get_type ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_sep_nested_list_new ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_sep_nested_list_copy ##### -->
+<para>
+
+</para>
+
+@boxed: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_sep_nested_list_free ##### -->
+<para>
+
+</para>
+
+@boxed: 
+
+
+<!-- ##### MACRO G_TYPE_XIM_EXT ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### STRUCT GXimExt ##### -->
+<para>
+
+</para>
+
+@major_opcode: 
+@minor_opcode: 
+@name: 
+
+<!-- ##### FUNCTION g_xim_ext_get_type ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_ext_new ##### -->
+<para>
+
+</para>
+
+@major_opcode: 
+@minor_opcode: 
+@name: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_ext_copy ##### -->
+<para>
+
+</para>
+
+@boxed: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_ext_free ##### -->
+<para>
+
+</para>
+
+@boxed: 
+
+
+<!-- ##### FUNCTION g_xim_ext_put_to_stream ##### -->
+<para>
+
+</para>
+
+@ext: 
+@proto: 
+@cancellable: 
+@error: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_ext_get_from_stream ##### -->
+<para>
+
+</para>
+
+@proto: 
+@stream: 
+@cancellable: 
+@error: 
+@Returns: 
+
+
+<!-- ##### MACRO G_TYPE_XIM_ATTRIBUTE ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### STRUCT GXimAttribute ##### -->
+<para>
+
+</para>
+
+@id: 
+@vtype: 
+
+<!-- ##### FUNCTION g_xim_attribute_get_type ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_attribute_new ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_attribute_new_with_value ##### -->
+<para>
+
+</para>
+
+@id: 
+@vtype: 
+@value: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_attribute_set ##### -->
+<para>
+
+</para>
+
+@attr: 
+@id: 
+@vtype: 
+@value: 
+
+
+<!-- ##### FUNCTION g_xim_attribute_clear ##### -->
+<para>
+
+</para>
+
+@attr: 
+
+
+<!-- ##### FUNCTION g_xim_attribute_copy ##### -->
+<para>
+
+</para>
+
+@boxed: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_attribute_free ##### -->
+<para>
+
+</para>
+
+@boxed: 
+
+
+<!-- ##### FUNCTION g_xim_attribute_put_to_stream ##### -->
+<para>
+
+</para>
+
+@attr: 
+@proto: 
+@cancellable: 
+@error: 
+@Returns: 
+
+
+<!-- ##### MACRO G_TYPE_XIM_RAW_ATTR ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### STRUCT GXimRawAttr ##### -->
+<para>
+
+</para>
+
+@base: 
+@attribute_name: 
+
+<!-- ##### FUNCTION g_xim_raw_attr_get_type ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_raw_attr_new ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_raw_attr_new_with_value ##### -->
+<para>
+
+</para>
+
+@id: 
+@name: 
+@vtype: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_raw_attr_set_name ##### -->
+<para>
+
+</para>
+
+@attr: 
+@name: 
+
+
+<!-- ##### FUNCTION g_xim_raw_attr_clear ##### -->
+<para>
+
+</para>
+
+@attr: 
+
+
+<!-- ##### FUNCTION g_xim_raw_attr_copy ##### -->
+<para>
+
+</para>
+
+@boxed: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_raw_attr_free ##### -->
+<para>
+
+</para>
+
+@boxed: 
+
+
+<!-- ##### FUNCTION g_xim_raw_attr_put_to_stream ##### -->
+<para>
+
+</para>
+
+@attr: 
+@proto: 
+@cancellable: 
+@error: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_raw_attr_get_from_stream ##### -->
+<para>
+
+</para>
+
+@proto: 
+@stream: 
+@cancellable: 
+@error: 
+@Returns: 
+
+
+<!-- ##### MACRO G_TYPE_XIM_TEXT ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### STRUCT GXimText ##### -->
+<para>
+
+</para>
+
+@length: 
+@feedback: 
+@encoding_is_wchar: 
+
+<!-- ##### FUNCTION g_xim_text_get_type ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_text_new ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_text_set_mbstring ##### -->
+<para>
+
+</para>
+
+@text: 
+@string: 
+@length: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_text_set_wcstring ##### -->
+<para>
+
+</para>
+
+@text: 
+@string: 
+@length: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_text_clear_string ##### -->
+<para>
+
+</para>
+
+@text: 
+
+
+<!-- ##### FUNCTION g_xim_text_set_feedback ##### -->
+<para>
+
+</para>
+
+@text: 
+@feedback: 
+@position: 
+
+
+<!-- ##### FUNCTION g_xim_text_get_feedback ##### -->
+<para>
+
+</para>
+
+@text: 
+@position: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_text_copy ##### -->
+<para>
+
+</para>
+
+@boxed: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_text_free ##### -->
+<para>
+
+</para>
+
+@boxed: 
+
+
+<!-- ##### FUNCTION g_xim_text_put_to_stream ##### -->
+<para>
+
+</para>
+
+@text: 
+@proto: 
+@cancellable: 
+@error: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_text_get_from_stream ##### -->
+<para>
+
+</para>
+
+@proto: 
+@stream: 
+@cancellable: 
+@error: 
+@Returns: 
+
+
+<!-- ##### MACRO G_TYPE_XIM_PREEDIT_CARET ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### STRUCT GXimPreeditCaret ##### -->
+<para>
+
+</para>
+
+@position: 
+@direction: 
+@style: 
+
+<!-- ##### FUNCTION g_xim_preedit_caret_get_type ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_preedit_caret_new ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_preedit_caret_copy ##### -->
+<para>
+
+</para>
+
+@boxed: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_preedit_caret_free ##### -->
+<para>
+
+</para>
+
+@boxed: 
+
+
+<!-- ##### FUNCTION g_xim_preedit_caret_put_to_stream ##### -->
+<para>
+
+</para>
+
+@caret: 
+@proto: 
+@cancellable: 
+@error: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_preedit_caret_get_from_stream ##### -->
+<para>
+
+</para>
+
+@proto: 
+@stream: 
+@cancellable: 
+@error: 
+@Returns: 
+
+
+<!-- ##### MACRO G_TYPE_XIM_PREEDIT_DRAW ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### STRUCT GXimPreeditDraw ##### -->
+<para>
+
+</para>
+
+@caret: 
+@chg_first: 
+@chg_length: 
+@text: 
+
+<!-- ##### FUNCTION g_xim_preedit_draw_get_type ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_preedit_draw_new ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_preedit_draw_copy ##### -->
+<para>
+
+</para>
+
+@boxed: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_preedit_draw_free ##### -->
+<para>
+
+</para>
+
+@boxed: 
+
+
+<!-- ##### FUNCTION g_xim_preedit_draw_put_to_stream ##### -->
+<para>
+
+</para>
+
+@draw: 
+@proto: 
+@cancellable: 
+@error: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_preedit_draw_get_from_stream ##### -->
+<para>
+
+</para>
+
+@proto: 
+@stream: 
+@cancellable: 
+@error: 
+@Returns: 
+
+
+<!-- ##### MACRO G_TYPE_XIM_STATUS_DRAW ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### ENUM GXimStatusDataType ##### -->
+<para>
+
+</para>
+
+@G_XIM_XIMTextType: 
+@G_XIM_XIMBitmapType: 
+
+<!-- ##### STRUCT GXimStatusDraw ##### -->
+<para>
+
+</para>
+
+@type: 
+
+<!-- ##### FUNCTION g_xim_status_draw_get_type ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_status_draw_new ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_status_draw_copy ##### -->
+<para>
+
+</para>
+
+@boxed: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_status_draw_free ##### -->
+<para>
+
+</para>
+
+@boxed: 
+
+
+<!-- ##### FUNCTION g_xim_status_draw_put_to_stream ##### -->
+<para>
+
+</para>
+
+@draw: 
+@proto: 
+@cancellable: 
+@error: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_status_draw_get_from_stream ##### -->
+<para>
+
+</para>
+
+@proto: 
+@stream: 
+@cancellable: 
+@error: 
+@Returns: 
+
+
+<!-- ##### MACRO G_TYPE_XIM_HOTKEY_TRIGGER ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### STRUCT GXimHotkeyTrigger ##### -->
+<para>
+
+</para>
+
+@keysym: 
+@modifier: 
+@modifier_mask: 
+
+<!-- ##### FUNCTION g_xim_hotkey_trigger_get_type ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_hotkey_trigger_new ##### -->
+<para>
+
+</para>
+
+@keysym: 
+@modifier: 
+@modifier_mask: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_hotkey_trigger_copy ##### -->
+<para>
+
+</para>
+
+@boxed: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_hotkey_trigger_free ##### -->
+<para>
+
+</para>
+
+@boxed: 
+
+
+<!-- ##### FUNCTION g_xim_hotkey_trigger_put_to_stream ##### -->
+<para>
+
+</para>
+
+@hotkey: 
+@proto: 
+@cancellable: 
+@error: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_hotkey_trigger_get_from_stream ##### -->
+<para>
+
+</para>
+
+@proto: 
+@stream: 
+@cancellable: 
+@error: 
+@Returns: 
+
+
+<!-- ##### MACRO G_XIM_GDKEVENT_ERROR ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### ENUM GXimGdkEventError ##### -->
+<para>
+
+</para>
+
+@G_XIM_GDKEVENT_ERROR_BEGIN: 
+@G_XIM_GDKEVENT_ERROR_UNSUPPORTED_EVENT: 
+
+<!-- ##### FUNCTION g_xim_gdkevent_get_error_quark ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_gdkevent_put_to_stream ##### -->
+<para>
+
+</para>
+
+@event: 
+@proto: 
+@cancellable: 
+@error: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_gdkevent_get_from_stream ##### -->
+<para>
+
+</para>
+
+@proto: 
+@stream: 
+@cancellable: 
+@error: 
+@Returns: 
+
+

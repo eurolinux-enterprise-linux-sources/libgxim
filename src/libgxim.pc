@@ -1,0 +1,10 @@
+prefix=/usr
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: GXIM
+Description: GObject-based X Input Method protocol library
+Version: 0.3.3
+Requires: gdk-2.0
+Libs: -L${libdir} -lgxim

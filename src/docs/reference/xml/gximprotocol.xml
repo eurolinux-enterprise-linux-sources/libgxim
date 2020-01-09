@@ -1,0 +1,1287 @@
+<refentry id="libgxim-gximprotocol">
+<refmeta>
+<refentrytitle role="top_of_page" id="libgxim-gximprotocol.top_of_page">GXimProtocol</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGXIM Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>GXimProtocol</refname>
+<refpurpose>Base interface for XIM protocol</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="libgxim-gximprotocol.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+#define             <link linkend="G-XIM-PROTOCOL-ERROR:CAPS">G_XIM_PROTOCOL_ERROR</link>
+#define             <link linkend="g-xim-protocol-n-pad4">g_xim_protocol_n_pad4</link>               (_n_)
+#define             <link linkend="G-XIM-OPCODE-KEY:CAPS">G_XIM_OPCODE_KEY</link>                    (_m_,_n_)
+                    <link linkend="GXimProtocolIface">GXimProtocolIface</link>;
+                    <link linkend="GXimProtocolPrivate">GXimProtocolPrivate</link>;
+                    <link linkend="GXimProtocolQueueNode">GXimProtocolQueueNode</link>;
+enum                <link linkend="GXimProtocolError">GXimProtocolError</link>;
+<link linkend="void">void</link>                <link linkend="g-xim-protocol-init">g_xim_protocol_init</link>                 (<link linkend="GXimProtocol">GXimProtocol</link> *proto);
+<link linkend="void">void</link>                <link linkend="g-xim-protocol-dispose">g_xim_protocol_dispose</link>              (<link linkend="GObject">GObject</link> *object);
+<link linkend="void">void</link>                <link linkend="g-xim-protocol-finalize">g_xim_protocol_finalize</link>             (<link linkend="GObject">GObject</link> *object);
+<link linkend="GXimProtocolPrivate">GXimProtocolPrivate</link>* <link linkend="g-xim-protocol-get-private">g_xim_protocol_get_private</link>         (<link linkend="GXimProtocol">GXimProtocol</link> *proto);
+<link linkend="GQuark">GQuark</link>              <link linkend="g-xim-protocol-get-error-quark">g_xim_protocol_get_error_quark</link>      (void);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-protocol-process-event">g_xim_protocol_process_event</link>        (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GdkEventClient">GdkEventClient</link> *event,
+                                                         <link linkend="GError">GError</link> **error);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-protocol-translate">g_xim_protocol_translate</link>            (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="gpointer">gpointer</link> data,
+                                                         <link linkend="gssize">gssize</link> length,
+                                                         <link linkend="GError">GError</link> **error);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-protocol-send-packets">g_xim_protocol_send_packets</link>         (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         const <link linkend="gchar">gchar</link> *data,
+                                                         <link linkend="gsize">gsize</link> length);
+<link linkend="gsize">gsize</link>               <link linkend="g-xim-protocol-send-vformat">g_xim_protocol_send_vformat</link>         (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error,
+                                                         <link linkend="guint">guint</link> n_params,
+                                                         <link linkend="va-list">va_list</link> args);
+<link linkend="gsize">gsize</link>               <link linkend="g-xim-protocol-send-format">g_xim_protocol_send_format</link>          (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error,
+                                                         <link linkend="guint">guint</link> n_params,
+                                                         ...);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-protocol-send">g_xim_protocol_send</link>                 (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GXimOpcode">GXimOpcode</link> major_opcode,
+                                                         <link linkend="guint8">guint8</link> minor_opcode,
+                                                         <link linkend="guint">guint</link> n_params,
+                                                         ...);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-protocol-send-with-list">g_xim_protocol_send_with_list</link>       (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GXimOpcode">GXimOpcode</link> major_opcode,
+                                                         <link linkend="guint8">guint8</link> minor_opcode,
+                                                         <link linkend="GSList">GSList</link> *types,
+                                                         <link linkend="GSList">GSList</link> *values);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-protocol-start-queue">g_xim_protocol_start_queue</link>          (<link linkend="GXimProtocol">GXimProtocol</link> *proto);
+<link linkend="GXimProtocolQueueNode">GXimProtocolQueueNode</link>* <link linkend="g-xim-protocol-end-queue">g_xim_protocol_end_queue</link>         (<link linkend="GXimProtocol">GXimProtocol</link> *proto);
+<link linkend="void">void</link>                <link linkend="g-xim-protocol-cancel-queue">g_xim_protocol_cancel_queue</link>         (<link linkend="GXimProtocol">GXimProtocol</link> *proto);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-protocol-is-queued">g_xim_protocol_is_queued</link>            (<link linkend="GXimProtocol">GXimProtocol</link> *proto);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-protocol-read-vformat">g_xim_protocol_read_vformat</link>         (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GDataInputStream">GDataInputStream</link> *stream,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error,
+                                                         <link linkend="guint">guint</link> n_params,
+                                                         <link linkend="va-list">va_list</link> args);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-protocol-read-format">g_xim_protocol_read_format</link>          (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GDataInputStream">GDataInputStream</link> *stream,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error,
+                                                         <link linkend="guint">guint</link> n_params,
+                                                         ...);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-protocol-wait-for-reply">g_xim_protocol_wait_for_reply</link>       (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GXimOpcode">GXimOpcode</link> major_opcode,
+                                                         <link linkend="guint8">guint8</link> minor_opcode,
+                                                         <link linkend="GError">GError</link> **error);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-protocol-raise-parser-error">g_xim_protocol_raise_parser_error</link>   (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="guint">guint</link> major_opcode,
+                                                         <link linkend="guint">guint</link> minor_opcode,
+                                                         <link linkend="guint">guint</link> imid,
+                                                         <link linkend="guint">guint</link> icid);
+<link linkend="void">void</link>                <link linkend="g-xim-protocol-add-protocol">g_xim_protocol_add_protocol</link>         (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GXimProtocolClosure">GXimProtocolClosure</link> *closure);
+<link linkend="void">void</link>                <link linkend="g-xim-protocol-remove-protocol">g_xim_protocol_remove_protocol</link>      (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GXimProtocolClosure">GXimProtocolClosure</link> *closure);
+<link linkend="void">void</link>                <link linkend="g-xim-protocol-remove-protocol-by-id">g_xim_protocol_remove_protocol_by_id</link>
+                                                        (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="guint8">guint8</link> major_opcode,
+                                                         <link linkend="guint8">guint8</link> minor_opcode);
+<link linkend="GXimProtocolClosure">GXimProtocolClosure</link>* <link linkend="g-xim-protocol-lookup-protocol-by-name">g_xim_protocol_lookup_protocol_by_name</link>
+                                                        (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         const <link linkend="gchar">gchar</link> *name);
+<link linkend="GXimProtocolClosure">GXimProtocolClosure</link>* <link linkend="g-xim-protocol-lookup-protocol-by-id">g_xim_protocol_lookup_protocol_by_id</link>
+                                                        (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="guint8">guint8</link> major_opcode,
+                                                         <link linkend="guint8">guint8</link> minor_opcode);
+<link linkend="gulong">gulong</link>              <link linkend="g-xim-protocol-connect-closure-by-id">g_xim_protocol_connect_closure_by_id</link>
+                                                        (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="guint8">guint8</link> major_opcode,
+                                                         <link linkend="guint8">guint8</link> minor_opcode,
+                                                         <link linkend="GCallback">GCallback</link> func,
+                                                         <link linkend="gpointer">gpointer</link> data);
+<link linkend="gulong">gulong</link>              <link linkend="g-xim-protocol-connect-closure-by-name">g_xim_protocol_connect_closure_by_name</link>
+                                                        (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         const <link linkend="gchar">gchar</link> *signal_name,
+                                                         <link linkend="GCallback">GCallback</link> func,
+                                                         <link linkend="gpointer">gpointer</link> data);
+<link linkend="GSList">GSList</link>*             <link linkend="g-xim-protocol-get-extensions">g_xim_protocol_get_extensions</link>       (<link linkend="GXimProtocol">GXimProtocol</link> *proto);
+<link linkend="gboolean">gboolean</link>            (<link linkend="GXimProtocolClosureFunc">*GXimProtocolClosureFunc</link>)          (<link linkend="GXimProtocolClosure">GXimProtocolClosure</link> *closure,
+                                                         <link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GDataInputStream">GDataInputStream</link> *stream,
+                                                         <link linkend="GError">GError</link> **error,
+                                                         <link linkend="gpointer">gpointer</link> user_data);
+                    <link linkend="GXimProtocolClosure">GXimProtocolClosure</link>;
+<link linkend="GXimProtocolClosure">GXimProtocolClosure</link>* <link linkend="g-xim-protocol-closure-new">g_xim_protocol_closure_new</link>         (<link linkend="guint8">guint8</link> major_opcode,
+                                                         <link linkend="guint8">guint8</link> minor_opcode,
+                                                         const <link linkend="gchar">gchar</link> *name,
+                                                         <link linkend="gboolean">gboolean</link> is_an_extension);
+<link linkend="void">void</link>                <link linkend="g-xim-protocol-closure-free">g_xim_protocol_closure_free</link>         (<link linkend="gpointer">gpointer</link> data,
+                                                         <link linkend="GClosure">GClosure</link> *closure);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-protocol-closure-is-an-extension">g_xim_protocol_closure_is_an_extension</link>
+                                                        (<link linkend="GXimProtocolClosure">GXimProtocolClosure</link> *closure);
+<link linkend="void">void</link>                <link linkend="g-xim-protocol-closure-set-marshal">g_xim_protocol_closure_set_marshal</link>  (<link linkend="GXimProtocolClosure">GXimProtocolClosure</link> *closure,
+                                                         <link linkend="GXimProtocolClosureFunc">GXimProtocolClosureFunc</link> func,
+                                                         <link linkend="gpointer">gpointer</link> data);
+<link linkend="void">void</link>                <link linkend="g-xim-protocol-closure-add-signal">g_xim_protocol_closure_add_signal</link>   (<link linkend="GXimProtocolClosure">GXimProtocolClosure</link> *closure,
+                                                         <link linkend="GClosureMarshal">GClosureMarshal</link> marshaller,
+                                                         <link linkend="guint">guint</link> n_params,
+                                                         ...);
+<link linkend="gulong">gulong</link>              <link linkend="g-xim-protocol-closure-connect">g_xim_protocol_closure_connect</link>      (<link linkend="GXimProtocolClosure">GXimProtocolClosure</link> *closure,
+                                                         <link linkend="GCallback">GCallback</link> func,
+                                                         <link linkend="gpointer">gpointer</link> data);
+<link linkend="void">void</link>                <link linkend="g-xim-protocol-closure-disconnect">g_xim_protocol_closure_disconnect</link>   (<link linkend="GXimProtocolClosure">GXimProtocolClosure</link> *closure,
+                                                         <link linkend="gulong">gulong</link> id);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-protocol-closure-emit-signal">g_xim_protocol_closure_emit_signal</link>  (<link linkend="GXimProtocolClosure">GXimProtocolClosure</link> *closure,
+                                                         <link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         ...);
+<link linkend="gsize">gsize</link>               <link linkend="g-xim-attr-put-attribute-to-stream">g_xim_attr_put_attribute_to_stream</link>  (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GXimAttr">GXimAttr</link> *attr,
+                                                         <link linkend="guint">guint</link> attribute_id,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);
+<link linkend="gpointer">gpointer</link>            <link linkend="g-xim-attr-get-attribute-from-stream">g_xim_attr_get_attribute_from_stream</link>
+                                                        (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GXimAttr">GXimAttr</link> *attr,
+                                                         <link linkend="GDataInputStream">GDataInputStream</link> *stream,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libgxim-gximprotocol.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+GXimProtocol provides an interface to deal with XIM protocol events.</para>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 id="libgxim-gximprotocol.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="G-XIM-PROTOCOL-ERROR:CAPS" role="macro">
+<title>G_XIM_PROTOCOL_ERROR</title>
+<indexterm zone="G-XIM-PROTOCOL-ERROR:CAPS"><primary>G_XIM_PROTOCOL_ERROR</primary></indexterm><programlisting>#define G_XIM_PROTOCOL_ERROR		(g_xim_protocol_get_error_quark())
+</programlisting>
+<para>
+Error domain for <link linkend="GXimProtocol"><type>GXimProtocol</type></link>. Errors in this domain will be from
+the <link linkend="GXimProtocolError"><type>GXimProtocolError</type></link> or <link linkend="GXimStandardError"><type>GXimStandardError</type></link> enumeration.
+See <link linkend="GError"><type>GError</type></link> for more information on error domains.</para>
+<para>
+
+</para></refsect2>
+<refsect2 id="g-xim-protocol-n-pad4" role="macro">
+<title>g_xim_protocol_n_pad4()</title>
+<indexterm zone="g-xim-protocol-n-pad4"><primary>g_xim_protocol_n_pad4</primary></indexterm><programlisting>#define             g_xim_protocol_n_pad4(_n_)</programlisting>
+<para>
+Generates a number aligned to 4 bytes as needed.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>_n_</parameter>&nbsp;:</term>
+<listitem><simpara> a number
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="G-XIM-OPCODE-KEY:CAPS" role="macro">
+<title>G_XIM_OPCODE_KEY()</title>
+<indexterm zone="G-XIM-OPCODE-KEY:CAPS"><primary>G_XIM_OPCODE_KEY</primary></indexterm><programlisting>#define G_XIM_OPCODE_KEY(_m_,_n_)	GUINT_TO_POINTER ((_m_) &lt;&lt; 8 | ((_n_) &amp; 0xff))
+</programlisting>
+<para>
+Generates a key from opcodes.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>_m_</parameter>&nbsp;:</term>
+<listitem><simpara> a major opcode in XIM protocol.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>_n_</parameter>&nbsp;:</term>
+<listitem><simpara> a minor opcode in XIM protocol.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="GXimProtocolIface" role="struct">
+<title>GXimProtocolIface</title>
+<indexterm zone="GXimProtocolIface"><primary>GXimProtocolIface</primary></indexterm><programlisting>typedef struct {
+	GTypeInterface  parent_iface;
+
+	GXimMessage    *message;
+	GdkAtom         atom_xim_protocol;
+	GdkAtom         atom_xim_moredata;
+} GXimProtocolIface;
+</programlisting>
+<para>
+An interface of XIM protocol.</para>
+<para>
+
+</para><variablelist role="struct">
+<varlistentry>
+<term><link linkend="GTypeInterface">GTypeInterface</link>&nbsp;<structfield>parent_iface</structfield>;</term>
+<listitem><simpara> a parent.
+</simpara></listitem>
+</varlistentry>
+<varlistentry>
+<term><link linkend="GXimMessage">GXimMessage</link>&nbsp;*<structfield>message</structfield>;</term>
+<listitem><simpara> a <link linkend="GXimMessage"><type>GXimMessage</type></link>.
+</simpara></listitem>
+</varlistentry>
+<varlistentry>
+<term><link linkend="GdkAtom">GdkAtom</link>&nbsp;<structfield>atom_xim_protocol</structfield>;</term>
+<listitem><simpara> a <link linkend="GdkAtom"><type>GdkAtom</type></link> for <link linkend="XIM-PROTOCOL:CAPS"><literal>_XIM_PROTOCOL</literal></link>.
+</simpara></listitem>
+</varlistentry>
+<varlistentry>
+<term><link linkend="GdkAtom">GdkAtom</link>&nbsp;<structfield>atom_xim_moredata</structfield>;</term>
+<listitem><simpara> a <link linkend="GdkAtom"><type>GdkAtom</type></link> for <link linkend="XIM-MOREDATA:CAPS"><literal>_XIM_MOREDATA</literal></link>.
+</simpara></listitem>
+</varlistentry>
+</variablelist></refsect2>
+<refsect2 id="GXimProtocolPrivate" role="struct">
+<title>GXimProtocolPrivate</title>
+<indexterm zone="GXimProtocolPrivate"><primary>GXimProtocolPrivate</primary></indexterm><programlisting>typedef struct {
+} GXimProtocolPrivate;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimProtocolQueueNode" role="struct">
+<title>GXimProtocolQueueNode</title>
+<indexterm zone="GXimProtocolQueueNode"><primary>GXimProtocolQueueNode</primary></indexterm><programlisting>typedef struct {
+	gchar    *data;
+	gsize     length;
+	guint16   major_opcode;
+	guint16   minor_opcode;
+	guint16   imid;
+	guint16   icid;
+	gboolean  is_sent;
+} GXimProtocolQueueNode;
+</programlisting>
+<para>
+</para>
+<para>
+
+</para><variablelist role="struct">
+<varlistentry>
+<term><link linkend="gchar">gchar</link>&nbsp;*<structfield>data</structfield>;</term>
+<listitem><simpara> the packet data received.
+</simpara></listitem>
+</varlistentry>
+<varlistentry>
+<term><link linkend="gsize">gsize</link>&nbsp;<structfield>length</structfield>;</term>
+<listitem><simpara> the number of bytes of <parameter>data</parameter>.
+</simpara></listitem>
+</varlistentry>
+<varlistentry>
+<term><link linkend="guint16">guint16</link>&nbsp;<structfield>major_opcode</structfield>;</term>
+<listitem><simpara> the major opcode in XIM protocol
+</simpara></listitem>
+</varlistentry>
+<varlistentry>
+<term><link linkend="guint16">guint16</link>&nbsp;<structfield>minor_opcode</structfield>;</term>
+<listitem><simpara> the minor opcode in XIM protocol
+</simpara></listitem>
+</varlistentry>
+<varlistentry>
+<term><link linkend="guint16">guint16</link>&nbsp;<structfield>imid</structfield>;</term>
+<listitem><simpara> the input-method ID
+</simpara></listitem>
+</varlistentry>
+<varlistentry>
+<term><link linkend="guint16">guint16</link>&nbsp;<structfield>icid</structfield>;</term>
+<listitem><simpara> the input-context ID
+</simpara></listitem>
+</varlistentry>
+<varlistentry>
+<term><link linkend="gboolean">gboolean</link>&nbsp;<structfield>is_sent</structfield>;</term>
+<listitem><simpara>
+</simpara></listitem>
+</varlistentry>
+</variablelist></refsect2>
+<refsect2 id="GXimProtocolError" role="enum">
+<title>enum GXimProtocolError</title>
+<indexterm zone="GXimProtocolError"><primary>GXimProtocolError</primary></indexterm><programlisting>typedef enum {
+	G_XIM_PROTOCOL_ERROR_BEGIN = 128,
+	G_XIM_PROTOCOL_ERROR_UNKNOWN_ENDIAN,
+	G_XIM_PROTOCOL_ERROR_INVALID_PACKETS_RECEIVED,
+	G_XIM_PROTOCOL_ERROR_DELIVERY_FAILURE,
+	G_XIM_PROTOCOL_ERROR_NO_PARSER,
+	G_XIM_PROTOCOL_ERROR_NO_DATA,
+} GXimProtocolError;
+</programlisting>
+<para>
+Error codes returned by <link linkend="GXimProtocol"><type>GXimProtocol</type></link> functions.</para>
+<para>
+
+</para><variablelist role="enum">
+<varlistentry id="G-XIM-PROTOCOL-ERROR-BEGIN:CAPS" role="constant">
+<term><literal>G_XIM_PROTOCOL_ERROR_BEGIN</literal></term>
+<listitem><simpara> Unused.
+</simpara></listitem>
+</varlistentry>
+<varlistentry id="G-XIM-PROTOCOL-ERROR-UNKNOWN-ENDIAN:CAPS" role="constant">
+<term><literal>G_XIM_PROTOCOL_ERROR_UNKNOWN_ENDIAN</literal></term>
+<listitem><simpara> Packets is sent with the unknown endian.
+</simpara></listitem>
+</varlistentry>
+<varlistentry id="G-XIM-PROTOCOL-ERROR-INVALID-PACKETS-RECEIVED:CAPS" role="constant">
+<term><literal>G_XIM_PROTOCOL_ERROR_INVALID_PACKETS_RECEIVED</literal></term>
+<listitem><simpara> Not parserable packets received.
+</simpara></listitem>
+</varlistentry>
+<varlistentry id="G-XIM-PROTOCOL-ERROR-DELIVERY-FAILURE:CAPS" role="constant">
+<term><literal>G_XIM_PROTOCOL_ERROR_DELIVERY_FAILURE</literal></term>
+<listitem><simpara> Unable to deliver the signal properly.
+</simpara></listitem>
+</varlistentry>
+<varlistentry id="G-XIM-PROTOCOL-ERROR-NO-PARSER:CAPS" role="constant">
+<term><literal>G_XIM_PROTOCOL_ERROR_NO_PARSER</literal></term>
+<listitem><simpara> No handlers available to parse packets.
+</simpara></listitem>
+</varlistentry>
+<varlistentry id="G-XIM-PROTOCOL-ERROR-NO-DATA:CAPS" role="constant">
+<term><literal>G_XIM_PROTOCOL_ERROR_NO_DATA</literal></term>
+<listitem><simpara> No data received in a request.
+</simpara></listitem>
+</varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-protocol-init" role="function">
+<title>g_xim_protocol_init ()</title>
+<indexterm zone="g-xim-protocol-init"><primary>g_xim_protocol_init</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_protocol_init                 (<link linkend="GXimProtocol">GXimProtocol</link> *proto);</programlisting>
+<para>
+Initializes <parameter>proto</parameter>. this isn't being invoked from the class automatically
+which has a <link linkend="GXimProtocol"><type>GXimProtocol</type></link> interface. you need to call this function manually
+before doing something with <parameter>proto</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proto</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimProtocol"><type>GXimProtocol</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-protocol-dispose" role="function">
+<title>g_xim_protocol_dispose ()</title>
+<indexterm zone="g-xim-protocol-dispose"><primary>g_xim_protocol_dispose</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_protocol_dispose              (<link linkend="GObject">GObject</link> *object);</programlisting>
+<para>
+Releases all references to other objects. This can be used to break
+reference cycles.
+</para>
+<para>
+This function should only be called from <link linkend="GObject-dispose"><type>"dispose"</type></link> which has
+the <link linkend="GXimProtocol"><type>GXimProtocol</type></link> interface.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>object</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GObject"><type>GObject</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-protocol-finalize" role="function">
+<title>g_xim_protocol_finalize ()</title>
+<indexterm zone="g-xim-protocol-finalize"><primary>g_xim_protocol_finalize</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_protocol_finalize             (<link linkend="GObject">GObject</link> *object);</programlisting>
+<para>
+Finalizes the instance.
+</para>
+<para>
+This function should only be called from <link linkend="GObject-finalize"><type>"finalize"</type></link> which has
+the <link linkend="GXimProtocol"><type>GXimProtocol</type></link> interface.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>object</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GObject"><type>GObject</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-protocol-get-private" role="function">
+<title>g_xim_protocol_get_private ()</title>
+<indexterm zone="g-xim-protocol-get-private"><primary>g_xim_protocol_get_private</primary></indexterm><programlisting><link linkend="GXimProtocolPrivate">GXimProtocolPrivate</link>* g_xim_protocol_get_private         (<link linkend="GXimProtocol">GXimProtocol</link> *proto);</programlisting>
+<para>
+Obtains the <link linkend="GXimProtocolPrivate"><type>GXimProtocolPrivate</type></link> which is referenced <parameter>proto</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proto</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimProtocol"><type>GXimProtocol</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-protocol-get-error-quark" role="function">
+<title>g_xim_protocol_get_error_quark ()</title>
+<indexterm zone="g-xim-protocol-get-error-quark"><primary>g_xim_protocol_get_error_quark</primary></indexterm><programlisting><link linkend="GQuark">GQuark</link>              g_xim_protocol_get_error_quark      (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-protocol-process-event" role="function">
+<title>g_xim_protocol_process_event ()</title>
+<indexterm zone="g-xim-protocol-process-event"><primary>g_xim_protocol_process_event</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_protocol_process_event        (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GdkEventClient">GdkEventClient</link> *event,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+Picks up XIM protocol packets from <parameter>event</parameter> and deal with it as needed.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proto</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimProtocol"><type>GXimProtocol</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>event</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="GdkEventClient"><type>GdkEventClient</type></link> which wants to process this time.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara> a location to store error, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to be processed successfully.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-protocol-translate" role="function">
+<title>g_xim_protocol_translate ()</title>
+<indexterm zone="g-xim-protocol-translate"><primary>g_xim_protocol_translate</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_protocol_translate            (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="gpointer">gpointer</link> data,
+                                                         <link linkend="gssize">gssize</link> length,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+Translate the packets and deliver it to the appropriate places.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proto</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimProtocol"><type>GXimProtocol</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&nbsp;:</term>
+<listitem><simpara> a chunk of XIM protocol packets
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>length</parameter>&nbsp;:</term>
+<listitem><simpara> the number of <parameter>data</parameter>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara> a location to store error, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to be processed successfully.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-protocol-send-packets" role="function">
+<title>g_xim_protocol_send_packets ()</title>
+<indexterm zone="g-xim-protocol-send-packets"><primary>g_xim_protocol_send_packets</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_protocol_send_packets         (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         const <link linkend="gchar">gchar</link> *data,
+                                                         <link linkend="gsize">gsize</link> length);</programlisting>
+<para>
+Sends <parameter>data</parameter> to the opposite direction on the connection.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proto</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimProtocol"><type>GXimProtocol</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&nbsp;:</term>
+<listitem><simpara> a chunk of XIM protocol packets.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>length</parameter>&nbsp;:</term>
+<listitem><simpara> the number of <parameter>data</parameter>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to be sent successfully.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-protocol-send-vformat" role="function">
+<title>g_xim_protocol_send_vformat ()</title>
+<indexterm zone="g-xim-protocol-send-vformat"><primary>g_xim_protocol_send_vformat</primary></indexterm><programlisting><link linkend="gsize">gsize</link>               g_xim_protocol_send_vformat         (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error,
+                                                         <link linkend="guint">guint</link> n_params,
+                                                         <link linkend="va-list">va_list</link> args);</programlisting>
+<para>
+Converts the objects to the XIM protocol packets according to format
+and store it into the send buffer. you shouldn't use this function directly.
+use <link linkend="g-xim-protocol-send"><function>g_xim_protocol_send()</function></link> instead.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proto</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimProtocol"><type>GXimProtocol</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>cancellable</parameter>&nbsp;:</term>
+<listitem><simpara> optional <link linkend="GCancellable"><type>GCancellable</type></link> object, <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara> a location to store error, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>n_params</parameter>&nbsp;:</term>
+<listitem><simpara> the number of a set of parameters.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>args</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="va-list"><type>va_list</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> the number of data stored.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-protocol-send-format" role="function">
+<title>g_xim_protocol_send_format ()</title>
+<indexterm zone="g-xim-protocol-send-format"><primary>g_xim_protocol_send_format</primary></indexterm><programlisting><link linkend="gsize">gsize</link>               g_xim_protocol_send_format          (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error,
+                                                         <link linkend="guint">guint</link> n_params,
+                                                         ...);</programlisting>
+<para>
+Converts the objects to the XIM protocol packets according to the format
+and store it into the send buffer. you shouldn't use this function directly.
+use <link linkend="g-xim-protocol-send"><function>g_xim_protocol_send()</function></link> instead.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proto</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimProtocol"><type>GXimProtocol</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>cancellable</parameter>&nbsp;:</term>
+<listitem><simpara> optional <link linkend="GCancellable"><type>GCancellable</type></link> object, <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara> a location to store error, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>n_params</parameter>&nbsp;:</term>
+<listitem><simpara> the number of a set of parameters.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> the number of data stored.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-protocol-send" role="function">
+<title>g_xim_protocol_send ()</title>
+<indexterm zone="g-xim-protocol-send"><primary>g_xim_protocol_send</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_protocol_send                 (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GXimOpcode">GXimOpcode</link> major_opcode,
+                                                         <link linkend="guint8">guint8</link> minor_opcode,
+                                                         <link linkend="guint">guint</link> n_params,
+                                                         ...);</programlisting>
+<para>
+Sends XIM protocol according to the set of parameters. one is a parameter
+type defined in <link linkend="GXimValueType"><type>GXimValueType</type></link>, and one is an object related to that.
+See <link linkend="GXimValueType"><type>GXimValueType</type></link> documentation which objects are supposed to be specified
+with them.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proto</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimProtocol"><type>GXimProtocol</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>major_opcode</parameter>&nbsp;:</term>
+<listitem><simpara> a major opcode in XIM protocol.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>minor_opcode</parameter>&nbsp;:</term>
+<listitem><simpara> a minor opcode in XIM protocol.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>n_params</parameter>&nbsp;:</term>
+<listitem><simpara> the number of a set of parameters.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to be sent successfully.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-protocol-send-with-list" role="function">
+<title>g_xim_protocol_send_with_list ()</title>
+<indexterm zone="g-xim-protocol-send-with-list"><primary>g_xim_protocol_send_with_list</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_protocol_send_with_list       (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GXimOpcode">GXimOpcode</link> major_opcode,
+                                                         <link linkend="guint8">guint8</link> minor_opcode,
+                                                         <link linkend="GSList">GSList</link> *types,
+                                                         <link linkend="GSList">GSList</link> *values);</programlisting>
+<para>
+Sends XIM protocol according to <parameter>types</parameter> and <parameter>values</parameter>.
+See <link linkend="GXimValueType"><type>GXimValueType</type></link> documentation which objects are supposed to be specified
+with them.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proto</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimProtocol"><type>GXimProtocol</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>major_opcode</parameter>&nbsp;:</term>
+<listitem><simpara> a major opcode in XIM protocol.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>minor_opcode</parameter>&nbsp;:</term>
+<listitem><simpara> a minor opcode in XIM protocol.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>types</parameter>&nbsp;:</term>
+<listitem><simpara> a list of <link linkend="GXimValueType"><type>GXimValueType</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>values</parameter>&nbsp;:</term>
+<listitem><simpara> a list of objects fitting to each value types in <parameter>types</parameter>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to be sent successfully.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-protocol-start-queue" role="function">
+<title>g_xim_protocol_start_queue ()</title>
+<indexterm zone="g-xim-protocol-start-queue"><primary>g_xim_protocol_start_queue</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_protocol_start_queue          (<link linkend="GXimProtocol">GXimProtocol</link> *proto);</programlisting>
+<para>
+Prepares the queue to not send a request immediately. this function is
+useful if you need to wait for any requests but want to send it after
+the pending requests is done.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proto</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimProtocol"><type>GXimProtocol</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to be ready to queue.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-protocol-end-queue" role="function">
+<title>g_xim_protocol_end_queue ()</title>
+<indexterm zone="g-xim-protocol-end-queue"><primary>g_xim_protocol_end_queue</primary></indexterm><programlisting><link linkend="GXimProtocolQueueNode">GXimProtocolQueueNode</link>* g_xim_protocol_end_queue         (<link linkend="GXimProtocol">GXimProtocol</link> *proto);</programlisting>
+<para>
+Terminates the queue.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proto</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimProtocol"><type>GXimProtocol</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> the <link linkend="GXimProtocolQueueNode"><type>GXimProtocolQueueNode</type></link> which queued the request this time.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-protocol-cancel-queue" role="function">
+<title>g_xim_protocol_cancel_queue ()</title>
+<indexterm zone="g-xim-protocol-cancel-queue"><primary>g_xim_protocol_cancel_queue</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_protocol_cancel_queue         (<link linkend="GXimProtocol">GXimProtocol</link> *proto);</programlisting>
+<para>
+Cancels queueing. Note that you have to invoke this function if you can't
+proceed queueing process with any errors say. otherwise invalid node is kept
+in the queue and you may get a trouble with it eveutnally.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proto</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimProtocol"><type>GXimProtocol</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-protocol-is-queued" role="function">
+<title>g_xim_protocol_is_queued ()</title>
+<indexterm zone="g-xim-protocol-is-queued"><primary>g_xim_protocol_is_queued</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_protocol_is_queued            (<link linkend="GXimProtocol">GXimProtocol</link> *proto);</programlisting>
+<para>
+Checks if <parameter>proto</parameter> is in queueing process.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proto</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimProtocol"><type>GXimProtocol</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to be in the queueing process. otherwise <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-protocol-read-vformat" role="function">
+<title>g_xim_protocol_read_vformat ()</title>
+<indexterm zone="g-xim-protocol-read-vformat"><primary>g_xim_protocol_read_vformat</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_protocol_read_vformat         (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GDataInputStream">GDataInputStream</link> *stream,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error,
+                                                         <link linkend="guint">guint</link> n_params,
+                                                         <link linkend="va-list">va_list</link> args);</programlisting>
+<para>
+Scans XIM protocol packets according to the set of parameters. if any,
+objects generated against it is stored in the locations pointed to by
+the pointer arguments. Each pointer argument must be of a type that is
+appropriate for the value returned by the corresponding value type.
+See <link linkend="GXimValueType"><type>GXimValueType</type></link> documentation which objects the value type is supposed
+to be.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proto</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimProtocol"><type>GXimProtocol</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>stream</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GDataInputStream"><type>GDataInputStream</type></link> which contains XIM protocol packets.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>cancellable</parameter>&nbsp;:</term>
+<listitem><simpara> optional <link linkend="GCancellable"><type>GCancellable</type></link> object, <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara> a location to store error, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>n_params</parameter>&nbsp;:</term>
+<listitem><simpara> the number of a set of parameters.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>args</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="va-list"><type>va_list</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to be read successfully.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-protocol-read-format" role="function">
+<title>g_xim_protocol_read_format ()</title>
+<indexterm zone="g-xim-protocol-read-format"><primary>g_xim_protocol_read_format</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_protocol_read_format          (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GDataInputStream">GDataInputStream</link> *stream,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error,
+                                                         <link linkend="guint">guint</link> n_params,
+                                                         ...);</programlisting>
+<para>
+Scans XIM protocol packets according to the set of parameters. if any,
+objects generated against it is stored in the locations pointed to by
+the pointer arguments. Each pointer argument must be of a type that is
+appropriate for the value returned by the corresponding value type.
+See <link linkend="GXimValueType"><type>GXimValueType</type></link> documentation which objects the value type is supposed
+to be.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proto</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimProtocol"><type>GXimProtocol</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>stream</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GDataInputStream"><type>GDataInputStream</type></link> which contains XIM protocol packets.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>cancellable</parameter>&nbsp;:</term>
+<listitem><simpara> optional <link linkend="GCancellable"><type>GCancellable</type></link> object, <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara> a location to store error, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>n_params</parameter>&nbsp;:</term>
+<listitem><simpara> the number of a set of parameters.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to be read successfully.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-protocol-wait-for-reply" role="function">
+<title>g_xim_protocol_wait_for_reply ()</title>
+<indexterm zone="g-xim-protocol-wait-for-reply"><primary>g_xim_protocol_wait_for_reply</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_protocol_wait_for_reply       (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GXimOpcode">GXimOpcode</link> major_opcode,
+                                                         <link linkend="guint8">guint8</link> minor_opcode,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+Waits for a response of <parameter>major_opcode</parameter> and <parameter>minor_opcode</parameter> or <link linkend="G-XIM-ERROR:CAPS"><literal>G_XIM_ERROR</literal></link>.
+this can be used if you need to send a request synchronously.  Note that
+using this function in the server instance won't works due to how GObject
+delivers signals and iterates it.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proto</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimProtocol"><type>GXimProtocol</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>major_opcode</parameter>&nbsp;:</term>
+<listitem><simpara> a major opcode in XIM protocol.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>minor_opcode</parameter>&nbsp;:</term>
+<listitem><simpara> a minor opcode in XIM protocol.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara> a location to store error, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> the request was successfully done.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-protocol-raise-parser-error" role="function">
+<title>g_xim_protocol_raise_parser_error ()</title>
+<indexterm zone="g-xim-protocol-raise-parser-error"><primary>g_xim_protocol_raise_parser_error</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_protocol_raise_parser_error   (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="guint">guint</link> major_opcode,
+                                                         <link linkend="guint">guint</link> minor_opcode,
+                                                         <link linkend="guint">guint</link> imid,
+                                                         <link linkend="guint">guint</link> icid);</programlisting>
+<para>
+Raises an appropriate error to the opposite direction on the connection
+according to <parameter>major_opcode</parameter> and <parameter>minor_opcode</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proto</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimProtocol"><type>GXimProtocol</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>major_opcode</parameter>&nbsp;:</term>
+<listitem><simpara> a major opcode in XIM protocol.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>minor_opcode</parameter>&nbsp;:</term>
+<listitem><simpara> a minor opcode in XIM protocol.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>imid</parameter>&nbsp;:</term>
+<listitem><simpara> input-method ID.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>icid</parameter>&nbsp;:</term>
+<listitem><simpara> input-context ID.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to be sent an error successfully.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-protocol-add-protocol" role="function">
+<title>g_xim_protocol_add_protocol ()</title>
+<indexterm zone="g-xim-protocol-add-protocol"><primary>g_xim_protocol_add_protocol</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_protocol_add_protocol         (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GXimProtocolClosure">GXimProtocolClosure</link> *closure);</programlisting>
+<para>
+Registers a <parameter>closure</parameter> to add the XIM protocol handler.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proto</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimProtocol"><type>GXimProtocol</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>closure</parameter>&nbsp;:</term>
+<listitem><simpara> a structure of closure.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-protocol-remove-protocol" role="function">
+<title>g_xim_protocol_remove_protocol ()</title>
+<indexterm zone="g-xim-protocol-remove-protocol"><primary>g_xim_protocol_remove_protocol</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_protocol_remove_protocol      (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GXimProtocolClosure">GXimProtocolClosure</link> *closure);</programlisting>
+<para>
+Gets rid of <parameter>closure</parameter> to stop XIM protocol handling in <parameter>proto</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proto</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimProtocol"><type>GXimProtocol</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>closure</parameter>&nbsp;:</term>
+<listitem><simpara> a structure of closure.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-protocol-remove-protocol-by-id" role="function">
+<title>g_xim_protocol_remove_protocol_by_id ()</title>
+<indexterm zone="g-xim-protocol-remove-protocol-by-id"><primary>g_xim_protocol_remove_protocol_by_id</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_protocol_remove_protocol_by_id
+                                                        (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="guint8">guint8</link> major_opcode,
+                                                         <link linkend="guint8">guint8</link> minor_opcode);</programlisting>
+<para>
+Gets rid of XIM protocol handling to stop dealing with <parameter>major_opcode</parameter> and
+<parameter>minor_opcode</parameter> in <parameter>proto</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proto</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimProtocol"><type>GXimProtocol</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>major_opcode</parameter>&nbsp;:</term>
+<listitem><simpara> a major opcode in XIM protocol.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>minor_opcode</parameter>&nbsp;:</term>
+<listitem><simpara> a minor opcode in XIM protocol.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-protocol-lookup-protocol-by-name" role="function">
+<title>g_xim_protocol_lookup_protocol_by_name ()</title>
+<indexterm zone="g-xim-protocol-lookup-protocol-by-name"><primary>g_xim_protocol_lookup_protocol_by_name</primary></indexterm><programlisting><link linkend="GXimProtocolClosure">GXimProtocolClosure</link>* g_xim_protocol_lookup_protocol_by_name
+                                                        (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         const <link linkend="gchar">gchar</link> *name);</programlisting>
+<para>
+Looks up the XIM protocol closure with <parameter>name</parameter> which <parameter>proto</parameter> is dealing with.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proto</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimProtocol"><type>GXimProtocol</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara> the name of XIM protocol event.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a <link linkend="GXimProtocolClosure"><type>GXimProtocolClosure</type></link> corresponding to <parameter>name</parameter>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-protocol-lookup-protocol-by-id" role="function">
+<title>g_xim_protocol_lookup_protocol_by_id ()</title>
+<indexterm zone="g-xim-protocol-lookup-protocol-by-id"><primary>g_xim_protocol_lookup_protocol_by_id</primary></indexterm><programlisting><link linkend="GXimProtocolClosure">GXimProtocolClosure</link>* g_xim_protocol_lookup_protocol_by_id
+                                                        (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="guint8">guint8</link> major_opcode,
+                                                         <link linkend="guint8">guint8</link> minor_opcode);</programlisting>
+<para>
+Looks up the XIM protocol closure with <parameter>major_opcode</parameter> and <parameter>minor_opcode</parameter> which
+<parameter>proto</parameter> is dealing with.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proto</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimProtocol"><type>GXimProtocol</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>major_opcode</parameter>&nbsp;:</term>
+<listitem><simpara> a major opcode in XIM protocol.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>minor_opcode</parameter>&nbsp;:</term>
+<listitem><simpara> a minor opcode in XIM protocol.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a <link linkend="GXimProtocolClosure"><type>GXimProtocolClosure</type></link> corresponding to <parameter>major_opcode</parameter> and <parameter>minor_opcode</parameter>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-protocol-connect-closure-by-id" role="function">
+<title>g_xim_protocol_connect_closure_by_id ()</title>
+<indexterm zone="g-xim-protocol-connect-closure-by-id"><primary>g_xim_protocol_connect_closure_by_id</primary></indexterm><programlisting><link linkend="gulong">gulong</link>              g_xim_protocol_connect_closure_by_id
+                                                        (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="guint8">guint8</link> major_opcode,
+                                                         <link linkend="guint8">guint8</link> minor_opcode,
+                                                         <link linkend="GCallback">GCallback</link> func,
+                                                         <link linkend="gpointer">gpointer</link> data);</programlisting>
+<para>
+Connects a <link linkend="GCallback"><type>GCallback</type></link> function to a signal for XIM protocol events.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proto</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimProtocol"><type>GXimProtocol</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>major_opcode</parameter>&nbsp;:</term>
+<listitem><simpara> a major opcode in XIM protocol.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>minor_opcode</parameter>&nbsp;:</term>
+<listitem><simpara> a minor opcode in XIM protocol.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>func</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="GCallback"><type>GCallback</type></link> to connect.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&nbsp;:</term>
+<listitem><simpara> data to pass to <parameter>func</parameter>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> the handler id.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-protocol-connect-closure-by-name" role="function">
+<title>g_xim_protocol_connect_closure_by_name ()</title>
+<indexterm zone="g-xim-protocol-connect-closure-by-name"><primary>g_xim_protocol_connect_closure_by_name</primary></indexterm><programlisting><link linkend="gulong">gulong</link>              g_xim_protocol_connect_closure_by_name
+                                                        (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         const <link linkend="gchar">gchar</link> *signal_name,
+                                                         <link linkend="GCallback">GCallback</link> func,
+                                                         <link linkend="gpointer">gpointer</link> data);</programlisting>
+<para>
+Connects a <link linkend="GCallback"><type>GCallback</type></link> function to a signal for XIM protocol events.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proto</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimProtocol"><type>GXimProtocol</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>signal_name</parameter>&nbsp;:</term>
+<listitem><simpara> a XIM protocol event name.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>func</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="GCallback"><type>GCallback</type></link> to connect.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&nbsp;:</term>
+<listitem><simpara> data to pass to <parameter>func</parameter>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> the handler id.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-protocol-get-extensions" role="function">
+<title>g_xim_protocol_get_extensions ()</title>
+<indexterm zone="g-xim-protocol-get-extensions"><primary>g_xim_protocol_get_extensions</primary></indexterm><programlisting><link linkend="GSList">GSList</link>*             g_xim_protocol_get_extensions       (<link linkend="GXimProtocol">GXimProtocol</link> *proto);</programlisting>
+<para>
+Obtains a set of <link linkend="GXimProtocolClosure"><type>GXimProtocolClosure</type></link> registered as an extension. this is
+helpful to deal with <link linkend="G-XIM-QUERY-EXTENSION:CAPS"><literal>G_XIM_QUERY_EXTENSION</literal></link> and so on.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proto</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimProtocol"><type>GXimProtocol</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> the <link linkend="GSList"><type>GSList</type></link> which contains <link linkend="GXimProtocolClosure"><type>GXimProtocolClosure</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="GXimProtocolClosureFunc" role="function">
+<title>GXimProtocolClosureFunc ()</title>
+<indexterm zone="GXimProtocolClosureFunc"><primary>GXimProtocolClosureFunc</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            (*GXimProtocolClosureFunc)          (<link linkend="GXimProtocolClosure">GXimProtocolClosure</link> *closure,
+                                                         <link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GDataInputStream">GDataInputStream</link> *stream,
+                                                         <link linkend="GError">GError</link> **error,
+                                                         <link linkend="gpointer">gpointer</link> user_data);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>closure</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>proto</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>stream</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="GXimProtocolClosure" role="struct">
+<title>GXimProtocolClosure</title>
+<indexterm zone="GXimProtocolClosure"><primary>GXimProtocolClosure</primary></indexterm><programlisting>typedef struct {
+	GCClosure        closure;
+	GClosureMarshal  signal_marshaller;
+	guint            n_params;
+	GType           *param_types;
+	GSList          *signal_handlers;
+	gchar           *name;
+	union {
+		GXimOpcode v1;
+		guint8     v2;
+	} major_opcode;
+	guint8           minor_opcode;
+	gboolean         is_an_extension;
+} GXimProtocolClosure;
+</programlisting>
+<para>
+</para>
+<para>
+
+</para></refsect2>
+<refsect2 id="g-xim-protocol-closure-new" role="function">
+<title>g_xim_protocol_closure_new ()</title>
+<indexterm zone="g-xim-protocol-closure-new"><primary>g_xim_protocol_closure_new</primary></indexterm><programlisting><link linkend="GXimProtocolClosure">GXimProtocolClosure</link>* g_xim_protocol_closure_new         (<link linkend="guint8">guint8</link> major_opcode,
+                                                         <link linkend="guint8">guint8</link> minor_opcode,
+                                                         const <link linkend="gchar">gchar</link> *name,
+                                                         <link linkend="gboolean">gboolean</link> is_an_extension);</programlisting>
+<para>
+Creates an instance of the <link linkend="GXimProtocolClosure"><type>GXimProtocolClosure</type></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>major_opcode</parameter>&nbsp;:</term>
+<listitem><simpara> a major opcode in XIM protocol.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>minor_opcode</parameter>&nbsp;:</term>
+<listitem><simpara> a minor opcode in XIM protocol.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara> the XIM protocol name.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>is_an_extension</parameter>&nbsp;:</term>
+<listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to define an extension in XIM protocol, otherwise <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> the <link linkend="GXimProtocolClosure"><type>GXimProtocolClosure</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-protocol-closure-free" role="function">
+<title>g_xim_protocol_closure_free ()</title>
+<indexterm zone="g-xim-protocol-closure-free"><primary>g_xim_protocol_closure_free</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_protocol_closure_free         (<link linkend="gpointer">gpointer</link> data,
+                                                         <link linkend="GClosure">GClosure</link> *closure);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>data</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>closure</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-protocol-closure-is-an-extension" role="function">
+<title>g_xim_protocol_closure_is_an_extension ()</title>
+<indexterm zone="g-xim-protocol-closure-is-an-extension"><primary>g_xim_protocol_closure_is_an_extension</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_protocol_closure_is_an_extension
+                                                        (<link linkend="GXimProtocolClosure">GXimProtocolClosure</link> *closure);</programlisting>
+<para>
+Checks if the <parameter>closure</parameter> was created as an extension protocol in XIM.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>closure</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimProtocolClosure"><type>GXimProtocolClosure</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to be an extension.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-protocol-closure-set-marshal" role="function">
+<title>g_xim_protocol_closure_set_marshal ()</title>
+<indexterm zone="g-xim-protocol-closure-set-marshal"><primary>g_xim_protocol_closure_set_marshal</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_protocol_closure_set_marshal  (<link linkend="GXimProtocolClosure">GXimProtocolClosure</link> *closure,
+                                                         <link linkend="GXimProtocolClosureFunc">GXimProtocolClosureFunc</link> func,
+                                                         <link linkend="gpointer">gpointer</link> data);</programlisting>
+<para>
+Sets the marshaller of <parameter>closure</parameter> which scans the XIM protocol packets and emit
+the proper signal as needed.  Note that <link linkend="g-xim-protocol-closure-emit-signal"><function>g_xim_protocol_closure_emit_signal()</function></link>
+has to be invoked in <parameter>func</parameter> otherwise any signals added by
+<link linkend="g-xim-protocol-closure-add-signal"><function>g_xim_protocol_closure_add_signal()</function></link> won't do anything at all.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>closure</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimProtocolClosure"><type>GXimProtocolClosure</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>func</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="GXimProtocolClosureFunc"><type>GXimProtocolClosureFunc</type></link> function to scan the XIM protocol packet
+ and emits the proper signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&nbsp;:</term>
+<listitem><simpara> the data to store in the <parameter>data</parameter> field of the <link linkend="GClosure"><type>GClosure</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-protocol-closure-add-signal" role="function">
+<title>g_xim_protocol_closure_add_signal ()</title>
+<indexterm zone="g-xim-protocol-closure-add-signal"><primary>g_xim_protocol_closure_add_signal</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_protocol_closure_add_signal   (<link linkend="GXimProtocolClosure">GXimProtocolClosure</link> *closure,
+                                                         <link linkend="GClosureMarshal">GClosureMarshal</link> marshaller,
+                                                         <link linkend="guint">guint</link> n_params,
+                                                         ...);</programlisting>
+<para>
+Adds a marshaller for signal.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>closure</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimProtocolClosure"><type>GXimProtocolClosure</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>marshaller</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="GClosureMarshal"><type>GClosureMarshal</type></link> to deal with the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>n_params</parameter>&nbsp;:</term>
+<listitem><simpara> the number of parameters for the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter>&nbsp;:</term>
+<listitem><simpara> a list of types, one for each parameter.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-protocol-closure-connect" role="function">
+<title>g_xim_protocol_closure_connect ()</title>
+<indexterm zone="g-xim-protocol-closure-connect"><primary>g_xim_protocol_closure_connect</primary></indexterm><programlisting><link linkend="gulong">gulong</link>              g_xim_protocol_closure_connect      (<link linkend="GXimProtocolClosure">GXimProtocolClosure</link> *closure,
+                                                         <link linkend="GCallback">GCallback</link> func,
+                                                         <link linkend="gpointer">gpointer</link> data);</programlisting>
+<para>
+Connects a closure to a signal.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>closure</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimProtocolClosure"><type>GXimProtocolClosure</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>func</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="GCallback"><type>GCallback</type></link> to connect.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&nbsp;:</term>
+<listitem><simpara> data to pass to <parameter>func</parameter>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> the handler id.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-protocol-closure-disconnect" role="function">
+<title>g_xim_protocol_closure_disconnect ()</title>
+<indexterm zone="g-xim-protocol-closure-disconnect"><primary>g_xim_protocol_closure_disconnect</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_protocol_closure_disconnect   (<link linkend="GXimProtocolClosure">GXimProtocolClosure</link> *closure,
+                                                         <link linkend="gulong">gulong</link> id);</programlisting>
+<para>
+Disconnects a handler from an instance so it will not be called during
+any future or currently ongoing emissions of the signal if has been
+connected to. The <parameter>id</parameter> becomes invalid and may be reused.
+</para>
+<para>
+The <parameter>id</parameter> has to be a valid signal handler id, connected to a
+signal of <parameter>closure</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>closure</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimProtocolClosure"><type>GXimProtocolClosure</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>id</parameter>&nbsp;:</term>
+<listitem><simpara> Handler id of the handler to be disconnected.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-protocol-closure-emit-signal" role="function">
+<title>g_xim_protocol_closure_emit_signal ()</title>
+<indexterm zone="g-xim-protocol-closure-emit-signal"><primary>g_xim_protocol_closure_emit_signal</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_protocol_closure_emit_signal  (<link linkend="GXimProtocolClosure">GXimProtocolClosure</link> *closure,
+                                                         <link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         ...);</programlisting>
+<para>
+Emits a signal.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>closure</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimProtocolClosure"><type>GXimProtocolClosure</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>proto</parameter>&nbsp;:</term>
+<listitem><simpara> the instance which wants to raise a signal with <parameter>closure</parameter>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter>&nbsp;:</term>
+<listitem><simpara> parameters to be passed to the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to be proceeded a signal in the handlers. <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> to be failed
+ in any handlers or no handlers for this signal.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-attr-put-attribute-to-stream" role="function">
+<title>g_xim_attr_put_attribute_to_stream ()</title>
+<indexterm zone="g-xim-attr-put-attribute-to-stream"><primary>g_xim_attr_put_attribute_to_stream</primary></indexterm><programlisting><link linkend="gsize">gsize</link>               g_xim_attr_put_attribute_to_stream  (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GXimAttr">GXimAttr</link> *attr,
+                                                         <link linkend="guint">guint</link> attribute_id,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proto</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>attr</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>attribute_id</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>cancellable</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-attr-get-attribute-from-stream" role="function">
+<title>g_xim_attr_get_attribute_from_stream ()</title>
+<indexterm zone="g-xim-attr-get-attribute-from-stream"><primary>g_xim_attr_get_attribute_from_stream</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            g_xim_attr_get_attribute_from_stream
+                                                        (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GXimAttr">GXimAttr</link> *attr,
+                                                         <link linkend="GDataInputStream">GDataInputStream</link> *stream,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proto</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>attr</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>stream</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>cancellable</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

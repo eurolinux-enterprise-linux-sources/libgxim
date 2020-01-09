@@ -1,0 +1,125 @@
+<refentry id="libgxim-gximerror">
+<refmeta>
+<refentrytitle role="top_of_page" id="libgxim-gximerror.top_of_page">gximerror</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGXIM Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>gximerror</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="libgxim-gximerror.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+#define             <link linkend="G-XIM-ERROR-DECODE-X-ERROR-CODE:CAPS">G_XIM_ERROR_DECODE_X_ERROR_CODE</link>     (_v_)
+#define             <link linkend="G-XIM-ERROR-DECODE-X-REQUEST-CODE:CAPS">G_XIM_ERROR_DECODE_X_REQUEST_CODE</link>   (_v_)
+#define             <link linkend="G-XIM-ERROR-DECODE-X-MINOR-CODE:CAPS">G_XIM_ERROR_DECODE_X_MINOR_CODE</link>     (_v_)
+#define             <link linkend="G-XIM-ERROR-ERROR-CODE:CAPS">G_XIM_ERROR_ERROR_CODE</link>              (_e_,_r_,_m_)
+<link linkend="void">void</link>                <link linkend="g-xim-error-push">g_xim_error_push</link>                    (void);
+<link linkend="guint32">guint32</link>             <link linkend="g-xim-error-pop">g_xim_error_pop</link>                     (void);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libgxim-gximerror.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 id="libgxim-gximerror.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="G-XIM-ERROR-DECODE-X-ERROR-CODE:CAPS" role="macro">
+<title>G_XIM_ERROR_DECODE_X_ERROR_CODE()</title>
+<indexterm zone="G-XIM-ERROR-DECODE-X-ERROR-CODE:CAPS"><primary>G_XIM_ERROR_DECODE_X_ERROR_CODE</primary></indexterm><programlisting>#define G_XIM_ERROR_DECODE_X_ERROR_CODE(_v_)	(((_v_) &gt;&gt; 24) &amp; 0xff)
+</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>_v_</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="G-XIM-ERROR-DECODE-X-REQUEST-CODE:CAPS" role="macro">
+<title>G_XIM_ERROR_DECODE_X_REQUEST_CODE()</title>
+<indexterm zone="G-XIM-ERROR-DECODE-X-REQUEST-CODE:CAPS"><primary>G_XIM_ERROR_DECODE_X_REQUEST_CODE</primary></indexterm><programlisting>#define G_XIM_ERROR_DECODE_X_REQUEST_CODE(_v_)	(((_v_) &gt;&gt; 16) &amp; 0xff)
+</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>_v_</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="G-XIM-ERROR-DECODE-X-MINOR-CODE:CAPS" role="macro">
+<title>G_XIM_ERROR_DECODE_X_MINOR_CODE()</title>
+<indexterm zone="G-XIM-ERROR-DECODE-X-MINOR-CODE:CAPS"><primary>G_XIM_ERROR_DECODE_X_MINOR_CODE</primary></indexterm><programlisting>#define G_XIM_ERROR_DECODE_X_MINOR_CODE(_v_)	(((_v_) &gt;&gt; 8) &amp; 0xff)
+</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>_v_</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="G-XIM-ERROR-ERROR-CODE:CAPS" role="macro">
+<title>G_XIM_ERROR_ERROR_CODE()</title>
+<indexterm zone="G-XIM-ERROR-ERROR-CODE:CAPS"><primary>G_XIM_ERROR_ERROR_CODE</primary></indexterm><programlisting>#define G_XIM_ERROR_ERROR_CODE(_e_,_r_,_m_)	((((_e_) &amp; 0xff) &lt;&lt; 24) | (((_r_) &amp; 0xff) &lt;&lt; 16) | (((_m_) &amp; 0xff) &lt;&lt; 8))
+</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>_e_</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>_r_</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>_m_</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-error-push" role="function">
+<title>g_xim_error_push ()</title>
+<indexterm zone="g-xim-error-push"><primary>g_xim_error_push</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_error_push                    (void);</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="g-xim-error-pop" role="function">
+<title>g_xim_error_pop ()</title>
+<indexterm zone="g-xim-error-pop"><primary>g_xim_error_pop</primary></indexterm><programlisting><link linkend="guint32">guint32</link>             g_xim_error_pop                     (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

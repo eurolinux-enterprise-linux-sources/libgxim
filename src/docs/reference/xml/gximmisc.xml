@@ -1,0 +1,3277 @@
+<refentry id="libgxim-gximmisc">
+<refmeta>
+<refentrytitle role="top_of_page" id="libgxim-gximmisc.top_of_page">gximmisc</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGXIM Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>gximmisc</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="libgxim-gximmisc.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+#define             <link linkend="G-XIM-GERROR-RESET-NOTICE-FLAG:CAPS">G_XIM_GERROR_RESET_NOTICE_FLAG</link>      (_e_)
+#define             <link linkend="G-XIM-GERROR-SET-NOTICE-FLAG:CAPS">G_XIM_GERROR_SET_NOTICE_FLAG</link>        (_e_,_f_)
+#define             <link linkend="G-XIM-CHECK-ALLOC-WITH-CODE:CAPS">G_XIM_CHECK_ALLOC_WITH_CODE</link>         (_v_,_c_,_r_)
+#define             <link linkend="G-XIM-CHECK-ALLOC:CAPS">G_XIM_CHECK_ALLOC</link>                   (_v_,_r_)
+#define             <link linkend="G-XIM-CHECK-ALLOC-WITH-NO-RET:CAPS">G_XIM_CHECK_ALLOC_WITH_NO_RET</link>       (_v_)
+#define             <link linkend="G-XIM-GERROR-CHECK-ALLOC-WITH-CODE:CAPS">G_XIM_GERROR_CHECK_ALLOC_WITH_CODE</link>  (_v_,_e_,_t_,_c_,_r_)
+#define             <link linkend="G-XIM-GERROR-CHECK-ALLOC:CAPS">G_XIM_GERROR_CHECK_ALLOC</link>            (_v_,_e_,_t_,_r_)
+<link linkend="void">void</link>                <link linkend="g-xim-init">g_xim_init</link>                          (void);
+<link linkend="void">void</link>                <link linkend="g-xim-finalize">g_xim_finalize</link>                      (void);
+<link linkend="GDataStreamByteOrder">GDataStreamByteOrder</link> <link linkend="g-xim-get-byte-order">g_xim_get_byte_order</link>               (void);
+<link linkend="GXimValueType">GXimValueType</link>       <link linkend="g-xim-gtype-to-value-type">g_xim_gtype_to_value_type</link>           (<link linkend="GType">GType</link> gtype);
+<link linkend="GType">GType</link>               <link linkend="g-xim-value-type-to-gtype">g_xim_value_type_to_gtype</link>           (<link linkend="GXimValueType">GXimValueType</link> vtype);
+const <link linkend="gchar">gchar</link>*        <link linkend="g-xim-value-type-name">g_xim_value_type_name</link>               (<link linkend="GXimValueType">GXimValueType</link> vtype);
+const <link linkend="gchar">gchar</link>*        <link linkend="g-xim-protocol-name">g_xim_protocol_name</link>                 (<link linkend="guint16">guint16</link> major_opcode);
+<link linkend="GdkWindow">GdkWindow</link>*          <link linkend="g-xim-get-window">g_xim_get_window</link>                    (<link linkend="GdkDisplay">GdkDisplay</link> *dpy,
+                                                         <link linkend="GdkNativeWindow">GdkNativeWindow</link> window);
+<link linkend="GdkPixmap">GdkPixmap</link>*          <link linkend="g-xim-get-pixmap">g_xim_get_pixmap</link>                    (<link linkend="GdkDisplay">GdkDisplay</link> *dpy,
+                                                         <link linkend="GdkNativeWindow">GdkNativeWindow</link> window);
+<link linkend="GdkWindow">GdkWindow</link>*          <link linkend="g-xim-get-selection-owner">g_xim_get_selection_owner</link>           (<link linkend="GdkDisplay">GdkDisplay</link> *display,
+                                                         <link linkend="GdkAtom">GdkAtom</link> selection);
+<link linkend="GdkWindow">GdkWindow</link>*          <link linkend="g-xim-lookup-xim-server">g_xim_lookup_xim_server</link>             (<link linkend="GdkDisplay">GdkDisplay</link> *dpy,
+                                                         <link linkend="GdkAtom">GdkAtom</link> atom_server,
+                                                         <link linkend="gboolean">gboolean</link> *is_valid);
+<link linkend="GdkWindow">GdkWindow</link>*          <link linkend="g-xim-lookup-xim-server-from-string">g_xim_lookup_xim_server_from_string</link> (<link linkend="GdkDisplay">GdkDisplay</link> *dpy,
+                                                         const <link linkend="gchar">gchar</link> *server_name,
+                                                         <link linkend="gboolean">gboolean</link> *is_valid);
+<link linkend="GdkAtom">GdkAtom</link>             <link linkend="g-xim-get-server-atom">g_xim_get_server_atom</link>               (const <link linkend="gchar">gchar</link> *server_name);
+                    <link linkend="GXimStrConvText">GXimStrConvText</link>;
+<link linkend="GXimStrConvText">GXimStrConvText</link>*    <link linkend="g-xim-str-conv-text-new">g_xim_str_conv_text_new</link>             (const <link linkend="gchar">gchar</link> *string,
+                                                         <link linkend="guint16">guint16</link> length);
+<link linkend="GXimStrConvText">GXimStrConvText</link>*    <link linkend="g-xim-str-conv-text-new-full">g_xim_str_conv_text_new_full</link>        (const <link linkend="gchar">gchar</link> *string,
+                                                         <link linkend="guint16">guint16</link> length,
+                                                         <link linkend="guint16">guint16</link> feedback);
+<link linkend="void">void</link>                <link linkend="g-xim-str-conv-text-free">g_xim_str_conv_text_free</link>            (<link linkend="GXimStrConvText">GXimStrConvText</link> *text);
+<link linkend="void">void</link>                <link linkend="g-xim-str-conv-set-feedback">g_xim_str_conv_set_feedback</link>         (<link linkend="GXimStrConvText">GXimStrConvText</link> *text,
+                                                         <link linkend="guint16">guint16</link> feedback);
+<link linkend="guint16">guint16</link>             <link linkend="g-xim-str-conv-get-feedback">g_xim_str_conv_get_feedback</link>         (<link linkend="GXimStrConvText">GXimStrConvText</link> *text);
+#define             <link linkend="G-TYPE-XIM-STYLES:CAPS">G_TYPE_XIM_STYLES</link>
+#define             <link linkend="G-XIM-STYLES-ERROR:CAPS">G_XIM_STYLES_ERROR</link>
+enum                <link linkend="GXimStyle">GXimStyle</link>;
+                    <link linkend="GXimStyles">GXimStyles</link>;
+<link linkend="GQuark">GQuark</link>              <link linkend="g-xim-styles-get-error-quark">g_xim_styles_get_error_quark</link>        (void);
+<link linkend="GXimStyles">GXimStyles</link>*         <link linkend="g-xim-styles-new">g_xim_styles_new</link>                    (void);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-styles-append">g_xim_styles_append</link>                 (<link linkend="GXimStyles">GXimStyles</link> *styles,
+                                                         <link linkend="GXimStyle">GXimStyle</link> style,
+                                                         <link linkend="GError">GError</link> **error);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-styles-insert">g_xim_styles_insert</link>                 (<link linkend="GXimStyles">GXimStyles</link> *styles,
+                                                         <link linkend="guint">guint</link> index_,
+                                                         <link linkend="GXimStyle">GXimStyle</link> style,
+                                                         <link linkend="GError">GError</link> **error);
+<link linkend="gpointer">gpointer</link>            <link linkend="g-xim-styles-copy">g_xim_styles_copy</link>                   (<link linkend="gpointer">gpointer</link> boxed);
+<link linkend="void">void</link>                <link linkend="g-xim-styles-free">g_xim_styles_free</link>                   (<link linkend="gpointer">gpointer</link> boxed);
+<link linkend="gsize">gsize</link>               <link linkend="g-xim-styles-put-to-stream">g_xim_styles_put_to_stream</link>          (<link linkend="GXimStyles">GXimStyles</link> *styles,
+                                                         <link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);
+<link linkend="gpointer">gpointer</link>            <link linkend="g-xim-styles-get-from-stream">g_xim_styles_get_from_stream</link>        (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GDataInputStream">GDataInputStream</link> *stream,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);
+#define             <link linkend="G-TYPE-XIM-RECTANGLE:CAPS">G_TYPE_XIM_RECTANGLE</link>
+                    <link linkend="GXimRectangle">GXimRectangle</link>;
+<link linkend="GType">GType</link>               <link linkend="g-xim-rectangle-get-type">g_xim_rectangle_get_type</link>            (void);
+<link linkend="gpointer">gpointer</link>            <link linkend="g-xim-rectangle-new">g_xim_rectangle_new</link>                 (void);
+<link linkend="gpointer">gpointer</link>            <link linkend="g-xim-rectangle-copy">g_xim_rectangle_copy</link>                (<link linkend="gpointer">gpointer</link> boxed);
+<link linkend="void">void</link>                <link linkend="g-xim-rectangle-free">g_xim_rectangle_free</link>                (<link linkend="gpointer">gpointer</link> boxed);
+<link linkend="gsize">gsize</link>               <link linkend="g-xim-rectangle-put-to-stream">g_xim_rectangle_put_to_stream</link>       (<link linkend="GXimRectangle">GXimRectangle</link> *rectangle,
+                                                         <link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);
+<link linkend="gpointer">gpointer</link>            <link linkend="g-xim-rectangle-get-from-stream">g_xim_rectangle_get_from_stream</link>     (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GDataInputStream">GDataInputStream</link> *stream,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);
+#define             <link linkend="G-TYPE-XIM-POINT:CAPS">G_TYPE_XIM_POINT</link>
+                    <link linkend="GXimPoint">GXimPoint</link>;
+<link linkend="GType">GType</link>               <link linkend="g-xim-point-get-type">g_xim_point_get_type</link>                (void);
+<link linkend="gpointer">gpointer</link>            <link linkend="g-xim-point-new">g_xim_point_new</link>                     (void);
+<link linkend="gpointer">gpointer</link>            <link linkend="g-xim-point-copy">g_xim_point_copy</link>                    (<link linkend="gpointer">gpointer</link> boxed);
+<link linkend="void">void</link>                <link linkend="g-xim-point-free">g_xim_point_free</link>                    (<link linkend="gpointer">gpointer</link> boxed);
+<link linkend="gsize">gsize</link>               <link linkend="g-xim-point-put-to-stream">g_xim_point_put_to_stream</link>           (<link linkend="GXimPoint">GXimPoint</link> *point,
+                                                         <link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);
+<link linkend="gpointer">gpointer</link>            <link linkend="g-xim-point-get-from-stream">g_xim_point_get_from_stream</link>         (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GDataInputStream">GDataInputStream</link> *stream,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);
+#define             <link linkend="G-TYPE-XIM-FONTSET:CAPS">G_TYPE_XIM_FONTSET</link>
+<link linkend="GType">GType</link>               <link linkend="g-xim-fontset-get-type">g_xim_fontset_get_type</link>              (void);
+<link linkend="gpointer">gpointer</link>            <link linkend="g-xim-fontset-copy">g_xim_fontset_copy</link>                  (<link linkend="gpointer">gpointer</link> boxed);
+<link linkend="void">void</link>                <link linkend="g-xim-fontset-free">g_xim_fontset_free</link>                  (<link linkend="gpointer">gpointer</link> boxed);
+<link linkend="gsize">gsize</link>               <link linkend="g-xim-fontset-put-to-stream">g_xim_fontset_put_to_stream</link>         (<link linkend="GXimFontSet">GXimFontSet</link> *fontset,
+                                                         <link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);
+<link linkend="gpointer">gpointer</link>            <link linkend="g-xim-fontset-get-from-stream">g_xim_fontset_get_from_stream</link>       (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GDataInputStream">GDataInputStream</link> *stream,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);
+<link linkend="gsize">gsize</link>               <link linkend="g-xim-gstring-put-to-stream">g_xim_gstring_put_to_stream</link>         (<link linkend="GString">GString</link> *string,
+                                                         <link linkend="GDataOutputStream">GDataOutputStream</link> *stream,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);
+<link linkend="gpointer">gpointer</link>            <link linkend="g-xim-gstring-get-from-stream">g_xim_gstring_get_from_stream</link>       (<link linkend="GDataInputStream">GDataInputStream</link> *stream,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);
+#define             <link linkend="G-TYPE-XIM-STRING:CAPS">G_TYPE_XIM_STRING</link>
+<link linkend="GType">GType</link>               <link linkend="g-xim-string-get-type">g_xim_string_get_type</link>               (void);
+<link linkend="gpointer">gpointer</link>            <link linkend="g-xim-string-new">g_xim_string_new</link>                    (void);
+<link linkend="gpointer">gpointer</link>            <link linkend="g-xim-string-copy">g_xim_string_copy</link>                   (<link linkend="gpointer">gpointer</link> boxed);
+<link linkend="void">void</link>                <link linkend="g-xim-string-free">g_xim_string_free</link>                   (<link linkend="gpointer">gpointer</link> boxed);
+const <link linkend="gchar">gchar</link>*        <link linkend="g-xim-string-get-string">g_xim_string_get_string</link>             (const <link linkend="GXimString">GXimString</link> *string);
+<link linkend="gsize">gsize</link>               <link linkend="g-xim-string-get-length">g_xim_string_get_length</link>             (<link linkend="GXimString">GXimString</link> *string);
+<link linkend="gsize">gsize</link>               <link linkend="g-xim-string-put-to-stream">g_xim_string_put_to_stream</link>          (<link linkend="GXimString">GXimString</link> *string,
+                                                         <link linkend="GDataOutputStream">GDataOutputStream</link> *stream,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);
+<link linkend="gpointer">gpointer</link>            <link linkend="g-xim-string-get-from-stream">g_xim_string_get_from_stream</link>        (<link linkend="GDataInputStream">GDataInputStream</link> *stream,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);
+#define             <link linkend="G-TYPE-XIM-STR:CAPS">G_TYPE_XIM_STR</link>
+<link linkend="GType">GType</link>               <link linkend="g-xim-str-get-type">g_xim_str_get_type</link>                  (void);
+<link linkend="gpointer">gpointer</link>            <link linkend="g-xim-str-new">g_xim_str_new</link>                       (void);
+<link linkend="gpointer">gpointer</link>            <link linkend="g-xim-str-copy">g_xim_str_copy</link>                      (<link linkend="gpointer">gpointer</link> boxed);
+<link linkend="void">void</link>                <link linkend="g-xim-str-free">g_xim_str_free</link>                      (<link linkend="gpointer">gpointer</link> boxed);
+const <link linkend="gchar">gchar</link>*        <link linkend="g-xim-str-get-string">g_xim_str_get_string</link>                (const <link linkend="GXimStr">GXimStr</link> *string);
+<link linkend="gsize">gsize</link>               <link linkend="g-xim-str-get-length">g_xim_str_get_length</link>                (const <link linkend="GXimStr">GXimStr</link> *string);
+<link linkend="GXimStr">GXimStr</link>*            <link linkend="g-xim-str-append">g_xim_str_append</link>                    (<link linkend="GXimStr">GXimStr</link> *string,
+                                                         const <link linkend="gchar">gchar</link> *val);
+<link linkend="GXimStr">GXimStr</link>*            <link linkend="g-xim-str-append-len">g_xim_str_append_len</link>                (<link linkend="GXimStr">GXimStr</link> *string,
+                                                         const <link linkend="gchar">gchar</link> *val,
+                                                         <link linkend="gssize">gssize</link> len);
+<link linkend="gsize">gsize</link>               <link linkend="g-xim-str-put-to-stream">g_xim_str_put_to_stream</link>             (<link linkend="GXimStr">GXimStr</link> *string,
+                                                         <link linkend="GDataOutputStream">GDataOutputStream</link> *stream,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);
+<link linkend="gpointer">gpointer</link>            <link linkend="g-xim-str-get-from-stream">g_xim_str_get_from_stream</link>           (<link linkend="GDataInputStream">GDataInputStream</link> *stream,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);
+#define             <link linkend="G-TYPE-XIM-ENCODINGINFO:CAPS">G_TYPE_XIM_ENCODINGINFO</link>
+<link linkend="GType">GType</link>               <link linkend="g-xim-encodinginfo-get-type">g_xim_encodinginfo_get_type</link>         (void);
+<link linkend="gpointer">gpointer</link>            <link linkend="g-xim-encodinginfo-new">g_xim_encodinginfo_new</link>              (void);
+<link linkend="gpointer">gpointer</link>            <link linkend="g-xim-encodinginfo-copy">g_xim_encodinginfo_copy</link>             (<link linkend="gpointer">gpointer</link> boxed);
+<link linkend="void">void</link>                <link linkend="g-xim-encodinginfo-free">g_xim_encodinginfo_free</link>             (<link linkend="gpointer">gpointer</link> boxed);
+const <link linkend="gchar">gchar</link>*        <link linkend="g-xim-encodinginfo-get-string">g_xim_encodinginfo_get_string</link>       (const <link linkend="GXimEncodingInfo">GXimEncodingInfo</link> *encoding);
+<link linkend="gsize">gsize</link>               <link linkend="g-xim-encodinginfo-get-length">g_xim_encodinginfo_get_length</link>       (<link linkend="GXimEncodingInfo">GXimEncodingInfo</link> *encoding);
+<link linkend="gsize">gsize</link>               <link linkend="g-xim-encodinginfo-put-to-stream">g_xim_encodinginfo_put_to_stream</link>    (<link linkend="GXimEncodingInfo">GXimEncodingInfo</link> *encoding,
+                                                         <link linkend="GDataOutputStream">GDataOutputStream</link> *stream,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);
+<link linkend="gpointer">gpointer</link>            <link linkend="g-xim-encodinginfo-get-from-stream">g_xim_encodinginfo_get_from_stream</link>  (<link linkend="GDataInputStream">GDataInputStream</link> *stream,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);
+#define             <link linkend="G-TYPE-XIM-NESTEDLIST:CAPS">G_TYPE_XIM_NESTEDLIST</link>
+                    <link linkend="GXimNestedListNode">GXimNestedListNode</link>;
+<link linkend="gboolean">gboolean</link>            (<link linkend="GXimNestedFunc">*GXimNestedFunc</link>)                   (<link linkend="GXimNestedListNode">GXimNestedListNode</link> *node,
+                                                         <link linkend="gpointer">gpointer</link> user_data);
+<link linkend="GType">GType</link>               <link linkend="g-xim-nested-list-get-type">g_xim_nested_list_get_type</link>          (void);
+<link linkend="gpointer">gpointer</link>            <link linkend="g-xim-nested-list-new">g_xim_nested_list_new</link>               (<link linkend="GXimAttr">GXimAttr</link> *attr,
+                                                         <link linkend="guint">guint</link> n_nodes);
+<link linkend="gpointer">gpointer</link>            <link linkend="g-xim-nested-list-copy">g_xim_nested_list_copy</link>              (<link linkend="gpointer">gpointer</link> boxed);
+<link linkend="void">void</link>                <link linkend="g-xim-nested-list-free">g_xim_nested_list_free</link>              (<link linkend="gpointer">gpointer</link> boxed);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-nested-list-append">g_xim_nested_list_append</link>            (<link linkend="GXimNestedList">GXimNestedList</link> *list,
+                                                         const <link linkend="gchar">gchar</link> *name,
+                                                         <link linkend="gpointer">gpointer</link> value);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-nested-list-foreach">g_xim_nested_list_foreach</link>           (<link linkend="GXimNestedList">GXimNestedList</link> *list,
+                                                         <link linkend="GXimNestedFunc">GXimNestedFunc</link> func,
+                                                         <link linkend="gpointer">gpointer</link> data);
+<link linkend="gsize">gsize</link>               <link linkend="g-xim-nested-list-put-to-stream">g_xim_nested_list_put_to_stream</link>     (<link linkend="GXimNestedList">GXimNestedList</link> *list,
+                                                         <link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);
+#define             <link linkend="G-TYPE-XIM-SEP-NESTEDLIST:CAPS">G_TYPE_XIM_SEP_NESTEDLIST</link>
+                    <link linkend="GXimSepNestedList">GXimSepNestedList</link>;
+<link linkend="GType">GType</link>               <link linkend="g-xim-sep-nested-list-get-type">g_xim_sep_nested_list_get_type</link>      (void);
+<link linkend="gpointer">gpointer</link>            <link linkend="g-xim-sep-nested-list-new">g_xim_sep_nested_list_new</link>           (void);
+<link linkend="gpointer">gpointer</link>            <link linkend="g-xim-sep-nested-list-copy">g_xim_sep_nested_list_copy</link>          (<link linkend="gpointer">gpointer</link> boxed);
+<link linkend="void">void</link>                <link linkend="g-xim-sep-nested-list-free">g_xim_sep_nested_list_free</link>          (<link linkend="gpointer">gpointer</link> boxed);
+#define             <link linkend="G-TYPE-XIM-EXT:CAPS">G_TYPE_XIM_EXT</link>
+                    <link linkend="GXimExt">GXimExt</link>;
+<link linkend="GType">GType</link>               <link linkend="g-xim-ext-get-type">g_xim_ext_get_type</link>                  (void);
+<link linkend="gpointer">gpointer</link>            <link linkend="g-xim-ext-new">g_xim_ext_new</link>                       (<link linkend="guint8">guint8</link> major_opcode,
+                                                         <link linkend="guint8">guint8</link> minor_opcode,
+                                                         const <link linkend="gchar">gchar</link> *name);
+<link linkend="gpointer">gpointer</link>            <link linkend="g-xim-ext-copy">g_xim_ext_copy</link>                      (<link linkend="gpointer">gpointer</link> boxed);
+<link linkend="void">void</link>                <link linkend="g-xim-ext-free">g_xim_ext_free</link>                      (<link linkend="gpointer">gpointer</link> boxed);
+<link linkend="gsize">gsize</link>               <link linkend="g-xim-ext-put-to-stream">g_xim_ext_put_to_stream</link>             (<link linkend="GXimExt">GXimExt</link> *ext,
+                                                         <link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);
+<link linkend="gpointer">gpointer</link>            <link linkend="g-xim-ext-get-from-stream">g_xim_ext_get_from_stream</link>           (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GDataInputStream">GDataInputStream</link> *stream,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);
+#define             <link linkend="G-TYPE-XIM-ATTRIBUTE:CAPS">G_TYPE_XIM_ATTRIBUTE</link>
+                    <link linkend="GXimAttribute">GXimAttribute</link>;
+<link linkend="GType">GType</link>               <link linkend="g-xim-attribute-get-type">g_xim_attribute_get_type</link>            (void);
+<link linkend="gpointer">gpointer</link>            <link linkend="g-xim-attribute-new">g_xim_attribute_new</link>                 (void);
+<link linkend="gpointer">gpointer</link>            <link linkend="g-xim-attribute-new-with-value">g_xim_attribute_new_with_value</link>      (<link linkend="guint16">guint16</link> id,
+                                                         <link linkend="GXimValueType">GXimValueType</link> vtype,
+                                                         <link linkend="gpointer">gpointer</link> value);
+<link linkend="void">void</link>                <link linkend="g-xim-attribute-set">g_xim_attribute_set</link>                 (<link linkend="GXimAttribute">GXimAttribute</link> *attr,
+                                                         <link linkend="guint16">guint16</link> id,
+                                                         <link linkend="GXimValueType">GXimValueType</link> vtype,
+                                                         <link linkend="gpointer">gpointer</link> value);
+<link linkend="void">void</link>                <link linkend="g-xim-attribute-clear">g_xim_attribute_clear</link>               (<link linkend="GXimAttribute">GXimAttribute</link> *attr);
+<link linkend="gpointer">gpointer</link>            <link linkend="g-xim-attribute-copy">g_xim_attribute_copy</link>                (<link linkend="gpointer">gpointer</link> boxed);
+<link linkend="void">void</link>                <link linkend="g-xim-attribute-free">g_xim_attribute_free</link>                (<link linkend="gpointer">gpointer</link> boxed);
+<link linkend="gsize">gsize</link>               <link linkend="g-xim-attribute-put-to-stream">g_xim_attribute_put_to_stream</link>       (<link linkend="GXimAttribute">GXimAttribute</link> *attr,
+                                                         <link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);
+#define             <link linkend="G-TYPE-XIM-RAW-ATTR:CAPS">G_TYPE_XIM_RAW_ATTR</link>
+                    <link linkend="GXimRawAttr">GXimRawAttr</link>;
+<link linkend="GType">GType</link>               <link linkend="g-xim-raw-attr-get-type">g_xim_raw_attr_get_type</link>             (void);
+<link linkend="gpointer">gpointer</link>            <link linkend="g-xim-raw-attr-new">g_xim_raw_attr_new</link>                  (void);
+<link linkend="gpointer">gpointer</link>            <link linkend="g-xim-raw-attr-new-with-value">g_xim_raw_attr_new_with_value</link>       (<link linkend="guint16">guint16</link> id,
+                                                         <link linkend="GString">GString</link> *name,
+                                                         <link linkend="GXimValueType">GXimValueType</link> vtype);
+<link linkend="void">void</link>                <link linkend="g-xim-raw-attr-set-name">g_xim_raw_attr_set_name</link>             (<link linkend="GXimRawAttr">GXimRawAttr</link> *attr,
+                                                         <link linkend="GString">GString</link> *name);
+<link linkend="void">void</link>                <link linkend="g-xim-raw-attr-clear">g_xim_raw_attr_clear</link>                (<link linkend="GXimRawAttr">GXimRawAttr</link> *attr);
+<link linkend="gpointer">gpointer</link>            <link linkend="g-xim-raw-attr-copy">g_xim_raw_attr_copy</link>                 (<link linkend="gpointer">gpointer</link> boxed);
+<link linkend="void">void</link>                <link linkend="g-xim-raw-attr-free">g_xim_raw_attr_free</link>                 (<link linkend="gpointer">gpointer</link> boxed);
+<link linkend="gsize">gsize</link>               <link linkend="g-xim-raw-attr-put-to-stream">g_xim_raw_attr_put_to_stream</link>        (<link linkend="GXimRawAttr">GXimRawAttr</link> *attr,
+                                                         <link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);
+<link linkend="gpointer">gpointer</link>            <link linkend="g-xim-raw-attr-get-from-stream">g_xim_raw_attr_get_from_stream</link>      (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GDataInputStream">GDataInputStream</link> *stream,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);
+#define             <link linkend="G-TYPE-XIM-TEXT:CAPS">G_TYPE_XIM_TEXT</link>
+                    <link linkend="GXimText">GXimText</link>;
+<link linkend="GType">GType</link>               <link linkend="g-xim-text-get-type">g_xim_text_get_type</link>                 (void);
+<link linkend="gpointer">gpointer</link>            <link linkend="g-xim-text-new">g_xim_text_new</link>                      (void);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-text-set-mbstring">g_xim_text_set_mbstring</link>             (<link linkend="GXimText">GXimText</link> *text,
+                                                         const <link linkend="gchar">gchar</link> *string,
+                                                         <link linkend="gssize">gssize</link> length);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-text-set-wcstring">g_xim_text_set_wcstring</link>             (<link linkend="GXimText">GXimText</link> *text,
+                                                         const <link linkend="gunichar2">gunichar2</link> *string,
+                                                         <link linkend="gssize">gssize</link> length);
+<link linkend="void">void</link>                <link linkend="g-xim-text-clear-string">g_xim_text_clear_string</link>             (<link linkend="GXimText">GXimText</link> *text);
+<link linkend="void">void</link>                <link linkend="g-xim-text-set-feedback">g_xim_text_set_feedback</link>             (<link linkend="GXimText">GXimText</link> *text,
+                                                         <link linkend="GXimFeedback">GXimFeedback</link> feedback,
+                                                         <link linkend="gshort">gshort</link> position);
+<link linkend="GXimFeedback">GXimFeedback</link>        <link linkend="g-xim-text-get-feedback">g_xim_text_get_feedback</link>             (<link linkend="GXimText">GXimText</link> *text,
+                                                         <link linkend="gshort">gshort</link> position);
+<link linkend="gpointer">gpointer</link>            <link linkend="g-xim-text-copy">g_xim_text_copy</link>                     (<link linkend="gpointer">gpointer</link> boxed);
+<link linkend="void">void</link>                <link linkend="g-xim-text-free">g_xim_text_free</link>                     (<link linkend="gpointer">gpointer</link> boxed);
+<link linkend="gsize">gsize</link>               <link linkend="g-xim-text-put-to-stream">g_xim_text_put_to_stream</link>            (<link linkend="GXimText">GXimText</link> *text,
+                                                         <link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);
+<link linkend="gpointer">gpointer</link>            <link linkend="g-xim-text-get-from-stream">g_xim_text_get_from_stream</link>          (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GDataInputStream">GDataInputStream</link> *stream,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);
+#define             <link linkend="G-TYPE-XIM-PREEDIT-CARET:CAPS">G_TYPE_XIM_PREEDIT_CARET</link>
+                    <link linkend="GXimPreeditCaret">GXimPreeditCaret</link>;
+<link linkend="GType">GType</link>               <link linkend="g-xim-preedit-caret-get-type">g_xim_preedit_caret_get_type</link>        (void);
+<link linkend="gpointer">gpointer</link>            <link linkend="g-xim-preedit-caret-new">g_xim_preedit_caret_new</link>             (void);
+<link linkend="gpointer">gpointer</link>            <link linkend="g-xim-preedit-caret-copy">g_xim_preedit_caret_copy</link>            (<link linkend="gpointer">gpointer</link> boxed);
+<link linkend="void">void</link>                <link linkend="g-xim-preedit-caret-free">g_xim_preedit_caret_free</link>            (<link linkend="gpointer">gpointer</link> boxed);
+<link linkend="gsize">gsize</link>               <link linkend="g-xim-preedit-caret-put-to-stream">g_xim_preedit_caret_put_to_stream</link>   (<link linkend="GXimPreeditCaret">GXimPreeditCaret</link> *caret,
+                                                         <link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);
+<link linkend="gpointer">gpointer</link>            <link linkend="g-xim-preedit-caret-get-from-stream">g_xim_preedit_caret_get_from_stream</link> (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GDataInputStream">GDataInputStream</link> *stream,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);
+#define             <link linkend="G-TYPE-XIM-PREEDIT-DRAW:CAPS">G_TYPE_XIM_PREEDIT_DRAW</link>
+                    <link linkend="GXimPreeditDraw">GXimPreeditDraw</link>;
+<link linkend="GType">GType</link>               <link linkend="g-xim-preedit-draw-get-type">g_xim_preedit_draw_get_type</link>         (void);
+<link linkend="gpointer">gpointer</link>            <link linkend="g-xim-preedit-draw-new">g_xim_preedit_draw_new</link>              (void);
+<link linkend="gpointer">gpointer</link>            <link linkend="g-xim-preedit-draw-copy">g_xim_preedit_draw_copy</link>             (<link linkend="gpointer">gpointer</link> boxed);
+<link linkend="void">void</link>                <link linkend="g-xim-preedit-draw-free">g_xim_preedit_draw_free</link>             (<link linkend="gpointer">gpointer</link> boxed);
+<link linkend="gsize">gsize</link>               <link linkend="g-xim-preedit-draw-put-to-stream">g_xim_preedit_draw_put_to_stream</link>    (<link linkend="GXimPreeditDraw">GXimPreeditDraw</link> *draw,
+                                                         <link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);
+<link linkend="gpointer">gpointer</link>            <link linkend="g-xim-preedit-draw-get-from-stream">g_xim_preedit_draw_get_from_stream</link>  (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GDataInputStream">GDataInputStream</link> *stream,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);
+#define             <link linkend="G-TYPE-XIM-STATUS-DRAW:CAPS">G_TYPE_XIM_STATUS_DRAW</link>
+enum                <link linkend="GXimStatusDataType">GXimStatusDataType</link>;
+                    <link linkend="GXimStatusDraw">GXimStatusDraw</link>;
+<link linkend="GType">GType</link>               <link linkend="g-xim-status-draw-get-type">g_xim_status_draw_get_type</link>          (void);
+<link linkend="gpointer">gpointer</link>            <link linkend="g-xim-status-draw-new">g_xim_status_draw_new</link>               (void);
+<link linkend="gpointer">gpointer</link>            <link linkend="g-xim-status-draw-copy">g_xim_status_draw_copy</link>              (<link linkend="gpointer">gpointer</link> boxed);
+<link linkend="void">void</link>                <link linkend="g-xim-status-draw-free">g_xim_status_draw_free</link>              (<link linkend="gpointer">gpointer</link> boxed);
+<link linkend="gsize">gsize</link>               <link linkend="g-xim-status-draw-put-to-stream">g_xim_status_draw_put_to_stream</link>     (<link linkend="GXimStatusDraw">GXimStatusDraw</link> *draw,
+                                                         <link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);
+<link linkend="gpointer">gpointer</link>            <link linkend="g-xim-status-draw-get-from-stream">g_xim_status_draw_get_from_stream</link>   (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GDataInputStream">GDataInputStream</link> *stream,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);
+#define             <link linkend="G-TYPE-XIM-HOTKEY-TRIGGER:CAPS">G_TYPE_XIM_HOTKEY_TRIGGER</link>
+                    <link linkend="GXimHotkeyTrigger">GXimHotkeyTrigger</link>;
+<link linkend="GType">GType</link>               <link linkend="g-xim-hotkey-trigger-get-type">g_xim_hotkey_trigger_get_type</link>       (void);
+<link linkend="gpointer">gpointer</link>            <link linkend="g-xim-hotkey-trigger-new">g_xim_hotkey_trigger_new</link>            (<link linkend="guint32">guint32</link> keysym,
+                                                         <link linkend="guint32">guint32</link> modifier,
+                                                         <link linkend="guint32">guint32</link> modifier_mask);
+<link linkend="gpointer">gpointer</link>            <link linkend="g-xim-hotkey-trigger-copy">g_xim_hotkey_trigger_copy</link>           (<link linkend="gpointer">gpointer</link> boxed);
+<link linkend="void">void</link>                <link linkend="g-xim-hotkey-trigger-free">g_xim_hotkey_trigger_free</link>           (<link linkend="gpointer">gpointer</link> boxed);
+<link linkend="gsize">gsize</link>               <link linkend="g-xim-hotkey-trigger-put-to-stream">g_xim_hotkey_trigger_put_to_stream</link>  (<link linkend="GXimHotkeyTrigger">GXimHotkeyTrigger</link> *hotkey,
+                                                         <link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);
+<link linkend="gpointer">gpointer</link>            <link linkend="g-xim-hotkey-trigger-get-from-stream">g_xim_hotkey_trigger_get_from_stream</link>
+                                                        (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GDataInputStream">GDataInputStream</link> *stream,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);
+#define             <link linkend="G-XIM-GDKEVENT-ERROR:CAPS">G_XIM_GDKEVENT_ERROR</link>
+enum                <link linkend="GXimGdkEventError">GXimGdkEventError</link>;
+<link linkend="GQuark">GQuark</link>              <link linkend="g-xim-gdkevent-get-error-quark">g_xim_gdkevent_get_error_quark</link>      (void);
+<link linkend="gsize">gsize</link>               <link linkend="g-xim-gdkevent-put-to-stream">g_xim_gdkevent_put_to_stream</link>        (<link linkend="GdkEvent">GdkEvent</link> *event,
+                                                         <link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);
+<link linkend="gpointer">gpointer</link>            <link linkend="g-xim-gdkevent-get-from-stream">g_xim_gdkevent_get_from_stream</link>      (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GDataInputStream">GDataInputStream</link> *stream,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libgxim-gximmisc.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 id="libgxim-gximmisc.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="G-XIM-GERROR-RESET-NOTICE-FLAG:CAPS" role="macro">
+<title>G_XIM_GERROR_RESET_NOTICE_FLAG()</title>
+<indexterm zone="G-XIM-GERROR-RESET-NOTICE-FLAG:CAPS"><primary>G_XIM_GERROR_RESET_NOTICE_FLAG</primary></indexterm><programlisting>#define             G_XIM_GERROR_RESET_NOTICE_FLAG(_e_)</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>_e_</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="G-XIM-GERROR-SET-NOTICE-FLAG:CAPS" role="macro">
+<title>G_XIM_GERROR_SET_NOTICE_FLAG()</title>
+<indexterm zone="G-XIM-GERROR-SET-NOTICE-FLAG:CAPS"><primary>G_XIM_GERROR_SET_NOTICE_FLAG</primary></indexterm><programlisting>#define             G_XIM_GERROR_SET_NOTICE_FLAG(_e_,_f_)</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>_e_</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>_f_</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="G-XIM-CHECK-ALLOC-WITH-CODE:CAPS" role="macro">
+<title>G_XIM_CHECK_ALLOC_WITH_CODE()</title>
+<indexterm zone="G-XIM-CHECK-ALLOC-WITH-CODE:CAPS"><primary>G_XIM_CHECK_ALLOC_WITH_CODE</primary></indexterm><programlisting>#define             G_XIM_CHECK_ALLOC_WITH_CODE(_v_,_c_,_r_)</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>_v_</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>_c_</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>_r_</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="G-XIM-CHECK-ALLOC:CAPS" role="macro">
+<title>G_XIM_CHECK_ALLOC()</title>
+<indexterm zone="G-XIM-CHECK-ALLOC:CAPS"><primary>G_XIM_CHECK_ALLOC</primary></indexterm><programlisting>#define             G_XIM_CHECK_ALLOC(_v_,_r_)</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>_v_</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>_r_</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="G-XIM-CHECK-ALLOC-WITH-NO-RET:CAPS" role="macro">
+<title>G_XIM_CHECK_ALLOC_WITH_NO_RET()</title>
+<indexterm zone="G-XIM-CHECK-ALLOC-WITH-NO-RET:CAPS"><primary>G_XIM_CHECK_ALLOC_WITH_NO_RET</primary></indexterm><programlisting>#define             G_XIM_CHECK_ALLOC_WITH_NO_RET(_v_)</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>_v_</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="G-XIM-GERROR-CHECK-ALLOC-WITH-CODE:CAPS" role="macro">
+<title>G_XIM_GERROR_CHECK_ALLOC_WITH_CODE()</title>
+<indexterm zone="G-XIM-GERROR-CHECK-ALLOC-WITH-CODE:CAPS"><primary>G_XIM_GERROR_CHECK_ALLOC_WITH_CODE</primary></indexterm><programlisting>#define             G_XIM_GERROR_CHECK_ALLOC_WITH_CODE(_v_,_e_,_t_,_c_,_r_)</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>_v_</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>_e_</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>_t_</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>_c_</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>_r_</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="G-XIM-GERROR-CHECK-ALLOC:CAPS" role="macro">
+<title>G_XIM_GERROR_CHECK_ALLOC()</title>
+<indexterm zone="G-XIM-GERROR-CHECK-ALLOC:CAPS"><primary>G_XIM_GERROR_CHECK_ALLOC</primary></indexterm><programlisting>#define             G_XIM_GERROR_CHECK_ALLOC(_v_,_e_,_t_,_r_)</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>_v_</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>_e_</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>_t_</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>_r_</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-init" role="function">
+<title>g_xim_init ()</title>
+<indexterm zone="g-xim-init"><primary>g_xim_init</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_init                          (void);</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="g-xim-finalize" role="function">
+<title>g_xim_finalize ()</title>
+<indexterm zone="g-xim-finalize"><primary>g_xim_finalize</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_finalize                      (void);</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="g-xim-get-byte-order" role="function">
+<title>g_xim_get_byte_order ()</title>
+<indexterm zone="g-xim-get-byte-order"><primary>g_xim_get_byte_order</primary></indexterm><programlisting><link linkend="GDataStreamByteOrder">GDataStreamByteOrder</link> g_xim_get_byte_order               (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-gtype-to-value-type" role="function">
+<title>g_xim_gtype_to_value_type ()</title>
+<indexterm zone="g-xim-gtype-to-value-type"><primary>g_xim_gtype_to_value_type</primary></indexterm><programlisting><link linkend="GXimValueType">GXimValueType</link>       g_xim_gtype_to_value_type           (<link linkend="GType">GType</link> gtype);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>gtype</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-value-type-to-gtype" role="function">
+<title>g_xim_value_type_to_gtype ()</title>
+<indexterm zone="g-xim-value-type-to-gtype"><primary>g_xim_value_type_to_gtype</primary></indexterm><programlisting><link linkend="GType">GType</link>               g_xim_value_type_to_gtype           (<link linkend="GXimValueType">GXimValueType</link> vtype);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>vtype</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-value-type-name" role="function">
+<title>g_xim_value_type_name ()</title>
+<indexterm zone="g-xim-value-type-name"><primary>g_xim_value_type_name</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link>*        g_xim_value_type_name               (<link linkend="GXimValueType">GXimValueType</link> vtype);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>vtype</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-protocol-name" role="function">
+<title>g_xim_protocol_name ()</title>
+<indexterm zone="g-xim-protocol-name"><primary>g_xim_protocol_name</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link>*        g_xim_protocol_name                 (<link linkend="guint16">guint16</link> major_opcode);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>major_opcode</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-get-window" role="function">
+<title>g_xim_get_window ()</title>
+<indexterm zone="g-xim-get-window"><primary>g_xim_get_window</primary></indexterm><programlisting><link linkend="GdkWindow">GdkWindow</link>*          g_xim_get_window                    (<link linkend="GdkDisplay">GdkDisplay</link> *dpy,
+                                                         <link linkend="GdkNativeWindow">GdkNativeWindow</link> window);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>dpy</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>window</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-get-pixmap" role="function">
+<title>g_xim_get_pixmap ()</title>
+<indexterm zone="g-xim-get-pixmap"><primary>g_xim_get_pixmap</primary></indexterm><programlisting><link linkend="GdkPixmap">GdkPixmap</link>*          g_xim_get_pixmap                    (<link linkend="GdkDisplay">GdkDisplay</link> *dpy,
+                                                         <link linkend="GdkNativeWindow">GdkNativeWindow</link> window);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>dpy</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>window</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-get-selection-owner" role="function">
+<title>g_xim_get_selection_owner ()</title>
+<indexterm zone="g-xim-get-selection-owner"><primary>g_xim_get_selection_owner</primary></indexterm><programlisting><link linkend="GdkWindow">GdkWindow</link>*          g_xim_get_selection_owner           (<link linkend="GdkDisplay">GdkDisplay</link> *display,
+                                                         <link linkend="GdkAtom">GdkAtom</link> selection);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>display</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>selection</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-lookup-xim-server" role="function">
+<title>g_xim_lookup_xim_server ()</title>
+<indexterm zone="g-xim-lookup-xim-server"><primary>g_xim_lookup_xim_server</primary></indexterm><programlisting><link linkend="GdkWindow">GdkWindow</link>*          g_xim_lookup_xim_server             (<link linkend="GdkDisplay">GdkDisplay</link> *dpy,
+                                                         <link linkend="GdkAtom">GdkAtom</link> atom_server,
+                                                         <link linkend="gboolean">gboolean</link> *is_valid);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>dpy</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>atom_server</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>is_valid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-lookup-xim-server-from-string" role="function">
+<title>g_xim_lookup_xim_server_from_string ()</title>
+<indexterm zone="g-xim-lookup-xim-server-from-string"><primary>g_xim_lookup_xim_server_from_string</primary></indexterm><programlisting><link linkend="GdkWindow">GdkWindow</link>*          g_xim_lookup_xim_server_from_string (<link linkend="GdkDisplay">GdkDisplay</link> *dpy,
+                                                         const <link linkend="gchar">gchar</link> *server_name,
+                                                         <link linkend="gboolean">gboolean</link> *is_valid);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>dpy</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>server_name</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>is_valid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-get-server-atom" role="function">
+<title>g_xim_get_server_atom ()</title>
+<indexterm zone="g-xim-get-server-atom"><primary>g_xim_get_server_atom</primary></indexterm><programlisting><link linkend="GdkAtom">GdkAtom</link>             g_xim_get_server_atom               (const <link linkend="gchar">gchar</link> *server_name);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>server_name</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="GXimStrConvText" role="struct">
+<title>GXimStrConvText</title>
+<indexterm zone="GXimStrConvText"><primary>GXimStrConvText</primary></indexterm><programlisting>typedef struct {
+	GXimStrConvFeedbacks  feedback;
+	guint16               length;
+	gchar                *string;
+} GXimStrConvText;
+</programlisting>
+<para>
+A structure to deal with XIM String Conversion Text.</para>
+<para>
+
+</para></refsect2>
+<refsect2 id="g-xim-str-conv-text-new" role="function">
+<title>g_xim_str_conv_text_new ()</title>
+<indexterm zone="g-xim-str-conv-text-new"><primary>g_xim_str_conv_text_new</primary></indexterm><programlisting><link linkend="GXimStrConvText">GXimStrConvText</link>*    g_xim_str_conv_text_new             (const <link linkend="gchar">gchar</link> *string,
+                                                         <link linkend="guint16">guint16</link> length);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>string</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>length</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-str-conv-text-new-full" role="function">
+<title>g_xim_str_conv_text_new_full ()</title>
+<indexterm zone="g-xim-str-conv-text-new-full"><primary>g_xim_str_conv_text_new_full</primary></indexterm><programlisting><link linkend="GXimStrConvText">GXimStrConvText</link>*    g_xim_str_conv_text_new_full        (const <link linkend="gchar">gchar</link> *string,
+                                                         <link linkend="guint16">guint16</link> length,
+                                                         <link linkend="guint16">guint16</link> feedback);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>string</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>length</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>feedback</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-str-conv-text-free" role="function">
+<title>g_xim_str_conv_text_free ()</title>
+<indexterm zone="g-xim-str-conv-text-free"><primary>g_xim_str_conv_text_free</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_str_conv_text_free            (<link linkend="GXimStrConvText">GXimStrConvText</link> *text);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>text</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-str-conv-set-feedback" role="function">
+<title>g_xim_str_conv_set_feedback ()</title>
+<indexterm zone="g-xim-str-conv-set-feedback"><primary>g_xim_str_conv_set_feedback</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_str_conv_set_feedback         (<link linkend="GXimStrConvText">GXimStrConvText</link> *text,
+                                                         <link linkend="guint16">guint16</link> feedback);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>text</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>feedback</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-str-conv-get-feedback" role="function">
+<title>g_xim_str_conv_get_feedback ()</title>
+<indexterm zone="g-xim-str-conv-get-feedback"><primary>g_xim_str_conv_get_feedback</primary></indexterm><programlisting><link linkend="guint16">guint16</link>             g_xim_str_conv_get_feedback         (<link linkend="GXimStrConvText">GXimStrConvText</link> *text);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>text</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="G-TYPE-XIM-STYLES:CAPS" role="macro">
+<title>G_TYPE_XIM_STYLES</title>
+<indexterm zone="G-TYPE-XIM-STYLES:CAPS"><primary>G_TYPE_XIM_STYLES</primary></indexterm><programlisting>#define G_TYPE_XIM_STYLES		(g_xim_styles_get_type())
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="G-XIM-STYLES-ERROR:CAPS" role="macro">
+<title>G_XIM_STYLES_ERROR</title>
+<indexterm zone="G-XIM-STYLES-ERROR:CAPS"><primary>G_XIM_STYLES_ERROR</primary></indexterm><programlisting>#define G_XIM_STYLES_ERROR		(g_xim_styles_get_error_quark())
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimStyle" role="enum">
+<title>enum GXimStyle</title>
+<indexterm zone="GXimStyle"><primary>GXimStyle</primary></indexterm><programlisting>typedef enum {
+	G_XIM_PreeditArea	= 1 &lt;&lt; 0,
+	G_XIM_PreeditCallbacks	= 1 &lt;&lt; 1,
+	G_XIM_PreeditPosition	= 1 &lt;&lt; 2,
+	G_XIM_PreeditNothing	= 1 &lt;&lt; 3,
+	G_XIM_PreeditNone	= 1 &lt;&lt; 4,
+	G_XIM_StatusArea	= 1 &lt;&lt; 8,
+	G_XIM_StatusCallbacks	= 1 &lt;&lt; 9,
+	G_XIM_StatusNothing	= 1 &lt;&lt; 10,
+	G_XIM_StatusNone	= 1 &lt;&lt; 11,
+} GXimStyle;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimStyles" role="struct">
+<title>GXimStyles</title>
+<indexterm zone="GXimStyles"><primary>GXimStyles</primary></indexterm><programlisting>typedef struct {
+	guint16    count_styles;
+	GXimStyle *supported_styles;
+} GXimStyles;
+</programlisting>
+<para>
+</para>
+<para>
+
+</para></refsect2>
+<refsect2 id="g-xim-styles-get-error-quark" role="function">
+<title>g_xim_styles_get_error_quark ()</title>
+<indexterm zone="g-xim-styles-get-error-quark"><primary>g_xim_styles_get_error_quark</primary></indexterm><programlisting><link linkend="GQuark">GQuark</link>              g_xim_styles_get_error_quark        (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-styles-new" role="function">
+<title>g_xim_styles_new ()</title>
+<indexterm zone="g-xim-styles-new"><primary>g_xim_styles_new</primary></indexterm><programlisting><link linkend="GXimStyles">GXimStyles</link>*         g_xim_styles_new                    (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-styles-append" role="function">
+<title>g_xim_styles_append ()</title>
+<indexterm zone="g-xim-styles-append"><primary>g_xim_styles_append</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_styles_append                 (<link linkend="GXimStyles">GXimStyles</link> *styles,
+                                                         <link linkend="GXimStyle">GXimStyle</link> style,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>styles</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>style</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-styles-insert" role="function">
+<title>g_xim_styles_insert ()</title>
+<indexterm zone="g-xim-styles-insert"><primary>g_xim_styles_insert</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_styles_insert                 (<link linkend="GXimStyles">GXimStyles</link> *styles,
+                                                         <link linkend="guint">guint</link> index_,
+                                                         <link linkend="GXimStyle">GXimStyle</link> style,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>styles</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>index_</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>style</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-styles-copy" role="function">
+<title>g_xim_styles_copy ()</title>
+<indexterm zone="g-xim-styles-copy"><primary>g_xim_styles_copy</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            g_xim_styles_copy                   (<link linkend="gpointer">gpointer</link> boxed);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>boxed</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-styles-free" role="function">
+<title>g_xim_styles_free ()</title>
+<indexterm zone="g-xim-styles-free"><primary>g_xim_styles_free</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_styles_free                   (<link linkend="gpointer">gpointer</link> boxed);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>boxed</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-styles-put-to-stream" role="function">
+<title>g_xim_styles_put_to_stream ()</title>
+<indexterm zone="g-xim-styles-put-to-stream"><primary>g_xim_styles_put_to_stream</primary></indexterm><programlisting><link linkend="gsize">gsize</link>               g_xim_styles_put_to_stream          (<link linkend="GXimStyles">GXimStyles</link> *styles,
+                                                         <link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>styles</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>proto</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>cancellable</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-styles-get-from-stream" role="function">
+<title>g_xim_styles_get_from_stream ()</title>
+<indexterm zone="g-xim-styles-get-from-stream"><primary>g_xim_styles_get_from_stream</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            g_xim_styles_get_from_stream        (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GDataInputStream">GDataInputStream</link> *stream,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proto</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>stream</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>cancellable</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="G-TYPE-XIM-RECTANGLE:CAPS" role="macro">
+<title>G_TYPE_XIM_RECTANGLE</title>
+<indexterm zone="G-TYPE-XIM-RECTANGLE:CAPS"><primary>G_TYPE_XIM_RECTANGLE</primary></indexterm><programlisting>#define G_TYPE_XIM_RECTANGLE		(g_xim_rectangle_get_type())
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimRectangle" role="struct">
+<title>GXimRectangle</title>
+<indexterm zone="GXimRectangle"><primary>GXimRectangle</primary></indexterm><programlisting>typedef struct {
+	short x;
+	short y;
+	unsigned short width;
+	unsigned short height;
+} GXimRectangle;
+</programlisting>
+<para>
+</para>
+<para>
+
+</para></refsect2>
+<refsect2 id="g-xim-rectangle-get-type" role="function">
+<title>g_xim_rectangle_get_type ()</title>
+<indexterm zone="g-xim-rectangle-get-type"><primary>g_xim_rectangle_get_type</primary></indexterm><programlisting><link linkend="GType">GType</link>               g_xim_rectangle_get_type            (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-rectangle-new" role="function">
+<title>g_xim_rectangle_new ()</title>
+<indexterm zone="g-xim-rectangle-new"><primary>g_xim_rectangle_new</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            g_xim_rectangle_new                 (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-rectangle-copy" role="function">
+<title>g_xim_rectangle_copy ()</title>
+<indexterm zone="g-xim-rectangle-copy"><primary>g_xim_rectangle_copy</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            g_xim_rectangle_copy                (<link linkend="gpointer">gpointer</link> boxed);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>boxed</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-rectangle-free" role="function">
+<title>g_xim_rectangle_free ()</title>
+<indexterm zone="g-xim-rectangle-free"><primary>g_xim_rectangle_free</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_rectangle_free                (<link linkend="gpointer">gpointer</link> boxed);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>boxed</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-rectangle-put-to-stream" role="function">
+<title>g_xim_rectangle_put_to_stream ()</title>
+<indexterm zone="g-xim-rectangle-put-to-stream"><primary>g_xim_rectangle_put_to_stream</primary></indexterm><programlisting><link linkend="gsize">gsize</link>               g_xim_rectangle_put_to_stream       (<link linkend="GXimRectangle">GXimRectangle</link> *rectangle,
+                                                         <link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>rectangle</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>proto</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>cancellable</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-rectangle-get-from-stream" role="function">
+<title>g_xim_rectangle_get_from_stream ()</title>
+<indexterm zone="g-xim-rectangle-get-from-stream"><primary>g_xim_rectangle_get_from_stream</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            g_xim_rectangle_get_from_stream     (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GDataInputStream">GDataInputStream</link> *stream,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proto</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>stream</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>cancellable</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="G-TYPE-XIM-POINT:CAPS" role="macro">
+<title>G_TYPE_XIM_POINT</title>
+<indexterm zone="G-TYPE-XIM-POINT:CAPS"><primary>G_TYPE_XIM_POINT</primary></indexterm><programlisting>#define G_TYPE_XIM_POINT		(g_xim_point_get_type())
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimPoint" role="struct">
+<title>GXimPoint</title>
+<indexterm zone="GXimPoint"><primary>GXimPoint</primary></indexterm><programlisting>typedef struct {
+	short x;
+	short y;
+} GXimPoint;
+</programlisting>
+<para>
+</para>
+<para>
+
+</para></refsect2>
+<refsect2 id="g-xim-point-get-type" role="function">
+<title>g_xim_point_get_type ()</title>
+<indexterm zone="g-xim-point-get-type"><primary>g_xim_point_get_type</primary></indexterm><programlisting><link linkend="GType">GType</link>               g_xim_point_get_type                (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-point-new" role="function">
+<title>g_xim_point_new ()</title>
+<indexterm zone="g-xim-point-new"><primary>g_xim_point_new</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            g_xim_point_new                     (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-point-copy" role="function">
+<title>g_xim_point_copy ()</title>
+<indexterm zone="g-xim-point-copy"><primary>g_xim_point_copy</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            g_xim_point_copy                    (<link linkend="gpointer">gpointer</link> boxed);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>boxed</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-point-free" role="function">
+<title>g_xim_point_free ()</title>
+<indexterm zone="g-xim-point-free"><primary>g_xim_point_free</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_point_free                    (<link linkend="gpointer">gpointer</link> boxed);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>boxed</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-point-put-to-stream" role="function">
+<title>g_xim_point_put_to_stream ()</title>
+<indexterm zone="g-xim-point-put-to-stream"><primary>g_xim_point_put_to_stream</primary></indexterm><programlisting><link linkend="gsize">gsize</link>               g_xim_point_put_to_stream           (<link linkend="GXimPoint">GXimPoint</link> *point,
+                                                         <link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>point</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>proto</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>cancellable</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-point-get-from-stream" role="function">
+<title>g_xim_point_get_from_stream ()</title>
+<indexterm zone="g-xim-point-get-from-stream"><primary>g_xim_point_get_from_stream</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            g_xim_point_get_from_stream         (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GDataInputStream">GDataInputStream</link> *stream,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proto</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>stream</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>cancellable</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="G-TYPE-XIM-FONTSET:CAPS" role="macro">
+<title>G_TYPE_XIM_FONTSET</title>
+<indexterm zone="G-TYPE-XIM-FONTSET:CAPS"><primary>G_TYPE_XIM_FONTSET</primary></indexterm><programlisting>#define G_TYPE_XIM_FONTSET		(g_xim_fontset_get_type())
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="g-xim-fontset-get-type" role="function">
+<title>g_xim_fontset_get_type ()</title>
+<indexterm zone="g-xim-fontset-get-type"><primary>g_xim_fontset_get_type</primary></indexterm><programlisting><link linkend="GType">GType</link>               g_xim_fontset_get_type              (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-fontset-copy" role="function">
+<title>g_xim_fontset_copy ()</title>
+<indexterm zone="g-xim-fontset-copy"><primary>g_xim_fontset_copy</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            g_xim_fontset_copy                  (<link linkend="gpointer">gpointer</link> boxed);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>boxed</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-fontset-free" role="function">
+<title>g_xim_fontset_free ()</title>
+<indexterm zone="g-xim-fontset-free"><primary>g_xim_fontset_free</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_fontset_free                  (<link linkend="gpointer">gpointer</link> boxed);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>boxed</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-fontset-put-to-stream" role="function">
+<title>g_xim_fontset_put_to_stream ()</title>
+<indexterm zone="g-xim-fontset-put-to-stream"><primary>g_xim_fontset_put_to_stream</primary></indexterm><programlisting><link linkend="gsize">gsize</link>               g_xim_fontset_put_to_stream         (<link linkend="GXimFontSet">GXimFontSet</link> *fontset,
+                                                         <link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>fontset</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>proto</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>cancellable</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-fontset-get-from-stream" role="function">
+<title>g_xim_fontset_get_from_stream ()</title>
+<indexterm zone="g-xim-fontset-get-from-stream"><primary>g_xim_fontset_get_from_stream</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            g_xim_fontset_get_from_stream       (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GDataInputStream">GDataInputStream</link> *stream,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proto</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>stream</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>cancellable</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-gstring-put-to-stream" role="function">
+<title>g_xim_gstring_put_to_stream ()</title>
+<indexterm zone="g-xim-gstring-put-to-stream"><primary>g_xim_gstring_put_to_stream</primary></indexterm><programlisting><link linkend="gsize">gsize</link>               g_xim_gstring_put_to_stream         (<link linkend="GString">GString</link> *string,
+                                                         <link linkend="GDataOutputStream">GDataOutputStream</link> *stream,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>string</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>stream</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>cancellable</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-gstring-get-from-stream" role="function">
+<title>g_xim_gstring_get_from_stream ()</title>
+<indexterm zone="g-xim-gstring-get-from-stream"><primary>g_xim_gstring_get_from_stream</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            g_xim_gstring_get_from_stream       (<link linkend="GDataInputStream">GDataInputStream</link> *stream,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>stream</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>cancellable</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="G-TYPE-XIM-STRING:CAPS" role="macro">
+<title>G_TYPE_XIM_STRING</title>
+<indexterm zone="G-TYPE-XIM-STRING:CAPS"><primary>G_TYPE_XIM_STRING</primary></indexterm><programlisting>#define G_TYPE_XIM_STRING		(g_xim_string_get_type())
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="g-xim-string-get-type" role="function">
+<title>g_xim_string_get_type ()</title>
+<indexterm zone="g-xim-string-get-type"><primary>g_xim_string_get_type</primary></indexterm><programlisting><link linkend="GType">GType</link>               g_xim_string_get_type               (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-string-new" role="function">
+<title>g_xim_string_new ()</title>
+<indexterm zone="g-xim-string-new"><primary>g_xim_string_new</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            g_xim_string_new                    (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-string-copy" role="function">
+<title>g_xim_string_copy ()</title>
+<indexterm zone="g-xim-string-copy"><primary>g_xim_string_copy</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            g_xim_string_copy                   (<link linkend="gpointer">gpointer</link> boxed);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>boxed</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-string-free" role="function">
+<title>g_xim_string_free ()</title>
+<indexterm zone="g-xim-string-free"><primary>g_xim_string_free</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_string_free                   (<link linkend="gpointer">gpointer</link> boxed);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>boxed</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-string-get-string" role="function">
+<title>g_xim_string_get_string ()</title>
+<indexterm zone="g-xim-string-get-string"><primary>g_xim_string_get_string</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link>*        g_xim_string_get_string             (const <link linkend="GXimString">GXimString</link> *string);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>string</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-string-get-length" role="function">
+<title>g_xim_string_get_length ()</title>
+<indexterm zone="g-xim-string-get-length"><primary>g_xim_string_get_length</primary></indexterm><programlisting><link linkend="gsize">gsize</link>               g_xim_string_get_length             (<link linkend="GXimString">GXimString</link> *string);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>string</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-string-put-to-stream" role="function">
+<title>g_xim_string_put_to_stream ()</title>
+<indexterm zone="g-xim-string-put-to-stream"><primary>g_xim_string_put_to_stream</primary></indexterm><programlisting><link linkend="gsize">gsize</link>               g_xim_string_put_to_stream          (<link linkend="GXimString">GXimString</link> *string,
+                                                         <link linkend="GDataOutputStream">GDataOutputStream</link> *stream,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>string</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>stream</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>cancellable</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-string-get-from-stream" role="function">
+<title>g_xim_string_get_from_stream ()</title>
+<indexterm zone="g-xim-string-get-from-stream"><primary>g_xim_string_get_from_stream</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            g_xim_string_get_from_stream        (<link linkend="GDataInputStream">GDataInputStream</link> *stream,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>stream</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>cancellable</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="G-TYPE-XIM-STR:CAPS" role="macro">
+<title>G_TYPE_XIM_STR</title>
+<indexterm zone="G-TYPE-XIM-STR:CAPS"><primary>G_TYPE_XIM_STR</primary></indexterm><programlisting>#define G_TYPE_XIM_STR			(g_xim_str_get_type())
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="g-xim-str-get-type" role="function">
+<title>g_xim_str_get_type ()</title>
+<indexterm zone="g-xim-str-get-type"><primary>g_xim_str_get_type</primary></indexterm><programlisting><link linkend="GType">GType</link>               g_xim_str_get_type                  (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-str-new" role="function">
+<title>g_xim_str_new ()</title>
+<indexterm zone="g-xim-str-new"><primary>g_xim_str_new</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            g_xim_str_new                       (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-str-copy" role="function">
+<title>g_xim_str_copy ()</title>
+<indexterm zone="g-xim-str-copy"><primary>g_xim_str_copy</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            g_xim_str_copy                      (<link linkend="gpointer">gpointer</link> boxed);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>boxed</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-str-free" role="function">
+<title>g_xim_str_free ()</title>
+<indexterm zone="g-xim-str-free"><primary>g_xim_str_free</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_str_free                      (<link linkend="gpointer">gpointer</link> boxed);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>boxed</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-str-get-string" role="function">
+<title>g_xim_str_get_string ()</title>
+<indexterm zone="g-xim-str-get-string"><primary>g_xim_str_get_string</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link>*        g_xim_str_get_string                (const <link linkend="GXimStr">GXimStr</link> *string);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>string</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-str-get-length" role="function">
+<title>g_xim_str_get_length ()</title>
+<indexterm zone="g-xim-str-get-length"><primary>g_xim_str_get_length</primary></indexterm><programlisting><link linkend="gsize">gsize</link>               g_xim_str_get_length                (const <link linkend="GXimStr">GXimStr</link> *string);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>string</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-str-append" role="function">
+<title>g_xim_str_append ()</title>
+<indexterm zone="g-xim-str-append"><primary>g_xim_str_append</primary></indexterm><programlisting><link linkend="GXimStr">GXimStr</link>*            g_xim_str_append                    (<link linkend="GXimStr">GXimStr</link> *string,
+                                                         const <link linkend="gchar">gchar</link> *val);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>string</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>val</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-str-append-len" role="function">
+<title>g_xim_str_append_len ()</title>
+<indexterm zone="g-xim-str-append-len"><primary>g_xim_str_append_len</primary></indexterm><programlisting><link linkend="GXimStr">GXimStr</link>*            g_xim_str_append_len                (<link linkend="GXimStr">GXimStr</link> *string,
+                                                         const <link linkend="gchar">gchar</link> *val,
+                                                         <link linkend="gssize">gssize</link> len);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>string</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>val</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>len</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-str-put-to-stream" role="function">
+<title>g_xim_str_put_to_stream ()</title>
+<indexterm zone="g-xim-str-put-to-stream"><primary>g_xim_str_put_to_stream</primary></indexterm><programlisting><link linkend="gsize">gsize</link>               g_xim_str_put_to_stream             (<link linkend="GXimStr">GXimStr</link> *string,
+                                                         <link linkend="GDataOutputStream">GDataOutputStream</link> *stream,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>string</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>stream</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>cancellable</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-str-get-from-stream" role="function">
+<title>g_xim_str_get_from_stream ()</title>
+<indexterm zone="g-xim-str-get-from-stream"><primary>g_xim_str_get_from_stream</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            g_xim_str_get_from_stream           (<link linkend="GDataInputStream">GDataInputStream</link> *stream,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>stream</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>cancellable</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="G-TYPE-XIM-ENCODINGINFO:CAPS" role="macro">
+<title>G_TYPE_XIM_ENCODINGINFO</title>
+<indexterm zone="G-TYPE-XIM-ENCODINGINFO:CAPS"><primary>G_TYPE_XIM_ENCODINGINFO</primary></indexterm><programlisting>#define G_TYPE_XIM_ENCODINGINFO		(g_xim_encodinginfo_get_type())
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="g-xim-encodinginfo-get-type" role="function">
+<title>g_xim_encodinginfo_get_type ()</title>
+<indexterm zone="g-xim-encodinginfo-get-type"><primary>g_xim_encodinginfo_get_type</primary></indexterm><programlisting><link linkend="GType">GType</link>               g_xim_encodinginfo_get_type         (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-encodinginfo-new" role="function">
+<title>g_xim_encodinginfo_new ()</title>
+<indexterm zone="g-xim-encodinginfo-new"><primary>g_xim_encodinginfo_new</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            g_xim_encodinginfo_new              (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-encodinginfo-copy" role="function">
+<title>g_xim_encodinginfo_copy ()</title>
+<indexterm zone="g-xim-encodinginfo-copy"><primary>g_xim_encodinginfo_copy</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            g_xim_encodinginfo_copy             (<link linkend="gpointer">gpointer</link> boxed);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>boxed</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-encodinginfo-free" role="function">
+<title>g_xim_encodinginfo_free ()</title>
+<indexterm zone="g-xim-encodinginfo-free"><primary>g_xim_encodinginfo_free</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_encodinginfo_free             (<link linkend="gpointer">gpointer</link> boxed);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>boxed</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-encodinginfo-get-string" role="function">
+<title>g_xim_encodinginfo_get_string ()</title>
+<indexterm zone="g-xim-encodinginfo-get-string"><primary>g_xim_encodinginfo_get_string</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link>*        g_xim_encodinginfo_get_string       (const <link linkend="GXimEncodingInfo">GXimEncodingInfo</link> *encoding);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>encoding</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-encodinginfo-get-length" role="function">
+<title>g_xim_encodinginfo_get_length ()</title>
+<indexterm zone="g-xim-encodinginfo-get-length"><primary>g_xim_encodinginfo_get_length</primary></indexterm><programlisting><link linkend="gsize">gsize</link>               g_xim_encodinginfo_get_length       (<link linkend="GXimEncodingInfo">GXimEncodingInfo</link> *encoding);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>encoding</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-encodinginfo-put-to-stream" role="function">
+<title>g_xim_encodinginfo_put_to_stream ()</title>
+<indexterm zone="g-xim-encodinginfo-put-to-stream"><primary>g_xim_encodinginfo_put_to_stream</primary></indexterm><programlisting><link linkend="gsize">gsize</link>               g_xim_encodinginfo_put_to_stream    (<link linkend="GXimEncodingInfo">GXimEncodingInfo</link> *encoding,
+                                                         <link linkend="GDataOutputStream">GDataOutputStream</link> *stream,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>encoding</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>stream</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>cancellable</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-encodinginfo-get-from-stream" role="function">
+<title>g_xim_encodinginfo_get_from_stream ()</title>
+<indexterm zone="g-xim-encodinginfo-get-from-stream"><primary>g_xim_encodinginfo_get_from_stream</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            g_xim_encodinginfo_get_from_stream  (<link linkend="GDataInputStream">GDataInputStream</link> *stream,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>stream</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>cancellable</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="G-TYPE-XIM-NESTEDLIST:CAPS" role="macro">
+<title>G_TYPE_XIM_NESTEDLIST</title>
+<indexterm zone="G-TYPE-XIM-NESTEDLIST:CAPS"><primary>G_TYPE_XIM_NESTEDLIST</primary></indexterm><programlisting>#define G_TYPE_XIM_NESTEDLIST		(g_xim_nested_list_get_type())
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimNestedListNode" role="struct">
+<title>GXimNestedListNode</title>
+<indexterm zone="GXimNestedListNode"><primary>GXimNestedListNode</primary></indexterm><programlisting>typedef struct {
+	GXimValueType  vtype;
+	gchar         *name;
+	gpointer       value;
+};
+struct _GXimNestedList {
+	GXimAttr            *attr;
+	guint16              n_nodes;
+	guint16              allocated_len;
+	GXimNestedListNode **nodes;
+} GXimNestedListNode;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimNestedFunc" role="function">
+<title>GXimNestedFunc ()</title>
+<indexterm zone="GXimNestedFunc"><primary>GXimNestedFunc</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            (*GXimNestedFunc)                   (<link linkend="GXimNestedListNode">GXimNestedListNode</link> *node,
+                                                         <link linkend="gpointer">gpointer</link> user_data);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>node</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-nested-list-get-type" role="function">
+<title>g_xim_nested_list_get_type ()</title>
+<indexterm zone="g-xim-nested-list-get-type"><primary>g_xim_nested_list_get_type</primary></indexterm><programlisting><link linkend="GType">GType</link>               g_xim_nested_list_get_type          (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-nested-list-new" role="function">
+<title>g_xim_nested_list_new ()</title>
+<indexterm zone="g-xim-nested-list-new"><primary>g_xim_nested_list_new</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            g_xim_nested_list_new               (<link linkend="GXimAttr">GXimAttr</link> *attr,
+                                                         <link linkend="guint">guint</link> n_nodes);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>attr</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>n_nodes</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-nested-list-copy" role="function">
+<title>g_xim_nested_list_copy ()</title>
+<indexterm zone="g-xim-nested-list-copy"><primary>g_xim_nested_list_copy</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            g_xim_nested_list_copy              (<link linkend="gpointer">gpointer</link> boxed);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>boxed</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-nested-list-free" role="function">
+<title>g_xim_nested_list_free ()</title>
+<indexterm zone="g-xim-nested-list-free"><primary>g_xim_nested_list_free</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_nested_list_free              (<link linkend="gpointer">gpointer</link> boxed);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>boxed</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-nested-list-append" role="function">
+<title>g_xim_nested_list_append ()</title>
+<indexterm zone="g-xim-nested-list-append"><primary>g_xim_nested_list_append</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_nested_list_append            (<link linkend="GXimNestedList">GXimNestedList</link> *list,
+                                                         const <link linkend="gchar">gchar</link> *name,
+                                                         <link linkend="gpointer">gpointer</link> value);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>list</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>value</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-nested-list-foreach" role="function">
+<title>g_xim_nested_list_foreach ()</title>
+<indexterm zone="g-xim-nested-list-foreach"><primary>g_xim_nested_list_foreach</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_nested_list_foreach           (<link linkend="GXimNestedList">GXimNestedList</link> *list,
+                                                         <link linkend="GXimNestedFunc">GXimNestedFunc</link> func,
+                                                         <link linkend="gpointer">gpointer</link> data);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>list</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>func</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-nested-list-put-to-stream" role="function">
+<title>g_xim_nested_list_put_to_stream ()</title>
+<indexterm zone="g-xim-nested-list-put-to-stream"><primary>g_xim_nested_list_put_to_stream</primary></indexterm><programlisting><link linkend="gsize">gsize</link>               g_xim_nested_list_put_to_stream     (<link linkend="GXimNestedList">GXimNestedList</link> *list,
+                                                         <link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>list</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>proto</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>cancellable</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="G-TYPE-XIM-SEP-NESTEDLIST:CAPS" role="macro">
+<title>G_TYPE_XIM_SEP_NESTEDLIST</title>
+<indexterm zone="G-TYPE-XIM-SEP-NESTEDLIST:CAPS"><primary>G_TYPE_XIM_SEP_NESTEDLIST</primary></indexterm><programlisting>#define G_TYPE_XIM_SEP_NESTEDLIST	(g_xim_sep_nested_list_get_type())
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimSepNestedList" role="struct">
+<title>GXimSepNestedList</title>
+<indexterm zone="GXimSepNestedList"><primary>GXimSepNestedList</primary></indexterm><programlisting>typedef struct {
+	guint8 dummy;
+} GXimSepNestedList;
+</programlisting>
+<para>
+</para>
+<para>
+
+</para></refsect2>
+<refsect2 id="g-xim-sep-nested-list-get-type" role="function">
+<title>g_xim_sep_nested_list_get_type ()</title>
+<indexterm zone="g-xim-sep-nested-list-get-type"><primary>g_xim_sep_nested_list_get_type</primary></indexterm><programlisting><link linkend="GType">GType</link>               g_xim_sep_nested_list_get_type      (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-sep-nested-list-new" role="function">
+<title>g_xim_sep_nested_list_new ()</title>
+<indexterm zone="g-xim-sep-nested-list-new"><primary>g_xim_sep_nested_list_new</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            g_xim_sep_nested_list_new           (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-sep-nested-list-copy" role="function">
+<title>g_xim_sep_nested_list_copy ()</title>
+<indexterm zone="g-xim-sep-nested-list-copy"><primary>g_xim_sep_nested_list_copy</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            g_xim_sep_nested_list_copy          (<link linkend="gpointer">gpointer</link> boxed);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>boxed</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-sep-nested-list-free" role="function">
+<title>g_xim_sep_nested_list_free ()</title>
+<indexterm zone="g-xim-sep-nested-list-free"><primary>g_xim_sep_nested_list_free</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_sep_nested_list_free          (<link linkend="gpointer">gpointer</link> boxed);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>boxed</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="G-TYPE-XIM-EXT:CAPS" role="macro">
+<title>G_TYPE_XIM_EXT</title>
+<indexterm zone="G-TYPE-XIM-EXT:CAPS"><primary>G_TYPE_XIM_EXT</primary></indexterm><programlisting>#define G_TYPE_XIM_EXT			(g_xim_ext_get_type())
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimExt" role="struct">
+<title>GXimExt</title>
+<indexterm zone="GXimExt"><primary>GXimExt</primary></indexterm><programlisting>typedef struct {
+	guint8   major_opcode;
+	guint8   minor_opcode;
+	GString *name;
+} GXimExt;
+</programlisting>
+<para>
+</para>
+<para>
+
+</para></refsect2>
+<refsect2 id="g-xim-ext-get-type" role="function">
+<title>g_xim_ext_get_type ()</title>
+<indexterm zone="g-xim-ext-get-type"><primary>g_xim_ext_get_type</primary></indexterm><programlisting><link linkend="GType">GType</link>               g_xim_ext_get_type                  (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-ext-new" role="function">
+<title>g_xim_ext_new ()</title>
+<indexterm zone="g-xim-ext-new"><primary>g_xim_ext_new</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            g_xim_ext_new                       (<link linkend="guint8">guint8</link> major_opcode,
+                                                         <link linkend="guint8">guint8</link> minor_opcode,
+                                                         const <link linkend="gchar">gchar</link> *name);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>major_opcode</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>minor_opcode</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-ext-copy" role="function">
+<title>g_xim_ext_copy ()</title>
+<indexterm zone="g-xim-ext-copy"><primary>g_xim_ext_copy</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            g_xim_ext_copy                      (<link linkend="gpointer">gpointer</link> boxed);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>boxed</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-ext-free" role="function">
+<title>g_xim_ext_free ()</title>
+<indexterm zone="g-xim-ext-free"><primary>g_xim_ext_free</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_ext_free                      (<link linkend="gpointer">gpointer</link> boxed);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>boxed</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-ext-put-to-stream" role="function">
+<title>g_xim_ext_put_to_stream ()</title>
+<indexterm zone="g-xim-ext-put-to-stream"><primary>g_xim_ext_put_to_stream</primary></indexterm><programlisting><link linkend="gsize">gsize</link>               g_xim_ext_put_to_stream             (<link linkend="GXimExt">GXimExt</link> *ext,
+                                                         <link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>ext</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>proto</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>cancellable</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-ext-get-from-stream" role="function">
+<title>g_xim_ext_get_from_stream ()</title>
+<indexterm zone="g-xim-ext-get-from-stream"><primary>g_xim_ext_get_from_stream</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            g_xim_ext_get_from_stream           (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GDataInputStream">GDataInputStream</link> *stream,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proto</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>stream</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>cancellable</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="G-TYPE-XIM-ATTRIBUTE:CAPS" role="macro">
+<title>G_TYPE_XIM_ATTRIBUTE</title>
+<indexterm zone="G-TYPE-XIM-ATTRIBUTE:CAPS"><primary>G_TYPE_XIM_ATTRIBUTE</primary></indexterm><programlisting>#define G_TYPE_XIM_ATTRIBUTE		(g_xim_attribute_get_type())
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimAttribute" role="struct">
+<title>GXimAttribute</title>
+<indexterm zone="GXimAttribute"><primary>GXimAttribute</primary></indexterm><programlisting>typedef struct {
+	guint16       id;
+	GXimValueType vtype;
+	union {
+		guint           i;
+		gulong          l;
+		gpointer        pointer;
+	} v;
+} GXimAttribute;
+</programlisting>
+<para>
+</para>
+<para>
+
+</para></refsect2>
+<refsect2 id="g-xim-attribute-get-type" role="function">
+<title>g_xim_attribute_get_type ()</title>
+<indexterm zone="g-xim-attribute-get-type"><primary>g_xim_attribute_get_type</primary></indexterm><programlisting><link linkend="GType">GType</link>               g_xim_attribute_get_type            (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-attribute-new" role="function">
+<title>g_xim_attribute_new ()</title>
+<indexterm zone="g-xim-attribute-new"><primary>g_xim_attribute_new</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            g_xim_attribute_new                 (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-attribute-new-with-value" role="function">
+<title>g_xim_attribute_new_with_value ()</title>
+<indexterm zone="g-xim-attribute-new-with-value"><primary>g_xim_attribute_new_with_value</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            g_xim_attribute_new_with_value      (<link linkend="guint16">guint16</link> id,
+                                                         <link linkend="GXimValueType">GXimValueType</link> vtype,
+                                                         <link linkend="gpointer">gpointer</link> value);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>id</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>vtype</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>value</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-attribute-set" role="function">
+<title>g_xim_attribute_set ()</title>
+<indexterm zone="g-xim-attribute-set"><primary>g_xim_attribute_set</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_attribute_set                 (<link linkend="GXimAttribute">GXimAttribute</link> *attr,
+                                                         <link linkend="guint16">guint16</link> id,
+                                                         <link linkend="GXimValueType">GXimValueType</link> vtype,
+                                                         <link linkend="gpointer">gpointer</link> value);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>attr</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>id</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>vtype</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>value</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-attribute-clear" role="function">
+<title>g_xim_attribute_clear ()</title>
+<indexterm zone="g-xim-attribute-clear"><primary>g_xim_attribute_clear</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_attribute_clear               (<link linkend="GXimAttribute">GXimAttribute</link> *attr);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>attr</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-attribute-copy" role="function">
+<title>g_xim_attribute_copy ()</title>
+<indexterm zone="g-xim-attribute-copy"><primary>g_xim_attribute_copy</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            g_xim_attribute_copy                (<link linkend="gpointer">gpointer</link> boxed);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>boxed</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-attribute-free" role="function">
+<title>g_xim_attribute_free ()</title>
+<indexterm zone="g-xim-attribute-free"><primary>g_xim_attribute_free</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_attribute_free                (<link linkend="gpointer">gpointer</link> boxed);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>boxed</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-attribute-put-to-stream" role="function">
+<title>g_xim_attribute_put_to_stream ()</title>
+<indexterm zone="g-xim-attribute-put-to-stream"><primary>g_xim_attribute_put_to_stream</primary></indexterm><programlisting><link linkend="gsize">gsize</link>               g_xim_attribute_put_to_stream       (<link linkend="GXimAttribute">GXimAttribute</link> *attr,
+                                                         <link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>attr</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>proto</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>cancellable</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="G-TYPE-XIM-RAW-ATTR:CAPS" role="macro">
+<title>G_TYPE_XIM_RAW_ATTR</title>
+<indexterm zone="G-TYPE-XIM-RAW-ATTR:CAPS"><primary>G_TYPE_XIM_RAW_ATTR</primary></indexterm><programlisting>#define G_TYPE_XIM_RAW_ATTR		(g_xim_raw_attr_get_type())
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimRawAttr" role="struct">
+<title>GXimRawAttr</title>
+<indexterm zone="GXimRawAttr"><primary>GXimRawAttr</primary></indexterm><programlisting>typedef struct {
+	GXimAttribute  base;
+	GString       *attribute_name;
+} GXimRawAttr;
+</programlisting>
+<para>
+</para>
+<para>
+
+</para></refsect2>
+<refsect2 id="g-xim-raw-attr-get-type" role="function">
+<title>g_xim_raw_attr_get_type ()</title>
+<indexterm zone="g-xim-raw-attr-get-type"><primary>g_xim_raw_attr_get_type</primary></indexterm><programlisting><link linkend="GType">GType</link>               g_xim_raw_attr_get_type             (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-raw-attr-new" role="function">
+<title>g_xim_raw_attr_new ()</title>
+<indexterm zone="g-xim-raw-attr-new"><primary>g_xim_raw_attr_new</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            g_xim_raw_attr_new                  (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-raw-attr-new-with-value" role="function">
+<title>g_xim_raw_attr_new_with_value ()</title>
+<indexterm zone="g-xim-raw-attr-new-with-value"><primary>g_xim_raw_attr_new_with_value</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            g_xim_raw_attr_new_with_value       (<link linkend="guint16">guint16</link> id,
+                                                         <link linkend="GString">GString</link> *name,
+                                                         <link linkend="GXimValueType">GXimValueType</link> vtype);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>id</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>vtype</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-raw-attr-set-name" role="function">
+<title>g_xim_raw_attr_set_name ()</title>
+<indexterm zone="g-xim-raw-attr-set-name"><primary>g_xim_raw_attr_set_name</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_raw_attr_set_name             (<link linkend="GXimRawAttr">GXimRawAttr</link> *attr,
+                                                         <link linkend="GString">GString</link> *name);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>attr</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-raw-attr-clear" role="function">
+<title>g_xim_raw_attr_clear ()</title>
+<indexterm zone="g-xim-raw-attr-clear"><primary>g_xim_raw_attr_clear</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_raw_attr_clear                (<link linkend="GXimRawAttr">GXimRawAttr</link> *attr);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>attr</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-raw-attr-copy" role="function">
+<title>g_xim_raw_attr_copy ()</title>
+<indexterm zone="g-xim-raw-attr-copy"><primary>g_xim_raw_attr_copy</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            g_xim_raw_attr_copy                 (<link linkend="gpointer">gpointer</link> boxed);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>boxed</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-raw-attr-free" role="function">
+<title>g_xim_raw_attr_free ()</title>
+<indexterm zone="g-xim-raw-attr-free"><primary>g_xim_raw_attr_free</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_raw_attr_free                 (<link linkend="gpointer">gpointer</link> boxed);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>boxed</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-raw-attr-put-to-stream" role="function">
+<title>g_xim_raw_attr_put_to_stream ()</title>
+<indexterm zone="g-xim-raw-attr-put-to-stream"><primary>g_xim_raw_attr_put_to_stream</primary></indexterm><programlisting><link linkend="gsize">gsize</link>               g_xim_raw_attr_put_to_stream        (<link linkend="GXimRawAttr">GXimRawAttr</link> *attr,
+                                                         <link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>attr</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>proto</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>cancellable</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-raw-attr-get-from-stream" role="function">
+<title>g_xim_raw_attr_get_from_stream ()</title>
+<indexterm zone="g-xim-raw-attr-get-from-stream"><primary>g_xim_raw_attr_get_from_stream</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            g_xim_raw_attr_get_from_stream      (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GDataInputStream">GDataInputStream</link> *stream,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proto</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>stream</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>cancellable</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="G-TYPE-XIM-TEXT:CAPS" role="macro">
+<title>G_TYPE_XIM_TEXT</title>
+<indexterm zone="G-TYPE-XIM-TEXT:CAPS"><primary>G_TYPE_XIM_TEXT</primary></indexterm><programlisting>#define G_TYPE_XIM_TEXT			(g_xim_text_get_type())
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimText" role="struct">
+<title>GXimText</title>
+<indexterm zone="GXimText"><primary>GXimText</primary></indexterm><programlisting>typedef struct {
+	gshort        length;
+	GXimFeedback *feedback;
+	gboolean      encoding_is_wchar;
+	union {
+		gchar *multi_byte;
+		gunichar2 *wide_char;
+	} string;
+} GXimText;
+</programlisting>
+<para>
+</para>
+<para>
+
+</para></refsect2>
+<refsect2 id="g-xim-text-get-type" role="function">
+<title>g_xim_text_get_type ()</title>
+<indexterm zone="g-xim-text-get-type"><primary>g_xim_text_get_type</primary></indexterm><programlisting><link linkend="GType">GType</link>               g_xim_text_get_type                 (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-text-new" role="function">
+<title>g_xim_text_new ()</title>
+<indexterm zone="g-xim-text-new"><primary>g_xim_text_new</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            g_xim_text_new                      (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-text-set-mbstring" role="function">
+<title>g_xim_text_set_mbstring ()</title>
+<indexterm zone="g-xim-text-set-mbstring"><primary>g_xim_text_set_mbstring</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_text_set_mbstring             (<link linkend="GXimText">GXimText</link> *text,
+                                                         const <link linkend="gchar">gchar</link> *string,
+                                                         <link linkend="gssize">gssize</link> length);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>text</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>string</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>length</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-text-set-wcstring" role="function">
+<title>g_xim_text_set_wcstring ()</title>
+<indexterm zone="g-xim-text-set-wcstring"><primary>g_xim_text_set_wcstring</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_text_set_wcstring             (<link linkend="GXimText">GXimText</link> *text,
+                                                         const <link linkend="gunichar2">gunichar2</link> *string,
+                                                         <link linkend="gssize">gssize</link> length);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>text</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>string</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>length</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-text-clear-string" role="function">
+<title>g_xim_text_clear_string ()</title>
+<indexterm zone="g-xim-text-clear-string"><primary>g_xim_text_clear_string</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_text_clear_string             (<link linkend="GXimText">GXimText</link> *text);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>text</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-text-set-feedback" role="function">
+<title>g_xim_text_set_feedback ()</title>
+<indexterm zone="g-xim-text-set-feedback"><primary>g_xim_text_set_feedback</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_text_set_feedback             (<link linkend="GXimText">GXimText</link> *text,
+                                                         <link linkend="GXimFeedback">GXimFeedback</link> feedback,
+                                                         <link linkend="gshort">gshort</link> position);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>text</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>feedback</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>position</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-text-get-feedback" role="function">
+<title>g_xim_text_get_feedback ()</title>
+<indexterm zone="g-xim-text-get-feedback"><primary>g_xim_text_get_feedback</primary></indexterm><programlisting><link linkend="GXimFeedback">GXimFeedback</link>        g_xim_text_get_feedback             (<link linkend="GXimText">GXimText</link> *text,
+                                                         <link linkend="gshort">gshort</link> position);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>text</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>position</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-text-copy" role="function">
+<title>g_xim_text_copy ()</title>
+<indexterm zone="g-xim-text-copy"><primary>g_xim_text_copy</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            g_xim_text_copy                     (<link linkend="gpointer">gpointer</link> boxed);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>boxed</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-text-free" role="function">
+<title>g_xim_text_free ()</title>
+<indexterm zone="g-xim-text-free"><primary>g_xim_text_free</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_text_free                     (<link linkend="gpointer">gpointer</link> boxed);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>boxed</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-text-put-to-stream" role="function">
+<title>g_xim_text_put_to_stream ()</title>
+<indexterm zone="g-xim-text-put-to-stream"><primary>g_xim_text_put_to_stream</primary></indexterm><programlisting><link linkend="gsize">gsize</link>               g_xim_text_put_to_stream            (<link linkend="GXimText">GXimText</link> *text,
+                                                         <link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>text</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>proto</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>cancellable</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-text-get-from-stream" role="function">
+<title>g_xim_text_get_from_stream ()</title>
+<indexterm zone="g-xim-text-get-from-stream"><primary>g_xim_text_get_from_stream</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            g_xim_text_get_from_stream          (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GDataInputStream">GDataInputStream</link> *stream,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proto</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>stream</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>cancellable</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="G-TYPE-XIM-PREEDIT-CARET:CAPS" role="macro">
+<title>G_TYPE_XIM_PREEDIT_CARET</title>
+<indexterm zone="G-TYPE-XIM-PREEDIT-CARET:CAPS"><primary>G_TYPE_XIM_PREEDIT_CARET</primary></indexterm><programlisting>#define G_TYPE_XIM_PREEDIT_CARET	(g_xim_preedit_caret_get_type())
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimPreeditCaret" role="struct">
+<title>GXimPreeditCaret</title>
+<indexterm zone="GXimPreeditCaret"><primary>GXimPreeditCaret</primary></indexterm><programlisting>typedef struct {
+	gint position;
+	GXimCaretDirection direction;
+	GXimCaretStyle     style;
+} GXimPreeditCaret;
+</programlisting>
+<para>
+</para>
+<para>
+
+</para></refsect2>
+<refsect2 id="g-xim-preedit-caret-get-type" role="function">
+<title>g_xim_preedit_caret_get_type ()</title>
+<indexterm zone="g-xim-preedit-caret-get-type"><primary>g_xim_preedit_caret_get_type</primary></indexterm><programlisting><link linkend="GType">GType</link>               g_xim_preedit_caret_get_type        (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-preedit-caret-new" role="function">
+<title>g_xim_preedit_caret_new ()</title>
+<indexterm zone="g-xim-preedit-caret-new"><primary>g_xim_preedit_caret_new</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            g_xim_preedit_caret_new             (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-preedit-caret-copy" role="function">
+<title>g_xim_preedit_caret_copy ()</title>
+<indexterm zone="g-xim-preedit-caret-copy"><primary>g_xim_preedit_caret_copy</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            g_xim_preedit_caret_copy            (<link linkend="gpointer">gpointer</link> boxed);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>boxed</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-preedit-caret-free" role="function">
+<title>g_xim_preedit_caret_free ()</title>
+<indexterm zone="g-xim-preedit-caret-free"><primary>g_xim_preedit_caret_free</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_preedit_caret_free            (<link linkend="gpointer">gpointer</link> boxed);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>boxed</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-preedit-caret-put-to-stream" role="function">
+<title>g_xim_preedit_caret_put_to_stream ()</title>
+<indexterm zone="g-xim-preedit-caret-put-to-stream"><primary>g_xim_preedit_caret_put_to_stream</primary></indexterm><programlisting><link linkend="gsize">gsize</link>               g_xim_preedit_caret_put_to_stream   (<link linkend="GXimPreeditCaret">GXimPreeditCaret</link> *caret,
+                                                         <link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>caret</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>proto</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>cancellable</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-preedit-caret-get-from-stream" role="function">
+<title>g_xim_preedit_caret_get_from_stream ()</title>
+<indexterm zone="g-xim-preedit-caret-get-from-stream"><primary>g_xim_preedit_caret_get_from_stream</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            g_xim_preedit_caret_get_from_stream (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GDataInputStream">GDataInputStream</link> *stream,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proto</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>stream</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>cancellable</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="G-TYPE-XIM-PREEDIT-DRAW:CAPS" role="macro">
+<title>G_TYPE_XIM_PREEDIT_DRAW</title>
+<indexterm zone="G-TYPE-XIM-PREEDIT-DRAW:CAPS"><primary>G_TYPE_XIM_PREEDIT_DRAW</primary></indexterm><programlisting>#define G_TYPE_XIM_PREEDIT_DRAW		(g_xim_preedit_draw_get_type())
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimPreeditDraw" role="struct">
+<title>GXimPreeditDraw</title>
+<indexterm zone="GXimPreeditDraw"><primary>GXimPreeditDraw</primary></indexterm><programlisting>typedef struct {
+	gint      caret;
+	gint      chg_first;
+	gint      chg_length;
+	GXimText *text;
+} GXimPreeditDraw;
+</programlisting>
+<para>
+</para>
+<para>
+
+</para></refsect2>
+<refsect2 id="g-xim-preedit-draw-get-type" role="function">
+<title>g_xim_preedit_draw_get_type ()</title>
+<indexterm zone="g-xim-preedit-draw-get-type"><primary>g_xim_preedit_draw_get_type</primary></indexterm><programlisting><link linkend="GType">GType</link>               g_xim_preedit_draw_get_type         (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-preedit-draw-new" role="function">
+<title>g_xim_preedit_draw_new ()</title>
+<indexterm zone="g-xim-preedit-draw-new"><primary>g_xim_preedit_draw_new</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            g_xim_preedit_draw_new              (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-preedit-draw-copy" role="function">
+<title>g_xim_preedit_draw_copy ()</title>
+<indexterm zone="g-xim-preedit-draw-copy"><primary>g_xim_preedit_draw_copy</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            g_xim_preedit_draw_copy             (<link linkend="gpointer">gpointer</link> boxed);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>boxed</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-preedit-draw-free" role="function">
+<title>g_xim_preedit_draw_free ()</title>
+<indexterm zone="g-xim-preedit-draw-free"><primary>g_xim_preedit_draw_free</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_preedit_draw_free             (<link linkend="gpointer">gpointer</link> boxed);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>boxed</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-preedit-draw-put-to-stream" role="function">
+<title>g_xim_preedit_draw_put_to_stream ()</title>
+<indexterm zone="g-xim-preedit-draw-put-to-stream"><primary>g_xim_preedit_draw_put_to_stream</primary></indexterm><programlisting><link linkend="gsize">gsize</link>               g_xim_preedit_draw_put_to_stream    (<link linkend="GXimPreeditDraw">GXimPreeditDraw</link> *draw,
+                                                         <link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>draw</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>proto</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>cancellable</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-preedit-draw-get-from-stream" role="function">
+<title>g_xim_preedit_draw_get_from_stream ()</title>
+<indexterm zone="g-xim-preedit-draw-get-from-stream"><primary>g_xim_preedit_draw_get_from_stream</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            g_xim_preedit_draw_get_from_stream  (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GDataInputStream">GDataInputStream</link> *stream,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proto</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>stream</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>cancellable</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="G-TYPE-XIM-STATUS-DRAW:CAPS" role="macro">
+<title>G_TYPE_XIM_STATUS_DRAW</title>
+<indexterm zone="G-TYPE-XIM-STATUS-DRAW:CAPS"><primary>G_TYPE_XIM_STATUS_DRAW</primary></indexterm><programlisting>#define G_TYPE_XIM_STATUS_DRAW		(g_xim_status_draw_get_type())
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimStatusDataType" role="enum">
+<title>enum GXimStatusDataType</title>
+<indexterm zone="GXimStatusDataType"><primary>GXimStatusDataType</primary></indexterm><programlisting>typedef enum {
+	G_XIM_XIMTextType,
+	G_XIM_XIMBitmapType
+} GXimStatusDataType;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimStatusDraw" role="struct">
+<title>GXimStatusDraw</title>
+<indexterm zone="GXimStatusDraw"><primary>GXimStatusDraw</primary></indexterm><programlisting>typedef struct {
+	GXimStatusDataType  type;
+	union {
+		GXimText *text;
+		GdkPixmap *bitmap;
+	} data;
+} GXimStatusDraw;
+</programlisting>
+<para>
+</para>
+<para>
+
+</para></refsect2>
+<refsect2 id="g-xim-status-draw-get-type" role="function">
+<title>g_xim_status_draw_get_type ()</title>
+<indexterm zone="g-xim-status-draw-get-type"><primary>g_xim_status_draw_get_type</primary></indexterm><programlisting><link linkend="GType">GType</link>               g_xim_status_draw_get_type          (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-status-draw-new" role="function">
+<title>g_xim_status_draw_new ()</title>
+<indexterm zone="g-xim-status-draw-new"><primary>g_xim_status_draw_new</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            g_xim_status_draw_new               (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-status-draw-copy" role="function">
+<title>g_xim_status_draw_copy ()</title>
+<indexterm zone="g-xim-status-draw-copy"><primary>g_xim_status_draw_copy</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            g_xim_status_draw_copy              (<link linkend="gpointer">gpointer</link> boxed);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>boxed</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-status-draw-free" role="function">
+<title>g_xim_status_draw_free ()</title>
+<indexterm zone="g-xim-status-draw-free"><primary>g_xim_status_draw_free</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_status_draw_free              (<link linkend="gpointer">gpointer</link> boxed);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>boxed</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-status-draw-put-to-stream" role="function">
+<title>g_xim_status_draw_put_to_stream ()</title>
+<indexterm zone="g-xim-status-draw-put-to-stream"><primary>g_xim_status_draw_put_to_stream</primary></indexterm><programlisting><link linkend="gsize">gsize</link>               g_xim_status_draw_put_to_stream     (<link linkend="GXimStatusDraw">GXimStatusDraw</link> *draw,
+                                                         <link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>draw</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>proto</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>cancellable</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-status-draw-get-from-stream" role="function">
+<title>g_xim_status_draw_get_from_stream ()</title>
+<indexterm zone="g-xim-status-draw-get-from-stream"><primary>g_xim_status_draw_get_from_stream</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            g_xim_status_draw_get_from_stream   (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GDataInputStream">GDataInputStream</link> *stream,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proto</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>stream</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>cancellable</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="G-TYPE-XIM-HOTKEY-TRIGGER:CAPS" role="macro">
+<title>G_TYPE_XIM_HOTKEY_TRIGGER</title>
+<indexterm zone="G-TYPE-XIM-HOTKEY-TRIGGER:CAPS"><primary>G_TYPE_XIM_HOTKEY_TRIGGER</primary></indexterm><programlisting>#define G_TYPE_XIM_HOTKEY_TRIGGER	(g_xim_hotkey_trigger_get_type())
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimHotkeyTrigger" role="struct">
+<title>GXimHotkeyTrigger</title>
+<indexterm zone="GXimHotkeyTrigger"><primary>GXimHotkeyTrigger</primary></indexterm><programlisting>typedef struct {
+	guint32 keysym;
+	guint32 modifier;
+	guint32 modifier_mask;
+} GXimHotkeyTrigger;
+</programlisting>
+<para>
+</para>
+<para>
+
+</para></refsect2>
+<refsect2 id="g-xim-hotkey-trigger-get-type" role="function">
+<title>g_xim_hotkey_trigger_get_type ()</title>
+<indexterm zone="g-xim-hotkey-trigger-get-type"><primary>g_xim_hotkey_trigger_get_type</primary></indexterm><programlisting><link linkend="GType">GType</link>               g_xim_hotkey_trigger_get_type       (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-hotkey-trigger-new" role="function">
+<title>g_xim_hotkey_trigger_new ()</title>
+<indexterm zone="g-xim-hotkey-trigger-new"><primary>g_xim_hotkey_trigger_new</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            g_xim_hotkey_trigger_new            (<link linkend="guint32">guint32</link> keysym,
+                                                         <link linkend="guint32">guint32</link> modifier,
+                                                         <link linkend="guint32">guint32</link> modifier_mask);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>keysym</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>modifier</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>modifier_mask</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-hotkey-trigger-copy" role="function">
+<title>g_xim_hotkey_trigger_copy ()</title>
+<indexterm zone="g-xim-hotkey-trigger-copy"><primary>g_xim_hotkey_trigger_copy</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            g_xim_hotkey_trigger_copy           (<link linkend="gpointer">gpointer</link> boxed);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>boxed</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-hotkey-trigger-free" role="function">
+<title>g_xim_hotkey_trigger_free ()</title>
+<indexterm zone="g-xim-hotkey-trigger-free"><primary>g_xim_hotkey_trigger_free</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_hotkey_trigger_free           (<link linkend="gpointer">gpointer</link> boxed);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>boxed</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-hotkey-trigger-put-to-stream" role="function">
+<title>g_xim_hotkey_trigger_put_to_stream ()</title>
+<indexterm zone="g-xim-hotkey-trigger-put-to-stream"><primary>g_xim_hotkey_trigger_put_to_stream</primary></indexterm><programlisting><link linkend="gsize">gsize</link>               g_xim_hotkey_trigger_put_to_stream  (<link linkend="GXimHotkeyTrigger">GXimHotkeyTrigger</link> *hotkey,
+                                                         <link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>hotkey</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>proto</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>cancellable</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-hotkey-trigger-get-from-stream" role="function">
+<title>g_xim_hotkey_trigger_get_from_stream ()</title>
+<indexterm zone="g-xim-hotkey-trigger-get-from-stream"><primary>g_xim_hotkey_trigger_get_from_stream</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            g_xim_hotkey_trigger_get_from_stream
+                                                        (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GDataInputStream">GDataInputStream</link> *stream,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proto</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>stream</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>cancellable</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="G-XIM-GDKEVENT-ERROR:CAPS" role="macro">
+<title>G_XIM_GDKEVENT_ERROR</title>
+<indexterm zone="G-XIM-GDKEVENT-ERROR:CAPS"><primary>G_XIM_GDKEVENT_ERROR</primary></indexterm><programlisting>#define G_XIM_GDKEVENT_ERROR		(g_xim_gdkevent_get_error_quark())
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimGdkEventError" role="enum">
+<title>enum GXimGdkEventError</title>
+<indexterm zone="GXimGdkEventError"><primary>GXimGdkEventError</primary></indexterm><programlisting>typedef enum {
+	G_XIM_GDKEVENT_ERROR_BEGIN = 128,
+	G_XIM_GDKEVENT_ERROR_UNSUPPORTED_EVENT,
+} GXimGdkEventError;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="g-xim-gdkevent-get-error-quark" role="function">
+<title>g_xim_gdkevent_get_error_quark ()</title>
+<indexterm zone="g-xim-gdkevent-get-error-quark"><primary>g_xim_gdkevent_get_error_quark</primary></indexterm><programlisting><link linkend="GQuark">GQuark</link>              g_xim_gdkevent_get_error_quark      (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-gdkevent-put-to-stream" role="function">
+<title>g_xim_gdkevent_put_to_stream ()</title>
+<indexterm zone="g-xim-gdkevent-put-to-stream"><primary>g_xim_gdkevent_put_to_stream</primary></indexterm><programlisting><link linkend="gsize">gsize</link>               g_xim_gdkevent_put_to_stream        (<link linkend="GdkEvent">GdkEvent</link> *event,
+                                                         <link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>event</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>proto</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>cancellable</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-gdkevent-get-from-stream" role="function">
+<title>g_xim_gdkevent_get_from_stream ()</title>
+<indexterm zone="g-xim-gdkevent-get-from-stream"><primary>g_xim_gdkevent_get_from_stream</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            g_xim_gdkevent_get_from_stream      (<link linkend="GXimProtocol">GXimProtocol</link> *proto,
+                                                         <link linkend="GDataInputStream">GDataInputStream</link> *stream,
+                                                         <link linkend="GCancellable">GCancellable</link> *cancellable,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>proto</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>stream</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>cancellable</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

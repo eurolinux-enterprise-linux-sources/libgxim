@@ -1,0 +1,364 @@
+<refentry id="GXimClientTemplate">
+<refmeta>
+<refentrytitle role="top_of_page" id="GXimClientTemplate.top_of_page">GXimClientTemplate</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGXIM Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>GXimClientTemplate</refname>
+<refpurpose>Base class for XIM client</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="GXimClientTemplate.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+#define             <link linkend="G-XIM-CL-TMPL-ERROR:CAPS">G_XIM_CL_TMPL_ERROR</link>
+#define             <link linkend="GXC-NONE:CAPS">GXC_NONE</link>
+#define             <link linkend="GXC-NEGOTIATING:CAPS">GXC_NEGOTIATING</link>
+#define             <link linkend="GXC-ESTABLISHED:CAPS">GXC_ESTABLISHED</link>
+enum                <link linkend="GXimClientTemplateError">GXimClientTemplateError</link>;
+                    <link linkend="GXimClientTemplate-struct">GXimClientTemplate</link>;
+<link linkend="GQuark">GQuark</link>              <link linkend="g-xim-cl-tmpl-get-error-quark">g_xim_cl_tmpl_get_error_quark</link>       (void);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-cl-tmpl-is-initialized">g_xim_cl_tmpl_is_initialized</link>        (<link linkend="GXimClientTemplate">GXimClientTemplate</link> *cltmpl);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-cl-tmpl-is-pending-negotiation">g_xim_cl_tmpl_is_pending_negotiation</link>
+                                                        (<link linkend="GXimClientTemplate">GXimClientTemplate</link> *cltmpl);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-cl-tmpl-start-negotiation">g_xim_cl_tmpl_start_negotiation</link>     (<link linkend="GXimClientTemplate">GXimClientTemplate</link> *cltmpl,
+                                                         <link linkend="GError">GError</link> **error);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-cl-tmpl-send-selection-request">g_xim_cl_tmpl_send_selection_request</link>
+                                                        (<link linkend="GXimClientTemplate">GXimClientTemplate</link> *cltmpl,
+                                                         <link linkend="GdkAtom">GdkAtom</link> atom,
+                                                         <link linkend="GError">GError</link> **error);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-cl-tmpl-connect-to-server">g_xim_cl_tmpl_connect_to_server</link>     (<link linkend="GXimClientTemplate">GXimClientTemplate</link> *cltmpl,
+                                                         <link linkend="GError">GError</link> **error);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="GXimClientTemplate.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GXimCore">GXimCore</link>
+         +----GXimClientTemplate
+</synopsis>
+
+</refsect1>
+
+
+
+
+
+<refsect1 id="GXimClientTemplate.properties" role="properties">
+<title role="properties.title">Properties</title>
+<synopsis>
+  &quot;<link linkend="GXimClientTemplate--atom-server">atom-server</link>&quot;              <link linkend="gpointer">gpointer</link>              : Read / Write / Construct Only
+</synopsis>
+</refsect1>
+
+<refsect1 id="GXimClientTemplate.signals" role="signal_proto">
+<title role="signal_proto.title">Signals</title>
+<synopsis>
+  &quot;<link linkend="GXimClientTemplate-notify-locales">notify-locales</link>&quot;                                 : Run First
+  &quot;<link linkend="GXimClientTemplate-notify-transport">notify-transport</link>&quot;                               : Run First
+  &quot;<link linkend="GXimClientTemplate-xconnect">xconnect</link>&quot;                                       : Run Last
+</synopsis>
+</refsect1>
+
+
+<refsect1 id="GXimClientTemplate.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+GXimClientTemplate provides a common facility to deal with XIM protocol
+events, particularly to be working on XIM client.</para>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 id="GXimClientTemplate.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="G-XIM-CL-TMPL-ERROR:CAPS" role="macro">
+<title>G_XIM_CL_TMPL_ERROR</title>
+<indexterm zone="G-XIM-CL-TMPL-ERROR:CAPS"><primary>G_XIM_CL_TMPL_ERROR</primary></indexterm><programlisting>#define G_XIM_CL_TMPL_ERROR		(g_xim_cl_tmpl_get_error_quark())
+</programlisting>
+<para>
+Error domain for <link linkend="GXimClientTemplate"><type>GXimClientTemplate</type></link>. Errors in this domain will be from
+the <link linkend="GXimClientTemplateError"><type>GXimClientTemplateError</type></link> or <link linkend="GXimStandardError"><type>GXimStandardError</type></link> enumeration.
+See <link linkend="GError"><type>GError</type></link> for more information on error domains.</para>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXC-NONE:CAPS" role="macro">
+<title>GXC_NONE</title>
+<indexterm zone="GXC-NONE:CAPS"><primary>GXC_NONE</primary></indexterm><programlisting>#define GXC_NONE	0
+</programlisting>
+<para>
+a state not yet starting to negotiate the connection.</para>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXC-NEGOTIATING:CAPS" role="macro">
+<title>GXC_NEGOTIATING</title>
+<indexterm zone="GXC-NEGOTIATING:CAPS"><primary>GXC_NEGOTIATING</primary></indexterm><programlisting>#define GXC_NEGOTIATING	1
+</programlisting>
+<para>
+a statte that is negotiating the connection to XIM server.</para>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXC-ESTABLISHED:CAPS" role="macro">
+<title>GXC_ESTABLISHED</title>
+<indexterm zone="GXC-ESTABLISHED:CAPS"><primary>GXC_ESTABLISHED</primary></indexterm><programlisting>#define GXC_ESTABLISHED	2
+</programlisting>
+<para>
+the connection has been established and ready to do something with
+XIM protocol.</para>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimClientTemplateError" role="enum">
+<title>enum GXimClientTemplateError</title>
+<indexterm zone="GXimClientTemplateError"><primary>GXimClientTemplateError</primary></indexterm><programlisting>typedef enum {
+	G_XIM_CL_TMPL_ERROR_BEGIN = 128,
+	G_XIM_CL_TMPL_ERROR_INVALID_CONNECTION_TYPE,
+} GXimClientTemplateError;
+</programlisting>
+<para>
+Error codes returned by <link linkend="GXimClientTemplate"><type>GXimClientTemplate</type></link> functions.</para>
+<para>
+
+</para><variablelist role="enum">
+<varlistentry id="G-XIM-CL-TMPL-ERROR-BEGIN:CAPS" role="constant">
+<term><literal>G_XIM_CL_TMPL_ERROR_BEGIN</literal></term>
+<listitem><simpara> Unused.
+</simpara></listitem>
+</varlistentry>
+<varlistentry id="G-XIM-CL-TMPL-ERROR-INVALID-CONNECTION-TYPE:CAPS" role="constant">
+<term><literal>G_XIM_CL_TMPL_ERROR_INVALID_CONNECTION_TYPE</literal></term>
+<listitem><simpara> The connection type isn't inherited from <link linkend="GXimConnection"><type>GXimConnection</type></link>.
+</simpara></listitem>
+</varlistentry>
+</variablelist></refsect2>
+<refsect2 id="GXimClientTemplate-struct" role="struct">
+<title>GXimClientTemplate</title>
+<indexterm zone="GXimClientTemplate-struct"><primary>GXimClientTemplate</primary></indexterm><programlisting>typedef struct _GXimClientTemplate GXimClientTemplate;</programlisting>
+<para>
+An implementation of XIM client class</para>
+<para>
+
+</para><variablelist role="struct">
+</variablelist></refsect2>
+<refsect2 id="g-xim-cl-tmpl-get-error-quark" role="function">
+<title>g_xim_cl_tmpl_get_error_quark ()</title>
+<indexterm zone="g-xim-cl-tmpl-get-error-quark"><primary>g_xim_cl_tmpl_get_error_quark</primary></indexterm><programlisting><link linkend="GQuark">GQuark</link>              g_xim_cl_tmpl_get_error_quark       (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-cl-tmpl-is-initialized" role="function">
+<title>g_xim_cl_tmpl_is_initialized ()</title>
+<indexterm zone="g-xim-cl-tmpl-is-initialized"><primary>g_xim_cl_tmpl_is_initialized</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_cl_tmpl_is_initialized        (<link linkend="GXimClientTemplate">GXimClientTemplate</link> *cltmpl);</programlisting>
+<para>
+Checks if an instance of <parameter>cltmpl</parameter> is ready to process XIM protocols.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>cltmpl</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimClientTemplate"><type>GXimClientTemplate</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to be initialized the instance properly.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-cl-tmpl-is-pending-negotiation" role="function">
+<title>g_xim_cl_tmpl_is_pending_negotiation ()</title>
+<indexterm zone="g-xim-cl-tmpl-is-pending-negotiation"><primary>g_xim_cl_tmpl_is_pending_negotiation</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_cl_tmpl_is_pending_negotiation
+                                                        (<link linkend="GXimClientTemplate">GXimClientTemplate</link> *cltmpl);</programlisting>
+<para>
+Checks if an instance of <parameter>cltmpl</parameter> is waiting for finish the negotiation.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>cltmpl</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimClientTemplate"><type>GXimClientTemplate</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to be pending in any negotiation state.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-cl-tmpl-start-negotiation" role="function">
+<title>g_xim_cl_tmpl_start_negotiation ()</title>
+<indexterm zone="g-xim-cl-tmpl-start-negotiation"><primary>g_xim_cl_tmpl_start_negotiation</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_cl_tmpl_start_negotiation     (<link linkend="GXimClientTemplate">GXimClientTemplate</link> *cltmpl,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+Starts the transaction to negotiate a connection between XIM server and
+the client.
+</para>
+<para>
+This is a convenience function to send a request with
+<link linkend="g-xim-cl-tmpl-send-selection-request"><function>g_xim_cl_tmpl_send_selection_request()</function></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>cltmpl</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimClientTemplate"><type>GXimClientTemplate</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara> a location to store error, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to be sent a request for first negotiation successfully.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-cl-tmpl-send-selection-request" role="function">
+<title>g_xim_cl_tmpl_send_selection_request ()</title>
+<indexterm zone="g-xim-cl-tmpl-send-selection-request"><primary>g_xim_cl_tmpl_send_selection_request</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_cl_tmpl_send_selection_request
+                                                        (<link linkend="GXimClientTemplate">GXimClientTemplate</link> *cltmpl,
+                                                         <link linkend="GdkAtom">GdkAtom</link> atom,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+Sends a request of <parameter>atom</parameter> to the XIM server with <link linkend="SelectionRequest"><literal>SelectionRequest</literal></link> event.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>cltmpl</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimClientTemplate"><type>GXimClientTemplate</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>atom</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GdkAtom"><type>GdkAtom</type></link> to determine which request would be sent.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara> a location to store error, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to be sent a request successfully.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-cl-tmpl-connect-to-server" role="function">
+<title>g_xim_cl_tmpl_connect_to_server ()</title>
+<indexterm zone="g-xim-cl-tmpl-connect-to-server"><primary>g_xim_cl_tmpl_connect_to_server</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_cl_tmpl_connect_to_server     (<link linkend="GXimClientTemplate">GXimClientTemplate</link> *cltmpl,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+Connects to XIM server. you have to call this function before doing something
+with XIM protocols.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>cltmpl</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimClientTemplate"><type>GXimClientTemplate</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara> a location to store error, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to be starting the negotiation to be connected successfully.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+<refsect1 id="GXimClientTemplate.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GXimClientTemplate--atom-server"><title>The <literal>&quot;atom-server&quot;</literal> property</title>
+<indexterm zone="GXimClientTemplate--atom-server"><primary>GXimClientTemplate:atom-server</primary></indexterm><programlisting>  &quot;atom-server&quot;              <link linkend="gpointer">gpointer</link>              : Read / Write / Construct Only</programlisting>
+<para>
+the <link linkend="GdkAtom"><type>GdkAtom</type></link> where the client instance should connects to. the atom
+name would be something what you specify with XMODIFIERS=<parameter>im</parameter>=.</para>
+<para>
+
+</para></refsect2>
+
+</refsect1>
+
+<refsect1 id="GXimClientTemplate.signal-details" role="signals">
+<title role="signals.title">Signal Details</title>
+<refsect2 id="GXimClientTemplate-notify-locales"><title>The <literal>&quot;notify-locales&quot;</literal> signal</title>
+<indexterm zone="GXimClientTemplate-notify-locales"><primary>GXimClientTemplate::notify-locales</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="GXimClientTemplate">GXimClientTemplate</link> *cltmpl,
+                                                        <link linkend="GStrv">GStrv</link>              *locales,
+                                                        <link linkend="gpointer">gpointer</link>            user_data)      : Run First</programlisting>
+<para>
+The ::notify-locales signal will be emitted when the <parameter>cltmpl</parameter> received
+a reply of acquiring the supported locales in XIM server.
+</para>
+<para>
+This is a convenience signal to deal with
+<link linkend="GXimCore-selection-notify-event"><type>"selection-notify-event"</type></link> for a reply of <link linkend="LOCALES:CAPS"><literal>LOCALES</literal></link> request.</para>
+<para>
+
+</para>
+
+@: 
+@:<variablelist role="params">
+<varlistentry><term><parameter>cltmpl</parameter>&nbsp;:</term>
+<listitem><simpara> the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>locales</parameter>&nbsp;:</term>
+<listitem><simpara> an array of the string contains the locale names with
+ <link linkend="NULL:CAPS"><literal>NULL</literal></link>-terminated.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2 id="GXimClientTemplate-notify-transport"><title>The <literal>&quot;notify-transport&quot;</literal> signal</title>
+<indexterm zone="GXimClientTemplate-notify-transport"><primary>GXimClientTemplate::notify-transport</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="GXimClientTemplate">GXimClientTemplate</link> *cltmpl,
+                                                        <link linkend="GStrv">GStrv</link>              *transport,
+                                                        <link linkend="gpointer">gpointer</link>            user_data)      : Run First</programlisting>
+<para>
+The ::notify-transport signal will be emitted when the <parameter>cltmpl</parameter>
+received a reply of acquiring the supported transport-specific names
+in XIM server.
+</para>
+<para>
+This is a convenience signal to deal with
+<link linkend="GXimCore-selection-notify-event"><type>"selection-notify-event"</type></link> for a reply of <link linkend="TRANSPORT:CAPS"><literal>TRANSPORT</literal></link> request.</para>
+<para>
+
+</para>
+
+@: 
+@:<variablelist role="params">
+<varlistentry><term><parameter>cltmpl</parameter>&nbsp;:</term>
+<listitem><simpara> the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>transport</parameter>&nbsp;:</term>
+<listitem><simpara> an array of the string contains the transport-specific
+ names with <link linkend="NULL:CAPS"><literal>NULL</literal></link>-terminated.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2 id="GXimClientTemplate-xconnect"><title>The <literal>&quot;xconnect&quot;</literal> signal</title>
+<indexterm zone="GXimClientTemplate-xconnect"><primary>GXimClientTemplate::xconnect</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            user_function                      (<link linkend="GXimClientTemplate">GXimClientTemplate</link> *cltmpl,
+                                                        <link linkend="GdkEvent">GdkEvent</link>           *event,
+                                                        <link linkend="gpointer">gpointer</link>            user_data)      : Run Last</programlisting>
+<para>
+The ::xconnect signal will be emitted when <link linkend="XIM-XCONNECT:CAPS"><literal>XIM_XCONNECT</literal></link> event is
+dispatched from the XIM server in order to respond to <link linkend="XIM-XCONNECT:CAPS"><literal>XIM_XCONNECT</literal></link>
+event from the client.
+See The Input Method Protocol, XIM specification document for more
+details about <link linkend="XIM-XCONNECT:CAPS"><literal>XIM_XCONNECT</literal></link>.</para>
+<para>
+
+</para>
+
+@: 
+@:<variablelist role="params">
+<varlistentry><term><parameter>cltmpl</parameter>&nbsp;:</term>
+<listitem><simpara> the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>event</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="GdkEventClient"><type>GdkEventClient</type></link> which triggered this signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to stop other handlers from being invoked for
+ the event. <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> to propagate the event further.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+</refsect1>
+
+
+<refsect1 id="GXimClientTemplate.see-also">
+<title>See Also</title>
+<link linkend="GXimCore"><type>GXimCore</type></link>
+</refsect1>
+
+</refentry>

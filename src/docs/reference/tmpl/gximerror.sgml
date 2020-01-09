@@ -1,0 +1,68 @@
+<!-- ##### SECTION Title ##### -->
+gximerror
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### MACRO G_XIM_ERROR_DECODE_X_ERROR_CODE ##### -->
+<para>
+
+</para>
+
+@_v_: 
+
+
+<!-- ##### MACRO G_XIM_ERROR_DECODE_X_REQUEST_CODE ##### -->
+<para>
+
+</para>
+
+@_v_: 
+
+
+<!-- ##### MACRO G_XIM_ERROR_DECODE_X_MINOR_CODE ##### -->
+<para>
+
+</para>
+
+@_v_: 
+
+
+<!-- ##### MACRO G_XIM_ERROR_ERROR_CODE ##### -->
+<para>
+
+</para>
+
+@_e_: 
+@_r_: 
+@_m_: 
+
+
+<!-- ##### FUNCTION g_xim_error_push ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### FUNCTION g_xim_error_pop ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+

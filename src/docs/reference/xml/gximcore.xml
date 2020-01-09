@@ -1,0 +1,462 @@
+<refentry id="GXimCore">
+<refmeta>
+<refentrytitle role="top_of_page" id="GXimCore.top_of_page">GXimCore</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGXIM Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>GXimCore</refname>
+<refpurpose>Base class for XIM protocol event handling</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="GXimCore.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="GXimCore-struct">GXimCore</link>;
+<link linkend="void">void</link>                <link linkend="g-xim-core-watch-event">g_xim_core_watch_event</link>              (<link linkend="GXimCore">GXimCore</link> *core,
+                                                         <link linkend="GdkWindow">GdkWindow</link> *window);
+<link linkend="void">void</link>                <link linkend="g-xim-core-unwatch-event">g_xim_core_unwatch_event</link>            (<link linkend="GXimCore">GXimCore</link> *core,
+                                                         <link linkend="GdkWindow">GdkWindow</link> *window);
+<link linkend="GdkDisplay">GdkDisplay</link>*         <link linkend="g-xim-core-get-display">g_xim_core_get_display</link>              (<link linkend="GXimCore">GXimCore</link> *core);
+<link linkend="GdkWindow">GdkWindow</link>*          <link linkend="g-xim-core-get-selection-window">g_xim_core_get_selection_window</link>     (<link linkend="GXimCore">GXimCore</link> *core);
+<link linkend="GType">GType</link>               <link linkend="g-xim-core-get-connection-gtype">g_xim_core_get_connection_gtype</link>     (<link linkend="GXimCore">GXimCore</link> *core);
+<link linkend="GSList">GSList</link>*             <link linkend="g-xim-core-get-protocol-signal-connector">g_xim_core_get_protocol_signal_connector</link>
+                                                        (<link linkend="GXimCore">GXimCore</link> *core);
+<link linkend="void">void</link>                <link linkend="g-xim-core-setup-connection">g_xim_core_setup_connection</link>         (<link linkend="GXimCore">GXimCore</link> *core,
+                                                         <link linkend="GXimConnection">GXimConnection</link> *conn);
+<link linkend="void">void</link>                <link linkend="g-xim-core-add-client-message-filter">g_xim_core_add_client_message_filter</link>
+                                                        (<link linkend="GXimCore">GXimCore</link> *core,
+                                                         <link linkend="GdkAtom">GdkAtom</link> atom);
+<link linkend="void">void</link>                <link linkend="g-xim-core-remove-client-message-filter">g_xim_core_remove_client_message_filter</link>
+                                                        (<link linkend="GXimCore">GXimCore</link> *core,
+                                                         <link linkend="GdkAtom">GdkAtom</link> atom);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-core-lookup-client-message-filter">g_xim_core_lookup_client_message_filter</link>
+                                                        (<link linkend="GXimCore">GXimCore</link> *core,
+                                                         <link linkend="GdkAtom">GdkAtom</link> atom);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="GXimCore.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----GXimCore
+         +----<link linkend="GXimClientTemplate">GXimClientTemplate</link>
+         +----<link linkend="GXimServerTemplate">GXimServerTemplate</link>
+</synopsis>
+
+</refsect1>
+
+
+
+
+
+<refsect1 id="GXimCore.properties" role="properties">
+<title role="properties.title">Properties</title>
+<synopsis>
+  &quot;<link linkend="GXimCore--connection-gtype">connection-gtype</link>&quot;         <link linkend="GType">GType</link>*                : Read / Write / Construct Only
+  &quot;<link linkend="GXimCore--display">display</link>&quot;                  <link linkend="GdkDisplay">GdkDisplay</link>*           : Read / Write / Construct Only
+  &quot;<link linkend="GXimCore--proto-signals">proto-signals</link>&quot;            <link linkend="gpointer">gpointer</link>              : Read / Write
+  &quot;<link linkend="GXimCore--selection-window">selection-window</link>&quot;         <link linkend="GdkWindow">GdkWindow</link>*            : Read
+</synopsis>
+</refsect1>
+
+<refsect1 id="GXimCore.signals" role="signal_proto">
+<title role="signal_proto.title">Signals</title>
+<synopsis>
+  &quot;<link linkend="GXimCore-client-event">client-event</link>&quot;                                   : Run Last
+  &quot;<link linkend="GXimCore-destroy-event">destroy-event</link>&quot;                                  : Run Last
+  &quot;<link linkend="GXimCore-expose-event">expose-event</link>&quot;                                   : Run Last
+  &quot;<link linkend="GXimCore-selection-clear-event">selection-clear-event</link>&quot;                          : Run Last
+  &quot;<link linkend="GXimCore-selection-notify-event">selection-notify-event</link>&quot;                         : Run Last
+  &quot;<link linkend="GXimCore-selection-request-event">selection-request-event</link>&quot;                        : Run Last
+</synopsis>
+</refsect1>
+
+
+<refsect1 id="GXimCore.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+GXimCore provides a common functionality to deal with XIM protocol
+for both server side and client side.  You usually don't need to use
+most functions described here because any chance to do something with
+them is well hidden by the higher-level APIs, except if you want to
+make any classes that inherited from GXimCore, or to do any particular
+thing with them.</para>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 id="GXimCore.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GXimCore-struct" role="struct">
+<title>GXimCore</title>
+<indexterm zone="GXimCore-struct"><primary>GXimCore</primary></indexterm><programlisting>typedef struct _GXimCore GXimCore;</programlisting>
+<para>
+An abstract implementation of XIM protocol event handling class.</para>
+<para>
+
+</para><variablelist role="struct">
+</variablelist></refsect2>
+<refsect2 id="g-xim-core-watch-event" role="function">
+<title>g_xim_core_watch_event ()</title>
+<indexterm zone="g-xim-core-watch-event"><primary>g_xim_core_watch_event</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_core_watch_event              (<link linkend="GXimCore">GXimCore</link> *core,
+                                                         <link linkend="GdkWindow">GdkWindow</link> *window);</programlisting>
+<para>
+Adds the event filter to <parameter>window</parameter> and catches up events with <parameter>core</parameter>'s event
+handler.  This has to be done before starting the protocol negotiation.
+otherwise it will be lost and another application may be frozen in worst case.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>core</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimCore"><type>GXimCore</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>window</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GdkWindow"><type>GdkWindow</type></link> that watches the event.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-core-unwatch-event" role="function">
+<title>g_xim_core_unwatch_event ()</title>
+<indexterm zone="g-xim-core-unwatch-event"><primary>g_xim_core_unwatch_event</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_core_unwatch_event            (<link linkend="GXimCore">GXimCore</link> *core,
+                                                         <link linkend="GdkWindow">GdkWindow</link> *window);</programlisting>
+<para>
+Removes the event filter from <parameter>window</parameter> and finishes watching events at <parameter>core</parameter>.
+This has to be done after finishing the protocol connection.
+otherwise some events will be lost and another application may be frozen
+in worst case.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>core</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimCore"><type>GXimCore</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>window</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GdkWindow"><type>GdkWindow</type></link> that wants to remove from the watch list.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-core-get-display" role="function">
+<title>g_xim_core_get_display ()</title>
+<indexterm zone="g-xim-core-get-display"><primary>g_xim_core_get_display</primary></indexterm><programlisting><link linkend="GdkDisplay">GdkDisplay</link>*         g_xim_core_get_display              (<link linkend="GXimCore">GXimCore</link> *core);</programlisting>
+<para>
+Obtains the <link linkend="GdkDisplay"><type>GdkDisplay</type></link> that currently use.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>core</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimCore"><type>GXimCore</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a display to use.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-core-get-selection-window" role="function">
+<title>g_xim_core_get_selection_window ()</title>
+<indexterm zone="g-xim-core-get-selection-window"><primary>g_xim_core_get_selection_window</primary></indexterm><programlisting><link linkend="GdkWindow">GdkWindow</link>*          g_xim_core_get_selection_window     (<link linkend="GXimCore">GXimCore</link> *core);</programlisting>
+<para>
+Obtains a selection window. this function may be necessary when you want to
+communicate the XIM server or clients through XIM protocol.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>core</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimCore"><type>GXimCore</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="GXimCore--selection-window"><type>"selection-window"</type></link> in <parameter>core</parameter>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-core-get-connection-gtype" role="function">
+<title>g_xim_core_get_connection_gtype ()</title>
+<indexterm zone="g-xim-core-get-connection-gtype"><primary>g_xim_core_get_connection_gtype</primary></indexterm><programlisting><link linkend="GType">GType</link>               g_xim_core_get_connection_gtype     (<link linkend="GXimCore">GXimCore</link> *core);</programlisting>
+<para>
+Obtains a <link linkend="GType"><type>GType</type></link> of the class inherited from <link linkend="GXimConnection"><type>GXimConnection</type></link>.
+This function is typically used to create an instance of the connection.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>core</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimCore"><type>GXimCore</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="GXimCore--connection-gtype"><type>"connection-gtype"</type></link> in <parameter>core</parameter>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-core-get-protocol-signal-connector" role="function">
+<title>g_xim_core_get_protocol_signal_connector ()</title>
+<indexterm zone="g-xim-core-get-protocol-signal-connector"><primary>g_xim_core_get_protocol_signal_connector</primary></indexterm><programlisting><link linkend="GSList">GSList</link>*             g_xim_core_get_protocol_signal_connector
+                                                        (<link linkend="GXimCore">GXimCore</link> *core);</programlisting>
+<para>
+Obtains a list of the signal callbacks.
+This function is typically used to initialize the signal connectioon after
+creating an instance of the connection.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>core</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimCore"><type>GXimCore</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a list of <link linkend="GXimLazySignalConnector"><type>GXimLazySignalConnector</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-core-setup-connection" role="function">
+<title>g_xim_core_setup_connection ()</title>
+<indexterm zone="g-xim-core-setup-connection"><primary>g_xim_core_setup_connection</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_core_setup_connection         (<link linkend="GXimCore">GXimCore</link> *core,
+                                                         <link linkend="GXimConnection">GXimConnection</link> *conn);</programlisting>
+<para>
+Initialize a <parameter>conn</parameter>'s connection to get it working.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>core</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimCore"><type>GXimCore</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimConnection"><type>GXimConnection</type></link> to be initialized
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-core-add-client-message-filter" role="function">
+<title>g_xim_core_add_client_message_filter ()</title>
+<indexterm zone="g-xim-core-add-client-message-filter"><primary>g_xim_core_add_client_message_filter</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_core_add_client_message_filter
+                                                        (<link linkend="GXimCore">GXimCore</link> *core,
+                                                         <link linkend="GdkAtom">GdkAtom</link> atom);</programlisting>
+<para>
+Deals with the event when <parameter>atom</parameter> is specified as the message_type in
+<link linkend="GXimCore-client-event"><type>"client-event"</type></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>core</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimCore"><type>GXimCore</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>atom</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GdkAtom"><type>GdkAtom</type></link> to deal with in the event filter.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-core-remove-client-message-filter" role="function">
+<title>g_xim_core_remove_client_message_filter ()</title>
+<indexterm zone="g-xim-core-remove-client-message-filter"><primary>g_xim_core_remove_client_message_filter</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_core_remove_client_message_filter
+                                                        (<link linkend="GXimCore">GXimCore</link> *core,
+                                                         <link linkend="GdkAtom">GdkAtom</link> atom);</programlisting>
+<para>
+Removes <parameter>atom</parameter> from the table and the event filter won't deals with it
+even when it's specified to the message_type in <link linkend="GXimCore-client-event"><type>"client-event"</type></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>core</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimCore"><type>GXimCore</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>atom</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GdkAtom"><type>GdkAtom</type></link> to not deal with in the event filter any more.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-core-lookup-client-message-filter" role="function">
+<title>g_xim_core_lookup_client_message_filter ()</title>
+<indexterm zone="g-xim-core-lookup-client-message-filter"><primary>g_xim_core_lookup_client_message_filter</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_core_lookup_client_message_filter
+                                                        (<link linkend="GXimCore">GXimCore</link> *core,
+                                                         <link linkend="GdkAtom">GdkAtom</link> atom);</programlisting>
+<para>
+Looks up <parameter>atom</parameter> if it's registered to deal with it in <link linkend="GXimCore-client-event"><type>"client-event"</type></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>core</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimCore"><type>GXimCore</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>atom</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GdkAtom"><type>GdkAtom</type></link> to look up
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>atom</parameter> has already been added to the table.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+<refsect1 id="GXimCore.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GXimCore--connection-gtype"><title>The <literal>&quot;connection-gtype&quot;</literal> property</title>
+<indexterm zone="GXimCore--connection-gtype"><primary>GXimCore:connection-gtype</primary></indexterm><programlisting>  &quot;connection-gtype&quot;         <link linkend="GType">GType</link>*                : Read / Write / Construct Only</programlisting>
+<para>
+a <link linkend="GType"><type>GType</type></link> inherited from <link linkend="GXimConnection"><type>GXimConnection</type></link>. this will be a instance and
+determines the connection type when the connection is requested.</para>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimCore--display"><title>The <literal>&quot;display&quot;</literal> property</title>
+<indexterm zone="GXimCore--display"><primary>GXimCore:display</primary></indexterm><programlisting>  &quot;display&quot;                  <link linkend="GdkDisplay">GdkDisplay</link>*           : Read / Write / Construct Only</programlisting>
+<para>Gdk display to use.</para></refsect2>
+<refsect2 id="GXimCore--proto-signals"><title>The <literal>&quot;proto-signals&quot;</literal> property</title>
+<indexterm zone="GXimCore--proto-signals"><primary>GXimCore:proto-signals</primary></indexterm><programlisting>  &quot;proto-signals&quot;            <link linkend="gpointer">gpointer</link>              : Read / Write</programlisting>
+<para>
+a set of <link linkend="GXimLazySignalConnector"><type>GXimLazySignalConnector</type></link> to connect signals to a instance
+of <link linkend="GXimCore--connection-gtype"><type>"connection-gtype"</type></link> when the connection is negothating.</para>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimCore--selection-window"><title>The <literal>&quot;selection-window&quot;</literal> property</title>
+<indexterm zone="GXimCore--selection-window"><primary>GXimCore:selection-window</primary></indexterm><programlisting>  &quot;selection-window&quot;         <link linkend="GdkWindow">GdkWindow</link>*            : Read</programlisting>
+<para>
+a <link linkend="GdkWindow"><type>GdkWindow</type></link> to communicate with the XIM server or the client
+application.</para>
+<para>
+
+</para></refsect2>
+
+</refsect1>
+
+<refsect1 id="GXimCore.signal-details" role="signals">
+<title role="signals.title">Signal Details</title>
+<refsect2 id="GXimCore-client-event"><title>The <literal>&quot;client-event&quot;</literal> signal</title>
+<indexterm zone="GXimCore-client-event"><primary>GXimCore::client-event</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            user_function                      (<link linkend="GXimCore">GXimCore</link>       *core,
+                                                        <link linkend="GdkEventClient">GdkEventClient</link> *event,
+                                                        <link linkend="gpointer">gpointer</link>        user_data)      : Run Last</programlisting>
+<para>
+The ::client-event signal will be emitted when the <parameter>core</parameter>'s window
+receives a message (via ClientMessage event) from another application.
+all of XIM protocol is delivered with this signal.</para>
+<para>
+
+</para>
+
+@: 
+@:<variablelist role="params">
+<varlistentry><term><parameter>core</parameter>&nbsp;:</term>
+<listitem><simpara> the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>event</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="GdkEventClient"><type>GdkEventClient</type></link> which triggered this signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to stop other handlers from being invoked for
+the event. <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> to propagate the event further.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2 id="GXimCore-destroy-event"><title>The <literal>&quot;destroy-event&quot;</literal> signal</title>
+<indexterm zone="GXimCore-destroy-event"><primary>GXimCore::destroy-event</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            user_function                      (<link linkend="GXimCore">GXimCore</link> *core,
+                                                        <link linkend="GdkEvent">GdkEvent</link> *event,
+                                                        <link linkend="gpointer">gpointer</link>  user_data)      : Run Last</programlisting>
+<para>
+The ::destroy-event signal will be emitted when a <link linkend="GdkWindow"><type>GdkWindow</type></link>
+is destroyed. typically you will see that when the client connection
+is disconnected from the client side.</para>
+<para>
+
+</para>
+
+@: 
+@:<variablelist role="params">
+<varlistentry><term><parameter>core</parameter>&nbsp;:</term>
+<listitem><simpara> the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>event</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="GdkEvent"><type>GdkEvent</type></link> which triggered this signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to stop other handlers from being invoked for
+the event. <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> to propagate the event further.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2 id="GXimCore-expose-event"><title>The <literal>&quot;expose-event&quot;</literal> signal</title>
+<indexterm zone="GXimCore-expose-event"><primary>GXimCore::expose-event</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            user_function                      (<link linkend="GXimCore">GXimCore</link>       *gximcore,
+                                                        <link linkend="GdkEventExpose">GdkEventExpose</link> *event,
+                                                        <link linkend="gpointer">gpointer</link>        user_data)      : Run Last</programlisting>
+<para>
+
+</para>
+
+@: 
+@:<variablelist role="params">
+<varlistentry><term><parameter>Param2</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2 id="GXimCore-selection-clear-event"><title>The <literal>&quot;selection-clear-event&quot;</literal> signal</title>
+<indexterm zone="GXimCore-selection-clear-event"><primary>GXimCore::selection-clear-event</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            user_function                      (<link linkend="GXimCore">GXimCore</link>          *core,
+                                                        <link linkend="GdkEventSelection">GdkEventSelection</link> *event,
+                                                        <link linkend="gpointer">gpointer</link>           user_data)      : Run Last</programlisting>
+<para>
+The ::selection-clear-event signal will be emitted when the
+<parameter>core</parameter>'s window has lost ownership of a selection. this signal
+won't appears in the client instance, such as inherited from
+<link linkend="GXimClientTemplate"><type>GXimClientTemplate</type></link>.</para>
+<para>
+
+</para>
+
+@: 
+@:<variablelist role="params">
+<varlistentry><term><parameter>core</parameter>&nbsp;:</term>
+<listitem><simpara> the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>event</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="GdkEventSelection"><type>GdkEventSelection</type></link> which triggered this signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to stop other handlers from being invoked for
+the event. <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> to propagate the event further.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2 id="GXimCore-selection-notify-event"><title>The <literal>&quot;selection-notify-event&quot;</literal> signal</title>
+<indexterm zone="GXimCore-selection-notify-event"><primary>GXimCore::selection-notify-event</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            user_function                      (<link linkend="GXimCore">GXimCore</link>          *core,
+                                                        <link linkend="GdkEventSelection">GdkEventSelection</link> *event,
+                                                        <link linkend="gpointer">gpointer</link>           user_data)      : Run Last</programlisting>
+<para>
+The ::selection-notify-event signal will be emitted when the
+the XIM server responded requests to get the supported locales
+and the transport-specific names. this signal won't appears in
+the server instance, such as inherited from <link linkend="GXimServerTemplate"><type>GXimServerTemplate</type></link>.</para>
+<para>
+
+</para>
+
+@: 
+@:<variablelist role="params">
+<varlistentry><term><parameter>core</parameter>&nbsp;:</term>
+<listitem><simpara> the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>event</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="GdkEventSelection"><type>GdkEventSelection</type></link> which triggered this signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to stop other handlers from being invoked for
+the event. <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> to propagate the event further.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2 id="GXimCore-selection-request-event"><title>The <literal>&quot;selection-request-event&quot;</literal> signal</title>
+<indexterm zone="GXimCore-selection-request-event"><primary>GXimCore::selection-request-event</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            user_function                      (<link linkend="GXimCore">GXimCore</link>          *core,
+                                                        <link linkend="GdkEventSelection">GdkEventSelection</link> *event,
+                                                        <link linkend="gpointer">gpointer</link>           user_data)      : Run Last</programlisting>
+<para>
+The ::selection-request-event signal will be emitted when the client
+applications requests a set of names of the supported locales and
+the preregistered formats for transport-specific names. this signal
+won't appears in the client instance, such as inherited from
+<link linkend="GXimClientTemplate"><type>GXimClientTemplate</type></link>.</para>
+<para>
+
+</para>
+
+@: 
+@:<variablelist role="params">
+<varlistentry><term><parameter>core</parameter>&nbsp;:</term>
+<listitem><simpara> the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>event</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="GdkEventSelection"><type>GdkEventSelection</type></link> which triggered this signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to stop other handlers from being invoked for
+the event. <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> to propagate the event further.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+</refsect1>
+
+
+
+</refentry>

@@ -1,0 +1,444 @@
+<refentry id="GXimServerTemplate">
+<refmeta>
+<refentrytitle role="top_of_page" id="GXimServerTemplate.top_of_page">GXimServerTemplate</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGXIM Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>GXimServerTemplate</refname>
+<refpurpose>Base class for XIM server</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="GXimServerTemplate.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+#define             <link linkend="G-XIM-SRV-TMPL-ERROR:CAPS">G_XIM_SRV_TMPL_ERROR</link>
+enum                <link linkend="GXimServerTemplateError">GXimServerTemplateError</link>;
+                    <link linkend="GXimServerTemplate-struct">GXimServerTemplate</link>;
+<link linkend="GQuark">GQuark</link>              <link linkend="g-xim-srv-tmpl-get-error-quark">g_xim_srv_tmpl_get_error_quark</link>      (void);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-srv-tmpl-is-running">g_xim_srv_tmpl_is_running</link>           (<link linkend="GXimServerTemplate">GXimServerTemplate</link> *srvtmpl,
+                                                         <link linkend="GError">GError</link> **error);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-srv-tmpl-take-ownership">g_xim_srv_tmpl_take_ownership</link>       (<link linkend="GXimServerTemplate">GXimServerTemplate</link> *srvtmpl,
+                                                         <link linkend="gboolean">gboolean</link> force,
+                                                         <link linkend="GError">GError</link> **error);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-srv-tmpl-send-selection-notify">g_xim_srv_tmpl_send_selection_notify</link>
+                                                        (<link linkend="GXimServerTemplate">GXimServerTemplate</link> *srvtmpl,
+                                                         <link linkend="GdkEventSelection">GdkEventSelection</link> *event,
+                                                         const <link linkend="gchar">gchar</link> *data,
+                                                         <link linkend="gsize">gsize</link> length,
+                                                         <link linkend="GError">GError</link> **error);
+<link linkend="void">void</link>                <link linkend="g-xim-srv-tmpl-add-connection">g_xim_srv_tmpl_add_connection</link>       (<link linkend="GXimServerTemplate">GXimServerTemplate</link> *srvtmpl,
+                                                         <link linkend="GXimConnection">GXimConnection</link> *conn,
+                                                         <link linkend="GdkNativeWindow">GdkNativeWindow</link> window);
+<link linkend="void">void</link>                <link linkend="g-xim-srv-tmpl-remove-connection">g_xim_srv_tmpl_remove_connection</link>    (<link linkend="GXimServerTemplate">GXimServerTemplate</link> *srvtmpl,
+                                                         <link linkend="GdkNativeWindow">GdkNativeWindow</link> window);
+<link linkend="GXimConnection">GXimConnection</link>*     <link linkend="g-xim-srv-tmpl-lookup-connection">g_xim_srv_tmpl_lookup_connection</link>    (<link linkend="GXimServerTemplate">GXimServerTemplate</link> *srvtmpl,
+                                                         <link linkend="GdkWindow">GdkWindow</link> *window);
+<link linkend="GXimConnection">GXimConnection</link>*     <link linkend="g-xim-srv-tmpl-lookup-connection-with-native-window">g_xim_srv_tmpl_lookup_connection_with_native_window</link>
+                                                        (<link linkend="GXimServerTemplate">GXimServerTemplate</link> *srvtmpl,
+                                                         <link linkend="GdkNativeWindow">GdkNativeWindow</link> window);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="GXimServerTemplate.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GXimCore">GXimCore</link>
+         +----GXimServerTemplate
+</synopsis>
+
+</refsect1>
+
+
+
+
+
+<refsect1 id="GXimServerTemplate.properties" role="properties">
+<title role="properties.title">Properties</title>
+<synopsis>
+  &quot;<link linkend="GXimServerTemplate--server-name">server-name</link>&quot;              <link linkend="gchar">gchar</link>*                : Read / Write / Construct Only
+</synopsis>
+</refsect1>
+
+<refsect1 id="GXimServerTemplate.signals" role="signal_proto">
+<title role="signal_proto.title">Signals</title>
+<synopsis>
+  &quot;<link linkend="GXimServerTemplate-destroy">destroy</link>&quot;                                        : Run First
+  &quot;<link linkend="GXimServerTemplate-get-supported-locales">get-supported-locales</link>&quot;                          : Run Last
+  &quot;<link linkend="GXimServerTemplate-get-supported-transport">get-supported-transport</link>&quot;                        : Run Last
+  &quot;<link linkend="GXimServerTemplate-xconnect">xconnect</link>&quot;                                       : Run Last
+</synopsis>
+</refsect1>
+
+
+<refsect1 id="GXimServerTemplate.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+GXimServerTemplate provides a common facility to deal with XIM protocol
+events, particularly to be working on XIM server.</para>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 id="GXimServerTemplate.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="G-XIM-SRV-TMPL-ERROR:CAPS" role="macro">
+<title>G_XIM_SRV_TMPL_ERROR</title>
+<indexterm zone="G-XIM-SRV-TMPL-ERROR:CAPS"><primary>G_XIM_SRV_TMPL_ERROR</primary></indexterm><programlisting>#define G_XIM_SRV_TMPL_ERROR		(g_xim_srv_tmpl_get_error_quark())
+</programlisting>
+<para>
+Error domain for <link linkend="GXimServerTemplate"><type>GXimServerTemplate</type></link>. Errors in this domain will be from
+the <link linkend="GXimServerTemplateError"><type>GXimServerTemplateError</type></link> or <link linkend="GXimStandardError"><type>GXimStandardError</type></link> enumeration.
+See <link linkend="GError"><type>GError</type></link> for more information on error domains.</para>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimServerTemplateError" role="enum">
+<title>enum GXimServerTemplateError</title>
+<indexterm zone="GXimServerTemplateError"><primary>GXimServerTemplateError</primary></indexterm><programlisting>typedef enum {
+	G_XIM_SRV_TMPL_ERROR_BEGIN = 128,
+	G_XIM_SRV_TMPL_ERROR_SAME_SERVER_IS_RUNNING,
+	G_XIM_SRV_TMPL_ERROR_ANOTHER_SERVER_IS_RUNNING,
+	G_XIM_SRV_TMPL_ERROR_UNABLE_TO_ACQUIRE_SERVER_OWNER,
+	G_XIM_SRV_TMPL_ERROR_UNABLE_TO_ADD_SERVER,
+	G_XIM_SRV_TMPL_ERROR_UNABLE_TO_SEND_PROPERTY_NOTIFY,
+} GXimServerTemplateError;
+</programlisting>
+<para>
+Error codes returned by <link linkend="GXimServerTemplate"><type>GXimServerTemplate</type></link> functions.</para>
+<para>
+
+</para><variablelist role="enum">
+<varlistentry id="G-XIM-SRV-TMPL-ERROR-BEGIN:CAPS" role="constant">
+<term><literal>G_XIM_SRV_TMPL_ERROR_BEGIN</literal></term>
+<listitem><simpara> Unused.
+</simpara></listitem>
+</varlistentry>
+<varlistentry id="G-XIM-SRV-TMPL-ERROR-SAME-SERVER-IS-RUNNING:CAPS" role="constant">
+<term><literal>G_XIM_SRV_TMPL_ERROR_SAME_SERVER_IS_RUNNING</literal></term>
+<listitem><simpara> Server is already running in the instance.
+</simpara></listitem>
+</varlistentry>
+<varlistentry id="G-XIM-SRV-TMPL-ERROR-ANOTHER-SERVER-IS-RUNNING:CAPS" role="constant">
+<term><literal>G_XIM_SRV_TMPL_ERROR_ANOTHER_SERVER_IS_RUNNING</literal></term>
+<listitem><simpara> Server in another process is already running with the same name.
+</simpara></listitem>
+</varlistentry>
+<varlistentry id="G-XIM-SRV-TMPL-ERROR-UNABLE-TO-ACQUIRE-SERVER-OWNER:CAPS" role="constant">
+<term><literal>G_XIM_SRV_TMPL_ERROR_UNABLE_TO_ACQUIRE_SERVER_OWNER</literal></term>
+<listitem><simpara> Unable to acquire the owner of the name.
+</simpara></listitem>
+</varlistentry>
+<varlistentry id="G-XIM-SRV-TMPL-ERROR-UNABLE-TO-ADD-SERVER:CAPS" role="constant">
+<term><literal>G_XIM_SRV_TMPL_ERROR_UNABLE_TO_ADD_SERVER</literal></term>
+<listitem><simpara> Unable to add the server to <link linkend="XIM-SERVERS:CAPS"><literal>XIM_SERVERS</literal></link>.
+</simpara></listitem>
+</varlistentry>
+<varlistentry id="G-XIM-SRV-TMPL-ERROR-UNABLE-TO-SEND-PROPERTY-NOTIFY:CAPS" role="constant">
+<term><literal>G_XIM_SRV_TMPL_ERROR_UNABLE_TO_SEND_PROPERTY_NOTIFY</literal></term>
+<listitem><simpara> Failed to send <link linkend="PropertyNotify"><literal>PropertyNotify</literal></link>.
+</simpara></listitem>
+</varlistentry>
+</variablelist></refsect2>
+<refsect2 id="GXimServerTemplate-struct" role="struct">
+<title>GXimServerTemplate</title>
+<indexterm zone="GXimServerTemplate-struct"><primary>GXimServerTemplate</primary></indexterm><programlisting>typedef struct _GXimServerTemplate GXimServerTemplate;</programlisting>
+<para>
+An abstract implementation of XIM server class</para>
+<para>
+
+</para></refsect2>
+<refsect2 id="g-xim-srv-tmpl-get-error-quark" role="function">
+<title>g_xim_srv_tmpl_get_error_quark ()</title>
+<indexterm zone="g-xim-srv-tmpl-get-error-quark"><primary>g_xim_srv_tmpl_get_error_quark</primary></indexterm><programlisting><link linkend="GQuark">GQuark</link>              g_xim_srv_tmpl_get_error_quark      (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-srv-tmpl-is-running" role="function">
+<title>g_xim_srv_tmpl_is_running ()</title>
+<indexterm zone="g-xim-srv-tmpl-is-running"><primary>g_xim_srv_tmpl_is_running</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_srv_tmpl_is_running           (<link linkend="GXimServerTemplate">GXimServerTemplate</link> *srvtmpl,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+Checks if XIM server process is already running at <parameter>srvtmpl</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>srvtmpl</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimServerTemplate"><type>GXimServerTemplate</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara> a location to store error, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> when XIM server process is already running at <parameter>srvtmpl</parameter>.
+ Otherwise <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-srv-tmpl-take-ownership" role="function">
+<title>g_xim_srv_tmpl_take_ownership ()</title>
+<indexterm zone="g-xim-srv-tmpl-take-ownership"><primary>g_xim_srv_tmpl_take_ownership</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_srv_tmpl_take_ownership       (<link linkend="GXimServerTemplate">GXimServerTemplate</link> *srvtmpl,
+                                                         <link linkend="gboolean">gboolean</link> force,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+Starts XIM server if able to take an ownership for
+<link linkend="GXimServerTemplate--server-name"><type>"server_name"</type></link> in X property.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>srvtmpl</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimServerTemplate"><type>GXimServerTemplate</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>force</parameter>&nbsp;:</term>
+<listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to take an ownership forcibly. <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> to fail if the XIM server
+ is already running.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara> a location to store error, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> when XIM serrver could be started.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-srv-tmpl-send-selection-notify" role="function">
+<title>g_xim_srv_tmpl_send_selection_notify ()</title>
+<indexterm zone="g-xim-srv-tmpl-send-selection-notify"><primary>g_xim_srv_tmpl_send_selection_notify</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_srv_tmpl_send_selection_notify
+                                                        (<link linkend="GXimServerTemplate">GXimServerTemplate</link> *srvtmpl,
+                                                         <link linkend="GdkEventSelection">GdkEventSelection</link> *event,
+                                                         const <link linkend="gchar">gchar</link> *data,
+                                                         <link linkend="gsize">gsize</link> length,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+Sends <parameter>data</parameter> with <link linkend="SelectionNotify"><literal>SelectionNotify</literal></link>. which mainly be used to deliver the result
+of <link linkend="LOCALES:CAPS"><literal>LOCALES</literal></link> and <link linkend="TRANSPORT:CAPS"><literal>TRANSPORT</literal></link> request.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>srvtmpl</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimServerTemplate"><type>GXimServerTemplate</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>event</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="GdkEventSelection"><type>GdkEventSelection</type></link> to send.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&nbsp;:</term>
+<listitem><simpara> the chunks of data to send with <link linkend="SelectionNotify"><literal>SelectionNotify</literal></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>length</parameter>&nbsp;:</term>
+<listitem><simpara> the number of bytes of <parameter>data</parameter> to send.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara> a location to store error, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>data</parameter> is successfully sent.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-srv-tmpl-add-connection" role="function">
+<title>g_xim_srv_tmpl_add_connection ()</title>
+<indexterm zone="g-xim-srv-tmpl-add-connection"><primary>g_xim_srv_tmpl_add_connection</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_srv_tmpl_add_connection       (<link linkend="GXimServerTemplate">GXimServerTemplate</link> *srvtmpl,
+                                                         <link linkend="GXimConnection">GXimConnection</link> *conn,
+                                                         <link linkend="GdkNativeWindow">GdkNativeWindow</link> window);</programlisting>
+<para>
+Puts <parameter>conn</parameter> to get it managed under <parameter>srvtmpl</parameter>. <parameter>window</parameter> will be referred to
+deliver events to the right place. i.e. <parameter>conn</parameter> to deal with events for <parameter>window</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>srvtmpl</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimServerTemplate"><type>GXimServerTemplate</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="GXimConnection"><type>GXimConnection</type></link> to get it managed under <parameter>srvtmpl</parameter>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>window</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="GdkNativeWindow"><type>GdkNativeWindow</type></link> to make reference.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-srv-tmpl-remove-connection" role="function">
+<title>g_xim_srv_tmpl_remove_connection ()</title>
+<indexterm zone="g-xim-srv-tmpl-remove-connection"><primary>g_xim_srv_tmpl_remove_connection</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_srv_tmpl_remove_connection    (<link linkend="GXimServerTemplate">GXimServerTemplate</link> *srvtmpl,
+                                                         <link linkend="GdkNativeWindow">GdkNativeWindow</link> window);</programlisting>
+<para>
+Gets rid of the connection, which managed under <parameter>srvtmpl</parameter>. <parameter>window</parameter> will be
+used as the key to remove it.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>srvtmpl</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimServerTemplate"><type>GXimServerTemplate</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>window</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="GdkNativeWindow"><type>GdkNativeWindow</type></link> to get rid of the connection. which should be
+ added with <link linkend="g-xim-srv-tmpl-add-connection"><function>g_xim_srv_tmpl_add_connection()</function></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-srv-tmpl-lookup-connection" role="function">
+<title>g_xim_srv_tmpl_lookup_connection ()</title>
+<indexterm zone="g-xim-srv-tmpl-lookup-connection"><primary>g_xim_srv_tmpl_lookup_connection</primary></indexterm><programlisting><link linkend="GXimConnection">GXimConnection</link>*     g_xim_srv_tmpl_lookup_connection    (<link linkend="GXimServerTemplate">GXimServerTemplate</link> *srvtmpl,
+                                                         <link linkend="GdkWindow">GdkWindow</link> *window);</programlisting>
+<para>
+Looks up the connection which is reference with <parameter>window</parameter>. this is
+a convenience function to look up with <link linkend="GdkWindow"><type>GdkWindow</type></link>. use
+<link linkend="g-xim-srv-tmpl-lookup-connection-with-native-window"><function>g_xim_srv_tmpl_lookup_connection_with_native_window()</function></link> for <link linkend="GdkNativeWindow"><type>GdkNativeWindow</type></link>
+if you like.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>srvtmpl</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimServerTemplate"><type>GXimServerTemplate</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>window</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="GdkWindow"><type>GdkWindow</type></link> to look up the connection.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a <link linkend="GXimConnection"><type>GXimConnection</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if the key is not found.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-srv-tmpl-lookup-connection-with-native-window" role="function">
+<title>g_xim_srv_tmpl_lookup_connection_with_native_window ()</title>
+<indexterm zone="g-xim-srv-tmpl-lookup-connection-with-native-window"><primary>g_xim_srv_tmpl_lookup_connection_with_native_window</primary></indexterm><programlisting><link linkend="GXimConnection">GXimConnection</link>*     g_xim_srv_tmpl_lookup_connection_with_native_window
+                                                        (<link linkend="GXimServerTemplate">GXimServerTemplate</link> *srvtmpl,
+                                                         <link linkend="GdkNativeWindow">GdkNativeWindow</link> window);</programlisting>
+<para>
+Looks up the connection which is reference with <parameter>window</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>srvtmpl</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimServerTemplate"><type>GXimServerTemplate</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>window</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="GdkNativeWindow"><type>GdkNativeWindow</type></link> to look up the connection.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a <link linkend="GXimConnection"><type>GXimConnection</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if the key is not found.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+<refsect1 id="GXimServerTemplate.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GXimServerTemplate--server-name"><title>The <literal>&quot;server-name&quot;</literal> property</title>
+<indexterm zone="GXimServerTemplate--server-name"><primary>GXimServerTemplate:server-name</primary></indexterm><programlisting>  &quot;server-name&quot;              <link linkend="gchar">gchar</link>*                : Read / Write / Construct Only</programlisting>
+<para>
+XIM server name that is used to identify the XIM server through
+X property, such as XIM_SERVERS. also it's used to identify for
+client applications with XMODIFIERS.</para>
+<para>
+
+</para><para>Default value: NULL</para>
+</refsect2>
+
+</refsect1>
+
+<refsect1 id="GXimServerTemplate.signal-details" role="signals">
+<title role="signals.title">Signal Details</title>
+<refsect2 id="GXimServerTemplate-destroy"><title>The <literal>&quot;destroy&quot;</literal> signal</title>
+<indexterm zone="GXimServerTemplate-destroy"><primary>GXimServerTemplate::destroy</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="GXimServerTemplate">GXimServerTemplate</link> *srvtmpl,
+                                                        <link linkend="gpointer">gpointer</link>            user_data)      : Run First</programlisting>
+<para>
+The ::destroy signal will be emitted when the instance is going to
+be destroyed. you can do something with it if you want.</para>
+<para>
+
+</para>
+
+@:<variablelist role="params">
+<varlistentry><term><parameter>srvtmpl</parameter>&nbsp;:</term>
+<listitem><simpara> the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2 id="GXimServerTemplate-get-supported-locales"><title>The <literal>&quot;get-supported-locales&quot;</literal> signal</title>
+<indexterm zone="GXimServerTemplate-get-supported-locales"><primary>GXimServerTemplate::get-supported-locales</primary></indexterm><programlisting><link linkend="gchar">gchar</link>*              user_function                      (<link linkend="GXimServerTemplate">GXimServerTemplate</link> *srvtmpl,
+                                                        <link linkend="gpointer">gpointer</link>            user_data)      : Run Last</programlisting>
+<para>
+The ::get-supported-locales signal will be emitted when the client
+application is connecting and requesting which locales XIM server
+would supports.
+</para>
+<para>
+This is a convenience signal to deal with
+<link linkend="GXimCore-selection-request-event"><type>"selection-request-event"</type></link> for <link linkend="LOCALES:CAPS"><literal>LOCALES</literal></link> request.</para>
+<para>
+
+</para>
+
+@:<variablelist role="params">
+<varlistentry><term><parameter>srvtmpl</parameter>&nbsp;:</term>
+<listitem><simpara> the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a locales string that XIM server would supports. multiple
+locales would be separated with comma.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2 id="GXimServerTemplate-get-supported-transport"><title>The <literal>&quot;get-supported-transport&quot;</literal> signal</title>
+<indexterm zone="GXimServerTemplate-get-supported-transport"><primary>GXimServerTemplate::get-supported-transport</primary></indexterm><programlisting><link linkend="gchar">gchar</link>*              user_function                      (<link linkend="GXimServerTemplate">GXimServerTemplate</link> *srvtmpl,
+                                                        <link linkend="gpointer">gpointer</link>            user_data)      : Run Last</programlisting>
+<para>
+The ::get-supported-transport signal will be emitted when the client
+application is connecting and requesting which transport-specific names
+XIM server would supports.
+</para>
+<para>
+This is a convenience signal to deal with
+<link linkend="GXimCore-selection-request-event"><type>"selection-request-event"</type></link> for <link linkend="TRANSPORT:CAPS"><literal>TRANSPORT</literal></link> request.</para>
+<para>
+
+</para>
+
+@:<variablelist role="params">
+<varlistentry><term><parameter>srvtmpl</parameter>&nbsp;:</term>
+<listitem><simpara> the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a transport-specific names that XIM server would supports.
+In general, you may just need to support "X/" for X Window System.
+
+Multiple transport-specific names would be separated with comma.
+and evaluated in order of the list.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2 id="GXimServerTemplate-xconnect"><title>The <literal>&quot;xconnect&quot;</literal> signal</title>
+<indexterm zone="GXimServerTemplate-xconnect"><primary>GXimServerTemplate::xconnect</primary></indexterm><programlisting><link linkend="GXimConnection">GXimConnection</link>*     user_function                      (<link linkend="GXimServerTemplate">GXimServerTemplate</link> *srvtmpl,
+                                                        <link linkend="GdkEvent">GdkEvent</link>           *event,
+                                                        <link linkend="gpointer">gpointer</link>            user_data)      : Run Last</programlisting>
+<para>
+The ::xconnect signal will be emitted when <link linkend="XIM-XCONNECT:CAPS"><literal>XIM_XCONNECT</literal></link> event is
+dispatched from the client applications in order to establish
+a connection between XIM server and a client.
+During processing this signal, it would be supposed to prepare
+a <link linkend="GXimConnection"><type>GXimConnection</type></link> instance and sends back <link linkend="XIM-XCONNECT:CAPS"><literal>XIM_XCONNECT</literal></link> reply to
+the client. See The Input Method Protocol, XIM specification document
+for more details about <link linkend="XIM-XCONNECT:CAPS"><literal>XIM_XCONNECT</literal></link>.</para>
+<para>
+
+</para>
+
+@: 
+@:<variablelist role="params">
+<varlistentry><term><parameter>srvtmpl</parameter>&nbsp;:</term>
+<listitem><simpara> the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>event</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="GdkEventClient"><type>GdkEventClient</type></link> which triggered this signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a <link linkend="GXimConnection"><type>GXimConnection</type></link> for this session.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+</refsect1>
+
+
+<refsect1 id="GXimServerTemplate.see-also">
+<title>See Also</title>
+<link linkend="GXimCore"><type>GXimCore</type></link>
+</refsect1>
+
+</refentry>

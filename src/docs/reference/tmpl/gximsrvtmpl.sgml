@@ -1,0 +1,171 @@
+<!-- ##### SECTION Title ##### -->
+GXimServerTemplate
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### MACRO G_XIM_SRV_TMPL_ERROR ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### ENUM GXimServerTemplateError ##### -->
+<para>
+
+</para>
+
+@G_XIM_SRV_TMPL_ERROR_BEGIN: 
+@G_XIM_SRV_TMPL_ERROR_SAME_SERVER_IS_RUNNING: 
+@G_XIM_SRV_TMPL_ERROR_ANOTHER_SERVER_IS_RUNNING: 
+@G_XIM_SRV_TMPL_ERROR_UNABLE_TO_ACQUIRE_SERVER_OWNER: 
+@G_XIM_SRV_TMPL_ERROR_UNABLE_TO_ADD_SERVER: 
+@G_XIM_SRV_TMPL_ERROR_UNABLE_TO_SEND_PROPERTY_NOTIFY: 
+
+<!-- ##### STRUCT GXimServerTemplate ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SIGNAL GXimServerTemplate::destroy ##### -->
+<para>
+
+</para>
+
+@:
+
+@gximservertemplate: the object which received the signal.
+
+<!-- ##### SIGNAL GXimServerTemplate::get-supported-locales ##### -->
+<para>
+
+</para>
+
+@:
+
+@Returns: 
+@Returns: 
+
+<!-- ##### SIGNAL GXimServerTemplate::get-supported-transport ##### -->
+<para>
+
+</para>
+
+@:
+
+@Returns: 
+@Returns: 
+
+<!-- ##### SIGNAL GXimServerTemplate::xconnect ##### -->
+<para>
+
+</para>
+
+@: 
+@:
+
+@Returns: 
+@Param2: 
+@Returns: 
+
+<!-- ##### ARG GXimServerTemplate:server-name ##### -->
+<para>
+
+</para>
+
+<!-- ##### FUNCTION g_xim_srv_tmpl_get_error_quark ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_srv_tmpl_is_running ##### -->
+<para>
+
+</para>
+
+@srvtmpl: 
+@error: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_srv_tmpl_take_ownership ##### -->
+<para>
+
+</para>
+
+@srvtmpl: 
+@force: 
+@error: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_srv_tmpl_send_selection_notify ##### -->
+<para>
+
+</para>
+
+@srvtmpl: 
+@event: 
+@data: 
+@length: 
+@error: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_srv_tmpl_add_connection ##### -->
+<para>
+
+</para>
+
+@srvtmpl: 
+@conn: 
+@window: 
+
+
+<!-- ##### FUNCTION g_xim_srv_tmpl_remove_connection ##### -->
+<para>
+
+</para>
+
+@srvtmpl: 
+@window: 
+
+
+<!-- ##### FUNCTION g_xim_srv_tmpl_lookup_connection ##### -->
+<para>
+
+</para>
+
+@srvtmpl: 
+@window: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_srv_tmpl_lookup_connection_with_native_window ##### -->
+<para>
+
+</para>
+
+@srvtmpl: 
+@window: 
+@Returns: 
+
+

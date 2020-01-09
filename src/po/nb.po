@@ -1,0 +1,126 @@
+# Norwegian Bokmal translations for libgxim package.
+# Copyright (C) 2008 THE libgxim'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the libgxim package.
+# Automatically generated, 2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: libgxim 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-09-17 19:53+0900\n"
+"PO-Revision-Date: 2008-06-09 14:30+0900\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ASCII\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../libgxim/gximattr.c:223
+msgid "Attributes enabled"
+msgstr ""
+
+#: ../libgxim/gximattr.c:224
+msgid "XIM Attributes allowed to use"
+msgstr ""
+
+#: ../libgxim/gximcltmpl.c:530
+msgid "GDK Atom"
+msgstr ""
+
+#: ../libgxim/gximcltmpl.c:531
+msgid "GDK Atom for XIM server"
+msgstr ""
+
+#: ../libgxim/gximconnection.c:144 ../libgxim/gximcore.c:362
+msgid "Signals for Protocol class"
+msgstr ""
+
+#: ../libgxim/gximconnection.c:145
+msgid "A list of signal connector for Protocol class"
+msgstr ""
+
+#: ../libgxim/gximcore.c:344
+msgid "GdkDisplay"
+msgstr ""
+
+#: ../libgxim/gximcore.c:345
+msgid "Gdk display to use"
+msgstr ""
+
+#: ../libgxim/gximcore.c:350
+msgid "Selection Window"
+msgstr ""
+
+#: ../libgxim/gximcore.c:351
+msgid "A GdkWindow for selection"
+msgstr ""
+
+#: ../libgxim/gximcore.c:356
+msgid "GType of Connection class"
+msgstr ""
+
+#: ../libgxim/gximcore.c:357
+msgid "A GType that deal with XIM connection"
+msgstr ""
+
+#: ../libgxim/gximcore.c:363
+msgid "A structure of signals for Protocol class"
+msgstr ""
+
+#: ../libgxim/gximmessage.c:443
+msgid "Master"
+msgstr ""
+
+#: ../libgxim/gximmessage.c:444
+msgid "A flag to mark a master object."
+msgstr ""
+
+#: ../libgxim/gximmessage.c:449
+msgid "All filters"
+msgstr ""
+
+#: ../libgxim/gximmessage.c:450
+msgid "A flag to enable all of the message filters."
+msgstr ""
+
+#: ../libgxim/gximprotocol.c:412
+#, c-format
+msgid "Invalid packets on _XIM_PROTOCOL: format: %d."
+msgstr ""
+
+#: ../libgxim/gximserver.c:206 ../libgxim/gximserver.c:207
+msgid "Default IM Attributes"
+msgstr ""
+
+#: ../libgxim/gximserver.c:212 ../libgxim/gximserver.c:213
+msgid "Default IC Attributes"
+msgstr ""
+
+#: ../libgxim/gximsrvtmpl.c:809
+msgid "XIM server name"
+msgstr ""
+
+#: ../libgxim/gximsrvtmpl.c:810
+msgid "XIM server name that is used to identify the server through X property"
+msgstr ""
+
+#: ../libgxim/gximsrvtmpl.c:891
+#, c-format
+msgid "This server instance is already running"
+msgstr ""
+
+#: ../libgxim/gximsrvtmpl.c:895
+#, c-format
+msgid "Another server instance is already running"
+msgstr ""
+
+#: ../libgxim/gximsrvtmpl.c:941
+#, c-format
+msgid "Unable to acquire the XIM server owner for `%s'"
+msgstr ""
+
+#: ../libgxim/gximsrvtmpl.c:977
+#, c-format
+msgid "Unable to add a server atom `%s'."
+msgstr ""

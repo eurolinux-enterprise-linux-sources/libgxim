@@ -1,0 +1,2308 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GXimProtocol</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.74.0">
+<link rel="home" href="index.html" title="libgxim Reference Manual">
+<link rel="up" href="ch02.html" title="Interfaces">
+<link rel="prev" href="ch02.html" title="Interfaces">
+<link rel="next" href="libgxim-gximtransport.html" title="gximtransport">
+<meta name="generator" content="GTK-Doc V1.10 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="reference" href="libgxim.html" title="libgxim API Reference">
+<link rel="chapter" href="ch01.html" title="Abstract Base Classes">
+<link rel="chapter" href="ch02.html" title="Interfaces">
+<link rel="chapter" href="ch03.html" title="Connection classes">
+<link rel="chapter" href="ch04.html" title="XIM attributes classes">
+<link rel="chapter" href="ch05.html" title="Miscelleneous">
+<link rel="index" href="ix01.html" title="Index">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="ch02.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch02.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libgxim Reference Manual</th>
+<td><a accesskey="n" href="libgxim-gximtransport.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#libgxim-gximprotocol.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#libgxim-gximprotocol.description" class="shortcut">Description</a></nobr></td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="libgxim-gximprotocol"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libgxim-gximprotocol.top_of_page"></a>GXimProtocol</span></h2>
+<p>GXimProtocol — Base interface for XIM protocol</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="libgxim-gximprotocol.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#define             <a class="link" href="libgxim-gximprotocol.html#G-XIM-PROTOCOL-ERROR:CAPS" title="G_XIM_PROTOCOL_ERROR">G_XIM_PROTOCOL_ERROR</a>
+#define             <a class="link" href="libgxim-gximprotocol.html#g-xim-protocol-n-pad4" title="g_xim_protocol_n_pad4()">g_xim_protocol_n_pad4</a>               (_n_)
+#define             <a class="link" href="libgxim-gximprotocol.html#G-XIM-OPCODE-KEY:CAPS" title="G_XIM_OPCODE_KEY()">G_XIM_OPCODE_KEY</a>                    (_m_,_n_)
+                    <a class="link" href="libgxim-gximprotocol.html#GXimProtocolIface" title="GXimProtocolIface">GXimProtocolIface</a>;
+                    <a class="link" href="libgxim-gximprotocol.html#GXimProtocolPrivate" title="GXimProtocolPrivate">GXimProtocolPrivate</a>;
+                    <a class="link" href="libgxim-gximprotocol.html#GXimProtocolQueueNode" title="GXimProtocolQueueNode">GXimProtocolQueueNode</a>;
+enum                <a class="link" href="libgxim-gximprotocol.html#GXimProtocolError" title="enum GXimProtocolError">GXimProtocolError</a>;
+void                <a class="link" href="libgxim-gximprotocol.html#g-xim-protocol-init" title="g_xim_protocol_init ()">g_xim_protocol_init</a>                 (GXimProtocol *proto);
+void                <a class="link" href="libgxim-gximprotocol.html#g-xim-protocol-dispose" title="g_xim_protocol_dispose ()">g_xim_protocol_dispose</a>              (<a
+href="/usr/share/gtk-doc/html/gobject/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a> *object);
+void                <a class="link" href="libgxim-gximprotocol.html#g-xim-protocol-finalize" title="g_xim_protocol_finalize ()">g_xim_protocol_finalize</a>             (<a
+href="/usr/share/gtk-doc/html/gobject/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a> *object);
+<a class="link" href="libgxim-gximprotocol.html#GXimProtocolPrivate" title="GXimProtocolPrivate">GXimProtocolPrivate</a>* <a class="link" href="libgxim-gximprotocol.html#g-xim-protocol-get-private" title="g_xim_protocol_get_private ()">g_xim_protocol_get_private</a>         (GXimProtocol *proto);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Quarks.html#GQuark"
+>GQuark</a>              <a class="link" href="libgxim-gximprotocol.html#g-xim-protocol-get-error-quark" title="g_xim_protocol_get_error_quark ()">g_xim_protocol_get_error_quark</a>      (void);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="libgxim-gximprotocol.html#g-xim-protocol-process-event" title="g_xim_protocol_process_event ()">g_xim_protocol_process_event</a>        (GXimProtocol *proto,
+                                                         <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Event-Structures.html#GdkEventClient"
+>GdkEventClient</a> *event,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"
+>GError</a> **error);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="libgxim-gximprotocol.html#g-xim-protocol-translate" title="g_xim_protocol_translate ()">g_xim_protocol_translate</a>            (GXimProtocol *proto,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> data,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gssize"
+>gssize</a> length,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"
+>GError</a> **error);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="libgxim-gximprotocol.html#g-xim-protocol-send-packets" title="g_xim_protocol_send_packets ()">g_xim_protocol_send_packets</a>         (GXimProtocol *proto,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *data,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gsize"
+>gsize</a> length);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gsize"
+>gsize</a>               <a class="link" href="libgxim-gximprotocol.html#g-xim-protocol-send-vformat" title="g_xim_protocol_send_vformat ()">g_xim_protocol_send_vformat</a>         (GXimProtocol *proto,
+                                                         <a
+href="/usr/share/gtk-doc/html/gio/GCancellable.html"
+>GCancellable</a> *cancellable,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"
+>GError</a> **error,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> n_params,
+                                                         va_list args);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gsize"
+>gsize</a>               <a class="link" href="libgxim-gximprotocol.html#g-xim-protocol-send-format" title="g_xim_protocol_send_format ()">g_xim_protocol_send_format</a>          (GXimProtocol *proto,
+                                                         <a
+href="/usr/share/gtk-doc/html/gio/GCancellable.html"
+>GCancellable</a> *cancellable,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"
+>GError</a> **error,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> n_params,
+                                                         ...);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="libgxim-gximprotocol.html#g-xim-protocol-send" title="g_xim_protocol_send ()">g_xim_protocol_send</a>                 (GXimProtocol *proto,
+                                                         GXimOpcode major_opcode,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint8"
+>guint8</a> minor_opcode,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> n_params,
+                                                         ...);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="libgxim-gximprotocol.html#g-xim-protocol-send-with-list" title="g_xim_protocol_send_with_list ()">g_xim_protocol_send_with_list</a>       (GXimProtocol *proto,
+                                                         GXimOpcode major_opcode,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint8"
+>guint8</a> minor_opcode,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a> *types,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a> *values);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="libgxim-gximprotocol.html#g-xim-protocol-start-queue" title="g_xim_protocol_start_queue ()">g_xim_protocol_start_queue</a>          (GXimProtocol *proto);
+<a class="link" href="libgxim-gximprotocol.html#GXimProtocolQueueNode" title="GXimProtocolQueueNode">GXimProtocolQueueNode</a>* <a class="link" href="libgxim-gximprotocol.html#g-xim-protocol-end-queue" title="g_xim_protocol_end_queue ()">g_xim_protocol_end_queue</a>         (GXimProtocol *proto);
+void                <a class="link" href="libgxim-gximprotocol.html#g-xim-protocol-cancel-queue" title="g_xim_protocol_cancel_queue ()">g_xim_protocol_cancel_queue</a>         (GXimProtocol *proto);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="libgxim-gximprotocol.html#g-xim-protocol-is-queued" title="g_xim_protocol_is_queued ()">g_xim_protocol_is_queued</a>            (GXimProtocol *proto);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="libgxim-gximprotocol.html#g-xim-protocol-read-vformat" title="g_xim_protocol_read_vformat ()">g_xim_protocol_read_vformat</a>         (GXimProtocol *proto,
+                                                         <a
+href="/usr/share/gtk-doc/html/gio/GDataInputStream.html"
+>GDataInputStream</a> *stream,
+                                                         <a
+href="/usr/share/gtk-doc/html/gio/GCancellable.html"
+>GCancellable</a> *cancellable,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"
+>GError</a> **error,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> n_params,
+                                                         va_list args);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="libgxim-gximprotocol.html#g-xim-protocol-read-format" title="g_xim_protocol_read_format ()">g_xim_protocol_read_format</a>          (GXimProtocol *proto,
+                                                         <a
+href="/usr/share/gtk-doc/html/gio/GDataInputStream.html"
+>GDataInputStream</a> *stream,
+                                                         <a
+href="/usr/share/gtk-doc/html/gio/GCancellable.html"
+>GCancellable</a> *cancellable,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"
+>GError</a> **error,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> n_params,
+                                                         ...);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="libgxim-gximprotocol.html#g-xim-protocol-wait-for-reply" title="g_xim_protocol_wait_for_reply ()">g_xim_protocol_wait_for_reply</a>       (GXimProtocol *proto,
+                                                         GXimOpcode major_opcode,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint8"
+>guint8</a> minor_opcode,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"
+>GError</a> **error);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="libgxim-gximprotocol.html#g-xim-protocol-raise-parser-error" title="g_xim_protocol_raise_parser_error ()">g_xim_protocol_raise_parser_error</a>   (GXimProtocol *proto,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> major_opcode,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> minor_opcode,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> icid);
+void                <a class="link" href="libgxim-gximprotocol.html#g-xim-protocol-add-protocol" title="g_xim_protocol_add_protocol ()">g_xim_protocol_add_protocol</a>         (GXimProtocol *proto,
+                                                         <a class="link" href="libgxim-gximprotocol.html#GXimProtocolClosure" title="GXimProtocolClosure">GXimProtocolClosure</a> *closure);
+void                <a class="link" href="libgxim-gximprotocol.html#g-xim-protocol-remove-protocol" title="g_xim_protocol_remove_protocol ()">g_xim_protocol_remove_protocol</a>      (GXimProtocol *proto,
+                                                         <a class="link" href="libgxim-gximprotocol.html#GXimProtocolClosure" title="GXimProtocolClosure">GXimProtocolClosure</a> *closure);
+void                <a class="link" href="libgxim-gximprotocol.html#g-xim-protocol-remove-protocol-by-id" title="g_xim_protocol_remove_protocol_by_id ()">g_xim_protocol_remove_protocol_by_id</a>
+                                                        (GXimProtocol *proto,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint8"
+>guint8</a> major_opcode,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint8"
+>guint8</a> minor_opcode);
+<a class="link" href="libgxim-gximprotocol.html#GXimProtocolClosure" title="GXimProtocolClosure">GXimProtocolClosure</a>* <a class="link" href="libgxim-gximprotocol.html#g-xim-protocol-lookup-protocol-by-name" title="g_xim_protocol_lookup_protocol_by_name ()">g_xim_protocol_lookup_protocol_by_name</a>
+                                                        (GXimProtocol *proto,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *name);
+<a class="link" href="libgxim-gximprotocol.html#GXimProtocolClosure" title="GXimProtocolClosure">GXimProtocolClosure</a>* <a class="link" href="libgxim-gximprotocol.html#g-xim-protocol-lookup-protocol-by-id" title="g_xim_protocol_lookup_protocol_by_id ()">g_xim_protocol_lookup_protocol_by_id</a>
+                                                        (GXimProtocol *proto,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint8"
+>guint8</a> major_opcode,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint8"
+>guint8</a> minor_opcode);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gulong"
+>gulong</a>              <a class="link" href="libgxim-gximprotocol.html#g-xim-protocol-connect-closure-by-id" title="g_xim_protocol_connect_closure_by_id ()">g_xim_protocol_connect_closure_by_id</a>
+                                                        (GXimProtocol *proto,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint8"
+>guint8</a> major_opcode,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint8"
+>guint8</a> minor_opcode,
+                                                         <a
+href="/usr/share/gtk-doc/html/gobject/gobject-Closures.html#GCallback"
+>GCallback</a> func,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> data);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gulong"
+>gulong</a>              <a class="link" href="libgxim-gximprotocol.html#g-xim-protocol-connect-closure-by-name" title="g_xim_protocol_connect_closure_by_name ()">g_xim_protocol_connect_closure_by_name</a>
+                                                        (GXimProtocol *proto,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *signal_name,
+                                                         <a
+href="/usr/share/gtk-doc/html/gobject/gobject-Closures.html#GCallback"
+>GCallback</a> func,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> data);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a>*             <a class="link" href="libgxim-gximprotocol.html#g-xim-protocol-get-extensions" title="g_xim_protocol_get_extensions ()">g_xim_protocol_get_extensions</a>       (GXimProtocol *proto);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            (<a class="link" href="libgxim-gximprotocol.html#GXimProtocolClosureFunc" title="GXimProtocolClosureFunc ()">*GXimProtocolClosureFunc</a>)          (<a class="link" href="libgxim-gximprotocol.html#GXimProtocolClosure" title="GXimProtocolClosure">GXimProtocolClosure</a> *closure,
+                                                         GXimProtocol *proto,
+                                                         <a
+href="/usr/share/gtk-doc/html/gio/GDataInputStream.html"
+>GDataInputStream</a> *stream,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"
+>GError</a> **error,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> user_data);
+                    <a class="link" href="libgxim-gximprotocol.html#GXimProtocolClosure" title="GXimProtocolClosure">GXimProtocolClosure</a>;
+<a class="link" href="libgxim-gximprotocol.html#GXimProtocolClosure" title="GXimProtocolClosure">GXimProtocolClosure</a>* <a class="link" href="libgxim-gximprotocol.html#g-xim-protocol-closure-new" title="g_xim_protocol_closure_new ()">g_xim_protocol_closure_new</a>         (<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint8"
+>guint8</a> major_opcode,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint8"
+>guint8</a> minor_opcode,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *name,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a> is_an_extension);
+void                <a class="link" href="libgxim-gximprotocol.html#g-xim-protocol-closure-free" title="g_xim_protocol_closure_free ()">g_xim_protocol_closure_free</a>         (<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> data,
+                                                         <a
+href="/usr/share/gtk-doc/html/gobject/gobject-Closures.html#GClosure"
+>GClosure</a> *closure);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="libgxim-gximprotocol.html#g-xim-protocol-closure-is-an-extension" title="g_xim_protocol_closure_is_an_extension ()">g_xim_protocol_closure_is_an_extension</a>
+                                                        (<a class="link" href="libgxim-gximprotocol.html#GXimProtocolClosure" title="GXimProtocolClosure">GXimProtocolClosure</a> *closure);
+void                <a class="link" href="libgxim-gximprotocol.html#g-xim-protocol-closure-set-marshal" title="g_xim_protocol_closure_set_marshal ()">g_xim_protocol_closure_set_marshal</a>  (<a class="link" href="libgxim-gximprotocol.html#GXimProtocolClosure" title="GXimProtocolClosure">GXimProtocolClosure</a> *closure,
+                                                         <a class="link" href="libgxim-gximprotocol.html#GXimProtocolClosureFunc" title="GXimProtocolClosureFunc ()">GXimProtocolClosureFunc</a> func,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> data);
+void                <a class="link" href="libgxim-gximprotocol.html#g-xim-protocol-closure-add-signal" title="g_xim_protocol_closure_add_signal ()">g_xim_protocol_closure_add_signal</a>   (<a class="link" href="libgxim-gximprotocol.html#GXimProtocolClosure" title="GXimProtocolClosure">GXimProtocolClosure</a> *closure,
+                                                         <a
+href="/usr/share/gtk-doc/html/gobject/gobject-Closures.html#GClosureMarshal"
+>GClosureMarshal</a> marshaller,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> n_params,
+                                                         ...);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gulong"
+>gulong</a>              <a class="link" href="libgxim-gximprotocol.html#g-xim-protocol-closure-connect" title="g_xim_protocol_closure_connect ()">g_xim_protocol_closure_connect</a>      (<a class="link" href="libgxim-gximprotocol.html#GXimProtocolClosure" title="GXimProtocolClosure">GXimProtocolClosure</a> *closure,
+                                                         <a
+href="/usr/share/gtk-doc/html/gobject/gobject-Closures.html#GCallback"
+>GCallback</a> func,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> data);
+void                <a class="link" href="libgxim-gximprotocol.html#g-xim-protocol-closure-disconnect" title="g_xim_protocol_closure_disconnect ()">g_xim_protocol_closure_disconnect</a>   (<a class="link" href="libgxim-gximprotocol.html#GXimProtocolClosure" title="GXimProtocolClosure">GXimProtocolClosure</a> *closure,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gulong"
+>gulong</a> id);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="libgxim-gximprotocol.html#g-xim-protocol-closure-emit-signal" title="g_xim_protocol_closure_emit_signal ()">g_xim_protocol_closure_emit_signal</a>  (<a class="link" href="libgxim-gximprotocol.html#GXimProtocolClosure" title="GXimProtocolClosure">GXimProtocolClosure</a> *closure,
+                                                         GXimProtocol *proto,
+                                                         ...);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gsize"
+>gsize</a>               <a class="link" href="libgxim-gximprotocol.html#g-xim-attr-put-attribute-to-stream" title="g_xim_attr_put_attribute_to_stream ()">g_xim_attr_put_attribute_to_stream</a>  (GXimProtocol *proto,
+                                                         <a class="link" href="GXimICAttr.html#GXimAttr">GXimAttr</a> *attr,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> attribute_id,
+                                                         <a
+href="/usr/share/gtk-doc/html/gio/GCancellable.html"
+>GCancellable</a> *cancellable,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"
+>GError</a> **error);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a>            <a class="link" href="libgxim-gximprotocol.html#g-xim-attr-get-attribute-from-stream" title="g_xim_attr_get_attribute_from_stream ()">g_xim_attr_get_attribute_from_stream</a>
+                                                        (GXimProtocol *proto,
+                                                         <a class="link" href="GXimICAttr.html#GXimAttr">GXimAttr</a> *attr,
+                                                         <a
+href="/usr/share/gtk-doc/html/gio/GDataInputStream.html"
+>GDataInputStream</a> *stream,
+                                                         <a
+href="/usr/share/gtk-doc/html/gio/GCancellable.html"
+>GCancellable</a> *cancellable,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"
+>GError</a> **error);
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="libgxim-gximprotocol.description"></a><h2>Description</h2>
+<p>
+GXimProtocol provides an interface to deal with XIM protocol events.</p>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="libgxim-gximprotocol.details"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="G-XIM-PROTOCOL-ERROR:CAPS"></a><h3>G_XIM_PROTOCOL_ERROR</h3>
+<pre class="programlisting">#define G_XIM_PROTOCOL_ERROR		(g_xim_protocol_get_error_quark())
+</pre>
+<p>
+Error domain for <span class="type">GXimProtocol</span>. Errors in this domain will be from
+the <a class="link" href="libgxim-gximprotocol.html#GXimProtocolError" title="enum GXimProtocolError"><span class="type">GXimProtocolError</span></a> or <span class="type">GXimStandardError</span> enumeration.
+See <a
+href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"
+><span class="type">GError</span></a> for more information on error domains.</p>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-protocol-n-pad4"></a><h3>g_xim_protocol_n_pad4()</h3>
+<pre class="programlisting">#define             g_xim_protocol_n_pad4(_n_)</pre>
+<p>
+Generates a number aligned to 4 bytes as needed.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>_n_</code></em> :</span></p></td>
+<td> a number
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="G-XIM-OPCODE-KEY:CAPS"></a><h3>G_XIM_OPCODE_KEY()</h3>
+<pre class="programlisting">#define G_XIM_OPCODE_KEY(_m_,_n_)	GUINT_TO_POINTER ((_m_) &lt;&lt; 8 | ((_n_) &amp; 0xff))
+</pre>
+<p>
+Generates a key from opcodes.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>_m_</code></em> :</span></p></td>
+<td> a major opcode in XIM protocol.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>_n_</code></em> :</span></p></td>
+<td> a minor opcode in XIM protocol.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GXimProtocolIface"></a><h3>GXimProtocolIface</h3>
+<pre class="programlisting">typedef struct {
+	GTypeInterface  parent_iface;
+
+	GXimMessage    *message;
+	GdkAtom         atom_xim_protocol;
+	GdkAtom         atom_xim_moredata;
+} GXimProtocolIface;
+</pre>
+<p>
+An interface of XIM protocol.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><a
+href="/usr/share/gtk-doc/html/gobject/gobject-Type-Information.html#GTypeInterface"
+>GTypeInterface</a> <em class="structfield"><code>parent_iface</code></em>;</span></p></td>
+<td> a parent.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="GXimMessage.html" title="GXimMessage">GXimMessage</a> *<em class="structfield"><code>message</code></em>;</span></p></td>
+<td> a <a class="link" href="GXimMessage.html" title="GXimMessage"><span class="type">GXimMessage</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a
+href="/usr/share/gtk-doc/html/gdk/gdk-Properties-and-Atoms.html#GdkAtom"
+>GdkAtom</a> <em class="structfield"><code>atom_xim_protocol</code></em>;</span></p></td>
+<td> a <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Properties-and-Atoms.html#GdkAtom"
+><span class="type">GdkAtom</span></a> for <code class="literal">_XIM_PROTOCOL</code>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a
+href="/usr/share/gtk-doc/html/gdk/gdk-Properties-and-Atoms.html#GdkAtom"
+>GdkAtom</a> <em class="structfield"><code>atom_xim_moredata</code></em>;</span></p></td>
+<td> a <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Properties-and-Atoms.html#GdkAtom"
+><span class="type">GdkAtom</span></a> for <code class="literal">_XIM_MOREDATA</code>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GXimProtocolPrivate"></a><h3>GXimProtocolPrivate</h3>
+<pre class="programlisting">typedef struct {
+} GXimProtocolPrivate;
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GXimProtocolQueueNode"></a><h3>GXimProtocolQueueNode</h3>
+<pre class="programlisting">typedef struct {
+	gchar    *data;
+	gsize     length;
+	guint16   major_opcode;
+	guint16   minor_opcode;
+	guint16   imid;
+	guint16   icid;
+	gboolean  is_sent;
+} GXimProtocolQueueNode;
+</pre>
+<p>
+</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *<em class="structfield"><code>data</code></em>;</span></p></td>
+<td> the packet data received.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gsize"
+>gsize</a> <em class="structfield"><code>length</code></em>;</span></p></td>
+<td> the number of bytes of <em class="parameter"><code>data</code></em>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> <em class="structfield"><code>major_opcode</code></em>;</span></p></td>
+<td> the major opcode in XIM protocol
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> <em class="structfield"><code>minor_opcode</code></em>;</span></p></td>
+<td> the minor opcode in XIM protocol
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> <em class="structfield"><code>imid</code></em>;</span></p></td>
+<td> the input-method ID
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint16"
+>guint16</a> <em class="structfield"><code>icid</code></em>;</span></p></td>
+<td> the input-context ID
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a> <em class="structfield"><code>is_sent</code></em>;</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GXimProtocolError"></a><h3>enum GXimProtocolError</h3>
+<pre class="programlisting">typedef enum {
+	G_XIM_PROTOCOL_ERROR_BEGIN = 128,
+	G_XIM_PROTOCOL_ERROR_UNKNOWN_ENDIAN,
+	G_XIM_PROTOCOL_ERROR_INVALID_PACKETS_RECEIVED,
+	G_XIM_PROTOCOL_ERROR_DELIVERY_FAILURE,
+	G_XIM_PROTOCOL_ERROR_NO_PARSER,
+	G_XIM_PROTOCOL_ERROR_NO_DATA,
+} GXimProtocolError;
+</pre>
+<p>
+Error codes returned by <span class="type">GXimProtocol</span> functions.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><a name="G-XIM-PROTOCOL-ERROR-BEGIN:CAPS"></a><span class="term"><code class="literal">G_XIM_PROTOCOL_ERROR_BEGIN</code></span></p></td>
+<td> Unused.
+</td>
+</tr>
+<tr>
+<td><p><a name="G-XIM-PROTOCOL-ERROR-UNKNOWN-ENDIAN:CAPS"></a><span class="term"><code class="literal">G_XIM_PROTOCOL_ERROR_UNKNOWN_ENDIAN</code></span></p></td>
+<td> Packets is sent with the unknown endian.
+</td>
+</tr>
+<tr>
+<td><p><a name="G-XIM-PROTOCOL-ERROR-INVALID-PACKETS-RECEIVED:CAPS"></a><span class="term"><code class="literal">G_XIM_PROTOCOL_ERROR_INVALID_PACKETS_RECEIVED</code></span></p></td>
+<td> Not parserable packets received.
+</td>
+</tr>
+<tr>
+<td><p><a name="G-XIM-PROTOCOL-ERROR-DELIVERY-FAILURE:CAPS"></a><span class="term"><code class="literal">G_XIM_PROTOCOL_ERROR_DELIVERY_FAILURE</code></span></p></td>
+<td> Unable to deliver the signal properly.
+</td>
+</tr>
+<tr>
+<td><p><a name="G-XIM-PROTOCOL-ERROR-NO-PARSER:CAPS"></a><span class="term"><code class="literal">G_XIM_PROTOCOL_ERROR_NO_PARSER</code></span></p></td>
+<td> No handlers available to parse packets.
+</td>
+</tr>
+<tr>
+<td><p><a name="G-XIM-PROTOCOL-ERROR-NO-DATA:CAPS"></a><span class="term"><code class="literal">G_XIM_PROTOCOL_ERROR_NO_DATA</code></span></p></td>
+<td> No data received in a request.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-protocol-init"></a><h3>g_xim_protocol_init ()</h3>
+<pre class="programlisting">void                g_xim_protocol_init                 (GXimProtocol *proto);</pre>
+<p>
+Initializes <em class="parameter"><code>proto</code></em>. this isn't being invoked from the class automatically
+which has a <span class="type">GXimProtocol</span> interface. you need to call this function manually
+before doing something with <em class="parameter"><code>proto</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td> a <span class="type">GXimProtocol</span>.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-protocol-dispose"></a><h3>g_xim_protocol_dispose ()</h3>
+<pre class="programlisting">void                g_xim_protocol_dispose              (<a
+href="/usr/share/gtk-doc/html/gobject/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a> *object);</pre>
+<p>
+Releases all references to other objects. This can be used to break
+reference cycles.
+</p>
+<p>
+This function should only be called from <span class="type">"dispose"</span> which has
+the <span class="type">GXimProtocol</span> interface.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
+<td> a <a
+href="/usr/share/gtk-doc/html/gobject/gobject-The-Base-Object-Type.html#GObject"
+><span class="type">GObject</span></a>.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-protocol-finalize"></a><h3>g_xim_protocol_finalize ()</h3>
+<pre class="programlisting">void                g_xim_protocol_finalize             (<a
+href="/usr/share/gtk-doc/html/gobject/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a> *object);</pre>
+<p>
+Finalizes the instance.
+</p>
+<p>
+This function should only be called from <span class="type">"finalize"</span> which has
+the <span class="type">GXimProtocol</span> interface.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
+<td> a <a
+href="/usr/share/gtk-doc/html/gobject/gobject-The-Base-Object-Type.html#GObject"
+><span class="type">GObject</span></a>.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-protocol-get-private"></a><h3>g_xim_protocol_get_private ()</h3>
+<pre class="programlisting"><a class="link" href="libgxim-gximprotocol.html#GXimProtocolPrivate" title="GXimProtocolPrivate">GXimProtocolPrivate</a>* g_xim_protocol_get_private         (GXimProtocol *proto);</pre>
+<p>
+Obtains the <a class="link" href="libgxim-gximprotocol.html#GXimProtocolPrivate" title="GXimProtocolPrivate"><span class="type">GXimProtocolPrivate</span></a> which is referenced <em class="parameter"><code>proto</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td> a <span class="type">GXimProtocol</span>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-protocol-get-error-quark"></a><h3>g_xim_protocol_get_error_quark ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Quarks.html#GQuark"
+>GQuark</a>              g_xim_protocol_get_error_quark      (void);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-protocol-process-event"></a><h3>g_xim_protocol_process_event ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_protocol_process_event        (GXimProtocol *proto,
+                                                         <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Event-Structures.html#GdkEventClient"
+>GdkEventClient</a> *event,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"
+>GError</a> **error);</pre>
+<p>
+Picks up XIM protocol packets from <em class="parameter"><code>event</code></em> and deal with it as needed.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td> a <span class="type">GXimProtocol</span>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td> the <a
+href="/usr/share/gtk-doc/html/gdk/gdk-Event-Structures.html#GdkEventClient"
+><span class="type">GdkEventClient</span></a> which wants to process this time.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td> a location to store error, or <code class="literal">NULL</code>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <code class="literal">TRUE</code> to be processed successfully.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-protocol-translate"></a><h3>g_xim_protocol_translate ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_protocol_translate            (GXimProtocol *proto,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> data,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gssize"
+>gssize</a> length,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"
+>GError</a> **error);</pre>
+<p>
+Translate the packets and deliver it to the appropriate places.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td> a <span class="type">GXimProtocol</span>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td> a chunk of XIM protocol packets
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
+<td> the number of <em class="parameter"><code>data</code></em>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td> a location to store error, or <code class="literal">NULL</code>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <code class="literal">TRUE</code> to be processed successfully.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-protocol-send-packets"></a><h3>g_xim_protocol_send_packets ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_protocol_send_packets         (GXimProtocol *proto,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *data,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gsize"
+>gsize</a> length);</pre>
+<p>
+Sends <em class="parameter"><code>data</code></em> to the opposite direction on the connection.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td> a <span class="type">GXimProtocol</span>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td> a chunk of XIM protocol packets.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
+<td> the number of <em class="parameter"><code>data</code></em>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <code class="literal">TRUE</code> to be sent successfully.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-protocol-send-vformat"></a><h3>g_xim_protocol_send_vformat ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gsize"
+>gsize</a>               g_xim_protocol_send_vformat         (GXimProtocol *proto,
+                                                         <a
+href="/usr/share/gtk-doc/html/gio/GCancellable.html"
+>GCancellable</a> *cancellable,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"
+>GError</a> **error,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> n_params,
+                                                         va_list args);</pre>
+<p>
+Converts the objects to the XIM protocol packets according to format
+and store it into the send buffer. you shouldn't use this function directly.
+use <a class="link" href="libgxim-gximprotocol.html#g-xim-protocol-send" title="g_xim_protocol_send ()"><code class="function">g_xim_protocol_send()</code></a> instead.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td> a <span class="type">GXimProtocol</span>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td> optional <a
+href="/usr/share/gtk-doc/html/gio/GCancellable.html"
+><span class="type">GCancellable</span></a> object, <code class="literal">NULL</code> to ignore.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td> a location to store error, or <code class="literal">NULL</code>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n_params</code></em> :</span></p></td>
+<td> the number of a set of parameters.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>args</code></em> :</span></p></td>
+<td> a <span class="type">va_list</span>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the number of data stored.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-protocol-send-format"></a><h3>g_xim_protocol_send_format ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gsize"
+>gsize</a>               g_xim_protocol_send_format          (GXimProtocol *proto,
+                                                         <a
+href="/usr/share/gtk-doc/html/gio/GCancellable.html"
+>GCancellable</a> *cancellable,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"
+>GError</a> **error,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> n_params,
+                                                         ...);</pre>
+<p>
+Converts the objects to the XIM protocol packets according to the format
+and store it into the send buffer. you shouldn't use this function directly.
+use <a class="link" href="libgxim-gximprotocol.html#g-xim-protocol-send" title="g_xim_protocol_send ()"><code class="function">g_xim_protocol_send()</code></a> instead.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td> a <span class="type">GXimProtocol</span>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td> optional <a
+href="/usr/share/gtk-doc/html/gio/GCancellable.html"
+><span class="type">GCancellable</span></a> object, <code class="literal">NULL</code> to ignore.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td> a location to store error, or <code class="literal">NULL</code>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n_params</code></em> :</span></p></td>
+<td> the number of a set of parameters.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the number of data stored.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-protocol-send"></a><h3>g_xim_protocol_send ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_protocol_send                 (GXimProtocol *proto,
+                                                         GXimOpcode major_opcode,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint8"
+>guint8</a> minor_opcode,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> n_params,
+                                                         ...);</pre>
+<p>
+Sends XIM protocol according to the set of parameters. one is a parameter
+type defined in <span class="type">GXimValueType</span>, and one is an object related to that.
+See <span class="type">GXimValueType</span> documentation which objects are supposed to be specified
+with them.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td> a <span class="type">GXimProtocol</span>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>major_opcode</code></em> :</span></p></td>
+<td> a major opcode in XIM protocol.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>minor_opcode</code></em> :</span></p></td>
+<td> a minor opcode in XIM protocol.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n_params</code></em> :</span></p></td>
+<td> the number of a set of parameters.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <code class="literal">TRUE</code> to be sent successfully.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-protocol-send-with-list"></a><h3>g_xim_protocol_send_with_list ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_protocol_send_with_list       (GXimProtocol *proto,
+                                                         GXimOpcode major_opcode,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint8"
+>guint8</a> minor_opcode,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a> *types,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a> *values);</pre>
+<p>
+Sends XIM protocol according to <em class="parameter"><code>types</code></em> and <em class="parameter"><code>values</code></em>.
+See <span class="type">GXimValueType</span> documentation which objects are supposed to be specified
+with them.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td> a <span class="type">GXimProtocol</span>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>major_opcode</code></em> :</span></p></td>
+<td> a major opcode in XIM protocol.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>minor_opcode</code></em> :</span></p></td>
+<td> a minor opcode in XIM protocol.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>types</code></em> :</span></p></td>
+<td> a list of <span class="type">GXimValueType</span>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>values</code></em> :</span></p></td>
+<td> a list of objects fitting to each value types in <em class="parameter"><code>types</code></em>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <code class="literal">TRUE</code> to be sent successfully.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-protocol-start-queue"></a><h3>g_xim_protocol_start_queue ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_protocol_start_queue          (GXimProtocol *proto);</pre>
+<p>
+Prepares the queue to not send a request immediately. this function is
+useful if you need to wait for any requests but want to send it after
+the pending requests is done.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td> a <span class="type">GXimProtocol</span>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <code class="literal">TRUE</code> to be ready to queue.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-protocol-end-queue"></a><h3>g_xim_protocol_end_queue ()</h3>
+<pre class="programlisting"><a class="link" href="libgxim-gximprotocol.html#GXimProtocolQueueNode" title="GXimProtocolQueueNode">GXimProtocolQueueNode</a>* g_xim_protocol_end_queue         (GXimProtocol *proto);</pre>
+<p>
+Terminates the queue.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td> a <span class="type">GXimProtocol</span>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the <a class="link" href="libgxim-gximprotocol.html#GXimProtocolQueueNode" title="GXimProtocolQueueNode"><span class="type">GXimProtocolQueueNode</span></a> which queued the request this time.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-protocol-cancel-queue"></a><h3>g_xim_protocol_cancel_queue ()</h3>
+<pre class="programlisting">void                g_xim_protocol_cancel_queue         (GXimProtocol *proto);</pre>
+<p>
+Cancels queueing. Note that you have to invoke this function if you can't
+proceed queueing process with any errors say. otherwise invalid node is kept
+in the queue and you may get a trouble with it eveutnally.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td> a <span class="type">GXimProtocol</span>.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-protocol-is-queued"></a><h3>g_xim_protocol_is_queued ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_protocol_is_queued            (GXimProtocol *proto);</pre>
+<p>
+Checks if <em class="parameter"><code>proto</code></em> is in queueing process.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td> a <span class="type">GXimProtocol</span>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <code class="literal">TRUE</code> to be in the queueing process. otherwise <code class="literal">FALSE</code>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-protocol-read-vformat"></a><h3>g_xim_protocol_read_vformat ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_protocol_read_vformat         (GXimProtocol *proto,
+                                                         <a
+href="/usr/share/gtk-doc/html/gio/GDataInputStream.html"
+>GDataInputStream</a> *stream,
+                                                         <a
+href="/usr/share/gtk-doc/html/gio/GCancellable.html"
+>GCancellable</a> *cancellable,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"
+>GError</a> **error,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> n_params,
+                                                         va_list args);</pre>
+<p>
+Scans XIM protocol packets according to the set of parameters. if any,
+objects generated against it is stored in the locations pointed to by
+the pointer arguments. Each pointer argument must be of a type that is
+appropriate for the value returned by the corresponding value type.
+See <span class="type">GXimValueType</span> documentation which objects the value type is supposed
+to be.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td> a <span class="type">GXimProtocol</span>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
+<td> a <a
+href="/usr/share/gtk-doc/html/gio/GDataInputStream.html"
+><span class="type">GDataInputStream</span></a> which contains XIM protocol packets.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td> optional <a
+href="/usr/share/gtk-doc/html/gio/GCancellable.html"
+><span class="type">GCancellable</span></a> object, <code class="literal">NULL</code> to ignore.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td> a location to store error, or <code class="literal">NULL</code>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n_params</code></em> :</span></p></td>
+<td> the number of a set of parameters.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>args</code></em> :</span></p></td>
+<td> a <span class="type">va_list</span>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <code class="literal">TRUE</code> to be read successfully.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-protocol-read-format"></a><h3>g_xim_protocol_read_format ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_protocol_read_format          (GXimProtocol *proto,
+                                                         <a
+href="/usr/share/gtk-doc/html/gio/GDataInputStream.html"
+>GDataInputStream</a> *stream,
+                                                         <a
+href="/usr/share/gtk-doc/html/gio/GCancellable.html"
+>GCancellable</a> *cancellable,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"
+>GError</a> **error,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> n_params,
+                                                         ...);</pre>
+<p>
+Scans XIM protocol packets according to the set of parameters. if any,
+objects generated against it is stored in the locations pointed to by
+the pointer arguments. Each pointer argument must be of a type that is
+appropriate for the value returned by the corresponding value type.
+See <span class="type">GXimValueType</span> documentation which objects the value type is supposed
+to be.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td> a <span class="type">GXimProtocol</span>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
+<td> a <a
+href="/usr/share/gtk-doc/html/gio/GDataInputStream.html"
+><span class="type">GDataInputStream</span></a> which contains XIM protocol packets.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td> optional <a
+href="/usr/share/gtk-doc/html/gio/GCancellable.html"
+><span class="type">GCancellable</span></a> object, <code class="literal">NULL</code> to ignore.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td> a location to store error, or <code class="literal">NULL</code>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n_params</code></em> :</span></p></td>
+<td> the number of a set of parameters.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <code class="literal">TRUE</code> to be read successfully.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-protocol-wait-for-reply"></a><h3>g_xim_protocol_wait_for_reply ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_protocol_wait_for_reply       (GXimProtocol *proto,
+                                                         GXimOpcode major_opcode,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint8"
+>guint8</a> minor_opcode,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"
+>GError</a> **error);</pre>
+<p>
+Waits for a response of <em class="parameter"><code>major_opcode</code></em> and <em class="parameter"><code>minor_opcode</code></em> or <code class="literal">G_XIM_ERROR</code>.
+this can be used if you need to send a request synchronously.  Note that
+using this function in the server instance won't works due to how GObject
+delivers signals and iterates it.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td> a <span class="type">GXimProtocol</span>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>major_opcode</code></em> :</span></p></td>
+<td> a major opcode in XIM protocol.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>minor_opcode</code></em> :</span></p></td>
+<td> a minor opcode in XIM protocol.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td> a location to store error, or <code class="literal">NULL</code>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <code class="literal">TRUE</code> the request was successfully done.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-protocol-raise-parser-error"></a><h3>g_xim_protocol_raise_parser_error ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_protocol_raise_parser_error   (GXimProtocol *proto,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> major_opcode,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> minor_opcode,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> imid,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> icid);</pre>
+<p>
+Raises an appropriate error to the opposite direction on the connection
+according to <em class="parameter"><code>major_opcode</code></em> and <em class="parameter"><code>minor_opcode</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td> a <span class="type">GXimProtocol</span>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>major_opcode</code></em> :</span></p></td>
+<td> a major opcode in XIM protocol.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>minor_opcode</code></em> :</span></p></td>
+<td> a minor opcode in XIM protocol.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>imid</code></em> :</span></p></td>
+<td> input-method ID.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icid</code></em> :</span></p></td>
+<td> input-context ID.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <code class="literal">TRUE</code> to be sent an error successfully.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-protocol-add-protocol"></a><h3>g_xim_protocol_add_protocol ()</h3>
+<pre class="programlisting">void                g_xim_protocol_add_protocol         (GXimProtocol *proto,
+                                                         <a class="link" href="libgxim-gximprotocol.html#GXimProtocolClosure" title="GXimProtocolClosure">GXimProtocolClosure</a> *closure);</pre>
+<p>
+Registers a <em class="parameter"><code>closure</code></em> to add the XIM protocol handler.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td> a <span class="type">GXimProtocol</span>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>closure</code></em> :</span></p></td>
+<td> a structure of closure.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-protocol-remove-protocol"></a><h3>g_xim_protocol_remove_protocol ()</h3>
+<pre class="programlisting">void                g_xim_protocol_remove_protocol      (GXimProtocol *proto,
+                                                         <a class="link" href="libgxim-gximprotocol.html#GXimProtocolClosure" title="GXimProtocolClosure">GXimProtocolClosure</a> *closure);</pre>
+<p>
+Gets rid of <em class="parameter"><code>closure</code></em> to stop XIM protocol handling in <em class="parameter"><code>proto</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td> a <span class="type">GXimProtocol</span>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>closure</code></em> :</span></p></td>
+<td> a structure of closure.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-protocol-remove-protocol-by-id"></a><h3>g_xim_protocol_remove_protocol_by_id ()</h3>
+<pre class="programlisting">void                g_xim_protocol_remove_protocol_by_id
+                                                        (GXimProtocol *proto,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint8"
+>guint8</a> major_opcode,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint8"
+>guint8</a> minor_opcode);</pre>
+<p>
+Gets rid of XIM protocol handling to stop dealing with <em class="parameter"><code>major_opcode</code></em> and
+<em class="parameter"><code>minor_opcode</code></em> in <em class="parameter"><code>proto</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td> a <span class="type">GXimProtocol</span>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>major_opcode</code></em> :</span></p></td>
+<td> a major opcode in XIM protocol.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>minor_opcode</code></em> :</span></p></td>
+<td> a minor opcode in XIM protocol.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-protocol-lookup-protocol-by-name"></a><h3>g_xim_protocol_lookup_protocol_by_name ()</h3>
+<pre class="programlisting"><a class="link" href="libgxim-gximprotocol.html#GXimProtocolClosure" title="GXimProtocolClosure">GXimProtocolClosure</a>* g_xim_protocol_lookup_protocol_by_name
+                                                        (GXimProtocol *proto,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *name);</pre>
+<p>
+Looks up the XIM protocol closure with <em class="parameter"><code>name</code></em> which <em class="parameter"><code>proto</code></em> is dealing with.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td> a <span class="type">GXimProtocol</span>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td> the name of XIM protocol event.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a <a class="link" href="libgxim-gximprotocol.html#GXimProtocolClosure" title="GXimProtocolClosure"><span class="type">GXimProtocolClosure</span></a> corresponding to <em class="parameter"><code>name</code></em>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-protocol-lookup-protocol-by-id"></a><h3>g_xim_protocol_lookup_protocol_by_id ()</h3>
+<pre class="programlisting"><a class="link" href="libgxim-gximprotocol.html#GXimProtocolClosure" title="GXimProtocolClosure">GXimProtocolClosure</a>* g_xim_protocol_lookup_protocol_by_id
+                                                        (GXimProtocol *proto,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint8"
+>guint8</a> major_opcode,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint8"
+>guint8</a> minor_opcode);</pre>
+<p>
+Looks up the XIM protocol closure with <em class="parameter"><code>major_opcode</code></em> and <em class="parameter"><code>minor_opcode</code></em> which
+<em class="parameter"><code>proto</code></em> is dealing with.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td> a <span class="type">GXimProtocol</span>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>major_opcode</code></em> :</span></p></td>
+<td> a major opcode in XIM protocol.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>minor_opcode</code></em> :</span></p></td>
+<td> a minor opcode in XIM protocol.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a <a class="link" href="libgxim-gximprotocol.html#GXimProtocolClosure" title="GXimProtocolClosure"><span class="type">GXimProtocolClosure</span></a> corresponding to <em class="parameter"><code>major_opcode</code></em> and <em class="parameter"><code>minor_opcode</code></em>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-protocol-connect-closure-by-id"></a><h3>g_xim_protocol_connect_closure_by_id ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gulong"
+>gulong</a>              g_xim_protocol_connect_closure_by_id
+                                                        (GXimProtocol *proto,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint8"
+>guint8</a> major_opcode,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint8"
+>guint8</a> minor_opcode,
+                                                         <a
+href="/usr/share/gtk-doc/html/gobject/gobject-Closures.html#GCallback"
+>GCallback</a> func,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> data);</pre>
+<p>
+Connects a <a
+href="/usr/share/gtk-doc/html/gobject/gobject-Closures.html#GCallback"
+><span class="type">GCallback</span></a> function to a signal for XIM protocol events.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td> a <span class="type">GXimProtocol</span>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>major_opcode</code></em> :</span></p></td>
+<td> a major opcode in XIM protocol.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>minor_opcode</code></em> :</span></p></td>
+<td> a minor opcode in XIM protocol.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>func</code></em> :</span></p></td>
+<td> the <a
+href="/usr/share/gtk-doc/html/gobject/gobject-Closures.html#GCallback"
+><span class="type">GCallback</span></a> to connect.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td> data to pass to <em class="parameter"><code>func</code></em>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the handler id.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-protocol-connect-closure-by-name"></a><h3>g_xim_protocol_connect_closure_by_name ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gulong"
+>gulong</a>              g_xim_protocol_connect_closure_by_name
+                                                        (GXimProtocol *proto,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *signal_name,
+                                                         <a
+href="/usr/share/gtk-doc/html/gobject/gobject-Closures.html#GCallback"
+>GCallback</a> func,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> data);</pre>
+<p>
+Connects a <a
+href="/usr/share/gtk-doc/html/gobject/gobject-Closures.html#GCallback"
+><span class="type">GCallback</span></a> function to a signal for XIM protocol events.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td> a <span class="type">GXimProtocol</span>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>signal_name</code></em> :</span></p></td>
+<td> a XIM protocol event name.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>func</code></em> :</span></p></td>
+<td> the <a
+href="/usr/share/gtk-doc/html/gobject/gobject-Closures.html#GCallback"
+><span class="type">GCallback</span></a> to connect.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td> data to pass to <em class="parameter"><code>func</code></em>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the handler id.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-protocol-get-extensions"></a><h3>g_xim_protocol_get_extensions ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a>*             g_xim_protocol_get_extensions       (GXimProtocol *proto);</pre>
+<p>
+Obtains a set of <a class="link" href="libgxim-gximprotocol.html#GXimProtocolClosure" title="GXimProtocolClosure"><span class="type">GXimProtocolClosure</span></a> registered as an extension. this is
+helpful to deal with <code class="literal">G_XIM_QUERY_EXTENSION</code> and so on.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td> a <span class="type">GXimProtocol</span>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the <a
+href="/usr/share/gtk-doc/html/glib/glib-Singly-Linked-Lists.html#GSList"
+><span class="type">GSList</span></a> which contains <a class="link" href="libgxim-gximprotocol.html#GXimProtocolClosure" title="GXimProtocolClosure"><span class="type">GXimProtocolClosure</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GXimProtocolClosureFunc"></a><h3>GXimProtocolClosureFunc ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            (*GXimProtocolClosureFunc)          (<a class="link" href="libgxim-gximprotocol.html#GXimProtocolClosure" title="GXimProtocolClosure">GXimProtocolClosure</a> *closure,
+                                                         GXimProtocol *proto,
+                                                         <a
+href="/usr/share/gtk-doc/html/gio/GDataInputStream.html"
+>GDataInputStream</a> *stream,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"
+>GError</a> **error,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> user_data);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>closure</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GXimProtocolClosure"></a><h3>GXimProtocolClosure</h3>
+<pre class="programlisting">typedef struct {
+	GCClosure        closure;
+	GClosureMarshal  signal_marshaller;
+	guint            n_params;
+	GType           *param_types;
+	GSList          *signal_handlers;
+	gchar           *name;
+	union {
+		GXimOpcode v1;
+		guint8     v2;
+	} major_opcode;
+	guint8           minor_opcode;
+	gboolean         is_an_extension;
+} GXimProtocolClosure;
+</pre>
+<p>
+</p>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-protocol-closure-new"></a><h3>g_xim_protocol_closure_new ()</h3>
+<pre class="programlisting"><a class="link" href="libgxim-gximprotocol.html#GXimProtocolClosure" title="GXimProtocolClosure">GXimProtocolClosure</a>* g_xim_protocol_closure_new         (<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint8"
+>guint8</a> major_opcode,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint8"
+>guint8</a> minor_opcode,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *name,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a> is_an_extension);</pre>
+<p>
+Creates an instance of the <a class="link" href="libgxim-gximprotocol.html#GXimProtocolClosure" title="GXimProtocolClosure"><span class="type">GXimProtocolClosure</span></a>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>major_opcode</code></em> :</span></p></td>
+<td> a major opcode in XIM protocol.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>minor_opcode</code></em> :</span></p></td>
+<td> a minor opcode in XIM protocol.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td> the XIM protocol name.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>is_an_extension</code></em> :</span></p></td>
+<td> <code class="literal">TRUE</code> to define an extension in XIM protocol, otherwise <code class="literal">FALSE</code>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the <a class="link" href="libgxim-gximprotocol.html#GXimProtocolClosure" title="GXimProtocolClosure"><span class="type">GXimProtocolClosure</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-protocol-closure-free"></a><h3>g_xim_protocol_closure_free ()</h3>
+<pre class="programlisting">void                g_xim_protocol_closure_free         (<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> data,
+                                                         <a
+href="/usr/share/gtk-doc/html/gobject/gobject-Closures.html#GClosure"
+>GClosure</a> *closure);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>closure</code></em> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-protocol-closure-is-an-extension"></a><h3>g_xim_protocol_closure_is_an_extension ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_protocol_closure_is_an_extension
+                                                        (<a class="link" href="libgxim-gximprotocol.html#GXimProtocolClosure" title="GXimProtocolClosure">GXimProtocolClosure</a> *closure);</pre>
+<p>
+Checks if the <em class="parameter"><code>closure</code></em> was created as an extension protocol in XIM.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>closure</code></em> :</span></p></td>
+<td> a <a class="link" href="libgxim-gximprotocol.html#GXimProtocolClosure" title="GXimProtocolClosure"><span class="type">GXimProtocolClosure</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <code class="literal">TRUE</code> to be an extension.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-protocol-closure-set-marshal"></a><h3>g_xim_protocol_closure_set_marshal ()</h3>
+<pre class="programlisting">void                g_xim_protocol_closure_set_marshal  (<a class="link" href="libgxim-gximprotocol.html#GXimProtocolClosure" title="GXimProtocolClosure">GXimProtocolClosure</a> *closure,
+                                                         <a class="link" href="libgxim-gximprotocol.html#GXimProtocolClosureFunc" title="GXimProtocolClosureFunc ()">GXimProtocolClosureFunc</a> func,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> data);</pre>
+<p>
+Sets the marshaller of <em class="parameter"><code>closure</code></em> which scans the XIM protocol packets and emit
+the proper signal as needed.  Note that <a class="link" href="libgxim-gximprotocol.html#g-xim-protocol-closure-emit-signal" title="g_xim_protocol_closure_emit_signal ()"><code class="function">g_xim_protocol_closure_emit_signal()</code></a>
+has to be invoked in <em class="parameter"><code>func</code></em> otherwise any signals added by
+<a class="link" href="libgxim-gximprotocol.html#g-xim-protocol-closure-add-signal" title="g_xim_protocol_closure_add_signal ()"><code class="function">g_xim_protocol_closure_add_signal()</code></a> won't do anything at all.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>closure</code></em> :</span></p></td>
+<td> a <a class="link" href="libgxim-gximprotocol.html#GXimProtocolClosure" title="GXimProtocolClosure"><span class="type">GXimProtocolClosure</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>func</code></em> :</span></p></td>
+<td> the <a class="link" href="libgxim-gximprotocol.html#GXimProtocolClosureFunc" title="GXimProtocolClosureFunc ()"><span class="type">GXimProtocolClosureFunc</span></a> function to scan the XIM protocol packet
+ and emits the proper signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td> the data to store in the <em class="parameter"><code>data</code></em> field of the <a
+href="/usr/share/gtk-doc/html/gobject/gobject-Closures.html#GClosure"
+><span class="type">GClosure</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-protocol-closure-add-signal"></a><h3>g_xim_protocol_closure_add_signal ()</h3>
+<pre class="programlisting">void                g_xim_protocol_closure_add_signal   (<a class="link" href="libgxim-gximprotocol.html#GXimProtocolClosure" title="GXimProtocolClosure">GXimProtocolClosure</a> *closure,
+                                                         <a
+href="/usr/share/gtk-doc/html/gobject/gobject-Closures.html#GClosureMarshal"
+>GClosureMarshal</a> marshaller,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> n_params,
+                                                         ...);</pre>
+<p>
+Adds a marshaller for signal.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>closure</code></em> :</span></p></td>
+<td> a <a class="link" href="libgxim-gximprotocol.html#GXimProtocolClosure" title="GXimProtocolClosure"><span class="type">GXimProtocolClosure</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>marshaller</code></em> :</span></p></td>
+<td> the <a
+href="/usr/share/gtk-doc/html/gobject/gobject-Closures.html#GClosureMarshal"
+><span class="type">GClosureMarshal</span></a> to deal with the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n_params</code></em> :</span></p></td>
+<td> the number of parameters for the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
+<td> a list of types, one for each parameter.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-protocol-closure-connect"></a><h3>g_xim_protocol_closure_connect ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gulong"
+>gulong</a>              g_xim_protocol_closure_connect      (<a class="link" href="libgxim-gximprotocol.html#GXimProtocolClosure" title="GXimProtocolClosure">GXimProtocolClosure</a> *closure,
+                                                         <a
+href="/usr/share/gtk-doc/html/gobject/gobject-Closures.html#GCallback"
+>GCallback</a> func,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> data);</pre>
+<p>
+Connects a closure to a signal.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>closure</code></em> :</span></p></td>
+<td> a <a class="link" href="libgxim-gximprotocol.html#GXimProtocolClosure" title="GXimProtocolClosure"><span class="type">GXimProtocolClosure</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>func</code></em> :</span></p></td>
+<td> the <a
+href="/usr/share/gtk-doc/html/gobject/gobject-Closures.html#GCallback"
+><span class="type">GCallback</span></a> to connect.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td> data to pass to <em class="parameter"><code>func</code></em>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the handler id.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-protocol-closure-disconnect"></a><h3>g_xim_protocol_closure_disconnect ()</h3>
+<pre class="programlisting">void                g_xim_protocol_closure_disconnect   (<a class="link" href="libgxim-gximprotocol.html#GXimProtocolClosure" title="GXimProtocolClosure">GXimProtocolClosure</a> *closure,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gulong"
+>gulong</a> id);</pre>
+<p>
+Disconnects a handler from an instance so it will not be called during
+any future or currently ongoing emissions of the signal if has been
+connected to. The <em class="parameter"><code>id</code></em> becomes invalid and may be reused.
+</p>
+<p>
+The <em class="parameter"><code>id</code></em> has to be a valid signal handler id, connected to a
+signal of <em class="parameter"><code>closure</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>closure</code></em> :</span></p></td>
+<td> a <a class="link" href="libgxim-gximprotocol.html#GXimProtocolClosure" title="GXimProtocolClosure"><span class="type">GXimProtocolClosure</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>id</code></em> :</span></p></td>
+<td> Handler id of the handler to be disconnected.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-protocol-closure-emit-signal"></a><h3>g_xim_protocol_closure_emit_signal ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            g_xim_protocol_closure_emit_signal  (<a class="link" href="libgxim-gximprotocol.html#GXimProtocolClosure" title="GXimProtocolClosure">GXimProtocolClosure</a> *closure,
+                                                         GXimProtocol *proto,
+                                                         ...);</pre>
+<p>
+Emits a signal.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>closure</code></em> :</span></p></td>
+<td> a <a class="link" href="libgxim-gximprotocol.html#GXimProtocolClosure" title="GXimProtocolClosure"><span class="type">GXimProtocolClosure</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td> the instance which wants to raise a signal with <em class="parameter"><code>closure</code></em>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
+<td> parameters to be passed to the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <code class="literal">TRUE</code> to be proceeded a signal in the handlers. <code class="literal">FALSE</code> to be failed
+ in any handlers or no handlers for this signal.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-attr-put-attribute-to-stream"></a><h3>g_xim_attr_put_attribute_to_stream ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gsize"
+>gsize</a>               g_xim_attr_put_attribute_to_stream  (GXimProtocol *proto,
+                                                         <a class="link" href="GXimICAttr.html#GXimAttr">GXimAttr</a> *attr,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> attribute_id,
+                                                         <a
+href="/usr/share/gtk-doc/html/gio/GCancellable.html"
+>GCancellable</a> *cancellable,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"
+>GError</a> **error);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attr</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attribute_id</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="g-xim-attr-get-attribute-from-stream"></a><h3>g_xim_attr_get_attribute_from_stream ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a>            g_xim_attr_get_attribute_from_stream
+                                                        (GXimProtocol *proto,
+                                                         <a class="link" href="GXimICAttr.html#GXimAttr">GXimAttr</a> *attr,
+                                                         <a
+href="/usr/share/gtk-doc/html/gio/GDataInputStream.html"
+>GDataInputStream</a> *stream,
+                                                         <a
+href="/usr/share/gtk-doc/html/gio/GCancellable.html"
+>GCancellable</a> *cancellable,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Error-Reporting.html#GError"
+>GError</a> **error);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attr</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.10</div>
+</body>
+</html>

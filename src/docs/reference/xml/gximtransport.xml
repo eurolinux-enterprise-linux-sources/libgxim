@@ -1,0 +1,608 @@
+<refentry id="libgxim-gximtransport">
+<refmeta>
+<refentrytitle role="top_of_page" id="libgxim-gximtransport.top_of_page">gximtransport</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGXIM Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>gximtransport</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="libgxim-gximtransport.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+#define             <link linkend="G-XIM-TRANSPORT-SIZE:CAPS">G_XIM_TRANSPORT_SIZE</link>
+#define             <link linkend="G-XIM-TRANSPORT-MAX:CAPS">G_XIM_TRANSPORT_MAX</link>
+                    <link linkend="GXimTransportIface">GXimTransportIface</link>;
+                    <link linkend="GXimTransportPrivate">GXimTransportPrivate</link>;
+enum                <link linkend="GXimDirection">GXimDirection</link>;
+<link linkend="void">void</link>                <link linkend="g-xim-transport-init">g_xim_transport_init</link>                (<link linkend="GXimTransport">GXimTransport</link> *trans);
+<link linkend="void">void</link>                <link linkend="g-xim-transport-finalize">g_xim_transport_finalize</link>            (<link linkend="GXimTransport">GXimTransport</link> *trans);
+<link linkend="GXimTransportPrivate">GXimTransportPrivate</link>* <link linkend="g-xim-transport-get-private">g_xim_transport_get_private</link>       (<link linkend="GXimTransport">GXimTransport</link> *trans);
+<link linkend="void">void</link>                <link linkend="g-xim-transport-destroy">g_xim_transport_destroy</link>             (<link linkend="GXimTransport">GXimTransport</link> *trans);
+<link linkend="void">void</link>                <link linkend="g-xim-transport-set-version">g_xim_transport_set_version</link>         (<link linkend="GXimTransport">GXimTransport</link> *trans,
+                                                         <link linkend="guint8">guint8</link> major_version,
+                                                         <link linkend="guint8">guint8</link> minor_version);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-transport-get-version">g_xim_transport_get_version</link>         (<link linkend="GXimTransport">GXimTransport</link> *trans,
+                                                         <link linkend="guint8">guint8</link> *major_version,
+                                                         <link linkend="guint8">guint8</link> *minor_version);
+<link linkend="void">void</link>                <link linkend="g-xim-transport-set-transport-size">g_xim_transport_set_transport_size</link>  (<link linkend="GXimTransport">GXimTransport</link> *trans,
+                                                         <link linkend="gsize">gsize</link> size);
+<link linkend="gsize">gsize</link>               <link linkend="g-xim-transport-get-transport-size">g_xim_transport_get_transport_size</link>  (<link linkend="GXimTransport">GXimTransport</link> *trans);
+<link linkend="void">void</link>                <link linkend="g-xim-transport-set-transport-max">g_xim_transport_set_transport_max</link>   (<link linkend="GXimTransport">GXimTransport</link> *trans,
+                                                         <link linkend="gsize">gsize</link> size);
+<link linkend="gsize">gsize</link>               <link linkend="g-xim-transport-get-transport-max">g_xim_transport_get_transport_max</link>   (<link linkend="GXimTransport">GXimTransport</link> *trans);
+<link linkend="void">void</link>                <link linkend="g-xim-transport-set-display">g_xim_transport_set_display</link>         (<link linkend="GXimTransport">GXimTransport</link> *trans,
+                                                         <link linkend="GdkDisplay">GdkDisplay</link> *dpy);
+<link linkend="GdkDisplay">GdkDisplay</link>*         <link linkend="g-xim-transport-get-display">g_xim_transport_get_display</link>         (<link linkend="GXimTransport">GXimTransport</link> *trans);
+<link linkend="GdkAtom">GdkAtom</link>             <link linkend="g-xim-transport-get-atom">g_xim_transport_get_atom</link>            (<link linkend="GXimTransport">GXimTransport</link> *trans);
+<link linkend="void">void</link>                <link linkend="g-xim-transport-set-client-window">g_xim_transport_set_client_window</link>   (<link linkend="GXimTransport">GXimTransport</link> *trans,
+                                                         <link linkend="GdkNativeWindow">GdkNativeWindow</link> client_window);
+<link linkend="GdkNativeWindow">GdkNativeWindow</link>     <link linkend="g-xim-transport-get-client-window">g_xim_transport_get_client_window</link>   (<link linkend="GXimTransport">GXimTransport</link> *trans);
+<link linkend="GdkNativeWindow">GdkNativeWindow</link>     <link linkend="g-xim-transport-get-native-channel">g_xim_transport_get_native_channel</link>  (<link linkend="GXimTransport">GXimTransport</link> *trans);
+<link linkend="GdkNativeWindow">GdkNativeWindow</link>     <link linkend="g-xim-transport-get-native-channel-from">g_xim_transport_get_native_channel_from</link>
+                                                        (<link linkend="GXimTransport">GXimTransport</link> *trans,
+                                                         <link linkend="gpointer">gpointer</link> drawable);
+<link linkend="GdkWindow">GdkWindow</link>*          <link linkend="g-xim-transport-get-channel">g_xim_transport_get_channel</link>         (<link linkend="GXimTransport">GXimTransport</link> *trans,
+                                                         <link linkend="GdkWindow">GdkWindow</link> *parent_window);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-transport-send-via-property">g_xim_transport_send_via_property</link>   (<link linkend="GXimTransport">GXimTransport</link> *trans,
+                                                         const <link linkend="gchar">gchar</link> *data,
+                                                         <link linkend="gsize">gsize</link> length);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-transport-send-via-cm">g_xim_transport_send_via_cm</link>         (<link linkend="GXimTransport">GXimTransport</link> *trans,
+                                                         const <link linkend="gchar">gchar</link> *data,
+                                                         <link linkend="gsize">gsize</link> length,
+                                                         <link linkend="gsize">gsize</link> threshold);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-transport-send-via-property-notify">g_xim_transport_send_via_property_notify</link>
+                                                        (<link linkend="GXimTransport">GXimTransport</link> *trans,
+                                                         const <link linkend="gchar">gchar</link> *data,
+                                                         <link linkend="gsize">gsize</link> length);
+<link linkend="void">void</link>                <link linkend="g-xim-transport-set-direction">g_xim_transport_set_direction</link>       (<link linkend="GXimTransport">GXimTransport</link> *trans,
+                                                         <link linkend="GXimDirection">GXimDirection</link> direction);
+<link linkend="GXimDirection">GXimDirection</link>       <link linkend="g-xim-transport-get-direction">g_xim_transport_get_direction</link>       (<link linkend="GXimTransport">GXimTransport</link> *trans);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-transport-get-property">g_xim_transport_get_property</link>        (<link linkend="GXimTransport">GXimTransport</link> *trans,
+                                                         <link linkend="GdkWindow">GdkWindow</link> *window,
+                                                         <link linkend="GdkAtom">GdkAtom</link> property,
+                                                         <link linkend="GdkAtom">GdkAtom</link> type,
+                                                         <link linkend="gulong">gulong</link> length,
+                                                         <link linkend="GdkAtom">GdkAtom</link> *actual_property_type,
+                                                         <link linkend="gint">gint</link> *actual_format,
+                                                         <link linkend="gint">gint</link> *actual_length,
+                                                         <link linkend="guchar">guchar</link> **data);
+<link linkend="void">void</link>                <link linkend="g-xim-transport-dump">g_xim_transport_dump</link>                (<link linkend="GXimTransport">GXimTransport</link> *trans,
+                                                         const <link linkend="gchar">gchar</link> *data,
+                                                         <link linkend="gsize">gsize</link> length,
+                                                         <link linkend="gboolean">gboolean</link> is_sent);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libgxim-gximtransport.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 id="libgxim-gximtransport.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="G-XIM-TRANSPORT-SIZE:CAPS" role="macro">
+<title>G_XIM_TRANSPORT_SIZE</title>
+<indexterm zone="G-XIM-TRANSPORT-SIZE:CAPS"><primary>G_XIM_TRANSPORT_SIZE</primary></indexterm><programlisting>#define G_XIM_TRANSPORT_SIZE		20
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="G-XIM-TRANSPORT-MAX:CAPS" role="macro">
+<title>G_XIM_TRANSPORT_MAX</title>
+<indexterm zone="G-XIM-TRANSPORT-MAX:CAPS"><primary>G_XIM_TRANSPORT_MAX</primary></indexterm><programlisting>#define G_XIM_TRANSPORT_MAX		20
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimTransportIface" role="struct">
+<title>GXimTransportIface</title>
+<indexterm zone="GXimTransportIface"><primary>GXimTransportIface</primary></indexterm><programlisting>typedef struct {
+	GTypeInterface  parent_iface;
+
+	GXimMessage    *message;
+	GdkAtom         atom_xim_protocol;
+	GdkAtom         atom_xim_moredata;
+} GXimTransportIface;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimTransportPrivate" role="struct">
+<title>GXimTransportPrivate</title>
+<indexterm zone="GXimTransportPrivate"><primary>GXimTransportPrivate</primary></indexterm><programlisting>typedef struct {
+	GdkDisplay      *display;
+	GdkWindow       *comm_window;
+	GHashTable      *prop_offset;
+	GdkAtom          atom_comm;
+	GdkNativeWindow  client_window;
+	gsize            transport_size;
+	gsize            transport_max;
+	GXimDirection    direction;
+	guint8           major_version;
+	guint8           minor_version;
+} GXimTransportPrivate;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimDirection" role="enum">
+<title>enum GXimDirection</title>
+<indexterm zone="GXimDirection"><primary>GXimDirection</primary></indexterm><programlisting>typedef enum {
+	G_XIM_DIR_RIGHT = 0,
+	G_XIM_DIR_LEFT
+} GXimDirection;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="g-xim-transport-init" role="function">
+<title>g_xim_transport_init ()</title>
+<indexterm zone="g-xim-transport-init"><primary>g_xim_transport_init</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_transport_init                (<link linkend="GXimTransport">GXimTransport</link> *trans);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>trans</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-transport-finalize" role="function">
+<title>g_xim_transport_finalize ()</title>
+<indexterm zone="g-xim-transport-finalize"><primary>g_xim_transport_finalize</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_transport_finalize            (<link linkend="GXimTransport">GXimTransport</link> *trans);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>trans</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-transport-get-private" role="function">
+<title>g_xim_transport_get_private ()</title>
+<indexterm zone="g-xim-transport-get-private"><primary>g_xim_transport_get_private</primary></indexterm><programlisting><link linkend="GXimTransportPrivate">GXimTransportPrivate</link>* g_xim_transport_get_private       (<link linkend="GXimTransport">GXimTransport</link> *trans);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>trans</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-transport-destroy" role="function">
+<title>g_xim_transport_destroy ()</title>
+<indexterm zone="g-xim-transport-destroy"><primary>g_xim_transport_destroy</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_transport_destroy             (<link linkend="GXimTransport">GXimTransport</link> *trans);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>trans</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-transport-set-version" role="function">
+<title>g_xim_transport_set_version ()</title>
+<indexterm zone="g-xim-transport-set-version"><primary>g_xim_transport_set_version</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_transport_set_version         (<link linkend="GXimTransport">GXimTransport</link> *trans,
+                                                         <link linkend="guint8">guint8</link> major_version,
+                                                         <link linkend="guint8">guint8</link> minor_version);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>trans</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>major_version</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>minor_version</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-transport-get-version" role="function">
+<title>g_xim_transport_get_version ()</title>
+<indexterm zone="g-xim-transport-get-version"><primary>g_xim_transport_get_version</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_transport_get_version         (<link linkend="GXimTransport">GXimTransport</link> *trans,
+                                                         <link linkend="guint8">guint8</link> *major_version,
+                                                         <link linkend="guint8">guint8</link> *minor_version);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>trans</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>major_version</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>minor_version</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-transport-set-transport-size" role="function">
+<title>g_xim_transport_set_transport_size ()</title>
+<indexterm zone="g-xim-transport-set-transport-size"><primary>g_xim_transport_set_transport_size</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_transport_set_transport_size  (<link linkend="GXimTransport">GXimTransport</link> *trans,
+                                                         <link linkend="gsize">gsize</link> size);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>trans</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>size</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-transport-get-transport-size" role="function">
+<title>g_xim_transport_get_transport_size ()</title>
+<indexterm zone="g-xim-transport-get-transport-size"><primary>g_xim_transport_get_transport_size</primary></indexterm><programlisting><link linkend="gsize">gsize</link>               g_xim_transport_get_transport_size  (<link linkend="GXimTransport">GXimTransport</link> *trans);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>trans</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-transport-set-transport-max" role="function">
+<title>g_xim_transport_set_transport_max ()</title>
+<indexterm zone="g-xim-transport-set-transport-max"><primary>g_xim_transport_set_transport_max</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_transport_set_transport_max   (<link linkend="GXimTransport">GXimTransport</link> *trans,
+                                                         <link linkend="gsize">gsize</link> size);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>trans</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>size</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-transport-get-transport-max" role="function">
+<title>g_xim_transport_get_transport_max ()</title>
+<indexterm zone="g-xim-transport-get-transport-max"><primary>g_xim_transport_get_transport_max</primary></indexterm><programlisting><link linkend="gsize">gsize</link>               g_xim_transport_get_transport_max   (<link linkend="GXimTransport">GXimTransport</link> *trans);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>trans</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-transport-set-display" role="function">
+<title>g_xim_transport_set_display ()</title>
+<indexterm zone="g-xim-transport-set-display"><primary>g_xim_transport_set_display</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_transport_set_display         (<link linkend="GXimTransport">GXimTransport</link> *trans,
+                                                         <link linkend="GdkDisplay">GdkDisplay</link> *dpy);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>trans</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>dpy</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-transport-get-display" role="function">
+<title>g_xim_transport_get_display ()</title>
+<indexterm zone="g-xim-transport-get-display"><primary>g_xim_transport_get_display</primary></indexterm><programlisting><link linkend="GdkDisplay">GdkDisplay</link>*         g_xim_transport_get_display         (<link linkend="GXimTransport">GXimTransport</link> *trans);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>trans</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-transport-get-atom" role="function">
+<title>g_xim_transport_get_atom ()</title>
+<indexterm zone="g-xim-transport-get-atom"><primary>g_xim_transport_get_atom</primary></indexterm><programlisting><link linkend="GdkAtom">GdkAtom</link>             g_xim_transport_get_atom            (<link linkend="GXimTransport">GXimTransport</link> *trans);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>trans</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-transport-set-client-window" role="function">
+<title>g_xim_transport_set_client_window ()</title>
+<indexterm zone="g-xim-transport-set-client-window"><primary>g_xim_transport_set_client_window</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_transport_set_client_window   (<link linkend="GXimTransport">GXimTransport</link> *trans,
+                                                         <link linkend="GdkNativeWindow">GdkNativeWindow</link> client_window);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>trans</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>client_window</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-transport-get-client-window" role="function">
+<title>g_xim_transport_get_client_window ()</title>
+<indexterm zone="g-xim-transport-get-client-window"><primary>g_xim_transport_get_client_window</primary></indexterm><programlisting><link linkend="GdkNativeWindow">GdkNativeWindow</link>     g_xim_transport_get_client_window   (<link linkend="GXimTransport">GXimTransport</link> *trans);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>trans</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-transport-get-native-channel" role="function">
+<title>g_xim_transport_get_native_channel ()</title>
+<indexterm zone="g-xim-transport-get-native-channel"><primary>g_xim_transport_get_native_channel</primary></indexterm><programlisting><link linkend="GdkNativeWindow">GdkNativeWindow</link>     g_xim_transport_get_native_channel  (<link linkend="GXimTransport">GXimTransport</link> *trans);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>trans</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-transport-get-native-channel-from" role="function">
+<title>g_xim_transport_get_native_channel_from ()</title>
+<indexterm zone="g-xim-transport-get-native-channel-from"><primary>g_xim_transport_get_native_channel_from</primary></indexterm><programlisting><link linkend="GdkNativeWindow">GdkNativeWindow</link>     g_xim_transport_get_native_channel_from
+                                                        (<link linkend="GXimTransport">GXimTransport</link> *trans,
+                                                         <link linkend="gpointer">gpointer</link> drawable);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>trans</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>drawable</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-transport-get-channel" role="function">
+<title>g_xim_transport_get_channel ()</title>
+<indexterm zone="g-xim-transport-get-channel"><primary>g_xim_transport_get_channel</primary></indexterm><programlisting><link linkend="GdkWindow">GdkWindow</link>*          g_xim_transport_get_channel         (<link linkend="GXimTransport">GXimTransport</link> *trans,
+                                                         <link linkend="GdkWindow">GdkWindow</link> *parent_window);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>trans</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>parent_window</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-transport-send-via-property" role="function">
+<title>g_xim_transport_send_via_property ()</title>
+<indexterm zone="g-xim-transport-send-via-property"><primary>g_xim_transport_send_via_property</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_transport_send_via_property   (<link linkend="GXimTransport">GXimTransport</link> *trans,
+                                                         const <link linkend="gchar">gchar</link> *data,
+                                                         <link linkend="gsize">gsize</link> length);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>trans</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>length</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-transport-send-via-cm" role="function">
+<title>g_xim_transport_send_via_cm ()</title>
+<indexterm zone="g-xim-transport-send-via-cm"><primary>g_xim_transport_send_via_cm</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_transport_send_via_cm         (<link linkend="GXimTransport">GXimTransport</link> *trans,
+                                                         const <link linkend="gchar">gchar</link> *data,
+                                                         <link linkend="gsize">gsize</link> length,
+                                                         <link linkend="gsize">gsize</link> threshold);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>trans</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>length</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>threshold</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-transport-send-via-property-notify" role="function">
+<title>g_xim_transport_send_via_property_notify ()</title>
+<indexterm zone="g-xim-transport-send-via-property-notify"><primary>g_xim_transport_send_via_property_notify</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_transport_send_via_property_notify
+                                                        (<link linkend="GXimTransport">GXimTransport</link> *trans,
+                                                         const <link linkend="gchar">gchar</link> *data,
+                                                         <link linkend="gsize">gsize</link> length);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>trans</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>length</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-transport-set-direction" role="function">
+<title>g_xim_transport_set_direction ()</title>
+<indexterm zone="g-xim-transport-set-direction"><primary>g_xim_transport_set_direction</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_transport_set_direction       (<link linkend="GXimTransport">GXimTransport</link> *trans,
+                                                         <link linkend="GXimDirection">GXimDirection</link> direction);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>trans</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>direction</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-transport-get-direction" role="function">
+<title>g_xim_transport_get_direction ()</title>
+<indexterm zone="g-xim-transport-get-direction"><primary>g_xim_transport_get_direction</primary></indexterm><programlisting><link linkend="GXimDirection">GXimDirection</link>       g_xim_transport_get_direction       (<link linkend="GXimTransport">GXimTransport</link> *trans);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>trans</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-transport-get-property" role="function">
+<title>g_xim_transport_get_property ()</title>
+<indexterm zone="g-xim-transport-get-property"><primary>g_xim_transport_get_property</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_transport_get_property        (<link linkend="GXimTransport">GXimTransport</link> *trans,
+                                                         <link linkend="GdkWindow">GdkWindow</link> *window,
+                                                         <link linkend="GdkAtom">GdkAtom</link> property,
+                                                         <link linkend="GdkAtom">GdkAtom</link> type,
+                                                         <link linkend="gulong">gulong</link> length,
+                                                         <link linkend="GdkAtom">GdkAtom</link> *actual_property_type,
+                                                         <link linkend="gint">gint</link> *actual_format,
+                                                         <link linkend="gint">gint</link> *actual_length,
+                                                         <link linkend="guchar">guchar</link> **data);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>trans</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>window</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>property</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>type</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>length</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>actual_property_type</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>actual_format</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>actual_length</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-transport-dump" role="function">
+<title>g_xim_transport_dump ()</title>
+<indexterm zone="g-xim-transport-dump"><primary>g_xim_transport_dump</primary></indexterm><programlisting><link linkend="void">void</link>                g_xim_transport_dump                (<link linkend="GXimTransport">GXimTransport</link> *trans,
+                                                         const <link linkend="gchar">gchar</link> *data,
+                                                         <link linkend="gsize">gsize</link> length,
+                                                         <link linkend="gboolean">gboolean</link> is_sent);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>trans</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>length</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>is_sent</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

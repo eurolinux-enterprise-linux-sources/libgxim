@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE book PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "">
+<book xmlns="http://www.devhelp.net/book" title="libgxim Reference Manual" link="index.html" author="" name="libgxim" version="2">
+  <chapters>
+    <sub name="libgxim API Reference" link="libgxim.html">
+      <sub name="Abstract Base Classes" link="ch01.html">
+        <sub name="GXimCore" link="GXimCore.html"/>
+        <sub name="GXimServerTemplate" link="GXimServerTemplate.html"/>
+        <sub name="GXimClientTemplate" link="GXimClientTemplate.html"/>
+        <sub name="GXimConnection" link="GXimConnection.html"/>
+      </sub>
+      <sub name="Interfaces" link="ch02.html">
+        <sub name="GXimProtocol" link="libgxim-gximprotocol.html"/>
+        <sub name="gximtransport" link="libgxim-gximtransport.html"/>
+      </sub>
+      <sub name="Connection classes" link="ch03.html">
+        <sub name="GXimServerConnection" link="GXimServerConnection.html"/>
+        <sub name="GXimClientConnection" link="GXimClientConnection.html"/>
+      </sub>
+      <sub name="XIM attributes classes" link="ch04.html">
+        <sub name="GXimICAttr" link="GXimICAttr.html"/>
+      </sub>
+      <sub name="Miscelleneous" link="ch05.html">
+        <sub name="GXimMessage" link="GXimMessage.html"/>
+      </sub>
+    </sub>
+    <sub name="Index" link="ix01.html"/>
+  </chapters>
+  <functions>
+    <keyword type="struct" name="GXimCore" link="GXimCore.html#GXimCore-struct"/>
+    <keyword type="function" name="g_xim_core_watch_event ()" link="GXimCore.html#g-xim-core-watch-event"/>
+    <keyword type="function" name="g_xim_core_unwatch_event ()" link="GXimCore.html#g-xim-core-unwatch-event"/>
+    <keyword type="function" name="g_xim_core_get_display ()" link="GXimCore.html#g-xim-core-get-display"/>
+    <keyword type="function" name="g_xim_core_get_selection_window ()" link="GXimCore.html#g-xim-core-get-selection-window"/>
+    <keyword type="function" name="g_xim_core_get_connection_gtype ()" link="GXimCore.html#g-xim-core-get-connection-gtype"/>
+    <keyword type="function" name="g_xim_core_get_protocol_signal_connector ()" link="GXimCore.html#g-xim-core-get-protocol-signal-connector"/>
+    <keyword type="function" name="g_xim_core_setup_connection ()" link="GXimCore.html#g-xim-core-setup-connection"/>
+    <keyword type="function" name="g_xim_core_add_client_message_filter ()" link="GXimCore.html#g-xim-core-add-client-message-filter"/>
+    <keyword type="function" name="g_xim_core_remove_client_message_filter ()" link="GXimCore.html#g-xim-core-remove-client-message-filter"/>
+    <keyword type="function" name="g_xim_core_lookup_client_message_filter ()" link="GXimCore.html#g-xim-core-lookup-client-message-filter"/>
+    <keyword type="" name="The &quot;connection-gtype&quot; property" link="GXimCore.html#GXimCore--connection-gtype"/>
+    <keyword type="" name="The &quot;display&quot; property" link="GXimCore.html#GXimCore--display"/>
+    <keyword type="" name="The &quot;proto-signals&quot; property" link="GXimCore.html#GXimCore--proto-signals"/>
+    <keyword type="" name="The &quot;selection-window&quot; property" link="GXimCore.html#GXimCore--selection-window"/>
+    <keyword type="" name="The &quot;client-event&quot; signal" link="GXimCore.html#GXimCore-client-event"/>
+    <keyword type="" name="The &quot;destroy-event&quot; signal" link="GXimCore.html#GXimCore-destroy-event"/>
+    <keyword type="" name="The &quot;expose-event&quot; signal" link="GXimCore.html#GXimCore-expose-event"/>
+    <keyword type="" name="The &quot;selection-clear-event&quot; signal" link="GXimCore.html#GXimCore-selection-clear-event"/>
+    <keyword type="" name="The &quot;selection-notify-event&quot; signal" link="GXimCore.html#GXimCore-selection-notify-event"/>
+    <keyword type="" name="The &quot;selection-request-event&quot; signal" link="GXimCore.html#GXimCore-selection-request-event"/>
+    <keyword type="macro" name="G_XIM_SRV_TMPL_ERROR" link="GXimServerTemplate.html#G-XIM-SRV-TMPL-ERROR:CAPS"/>
+    <keyword type="enum" name="enum GXimServerTemplateError" link="GXimServerTemplate.html#GXimServerTemplateError"/>
+    <keyword type="struct" name="GXimServerTemplate" link="GXimServerTemplate.html#GXimServerTemplate-struct"/>
+    <keyword type="function" name="g_xim_srv_tmpl_get_error_quark ()" link="GXimServerTemplate.html#g-xim-srv-tmpl-get-error-quark"/>
+    <keyword type="function" name="g_xim_srv_tmpl_is_running ()" link="GXimServerTemplate.html#g-xim-srv-tmpl-is-running"/>
+    <keyword type="function" name="g_xim_srv_tmpl_take_ownership ()" link="GXimServerTemplate.html#g-xim-srv-tmpl-take-ownership"/>
+    <keyword type="function" name="g_xim_srv_tmpl_send_selection_notify ()" link="GXimServerTemplate.html#g-xim-srv-tmpl-send-selection-notify"/>
+    <keyword type="function" name="g_xim_srv_tmpl_add_connection ()" link="GXimServerTemplate.html#g-xim-srv-tmpl-add-connection"/>
+    <keyword type="function" name="g_xim_srv_tmpl_remove_connection ()" link="GXimServerTemplate.html#g-xim-srv-tmpl-remove-connection"/>
+    <keyword type="function" name="g_xim_srv_tmpl_lookup_connection ()" link="GXimServerTemplate.html#g-xim-srv-tmpl-lookup-connection"/>
+    <keyword type="function" name="g_xim_srv_tmpl_lookup_connection_with_native_window ()" link="GXimServerTemplate.html#g-xim-srv-tmpl-lookup-connection-with-native-window"/>
+    <keyword type="" name="The &quot;server-name&quot; property" link="GXimServerTemplate.html#GXimServerTemplate--server-name"/>
+    <keyword type="" name="The &quot;destroy&quot; signal" link="GXimServerTemplate.html#GXimServerTemplate-destroy"/>
+    <keyword type="" name="The &quot;get-supported-locales&quot; signal" link="GXimServerTemplate.html#GXimServerTemplate-get-supported-locales"/>
+    <keyword type="" name="The &quot;get-supported-transport&quot; signal" link="GXimServerTemplate.html#GXimServerTemplate-get-supported-transport"/>
+    <keyword type="" name="The &quot;xconnect&quot; signal" link="GXimServerTemplate.html#GXimServerTemplate-xconnect"/>
+    <keyword type="macro" name="G_XIM_CL_TMPL_ERROR" link="GXimClientTemplate.html#G-XIM-CL-TMPL-ERROR:CAPS"/>
+    <keyword type="macro" name="GXC_NONE" link="GXimClientTemplate.html#GXC-NONE:CAPS"/>
+    <keyword type="macro" name="GXC_NEGOTIATING" link="GXimClientTemplate.html#GXC-NEGOTIATING:CAPS"/>
+    <keyword type="macro" name="GXC_ESTABLISHED" link="GXimClientTemplate.html#GXC-ESTABLISHED:CAPS"/>
+    <keyword type="enum" name="enum GXimClientTemplateError" link="GXimClientTemplate.html#GXimClientTemplateError"/>
+    <keyword type="struct" name="GXimClientTemplate" link="GXimClientTemplate.html#GXimClientTemplate-struct"/>
+    <keyword type="function" name="g_xim_cl_tmpl_get_error_quark ()" link="GXimClientTemplate.html#g-xim-cl-tmpl-get-error-quark"/>
+    <keyword type="function" name="g_xim_cl_tmpl_is_initialized ()" link="GXimClientTemplate.html#g-xim-cl-tmpl-is-initialized"/>
+    <keyword type="function" name="g_xim_cl_tmpl_is_pending_negotiation ()" link="GXimClientTemplate.html#g-xim-cl-tmpl-is-pending-negotiation"/>
+    <keyword type="function" name="g_xim_cl_tmpl_start_negotiation ()" link="GXimClientTemplate.html#g-xim-cl-tmpl-start-negotiation"/>
+    <keyword type="function" name="g_xim_cl_tmpl_send_selection_request ()" link="GXimClientTemplate.html#g-xim-cl-tmpl-send-selection-request"/>
+    <keyword type="function" name="g_xim_cl_tmpl_connect_to_server ()" link="GXimClientTemplate.html#g-xim-cl-tmpl-connect-to-server"/>
+    <keyword type="" name="The &quot;atom-server&quot; property" link="GXimClientTemplate.html#GXimClientTemplate--atom-server"/>
+    <keyword type="" name="The &quot;notify-locales&quot; signal" link="GXimClientTemplate.html#GXimClientTemplate-notify-locales"/>
+    <keyword type="" name="The &quot;notify-transport&quot; signal" link="GXimClientTemplate.html#GXimClientTemplate-notify-transport"/>
+    <keyword type="" name="The &quot;xconnect&quot; signal" link="GXimClientTemplate.html#GXimClientTemplate-xconnect"/>
+    <keyword type="struct" name="GXimConnection" link="GXimConnection.html#GXimConnection-struct"/>
+    <keyword type="function" name="g_xim_connection_setup ()" link="GXimConnection.html#g-xim-connection-setup"/>
+    <keyword type="function" name="g_xim_connection_cmd_error ()" link="GXimConnection.html#g-xim-connection-cmd-error"/>
+    <keyword type="function" name="g_xim_connection_cmd_auth_ng ()" link="GXimConnection.html#g-xim-connection-cmd-auth-ng"/>
+    <keyword type="function" name="g_xim_connection_cmd_forward_event ()" link="GXimConnection.html#g-xim-connection-cmd-forward-event"/>
+    <keyword type="function" name="g_xim_connection_cmd_sync_reply ()" link="GXimConnection.html#g-xim-connection-cmd-sync-reply"/>
+    <keyword type="" name="The &quot;proto-signals&quot; property" link="GXimConnection.html#GXimConnection--proto-signals"/>
+    <keyword type="macro" name="G_XIM_PROTOCOL_ERROR" link="libgxim-gximprotocol.html#G-XIM-PROTOCOL-ERROR:CAPS"/>
+    <keyword type="macro" name="g_xim_protocol_n_pad4()" link="libgxim-gximprotocol.html#g-xim-protocol-n-pad4"/>
+    <keyword type="macro" name="G_XIM_OPCODE_KEY()" link="libgxim-gximprotocol.html#G-XIM-OPCODE-KEY:CAPS"/>
+    <keyword type="struct" name="GXimProtocolIface" link="libgxim-gximprotocol.html#GXimProtocolIface"/>
+    <keyword type="struct" name="GXimProtocolPrivate" link="libgxim-gximprotocol.html#GXimProtocolPrivate"/>
+    <keyword type="struct" name="GXimProtocolQueueNode" link="libgxim-gximprotocol.html#GXimProtocolQueueNode"/>
+    <keyword type="enum" name="enum GXimProtocolError" link="libgxim-gximprotocol.html#GXimProtocolError"/>
+    <keyword type="function" name="g_xim_protocol_init ()" link="libgxim-gximprotocol.html#g-xim-protocol-init"/>
+    <keyword type="function" name="g_xim_protocol_dispose ()" link="libgxim-gximprotocol.html#g-xim-protocol-dispose"/>
+    <keyword type="function" name="g_xim_protocol_finalize ()" link="libgxim-gximprotocol.html#g-xim-protocol-finalize"/>
+    <keyword type="function" name="g_xim_protocol_get_private ()" link="libgxim-gximprotocol.html#g-xim-protocol-get-private"/>
+    <keyword type="function" name="g_xim_protocol_get_error_quark ()" link="libgxim-gximprotocol.html#g-xim-protocol-get-error-quark"/>
+    <keyword type="function" name="g_xim_protocol_process_event ()" link="libgxim-gximprotocol.html#g-xim-protocol-process-event"/>
+    <keyword type="function" name="g_xim_protocol_translate ()" link="libgxim-gximprotocol.html#g-xim-protocol-translate"/>
+    <keyword type="function" name="g_xim_protocol_send_packets ()" link="libgxim-gximprotocol.html#g-xim-protocol-send-packets"/>
+    <keyword type="function" name="g_xim_protocol_send_vformat ()" link="libgxim-gximprotocol.html#g-xim-protocol-send-vformat"/>
+    <keyword type="function" name="g_xim_protocol_send_format ()" link="libgxim-gximprotocol.html#g-xim-protocol-send-format"/>
+    <keyword type="function" name="g_xim_protocol_send ()" link="libgxim-gximprotocol.html#g-xim-protocol-send"/>
+    <keyword type="function" name="g_xim_protocol_send_with_list ()" link="libgxim-gximprotocol.html#g-xim-protocol-send-with-list"/>
+    <keyword type="function" name="g_xim_protocol_start_queue ()" link="libgxim-gximprotocol.html#g-xim-protocol-start-queue"/>
+    <keyword type="function" name="g_xim_protocol_end_queue ()" link="libgxim-gximprotocol.html#g-xim-protocol-end-queue"/>
+    <keyword type="function" name="g_xim_protocol_cancel_queue ()" link="libgxim-gximprotocol.html#g-xim-protocol-cancel-queue"/>
+    <keyword type="function" name="g_xim_protocol_is_queued ()" link="libgxim-gximprotocol.html#g-xim-protocol-is-queued"/>
+    <keyword type="function" name="g_xim_protocol_read_vformat ()" link="libgxim-gximprotocol.html#g-xim-protocol-read-vformat"/>
+    <keyword type="function" name="g_xim_protocol_read_format ()" link="libgxim-gximprotocol.html#g-xim-protocol-read-format"/>
+    <keyword type="function" name="g_xim_protocol_wait_for_reply ()" link="libgxim-gximprotocol.html#g-xim-protocol-wait-for-reply"/>
+    <keyword type="function" name="g_xim_protocol_raise_parser_error ()" link="libgxim-gximprotocol.html#g-xim-protocol-raise-parser-error"/>
+    <keyword type="function" name="g_xim_protocol_add_protocol ()" link="libgxim-gximprotocol.html#g-xim-protocol-add-protocol"/>
+    <keyword type="function" name="g_xim_protocol_remove_protocol ()" link="libgxim-gximprotocol.html#g-xim-protocol-remove-protocol"/>
+    <keyword type="function" name="g_xim_protocol_remove_protocol_by_id ()" link="libgxim-gximprotocol.html#g-xim-protocol-remove-protocol-by-id"/>
+    <keyword type="function" name="g_xim_protocol_lookup_protocol_by_name ()" link="libgxim-gximprotocol.html#g-xim-protocol-lookup-protocol-by-name"/>
+    <keyword type="function" name="g_xim_protocol_lookup_protocol_by_id ()" link="libgxim-gximprotocol.html#g-xim-protocol-lookup-protocol-by-id"/>
+    <keyword type="function" name="g_xim_protocol_connect_closure_by_id ()" link="libgxim-gximprotocol.html#g-xim-protocol-connect-closure-by-id"/>
+    <keyword type="function" name="g_xim_protocol_connect_closure_by_name ()" link="libgxim-gximprotocol.html#g-xim-protocol-connect-closure-by-name"/>
+    <keyword type="function" name="g_xim_protocol_get_extensions ()" link="libgxim-gximprotocol.html#g-xim-protocol-get-extensions"/>
+    <keyword type="function" name="GXimProtocolClosureFunc ()" link="libgxim-gximprotocol.html#GXimProtocolClosureFunc"/>
+    <keyword type="struct" name="GXimProtocolClosure" link="libgxim-gximprotocol.html#GXimProtocolClosure"/>
+    <keyword type="function" name="g_xim_protocol_closure_new ()" link="libgxim-gximprotocol.html#g-xim-protocol-closure-new"/>
+    <keyword type="function" name="g_xim_protocol_closure_free ()" link="libgxim-gximprotocol.html#g-xim-protocol-closure-free"/>
+    <keyword type="function" name="g_xim_protocol_closure_is_an_extension ()" link="libgxim-gximprotocol.html#g-xim-protocol-closure-is-an-extension"/>
+    <keyword type="function" name="g_xim_protocol_closure_set_marshal ()" link="libgxim-gximprotocol.html#g-xim-protocol-closure-set-marshal"/>
+    <keyword type="function" name="g_xim_protocol_closure_add_signal ()" link="libgxim-gximprotocol.html#g-xim-protocol-closure-add-signal"/>
+    <keyword type="function" name="g_xim_protocol_closure_connect ()" link="libgxim-gximprotocol.html#g-xim-protocol-closure-connect"/>
+    <keyword type="function" name="g_xim_protocol_closure_disconnect ()" link="libgxim-gximprotocol.html#g-xim-protocol-closure-disconnect"/>
+    <keyword type="function" name="g_xim_protocol_closure_emit_signal ()" link="libgxim-gximprotocol.html#g-xim-protocol-closure-emit-signal"/>
+    <keyword type="function" name="g_xim_attr_put_attribute_to_stream ()" link="libgxim-gximprotocol.html#g-xim-attr-put-attribute-to-stream"/>
+    <keyword type="function" name="g_xim_attr_get_attribute_from_stream ()" link="libgxim-gximprotocol.html#g-xim-attr-get-attribute-from-stream"/>
+    <keyword type="macro" name="G_XIM_TRANSPORT_SIZE" link="libgxim-gximtransport.html#G-XIM-TRANSPORT-SIZE:CAPS"/>
+    <keyword type="macro" name="G_XIM_TRANSPORT_MAX" link="libgxim-gximtransport.html#G-XIM-TRANSPORT-MAX:CAPS"/>
+    <keyword type="struct" name="GXimTransportIface" link="libgxim-gximtransport.html#GXimTransportIface"/>
+    <keyword type="struct" name="GXimTransportPrivate" link="libgxim-gximtransport.html#GXimTransportPrivate"/>
+    <keyword type="enum" name="enum GXimDirection" link="libgxim-gximtransport.html#GXimDirection"/>
+    <keyword type="function" name="g_xim_transport_init ()" link="libgxim-gximtransport.html#g-xim-transport-init"/>
+    <keyword type="function" name="g_xim_transport_finalize ()" link="libgxim-gximtransport.html#g-xim-transport-finalize"/>
+    <keyword type="function" name="g_xim_transport_get_private ()" link="libgxim-gximtransport.html#g-xim-transport-get-private"/>
+    <keyword type="function" name="g_xim_transport_destroy ()" link="libgxim-gximtransport.html#g-xim-transport-destroy"/>
+    <keyword type="function" name="g_xim_transport_set_version ()" link="libgxim-gximtransport.html#g-xim-transport-set-version"/>
+    <keyword type="function" name="g_xim_transport_get_version ()" link="libgxim-gximtransport.html#g-xim-transport-get-version"/>
+    <keyword type="function" name="g_xim_transport_set_transport_size ()" link="libgxim-gximtransport.html#g-xim-transport-set-transport-size"/>
+    <keyword type="function" name="g_xim_transport_get_transport_size ()" link="libgxim-gximtransport.html#g-xim-transport-get-transport-size"/>
+    <keyword type="function" name="g_xim_transport_set_transport_max ()" link="libgxim-gximtransport.html#g-xim-transport-set-transport-max"/>
+    <keyword type="function" name="g_xim_transport_get_transport_max ()" link="libgxim-gximtransport.html#g-xim-transport-get-transport-max"/>
+    <keyword type="function" name="g_xim_transport_set_display ()" link="libgxim-gximtransport.html#g-xim-transport-set-display"/>
+    <keyword type="function" name="g_xim_transport_get_display ()" link="libgxim-gximtransport.html#g-xim-transport-get-display"/>
+    <keyword type="function" name="g_xim_transport_get_atom ()" link="libgxim-gximtransport.html#g-xim-transport-get-atom"/>
+    <keyword type="function" name="g_xim_transport_set_client_window ()" link="libgxim-gximtransport.html#g-xim-transport-set-client-window"/>
+    <keyword type="function" name="g_xim_transport_get_client_window ()" link="libgxim-gximtransport.html#g-xim-transport-get-client-window"/>
+    <keyword type="function" name="g_xim_transport_get_native_channel ()" link="libgxim-gximtransport.html#g-xim-transport-get-native-channel"/>
+    <keyword type="function" name="g_xim_transport_get_native_channel_from ()" link="libgxim-gximtransport.html#g-xim-transport-get-native-channel-from"/>
+    <keyword type="function" name="g_xim_transport_get_channel ()" link="libgxim-gximtransport.html#g-xim-transport-get-channel"/>
+    <keyword type="function" name="g_xim_transport_send_via_property ()" link="libgxim-gximtransport.html#g-xim-transport-send-via-property"/>
+    <keyword type="function" name="g_xim_transport_send_via_cm ()" link="libgxim-gximtransport.html#g-xim-transport-send-via-cm"/>
+    <keyword type="function" name="g_xim_transport_send_via_property_notify ()" link="libgxim-gximtransport.html#g-xim-transport-send-via-property-notify"/>
+    <keyword type="function" name="g_xim_transport_set_direction ()" link="libgxim-gximtransport.html#g-xim-transport-set-direction"/>
+    <keyword type="function" name="g_xim_transport_get_direction ()" link="libgxim-gximtransport.html#g-xim-transport-get-direction"/>
+    <keyword type="function" name="g_xim_transport_get_property ()" link="libgxim-gximtransport.html#g-xim-transport-get-property"/>
+    <keyword type="function" name="g_xim_transport_dump ()" link="libgxim-gximtransport.html#g-xim-transport-dump"/>
+    <keyword type="struct" name="GXimServerConnection" link="GXimServerConnection.html#GXimServerConnection-struct"/>
+    <keyword type="function" name="g_xim_server_connection_cmd_connect_reply ()" link="GXimServerConnection.html#g-xim-server-connection-cmd-connect-reply"/>
+    <keyword type="function" name="g_xim_server_connection_cmd_disconnect_reply ()" link="GXimServerConnection.html#g-xim-server-connection-cmd-disconnect-reply"/>
+    <keyword type="function" name="g_xim_server_connection_cmd_open_reply ()" link="GXimServerConnection.html#g-xim-server-connection-cmd-open-reply"/>
+    <keyword type="function" name="g_xim_server_connection_cmd_close_reply ()" link="GXimServerConnection.html#g-xim-server-connection-cmd-close-reply"/>
+    <keyword type="function" name="g_xim_server_connection_cmd_register_triggerkeys ()" link="GXimServerConnection.html#g-xim-server-connection-cmd-register-triggerkeys"/>
+    <keyword type="function" name="g_xim_server_connection_cmd_trigger_notify_reply ()" link="GXimServerConnection.html#g-xim-server-connection-cmd-trigger-notify-reply"/>
+    <keyword type="function" name="g_xim_server_connection_cmd_set_event_mask ()" link="GXimServerConnection.html#g-xim-server-connection-cmd-set-event-mask"/>
+    <keyword type="function" name="g_xim_server_connection_cmd_encoding_negotiation_reply ()" link="GXimServerConnection.html#g-xim-server-connection-cmd-encoding-negotiation-reply"/>
+    <keyword type="function" name="g_xim_server_connection_cmd_query_extension_reply ()" link="GXimServerConnection.html#g-xim-server-connection-cmd-query-extension-reply"/>
+    <keyword type="function" name="g_xim_server_connection_cmd_set_im_values_reply ()" link="GXimServerConnection.html#g-xim-server-connection-cmd-set-im-values-reply"/>
+    <keyword type="function" name="g_xim_server_connection_cmd_get_im_values_reply ()" link="GXimServerConnection.html#g-xim-server-connection-cmd-get-im-values-reply"/>
+    <keyword type="function" name="g_xim_server_connection_cmd_create_ic_reply ()" link="GXimServerConnection.html#g-xim-server-connection-cmd-create-ic-reply"/>
+    <keyword type="function" name="g_xim_server_connection_cmd_destroy_ic_reply ()" link="GXimServerConnection.html#g-xim-server-connection-cmd-destroy-ic-reply"/>
+    <keyword type="function" name="g_xim_server_connection_cmd_set_ic_values_reply ()" link="GXimServerConnection.html#g-xim-server-connection-cmd-set-ic-values-reply"/>
+    <keyword type="function" name="g_xim_server_connection_cmd_get_ic_values_reply ()" link="GXimServerConnection.html#g-xim-server-connection-cmd-get-ic-values-reply"/>
+    <keyword type="function" name="g_xim_server_connection_cmd_sync ()" link="GXimServerConnection.html#g-xim-server-connection-cmd-sync"/>
+    <keyword type="function" name="g_xim_server_connection_cmd_commit ()" link="GXimServerConnection.html#g-xim-server-connection-cmd-commit"/>
+    <keyword type="function" name="g_xim_server_connection_cmd_reset_ic_reply ()" link="GXimServerConnection.html#g-xim-server-connection-cmd-reset-ic-reply"/>
+    <keyword type="function" name="g_xim_server_connection_cmd_preedit_start ()" link="GXimServerConnection.html#g-xim-server-connection-cmd-preedit-start"/>
+    <keyword type="function" name="g_xim_server_connection_cmd_preedit_draw ()" link="GXimServerConnection.html#g-xim-server-connection-cmd-preedit-draw"/>
+    <keyword type="function" name="g_xim_server_connection_cmd_preedit_caret ()" link="GXimServerConnection.html#g-xim-server-connection-cmd-preedit-caret"/>
+    <keyword type="function" name="g_xim_server_connection_cmd_preedit_done ()" link="GXimServerConnection.html#g-xim-server-connection-cmd-preedit-done"/>
+    <keyword type="function" name="g_xim_server_connection_cmd_status_start ()" link="GXimServerConnection.html#g-xim-server-connection-cmd-status-start"/>
+    <keyword type="function" name="g_xim_server_connection_cmd_status_draw ()" link="GXimServerConnection.html#g-xim-server-connection-cmd-status-draw"/>
+    <keyword type="function" name="g_xim_server_connection_cmd_status_done ()" link="GXimServerConnection.html#g-xim-server-connection-cmd-status-done"/>
+    <keyword type="" name="The &quot;is-auth-required&quot; signal" link="GXimServerConnection.html#GXimServerConnection-is-auth-required"/>
+    <keyword type="struct" name="GXimClientConnection" link="GXimClientConnection.html#GXimClientConnection-struct"/>
+    <keyword type="function" name="g_xim_client_connection_cmd_connect ()" link="GXimClientConnection.html#g-xim-client-connection-cmd-connect"/>
+    <keyword type="function" name="g_xim_client_connection_cmd_disconnect ()" link="GXimClientConnection.html#g-xim-client-connection-cmd-disconnect"/>
+    <keyword type="function" name="g_xim_client_connection_cmd_open_im ()" link="GXimClientConnection.html#g-xim-client-connection-cmd-open-im"/>
+    <keyword type="function" name="g_xim_client_connection_cmd_close_im ()" link="GXimClientConnection.html#g-xim-client-connection-cmd-close-im"/>
+    <keyword type="function" name="g_xim_client_connection_cmd_trigger_notify ()" link="GXimClientConnection.html#g-xim-client-connection-cmd-trigger-notify"/>
+    <keyword type="function" name="g_xim_client_connection_cmd_encoding_negotiation ()" link="GXimClientConnection.html#g-xim-client-connection-cmd-encoding-negotiation"/>
+    <keyword type="function" name="g_xim_client_connection_cmd_query_extension ()" link="GXimClientConnection.html#g-xim-client-connection-cmd-query-extension"/>
+    <keyword type="function" name="g_xim_client_connection_cmd_set_im_values ()" link="GXimClientConnection.html#g-xim-client-connection-cmd-set-im-values"/>
+    <keyword type="function" name="g_xim_client_connection_cmd_get_im_values ()" link="GXimClientConnection.html#g-xim-client-connection-cmd-get-im-values"/>
+    <keyword type="function" name="g_xim_client_connection_cmd_create_ic ()" link="GXimClientConnection.html#g-xim-client-connection-cmd-create-ic"/>
+    <keyword type="function" name="g_xim_client_connection_cmd_destroy_ic ()" link="GXimClientConnection.html#g-xim-client-connection-cmd-destroy-ic"/>
+    <keyword type="function" name="g_xim_client_connection_cmd_set_ic_values ()" link="GXimClientConnection.html#g-xim-client-connection-cmd-set-ic-values"/>
+    <keyword type="function" name="g_xim_client_connection_cmd_get_ic_values ()" link="GXimClientConnection.html#g-xim-client-connection-cmd-get-ic-values"/>
+    <keyword type="function" name="g_xim_client_connection_cmd_set_ic_focus ()" link="GXimClientConnection.html#g-xim-client-connection-cmd-set-ic-focus"/>
+    <keyword type="function" name="g_xim_client_connection_cmd_unset_ic_focus ()" link="GXimClientConnection.html#g-xim-client-connection-cmd-unset-ic-focus"/>
+    <keyword type="function" name="g_xim_client_connection_cmd_sync ()" link="GXimClientConnection.html#g-xim-client-connection-cmd-sync"/>
+    <keyword type="function" name="g_xim_client_connection_cmd_reset_ic ()" link="GXimClientConnection.html#g-xim-client-connection-cmd-reset-ic"/>
+    <keyword type="function" name="g_xim_client_connection_cmd_preedit_start_reply ()" link="GXimClientConnection.html#g-xim-client-connection-cmd-preedit-start-reply"/>
+    <keyword type="function" name="g_xim_client_connection_cmd_preedit_caret_reply ()" link="GXimClientConnection.html#g-xim-client-connection-cmd-preedit-caret-reply"/>
+    <keyword type="macro" name="G_TYPE_XIM_IM_ATTR" link="GXimICAttr.html#G-TYPE-XIM-IM-ATTR:CAPS"/>
+    <keyword type="macro" name="G_XIM_IM_ATTR()" link="GXimICAttr.html#G-XIM-IM-ATTR:CAPS"/>
+    <keyword type="macro" name="G_XIM_IM_ATTR_CLASS()" link="GXimICAttr.html#G-XIM-IM-ATTR-CLASS:CAPS"/>
+    <keyword type="macro" name="G_IS_XIM_IM_ATTR()" link="GXimICAttr.html#G-IS-XIM-IM-ATTR:CAPS"/>
+    <keyword type="macro" name="G_IS_XIM_IM_ATTR_CLASS()" link="GXimICAttr.html#G-IS-XIM-IM-ATTR-CLASS:CAPS"/>
+    <keyword type="macro" name="G_XIM_IM_ATTR_GET_CLASS()" link="GXimICAttr.html#G-XIM-IM-ATTR-GET-CLASS:CAPS"/>
+    <keyword type="macro" name="G_TYPE_XIM_IC_ATTR" link="GXimICAttr.html#G-TYPE-XIM-IC-ATTR:CAPS"/>
+    <keyword type="macro" name="G_XIM_IC_ATTR()" link="GXimICAttr.html#G-XIM-IC-ATTR:CAPS"/>
+    <keyword type="macro" name="G_XIM_IC_ATTR_CLASS()" link="GXimICAttr.html#G-XIM-IC-ATTR-CLASS:CAPS"/>
+    <keyword type="macro" name="G_IS_XIM_IC_ATTR()" link="GXimICAttr.html#G-IS-XIM-IC-ATTR:CAPS"/>
+    <keyword type="macro" name="G_IS_XIM_IC_ATTR_CLASS()" link="GXimICAttr.html#G-IS-XIM-IC-ATTR-CLASS:CAPS"/>
+    <keyword type="macro" name="G_XIM_IC_ATTR_GET_CLASS()" link="GXimICAttr.html#G-XIM-IC-ATTR-GET-CLASS:CAPS"/>
+    <keyword type="macro" name="G_XIM_ATTR_ERROR" link="GXimICAttr.html#G-XIM-ATTR-ERROR:CAPS"/>
+    <keyword type="macro" name="XNQueryInputStyle" link="GXimICAttr.html#XNQueryInputStyle"/>
+    <keyword type="macro" name="XNClientWindow" link="GXimICAttr.html#XNClientWindow"/>
+    <keyword type="macro" name="XNInputStyle" link="GXimICAttr.html#XNInputStyle"/>
+    <keyword type="macro" name="XNFocusWindow" link="GXimICAttr.html#XNFocusWindow"/>
+    <keyword type="macro" name="XNFilterEvents" link="GXimICAttr.html#XNFilterEvents"/>
+    <keyword type="macro" name="XNPreeditAttributes" link="GXimICAttr.html#XNPreeditAttributes"/>
+    <keyword type="macro" name="XNStatusAttributes" link="GXimICAttr.html#XNStatusAttributes"/>
+    <keyword type="macro" name="XNArea" link="GXimICAttr.html#XNArea"/>
+    <keyword type="macro" name="XNAreaNeeded" link="GXimICAttr.html#XNAreaNeeded"/>
+    <keyword type="macro" name="XNSpotLocation" link="GXimICAttr.html#XNSpotLocation"/>
+    <keyword type="macro" name="XNColormap" link="GXimICAttr.html#XNColormap"/>
+    <keyword type="macro" name="XNStdColormap" link="GXimICAttr.html#XNStdColormap"/>
+    <keyword type="macro" name="XNForeground" link="GXimICAttr.html#XNForeground"/>
+    <keyword type="macro" name="XNBackground" link="GXimICAttr.html#XNBackground"/>
+    <keyword type="macro" name="XNBackgroundPixmap" link="GXimICAttr.html#XNBackgroundPixmap"/>
+    <keyword type="macro" name="XNFontSet" link="GXimICAttr.html#XNFontSet"/>
+    <keyword type="macro" name="XNLineSpace" link="GXimICAttr.html#XNLineSpace"/>
+    <keyword type="macro" name="XNCursor" link="GXimICAttr.html#XNCursor"/>
+    <keyword type="macro" name="XNResetState" link="GXimICAttr.html#XNResetState"/>
+    <keyword type="macro" name="XNPreeditState" link="GXimICAttr.html#XNPreeditState"/>
+    <keyword type="macro" name="XNSeparatorofNestedList" link="GXimICAttr.html#XNSeparatorofNestedList"/>
+    <keyword type="struct" name="GXimAttrClass" link="GXimICAttr.html#GXimAttrClass"/>
+    <keyword type="struct" name="GXimAttrPrivate" link="GXimICAttr.html#GXimAttrPrivate"/>
+    <keyword type="struct" name="GXimAttr" link="GXimICAttr.html#GXimAttr-struct"/>
+    <keyword type="function" name="g_xim_attr_get_error_quark ()" link="GXimICAttr.html#g-xim-attr-get-error-quark"/>
+    <keyword type="function" name="g_xim_attr_get_supported_attributes ()" link="GXimICAttr.html#g-xim-attr-get-supported-attributes"/>
+    <keyword type="function" name="g_xim_attr_get_n_supported_attributes ()" link="GXimICAttr.html#g-xim-attr-get-n-supported-attributes"/>
+    <keyword type="function" name="g_xim_attr_attribute_is_enabled ()" link="GXimICAttr.html#g-xim-attr-attribute-is-enabled"/>
+    <keyword type="function" name="g_xim_attr_get_attribute_id ()" link="GXimICAttr.html#g-xim-attr-get-attribute-id"/>
+    <keyword type="function" name="g_xim_attr_get_attribute_name ()" link="GXimICAttr.html#g-xim-attr-get-attribute-name"/>
+    <keyword type="function" name="g_xim_attr_get_value_by_id ()" link="GXimICAttr.html#g-xim-attr-get-value-by-id"/>
+    <keyword type="function" name="g_xim_attr_get_value_by_name ()" link="GXimICAttr.html#g-xim-attr-get-value-by-name"/>
+    <keyword type="function" name="g_xim_attr_get_gtype_by_id ()" link="GXimICAttr.html#g-xim-attr-get-gtype-by-id"/>
+    <keyword type="function" name="g_xim_attr_get_gtype_by_name ()" link="GXimICAttr.html#g-xim-attr-get-gtype-by-name"/>
+    <keyword type="function" name="g_xim_attr_set_raw_attr ()" link="GXimICAttr.html#g-xim-attr-set-raw-attr"/>
+    <keyword type="struct" name="GXimIMAttrPrivate" link="GXimICAttr.html#GXimIMAttrPrivate"/>
+    <keyword type="struct" name="GXimIMAttr" link="GXimICAttr.html#GXimIMAttr-struct"/>
+    <keyword type="function" name="g_xim_im_attr_get_type ()" link="GXimICAttr.html#g-xim-im-attr-get-type"/>
+    <keyword type="function" name="g_xim_im_attr_new ()" link="GXimICAttr.html#g-xim-im-attr-new"/>
+    <keyword type="function" name="g_xim_im_attr_set_input_styles ()" link="GXimICAttr.html#g-xim-im-attr-set-input-styles"/>
+    <keyword type="function" name="g_xim_im_attr_get_input_styles ()" link="GXimICAttr.html#g-xim-im-attr-get-input-styles"/>
+    <keyword type="struct" name="GXimICAttrPrivate" link="GXimICAttr.html#GXimICAttrPrivate"/>
+    <keyword type="struct" name="GXimICAttr" link="GXimICAttr.html#GXimICAttr-struct"/>
+    <keyword type="function" name="g_xim_ic_attr_get_type ()" link="GXimICAttr.html#g-xim-ic-attr-get-type"/>
+    <keyword type="function" name="g_xim_ic_attr_new ()" link="GXimICAttr.html#g-xim-ic-attr-new"/>
+    <keyword type="" name="The &quot;attrs-enabled&quot; property" link="GXimICAttr.html#GXimAttr--attrs-enabled"/>
+    <keyword type="" name="The &quot;queryInputStyle&quot; property" link="GXimICAttr.html#GXimIMAttr--queryInputStyle"/>
+    <keyword type="" name="The &quot;area&quot; property" link="GXimICAttr.html#GXimICAttr--area"/>
+    <keyword type="" name="The &quot;areaNeeded&quot; property" link="GXimICAttr.html#GXimICAttr--areaNeeded"/>
+    <keyword type="" name="The &quot;background&quot; property" link="GXimICAttr.html#GXimICAttr--background"/>
+    <keyword type="" name="The &quot;backgroundPixmap&quot; property" link="GXimICAttr.html#GXimICAttr--backgroundPixmap"/>
+    <keyword type="" name="The &quot;clientWindow&quot; property" link="GXimICAttr.html#GXimICAttr--clientWindow"/>
+    <keyword type="" name="The &quot;colorMap&quot; property" link="GXimICAttr.html#GXimICAttr--colorMap"/>
+    <keyword type="" name="The &quot;cursor&quot; property" link="GXimICAttr.html#GXimICAttr--cursor"/>
+    <keyword type="" name="The &quot;filterEvents&quot; property" link="GXimICAttr.html#GXimICAttr--filterEvents"/>
+    <keyword type="" name="The &quot;focusWindow&quot; property" link="GXimICAttr.html#GXimICAttr--focusWindow"/>
+    <keyword type="" name="The &quot;fontSet&quot; property" link="GXimICAttr.html#GXimICAttr--fontSet"/>
+    <keyword type="" name="The &quot;foreground&quot; property" link="GXimICAttr.html#GXimICAttr--foreground"/>
+    <keyword type="" name="The &quot;inputStyle&quot; property" link="GXimICAttr.html#GXimICAttr--inputStyle"/>
+    <keyword type="" name="The &quot;lineSpace&quot; property" link="GXimICAttr.html#GXimICAttr--lineSpace"/>
+    <keyword type="" name="The &quot;preeditAttributes&quot; property" link="GXimICAttr.html#GXimICAttr--preeditAttributes"/>
+    <keyword type="" name="The &quot;preeditState&quot; property" link="GXimICAttr.html#GXimICAttr--preeditState"/>
+    <keyword type="" name="The &quot;resetState&quot; property" link="GXimICAttr.html#GXimICAttr--resetState"/>
+    <keyword type="" name="The &quot;separatorofNestedList&quot; property" link="GXimICAttr.html#GXimICAttr--separatorofNestedList"/>
+    <keyword type="" name="The &quot;spotLocation&quot; property" link="GXimICAttr.html#GXimICAttr--spotLocation"/>
+    <keyword type="" name="The &quot;statusAttributes&quot; property" link="GXimICAttr.html#GXimICAttr--statusAttributes"/>
+    <keyword type="" name="The &quot;stdColorMap&quot; property" link="GXimICAttr.html#GXimICAttr--stdColorMap"/>
+    <keyword type="" name="DBus signals" link="GXimMessage.html#GXimMessage-DBus"/>
+    <keyword type="macro" name="g_xim_message_gerror()" link="GXimMessage.html#g-xim-message-gerror"/>
+    <keyword type="macro" name="g_xim_message()" link="GXimMessage.html#g-xim-message"/>
+    <keyword type="macro" name="g_xim_message_info()" link="GXimMessage.html#g-xim-message-info"/>
+    <keyword type="macro" name="g_xim_message_warning()" link="GXimMessage.html#g-xim-message-warning"/>
+    <keyword type="macro" name="g_xim_message_error()" link="GXimMessage.html#g-xim-message-error"/>
+    <keyword type="macro" name="g_xim_message_critical()" link="GXimMessage.html#g-xim-message-critical"/>
+    <keyword type="macro" name="g_xim_message_debug()" link="GXimMessage.html#g-xim-message-debug"/>
+    <keyword type="macro" name="g_xim_message_bug()" link="GXimMessage.html#g-xim-message-bug"/>
+    <keyword type="enum" name="enum GXimMessageType" link="GXimMessage.html#GXimMessageType"/>
+    <keyword type="struct" name="GXimMessage" link="GXimMessage.html#GXimMessage-struct"/>
+    <keyword type="function" name="g_xim_message_new ()" link="GXimMessage.html#g-xim-message-new"/>
+    <keyword type="function" name="g_xim_message_activate ()" link="GXimMessage.html#g-xim-message-activate"/>
+    <keyword type="function" name="g_xim_message_set_filename ()" link="GXimMessage.html#g-xim-message-set-filename"/>
+    <keyword type="function" name="g_xim_message_clear_filter ()" link="GXimMessage.html#g-xim-message-clear-filter"/>
+    <keyword type="function" name="g_xim_message_enable_filter ()" link="GXimMessage.html#g-xim-message-enable-filter"/>
+    <keyword type="function" name="g_xim_message_vprintf ()" link="GXimMessage.html#g-xim-message-vprintf"/>
+    <keyword type="function" name="g_xim_message_printf ()" link="GXimMessage.html#g-xim-message-printf"/>
+    <keyword type="" name="The &quot;all-filters&quot; property" link="GXimMessage.html#GXimMessage--all-filters"/>
+    <keyword type="" name="The &quot;master&quot; property" link="GXimMessage.html#GXimMessage--master"/>
+    <keyword type="" name="The &quot;activated&quot; signal" link="GXimMessage.html#GXimMessage-activated"/>
+    <keyword type="" name="The &quot;created&quot; signal" link="GXimMessage.html#GXimMessage-created"/>
+    <keyword type="" name="The &quot;filename-changed&quot; signal" link="GXimMessage.html#GXimMessage-filename-changed"/>
+    <keyword type="" name="The &quot;filter-added&quot; signal" link="GXimMessage.html#GXimMessage-filter-added"/>
+    <keyword type="" name="The &quot;filter-cleared&quot; signal" link="GXimMessage.html#GXimMessage-filter-cleared"/>
+  </functions>
+</book>

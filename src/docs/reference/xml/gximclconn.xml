@@ -1,0 +1,677 @@
+<refentry id="GXimClientConnection">
+<refmeta>
+<refentrytitle role="top_of_page" id="GXimClientConnection.top_of_page">GXimClientConnection</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGXIM Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>GXimClientConnection</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="GXimClientConnection.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="GXimClientConnection-struct">GXimClientConnection</link>;
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-client-connection-cmd-connect">g_xim_client_connection_cmd_connect</link> (<link linkend="GXimClientConnection">GXimClientConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> protocol_major_version,
+                                                         <link linkend="guint16">guint16</link> protocol_minor_version,
+                                                         <link linkend="GSList">GSList</link> *auth_list,
+                                                         <link linkend="gboolean">gboolean</link> is_async);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-client-connection-cmd-disconnect">g_xim_client_connection_cmd_disconnect</link>
+                                                        (<link linkend="GXimClientConnection">GXimClientConnection</link> *conn,
+                                                         <link linkend="gboolean">gboolean</link> is_async);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-client-connection-cmd-open-im">g_xim_client_connection_cmd_open_im</link> (<link linkend="GXimClientConnection">GXimClientConnection</link> *conn,
+                                                         const <link linkend="GXimStr">GXimStr</link> *locale,
+                                                         <link linkend="gboolean">gboolean</link> is_async);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-client-connection-cmd-close-im">g_xim_client_connection_cmd_close_im</link>
+                                                        (<link linkend="GXimClientConnection">GXimClientConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="gboolean">gboolean</link> is_async);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-client-connection-cmd-trigger-notify">g_xim_client_connection_cmd_trigger_notify</link>
+                                                        (<link linkend="GXimClientConnection">GXimClientConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid,
+                                                         <link linkend="guint32">guint32</link> flag,
+                                                         <link linkend="guint32">guint32</link> index_,
+                                                         <link linkend="guint32">guint32</link> event_mask,
+                                                         <link linkend="gboolean">gboolean</link> is_async);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-client-connection-cmd-encoding-negotiation">g_xim_client_connection_cmd_encoding_negotiation</link>
+                                                        (<link linkend="GXimClientConnection">GXimClientConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="GSList">GSList</link> *encodings,
+                                                         <link linkend="GSList">GSList</link> *details,
+                                                         <link linkend="gboolean">gboolean</link> is_async);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-client-connection-cmd-query-extension">g_xim_client_connection_cmd_query_extension</link>
+                                                        (<link linkend="GXimClientConnection">GXimClientConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         const <link linkend="GSList">GSList</link> *extensions,
+                                                         <link linkend="gboolean">gboolean</link> is_async);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-client-connection-cmd-set-im-values">g_xim_client_connection_cmd_set_im_values</link>
+                                                        (<link linkend="GXimClientConnection">GXimClientConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         const <link linkend="GSList">GSList</link> *attributes,
+                                                         <link linkend="gboolean">gboolean</link> is_async);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-client-connection-cmd-get-im-values">g_xim_client_connection_cmd_get_im_values</link>
+                                                        (<link linkend="GXimClientConnection">GXimClientConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         const <link linkend="GSList">GSList</link> *attr_id,
+                                                         <link linkend="gboolean">gboolean</link> is_async);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-client-connection-cmd-create-ic">g_xim_client_connection_cmd_create_ic</link>
+                                                        (<link linkend="GXimClientConnection">GXimClientConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         const <link linkend="GSList">GSList</link> *attributes,
+                                                         <link linkend="gboolean">gboolean</link> is_async);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-client-connection-cmd-destroy-ic">g_xim_client_connection_cmd_destroy_ic</link>
+                                                        (<link linkend="GXimClientConnection">GXimClientConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid,
+                                                         <link linkend="gboolean">gboolean</link> is_async);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-client-connection-cmd-set-ic-values">g_xim_client_connection_cmd_set_ic_values</link>
+                                                        (<link linkend="GXimClientConnection">GXimClientConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid,
+                                                         const <link linkend="GSList">GSList</link> *attributes,
+                                                         <link linkend="gboolean">gboolean</link> is_async);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-client-connection-cmd-get-ic-values">g_xim_client_connection_cmd_get_ic_values</link>
+                                                        (<link linkend="GXimClientConnection">GXimClientConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid,
+                                                         const <link linkend="GSList">GSList</link> *attr_id,
+                                                         <link linkend="gboolean">gboolean</link> is_async);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-client-connection-cmd-set-ic-focus">g_xim_client_connection_cmd_set_ic_focus</link>
+                                                        (<link linkend="GXimClientConnection">GXimClientConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-client-connection-cmd-unset-ic-focus">g_xim_client_connection_cmd_unset_ic_focus</link>
+                                                        (<link linkend="GXimClientConnection">GXimClientConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-client-connection-cmd-sync">g_xim_client_connection_cmd_sync</link>    (<link linkend="GXimClientConnection">GXimClientConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid,
+                                                         <link linkend="gboolean">gboolean</link> is_async);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-client-connection-cmd-reset-ic">g_xim_client_connection_cmd_reset_ic</link>
+                                                        (<link linkend="GXimClientConnection">GXimClientConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid,
+                                                         <link linkend="gboolean">gboolean</link> is_async);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-client-connection-cmd-preedit-start-reply">g_xim_client_connection_cmd_preedit_start_reply</link>
+                                                        (<link linkend="GXimClientConnection">GXimClientConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid,
+                                                         <link linkend="gint32">gint32</link> return_value);
+<link linkend="gboolean">gboolean</link>            <link linkend="g-xim-client-connection-cmd-preedit-caret-reply">g_xim_client_connection_cmd_preedit_caret_reply</link>
+                                                        (<link linkend="GXimClientConnection">GXimClientConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid,
+                                                         <link linkend="guint32">guint32</link> position);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="GXimClientConnection.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GXimConnection">GXimConnection</link>
+         +----GXimClientConnection
+</synopsis>
+
+</refsect1>
+
+
+
+<refsect1 id="GXimClientConnection.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+GXimClientConnection implements
+ <link linkend="GXimTransport">GXimTransport</link> and  <link linkend="GXimProtocol">GXimProtocol</link>.</para>
+
+</refsect1>
+
+
+
+
+
+<refsect1 id="GXimClientConnection.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 id="GXimClientConnection.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GXimClientConnection-struct" role="struct">
+<title>GXimClientConnection</title>
+<indexterm zone="GXimClientConnection-struct"><primary>GXimClientConnection</primary></indexterm><programlisting>typedef struct _GXimClientConnection GXimClientConnection;</programlisting>
+<para>
+An implementation of client connection class</para>
+<para>
+
+</para><variablelist role="struct">
+</variablelist></refsect2>
+<refsect2 id="g-xim-client-connection-cmd-connect" role="function">
+<title>g_xim_client_connection_cmd_connect ()</title>
+<indexterm zone="g-xim-client-connection-cmd-connect"><primary>g_xim_client_connection_cmd_connect</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_client_connection_cmd_connect (<link linkend="GXimClientConnection">GXimClientConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> protocol_major_version,
+                                                         <link linkend="guint16">guint16</link> protocol_minor_version,
+                                                         <link linkend="GSList">GSList</link> *auth_list,
+                                                         <link linkend="gboolean">gboolean</link> is_async);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>protocol_major_version</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>protocol_minor_version</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>auth_list</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>is_async</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-client-connection-cmd-disconnect" role="function">
+<title>g_xim_client_connection_cmd_disconnect ()</title>
+<indexterm zone="g-xim-client-connection-cmd-disconnect"><primary>g_xim_client_connection_cmd_disconnect</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_client_connection_cmd_disconnect
+                                                        (<link linkend="GXimClientConnection">GXimClientConnection</link> *conn,
+                                                         <link linkend="gboolean">gboolean</link> is_async);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>is_async</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-client-connection-cmd-open-im" role="function">
+<title>g_xim_client_connection_cmd_open_im ()</title>
+<indexterm zone="g-xim-client-connection-cmd-open-im"><primary>g_xim_client_connection_cmd_open_im</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_client_connection_cmd_open_im (<link linkend="GXimClientConnection">GXimClientConnection</link> *conn,
+                                                         const <link linkend="GXimStr">GXimStr</link> *locale,
+                                                         <link linkend="gboolean">gboolean</link> is_async);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>locale</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>is_async</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-client-connection-cmd-close-im" role="function">
+<title>g_xim_client_connection_cmd_close_im ()</title>
+<indexterm zone="g-xim-client-connection-cmd-close-im"><primary>g_xim_client_connection_cmd_close_im</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_client_connection_cmd_close_im
+                                                        (<link linkend="GXimClientConnection">GXimClientConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="gboolean">gboolean</link> is_async);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>imid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>is_async</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-client-connection-cmd-trigger-notify" role="function">
+<title>g_xim_client_connection_cmd_trigger_notify ()</title>
+<indexterm zone="g-xim-client-connection-cmd-trigger-notify"><primary>g_xim_client_connection_cmd_trigger_notify</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_client_connection_cmd_trigger_notify
+                                                        (<link linkend="GXimClientConnection">GXimClientConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid,
+                                                         <link linkend="guint32">guint32</link> flag,
+                                                         <link linkend="guint32">guint32</link> index_,
+                                                         <link linkend="guint32">guint32</link> event_mask,
+                                                         <link linkend="gboolean">gboolean</link> is_async);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>imid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>icid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>flag</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>index_</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>event_mask</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>is_async</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-client-connection-cmd-encoding-negotiation" role="function">
+<title>g_xim_client_connection_cmd_encoding_negotiation ()</title>
+<indexterm zone="g-xim-client-connection-cmd-encoding-negotiation"><primary>g_xim_client_connection_cmd_encoding_negotiation</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_client_connection_cmd_encoding_negotiation
+                                                        (<link linkend="GXimClientConnection">GXimClientConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="GSList">GSList</link> *encodings,
+                                                         <link linkend="GSList">GSList</link> *details,
+                                                         <link linkend="gboolean">gboolean</link> is_async);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>imid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>encodings</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>details</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>is_async</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-client-connection-cmd-query-extension" role="function">
+<title>g_xim_client_connection_cmd_query_extension ()</title>
+<indexterm zone="g-xim-client-connection-cmd-query-extension"><primary>g_xim_client_connection_cmd_query_extension</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_client_connection_cmd_query_extension
+                                                        (<link linkend="GXimClientConnection">GXimClientConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         const <link linkend="GSList">GSList</link> *extensions,
+                                                         <link linkend="gboolean">gboolean</link> is_async);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>imid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>extensions</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>is_async</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-client-connection-cmd-set-im-values" role="function">
+<title>g_xim_client_connection_cmd_set_im_values ()</title>
+<indexterm zone="g-xim-client-connection-cmd-set-im-values"><primary>g_xim_client_connection_cmd_set_im_values</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_client_connection_cmd_set_im_values
+                                                        (<link linkend="GXimClientConnection">GXimClientConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         const <link linkend="GSList">GSList</link> *attributes,
+                                                         <link linkend="gboolean">gboolean</link> is_async);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>imid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>attributes</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>is_async</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-client-connection-cmd-get-im-values" role="function">
+<title>g_xim_client_connection_cmd_get_im_values ()</title>
+<indexterm zone="g-xim-client-connection-cmd-get-im-values"><primary>g_xim_client_connection_cmd_get_im_values</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_client_connection_cmd_get_im_values
+                                                        (<link linkend="GXimClientConnection">GXimClientConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         const <link linkend="GSList">GSList</link> *attr_id,
+                                                         <link linkend="gboolean">gboolean</link> is_async);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>imid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>attr_id</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>is_async</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-client-connection-cmd-create-ic" role="function">
+<title>g_xim_client_connection_cmd_create_ic ()</title>
+<indexterm zone="g-xim-client-connection-cmd-create-ic"><primary>g_xim_client_connection_cmd_create_ic</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_client_connection_cmd_create_ic
+                                                        (<link linkend="GXimClientConnection">GXimClientConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         const <link linkend="GSList">GSList</link> *attributes,
+                                                         <link linkend="gboolean">gboolean</link> is_async);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>imid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>attributes</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>is_async</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-client-connection-cmd-destroy-ic" role="function">
+<title>g_xim_client_connection_cmd_destroy_ic ()</title>
+<indexterm zone="g-xim-client-connection-cmd-destroy-ic"><primary>g_xim_client_connection_cmd_destroy_ic</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_client_connection_cmd_destroy_ic
+                                                        (<link linkend="GXimClientConnection">GXimClientConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid,
+                                                         <link linkend="gboolean">gboolean</link> is_async);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>imid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>icid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>is_async</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-client-connection-cmd-set-ic-values" role="function">
+<title>g_xim_client_connection_cmd_set_ic_values ()</title>
+<indexterm zone="g-xim-client-connection-cmd-set-ic-values"><primary>g_xim_client_connection_cmd_set_ic_values</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_client_connection_cmd_set_ic_values
+                                                        (<link linkend="GXimClientConnection">GXimClientConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid,
+                                                         const <link linkend="GSList">GSList</link> *attributes,
+                                                         <link linkend="gboolean">gboolean</link> is_async);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>imid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>icid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>attributes</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>is_async</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-client-connection-cmd-get-ic-values" role="function">
+<title>g_xim_client_connection_cmd_get_ic_values ()</title>
+<indexterm zone="g-xim-client-connection-cmd-get-ic-values"><primary>g_xim_client_connection_cmd_get_ic_values</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_client_connection_cmd_get_ic_values
+                                                        (<link linkend="GXimClientConnection">GXimClientConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid,
+                                                         const <link linkend="GSList">GSList</link> *attr_id,
+                                                         <link linkend="gboolean">gboolean</link> is_async);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>imid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>icid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>attr_id</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>is_async</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-client-connection-cmd-set-ic-focus" role="function">
+<title>g_xim_client_connection_cmd_set_ic_focus ()</title>
+<indexterm zone="g-xim-client-connection-cmd-set-ic-focus"><primary>g_xim_client_connection_cmd_set_ic_focus</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_client_connection_cmd_set_ic_focus
+                                                        (<link linkend="GXimClientConnection">GXimClientConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>imid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>icid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-client-connection-cmd-unset-ic-focus" role="function">
+<title>g_xim_client_connection_cmd_unset_ic_focus ()</title>
+<indexterm zone="g-xim-client-connection-cmd-unset-ic-focus"><primary>g_xim_client_connection_cmd_unset_ic_focus</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_client_connection_cmd_unset_ic_focus
+                                                        (<link linkend="GXimClientConnection">GXimClientConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>imid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>icid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-client-connection-cmd-sync" role="function">
+<title>g_xim_client_connection_cmd_sync ()</title>
+<indexterm zone="g-xim-client-connection-cmd-sync"><primary>g_xim_client_connection_cmd_sync</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_client_connection_cmd_sync    (<link linkend="GXimClientConnection">GXimClientConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid,
+                                                         <link linkend="gboolean">gboolean</link> is_async);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>imid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>icid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>is_async</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-client-connection-cmd-reset-ic" role="function">
+<title>g_xim_client_connection_cmd_reset_ic ()</title>
+<indexterm zone="g-xim-client-connection-cmd-reset-ic"><primary>g_xim_client_connection_cmd_reset_ic</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_client_connection_cmd_reset_ic
+                                                        (<link linkend="GXimClientConnection">GXimClientConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid,
+                                                         <link linkend="gboolean">gboolean</link> is_async);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>imid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>icid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>is_async</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-client-connection-cmd-preedit-start-reply" role="function">
+<title>g_xim_client_connection_cmd_preedit_start_reply ()</title>
+<indexterm zone="g-xim-client-connection-cmd-preedit-start-reply"><primary>g_xim_client_connection_cmd_preedit_start_reply</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_client_connection_cmd_preedit_start_reply
+                                                        (<link linkend="GXimClientConnection">GXimClientConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid,
+                                                         <link linkend="gint32">gint32</link> return_value);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>imid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>icid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>return_value</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="g-xim-client-connection-cmd-preedit-caret-reply" role="function">
+<title>g_xim_client_connection_cmd_preedit_caret_reply ()</title>
+<indexterm zone="g-xim-client-connection-cmd-preedit-caret-reply"><primary>g_xim_client_connection_cmd_preedit_caret_reply</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            g_xim_client_connection_cmd_preedit_caret_reply
+                                                        (<link linkend="GXimClientConnection">GXimClientConnection</link> *conn,
+                                                         <link linkend="guint16">guint16</link> imid,
+                                                         <link linkend="guint16">guint16</link> icid,
+                                                         <link linkend="guint32">guint32</link> position);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>imid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>icid</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>position</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

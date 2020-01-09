@@ -1,0 +1,1549 @@
+<refentry id="libgxim-gximtypes">
+<refmeta>
+<refentrytitle role="top_of_page" id="libgxim-gximtypes.top_of_page">gximtypes</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGXIM Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>gximtypes</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="libgxim-gximtypes.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+<anchor id="GXimAttr"/><anchor id="GXimICAttr"/><anchor id="GXimIMAttr"/><anchor id="GXimClientConnection"/><anchor id="GXimClientTemplate"/><anchor id="GXimConnection"/><anchor id="GXimCore"/><anchor id="GXimMessage"/><anchor id="GXimProtocol"/><anchor id="GXimServerConnection"/><anchor id="GXimServerTemplate"/><anchor id="GXimTransport"/>
+<synopsis>
+#define             <link linkend="d">d</link>                                   (e)
+#define             <link linkend="G-XIM-DEFAULT-TRANSPORT-MAJOR:CAPS">G_XIM_DEFAULT_TRANSPORT_MAJOR</link>
+#define             <link linkend="G-XIM-DEFAULT-TRANSPORT-MINOR:CAPS">G_XIM_DEFAULT_TRANSPORT_MINOR</link>
+#define             <link linkend="G-XIM-NATIVE-WINDOW-TO-POINTER:CAPS">G_XIM_NATIVE_WINDOW_TO_POINTER</link>      (_o_)
+#define             <link linkend="G-XIM-POINTER-TO-NATIVE-WINDOW:CAPS">G_XIM_POINTER_TO_NATIVE_WINDOW</link>      (_o_)
+#define             <link linkend="G-XIM-NOTICE-MASK:CAPS">G_XIM_NOTICE_MASK</link>
+                    <link linkend="GXimAttr-struct">GXimAttr</link>;
+                    <link linkend="GXimICAttr-struct">GXimICAttr</link>;
+                    <link linkend="GXimIMAttr-struct">GXimIMAttr</link>;
+                    <link linkend="GXimClient">GXimClient</link>;
+                    <link linkend="GXimClientConnection-struct">GXimClientConnection</link>;
+                    <link linkend="GXimClientTemplate-struct">GXimClientTemplate</link>;
+                    <link linkend="GXimConnection-struct">GXimConnection</link>;
+                    <link linkend="GXimCore-struct">GXimCore</link>;
+                    <link linkend="GXimMessage-struct">GXimMessage</link>;
+                    <link linkend="GXimProtocol-struct">GXimProtocol</link>;
+                    <link linkend="GXimProtocolClosure">GXimProtocolClosure</link>;
+                    <link linkend="GXimServer">GXimServer</link>;
+                    <link linkend="GXimServerConnection-struct">GXimServerConnection</link>;
+                    <link linkend="GXimServerTemplate-struct">GXimServerTemplate</link>;
+                    <link linkend="GXimTransport-struct">GXimTransport</link>;
+                    <link linkend="GXimStrConvText">GXimStrConvText</link>;
+                    <link linkend="GXimStyles">GXimStyles</link>;
+                    <link linkend="GXimRectangle">GXimRectangle</link>;
+                    <link linkend="GXimPoint">GXimPoint</link>;
+                    <link linkend="GXimFontSet">GXimFontSet</link>;
+                    <link linkend="GXimString">GXimString</link>;
+                    <link linkend="GXimStr">GXimStr</link>;
+                    <link linkend="GXimEncodingInfo">GXimEncodingInfo</link>;
+                    <link linkend="GXimNestedList">GXimNestedList</link>;
+                    <link linkend="GXimSepNestedList">GXimSepNestedList</link>;
+                    <link linkend="GXimExt">GXimExt</link>;
+                    <link linkend="GXimAttribute">GXimAttribute</link>;
+                    <link linkend="GXimRawAttr">GXimRawAttr</link>;
+                    <link linkend="GXimText">GXimText</link>;
+                    <link linkend="GXimPreeditCaret">GXimPreeditCaret</link>;
+                    <link linkend="GXimPreeditDraw">GXimPreeditDraw</link>;
+                    <link linkend="GXimStatusDraw">GXimStatusDraw</link>;
+                    <link linkend="GXimHotkeyTrigger">GXimHotkeyTrigger</link>;
+                    <link linkend="GXimLazySignalConnector">GXimLazySignalConnector</link>;
+enum                <link linkend="GXimErrorCode">GXimErrorCode</link>;
+enum                <link linkend="GXimErrorMask">GXimErrorMask</link>;
+enum                <link linkend="GXimOpcode">GXimOpcode</link>;
+enum                <link linkend="GXimEventFlags">GXimEventFlags</link>;
+enum                <link linkend="GXimFeedback">GXimFeedback</link>;
+enum                <link linkend="GXimCaretDirection">GXimCaretDirection</link>;
+enum                <link linkend="GXimCaretStyle">GXimCaretStyle</link>;
+enum                <link linkend="GXimLookupType">GXimLookupType</link>;
+enum                <link linkend="GXimStrConvFeedbacks">GXimStrConvFeedbacks</link>;
+enum                <link linkend="GXimValueType">GXimValueType</link>;
+enum                <link linkend="GXimStandardError">GXimStandardError</link>;
+enum                <link linkend="GXimErrorType">GXimErrorType</link>;
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="libgxim-gximtypes.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----GXimAttr
+         +----<link linkend="GXimIMAttr">GXimIMAttr</link>
+         +----<link linkend="GXimICAttr">GXimICAttr</link>
+</synopsis>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GXimAttr">GXimAttr</link>
+         +----GXimICAttr
+</synopsis>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GXimAttr">GXimAttr</link>
+         +----GXimIMAttr
+</synopsis>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GXimConnection">GXimConnection</link>
+         +----GXimClientConnection
+</synopsis>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GXimCore">GXimCore</link>
+         +----GXimClientTemplate
+</synopsis>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----GXimConnection
+         +----<link linkend="GXimClientConnection">GXimClientConnection</link>
+         +----<link linkend="GXimServerConnection">GXimServerConnection</link>
+</synopsis>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----GXimCore
+         +----<link linkend="GXimClientTemplate">GXimClientTemplate</link>
+         +----<link linkend="GXimServerTemplate">GXimServerTemplate</link>
+</synopsis>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----GXimMessage
+</synopsis>
+<synopsis>
+  <link linkend="GInterface">GInterface</link>
+   +----GXimProtocol
+</synopsis>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GXimConnection">GXimConnection</link>
+         +----GXimServerConnection
+</synopsis>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GXimCore">GXimCore</link>
+         +----GXimServerTemplate
+</synopsis>
+<synopsis>
+  <link linkend="GInterface">GInterface</link>
+   +----GXimTransport
+</synopsis>
+
+</refsect1>
+
+<refsect1 id="libgxim-gximtypes.prerequisites" role="prerequisites">
+<title role="prerequisites.title">Prerequisites</title>
+<para>
+GXimProtocol requires
+ <link linkend="GXimTransport">GXimTransport</link>.</para>
+
+</refsect1>
+
+<refsect1 id="libgxim-gximtypes.derived-interfaces" role="derived_interfaces">
+<title role="derived_interfaces.title">Known Derived Interfaces</title>
+<para>
+GXimTransport is required by
+ <link linkend="GXimProtocol">GXimProtocol</link>.</para>
+
+</refsect1>
+
+<refsect1 id="libgxim-gximtypes.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+GXimClientConnection implements
+ <link linkend="GXimTransport">GXimTransport</link> and  <link linkend="GXimProtocol">GXimProtocol</link>.</para>
+<para>
+GXimConnection implements
+ <link linkend="GXimTransport">GXimTransport</link> and  <link linkend="GXimProtocol">GXimProtocol</link>.</para>
+<para>
+GXimServerConnection implements
+ <link linkend="GXimTransport">GXimTransport</link> and  <link linkend="GXimProtocol">GXimProtocol</link>.</para>
+
+</refsect1>
+
+<refsect1 id="libgxim-gximtypes.implementations" role="implementations">
+<title role="implementations.title">Known Implementations</title>
+<para>
+GXimProtocol is implemented by
+ <link linkend="GXimConnection">GXimConnection</link>,  <link linkend="GXimServerConnection">GXimServerConnection</link> and  <link linkend="GXimClientConnection">GXimClientConnection</link>.</para>
+<para>
+GXimTransport is implemented by
+ <link linkend="GXimConnection">GXimConnection</link>,  <link linkend="GXimServerConnection">GXimServerConnection</link> and  <link linkend="GXimClientConnection">GXimClientConnection</link>.</para>
+
+</refsect1>
+
+<refsect1 id="libgxim-gximtypes.properties" role="properties">
+<title role="properties.title">Properties</title>
+<synopsis>
+  &quot;<link linkend="GXimAttr--attrs-enabled">attrs-enabled</link>&quot;            <link linkend="GStrv">GStrv</link>*                : Read / Write
+  &quot;<link linkend="GXimICAttr--area">area</link>&quot;                     <link linkend="GXimRectangle">GXimRectangle</link>*        : Read / Write
+  &quot;<link linkend="GXimICAttr--areaNeeded">areaNeeded</link>&quot;               <link linkend="GXimRectangle">GXimRectangle</link>*        : Read / Write
+  &quot;<link linkend="GXimICAttr--background">background</link>&quot;               <link linkend="gulong">gulong</link>                : Read / Write
+  &quot;<link linkend="GXimICAttr--backgroundPixmap">backgroundPixmap</link>&quot;         <link linkend="gulong">gulong</link>                : Read / Write
+  &quot;<link linkend="GXimICAttr--clientWindow">clientWindow</link>&quot;             <link linkend="GdkWindow">GdkWindow</link>*            : Read / Write
+  &quot;<link linkend="GXimICAttr--colorMap">colorMap</link>&quot;                 <link linkend="gulong">gulong</link>                : Read / Write
+  &quot;<link linkend="GXimICAttr--cursor">cursor</link>&quot;                   <link linkend="gulong">gulong</link>                : Read / Write
+  &quot;<link linkend="GXimICAttr--filterEvents">filterEvents</link>&quot;             <link linkend="gulong">gulong</link>                : Read / Write
+  &quot;<link linkend="GXimICAttr--focusWindow">focusWindow</link>&quot;              <link linkend="GdkWindow">GdkWindow</link>*            : Read / Write
+  &quot;<link linkend="GXimICAttr--fontSet">fontSet</link>&quot;                  <link linkend="GXimFontSet">GXimFontSet</link>*          : Read / Write
+  &quot;<link linkend="GXimICAttr--foreground">foreground</link>&quot;               <link linkend="gulong">gulong</link>                : Read / Write
+  &quot;<link linkend="GXimICAttr--inputStyle">inputStyle</link>&quot;               <link linkend="gulong">gulong</link>                : Read / Write
+  &quot;<link linkend="GXimICAttr--lineSpace">lineSpace</link>&quot;                <link linkend="gulong">gulong</link>                : Read / Write
+  &quot;<link linkend="GXimICAttr--preeditAttributes">preeditAttributes</link>&quot;        <link linkend="NESTEDLIST:CAPS">NESTEDLIST</link>*           : Read / Write
+  &quot;<link linkend="GXimICAttr--preeditState">preeditState</link>&quot;             <link linkend="gulong">gulong</link>                : Read / Write
+  &quot;<link linkend="GXimICAttr--resetState">resetState</link>&quot;               <link linkend="gulong">gulong</link>                : Read / Write
+  &quot;<link linkend="GXimICAttr--separatorofNestedList">separatorofNestedList</link>&quot;    <link linkend="SeparatorofNestedList">SeparatorofNestedList</link>*  : Read / Write
+  &quot;<link linkend="GXimICAttr--spotLocation">spotLocation</link>&quot;             <link linkend="GXimPoint">GXimPoint</link>*            : Read / Write
+  &quot;<link linkend="GXimICAttr--statusAttributes">statusAttributes</link>&quot;         <link linkend="NESTEDLIST:CAPS">NESTEDLIST</link>*           : Read / Write
+  &quot;<link linkend="GXimICAttr--stdColorMap">stdColorMap</link>&quot;              <link linkend="gulong">gulong</link>                : Read / Write
+  &quot;<link linkend="GXimIMAttr--queryInputStyle">queryInputStyle</link>&quot;          <link linkend="GXimStyles">GXimStyles</link>*           : Read / Write
+  &quot;<link linkend="GXimClientTemplate--atom-server">atom-server</link>&quot;              <link linkend="gpointer">gpointer</link>              : Read / Write / Construct Only
+  &quot;<link linkend="GXimConnection--proto-signals">proto-signals</link>&quot;            <link linkend="gpointer">gpointer</link>              : Read / Write / Construct Only
+  &quot;<link linkend="GXimCore--connection-gtype">connection-gtype</link>&quot;         <link linkend="GType">GType</link>*                : Read / Write / Construct Only
+  &quot;<link linkend="GXimCore--display">display</link>&quot;                  <link linkend="GdkDisplay">GdkDisplay</link>*           : Read / Write / Construct Only
+  &quot;<link linkend="GXimCore--proto-signals">proto-signals</link>&quot;            <link linkend="gpointer">gpointer</link>              : Read / Write
+  &quot;<link linkend="GXimCore--selection-window">selection-window</link>&quot;         <link linkend="GdkWindow">GdkWindow</link>*            : Read
+  &quot;<link linkend="GXimMessage--all-filters">all-filters</link>&quot;              <link linkend="gboolean">gboolean</link>              : Read / Write
+  &quot;<link linkend="GXimMessage--master">master</link>&quot;                   <link linkend="gboolean">gboolean</link>              : Read / Write
+  &quot;<link linkend="GXimServerTemplate--server-name">server-name</link>&quot;              <link linkend="gchar">gchar</link>*                : Read / Write / Construct Only
+</synopsis>
+</refsect1>
+
+<refsect1 id="libgxim-gximtypes.signals" role="signal_proto">
+<title role="signal_proto.title">Signals</title>
+<synopsis>
+  &quot;<link linkend="GXimClientTemplate-notify-locales">notify-locales</link>&quot;                                 : Run First
+  &quot;<link linkend="GXimClientTemplate-notify-transport">notify-transport</link>&quot;                               : Run First
+  &quot;<link linkend="GXimClientTemplate-xconnect">xconnect</link>&quot;                                       : Run Last
+  &quot;<link linkend="GXimCore-client-event">client-event</link>&quot;                                   : Run Last
+  &quot;<link linkend="GXimCore-destroy-event">destroy-event</link>&quot;                                  : Run Last
+  &quot;<link linkend="GXimCore-expose-event">expose-event</link>&quot;                                   : Run Last
+  &quot;<link linkend="GXimCore-selection-clear-event">selection-clear-event</link>&quot;                          : Run Last
+  &quot;<link linkend="GXimCore-selection-notify-event">selection-notify-event</link>&quot;                         : Run Last
+  &quot;<link linkend="GXimCore-selection-request-event">selection-request-event</link>&quot;                        : Run Last
+  &quot;<link linkend="GXimMessage-activated">activated</link>&quot;                                      : Run Last
+  &quot;<link linkend="GXimMessage-created">created</link>&quot;                                        : Run First
+  &quot;<link linkend="GXimMessage-filename-changed">filename-changed</link>&quot;                               : Run Last
+  &quot;<link linkend="GXimMessage-filter-added">filter-added</link>&quot;                                   : Run Last
+  &quot;<link linkend="GXimMessage-filter-cleared">filter-cleared</link>&quot;                                 : Run Last
+  &quot;<link linkend="GXimProtocol-parser-error">parser-error</link>&quot;                                   : Run Last
+  &quot;<link linkend="GXimServerConnection-is-auth-required">is-auth-required</link>&quot;                               : Run Last
+  &quot;<link linkend="GXimServerTemplate-destroy">destroy</link>&quot;                                        : Run First
+  &quot;<link linkend="GXimServerTemplate-get-supported-locales">get-supported-locales</link>&quot;                          : Run Last
+  &quot;<link linkend="GXimServerTemplate-get-supported-transport">get-supported-transport</link>&quot;                        : Run Last
+  &quot;<link linkend="GXimServerTemplate-xconnect">xconnect</link>&quot;                                       : Run Last
+</synopsis>
+</refsect1>
+
+
+<refsect1 id="libgxim-gximtypes.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 id="libgxim-gximtypes.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="d" role="macro">
+<title>d()</title>
+<indexterm zone="d"><primary>d</primary></indexterm><programlisting>#define             d(e)</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>e</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="G-XIM-DEFAULT-TRANSPORT-MAJOR:CAPS" role="macro">
+<title>G_XIM_DEFAULT_TRANSPORT_MAJOR</title>
+<indexterm zone="G-XIM-DEFAULT-TRANSPORT-MAJOR:CAPS"><primary>G_XIM_DEFAULT_TRANSPORT_MAJOR</primary></indexterm><programlisting>#define G_XIM_DEFAULT_TRANSPORT_MAJOR	0
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="G-XIM-DEFAULT-TRANSPORT-MINOR:CAPS" role="macro">
+<title>G_XIM_DEFAULT_TRANSPORT_MINOR</title>
+<indexterm zone="G-XIM-DEFAULT-TRANSPORT-MINOR:CAPS"><primary>G_XIM_DEFAULT_TRANSPORT_MINOR</primary></indexterm><programlisting>#define G_XIM_DEFAULT_TRANSPORT_MINOR	2
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="G-XIM-NATIVE-WINDOW-TO-POINTER:CAPS" role="macro">
+<title>G_XIM_NATIVE_WINDOW_TO_POINTER()</title>
+<indexterm zone="G-XIM-NATIVE-WINDOW-TO-POINTER:CAPS"><primary>G_XIM_NATIVE_WINDOW_TO_POINTER</primary></indexterm><programlisting>#define G_XIM_NATIVE_WINDOW_TO_POINTER(_o_)	((gpointer)(gulong)(_o_))
+</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>_o_</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="G-XIM-POINTER-TO-NATIVE-WINDOW:CAPS" role="macro">
+<title>G_XIM_POINTER_TO_NATIVE_WINDOW()</title>
+<indexterm zone="G-XIM-POINTER-TO-NATIVE-WINDOW:CAPS"><primary>G_XIM_POINTER_TO_NATIVE_WINDOW</primary></indexterm><programlisting>#define G_XIM_POINTER_TO_NATIVE_WINDOW(_o_)	((GdkNativeWindow)(gulong)(_o_))
+</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>_o_</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="G-XIM-NOTICE-MASK:CAPS" role="macro">
+<title>G_XIM_NOTICE_MASK</title>
+<indexterm zone="G-XIM-NOTICE-MASK:CAPS"><primary>G_XIM_NOTICE_MASK</primary></indexterm><programlisting>#define G_XIM_NOTICE_MASK		0xf0000000
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimAttr-struct" role="struct">
+<title>GXimAttr</title>
+<indexterm zone="GXimAttr-struct"><primary>GXimAttr</primary></indexterm><programlisting>typedef struct _GXimAttr GXimAttr;</programlisting>
+<para>
+</para>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimICAttr-struct" role="struct">
+<title>GXimICAttr</title>
+<indexterm zone="GXimICAttr-struct"><primary>GXimICAttr</primary></indexterm><programlisting>typedef struct _GXimICAttr GXimICAttr;</programlisting>
+<para>
+An implementation of XIM IC Attributes class</para>
+<para>
+
+</para><variablelist role="struct">
+</variablelist></refsect2>
+<refsect2 id="GXimIMAttr-struct" role="struct">
+<title>GXimIMAttr</title>
+<indexterm zone="GXimIMAttr-struct"><primary>GXimIMAttr</primary></indexterm><programlisting>typedef struct _GXimIMAttr GXimIMAttr;</programlisting>
+<para>
+An implementation of XIM IM Attributes class</para>
+<para>
+
+</para><variablelist role="struct">
+</variablelist></refsect2>
+<refsect2 id="GXimClient" role="struct">
+<title>GXimClient</title>
+<indexterm zone="GXimClient"><primary>GXimClient</primary></indexterm><programlisting>typedef struct _GXimClient GXimClient;</programlisting>
+<para>
+An implementation of XIM client class</para>
+<para>
+
+</para><variablelist role="struct">
+</variablelist></refsect2>
+<refsect2 id="GXimClientConnection-struct" role="struct">
+<title>GXimClientConnection</title>
+<indexterm zone="GXimClientConnection-struct"><primary>GXimClientConnection</primary></indexterm><programlisting>typedef struct _GXimClientConnection GXimClientConnection;</programlisting>
+<para>
+An implementation of client connection class</para>
+<para>
+
+</para><variablelist role="struct">
+</variablelist></refsect2>
+<refsect2 id="GXimClientTemplate-struct" role="struct">
+<title>GXimClientTemplate</title>
+<indexterm zone="GXimClientTemplate-struct"><primary>GXimClientTemplate</primary></indexterm><programlisting>typedef struct _GXimClientTemplate GXimClientTemplate;</programlisting>
+<para>
+An implementation of XIM client class</para>
+<para>
+
+</para><variablelist role="struct">
+</variablelist></refsect2>
+<refsect2 id="GXimConnection-struct" role="struct">
+<title>GXimConnection</title>
+<indexterm zone="GXimConnection-struct"><primary>GXimConnection</primary></indexterm><programlisting>typedef struct _GXimConnection GXimConnection;</programlisting>
+<para>
+An abstract implementation of connection class</para>
+<para>
+
+</para><variablelist role="struct">
+</variablelist></refsect2>
+<refsect2 id="GXimCore-struct" role="struct">
+<title>GXimCore</title>
+<indexterm zone="GXimCore-struct"><primary>GXimCore</primary></indexterm><programlisting>typedef struct _GXimCore GXimCore;</programlisting>
+<para>
+An abstract implementation of XIM protocol event handling class.</para>
+<para>
+
+</para><variablelist role="struct">
+</variablelist></refsect2>
+<refsect2 id="GXimMessage-struct" role="struct">
+<title>GXimMessage</title>
+<indexterm zone="GXimMessage-struct"><primary>GXimMessage</primary></indexterm><programlisting>typedef struct _GXimMessage GXimMessage;</programlisting>
+<para>
+An implementation of message handler class</para>
+<para>
+
+</para><variablelist role="struct">
+</variablelist></refsect2>
+<refsect2 id="GXimProtocol-struct" role="struct">
+<title>GXimProtocol</title>
+<indexterm zone="GXimProtocol-struct"><primary>GXimProtocol</primary></indexterm><programlisting>typedef struct _GXimProtocol GXimProtocol;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimProtocolClosure" role="struct">
+<title>GXimProtocolClosure</title>
+<indexterm zone="GXimProtocolClosure"><primary>GXimProtocolClosure</primary></indexterm><programlisting>typedef struct {
+	GCClosure        closure;
+	GClosureMarshal  signal_marshaller;
+	guint            n_params;
+	GType           *param_types;
+	GSList          *signal_handlers;
+	gchar           *name;
+	union {
+		GXimOpcode v1;
+		guint8     v2;
+	} major_opcode;
+	guint8           minor_opcode;
+	gboolean         is_an_extension;
+} GXimProtocolClosure;
+</programlisting>
+<para>
+</para>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimServer" role="struct">
+<title>GXimServer</title>
+<indexterm zone="GXimServer"><primary>GXimServer</primary></indexterm><programlisting>typedef struct _GXimServer GXimServer;</programlisting>
+<para>
+An implementation of XIM server class</para>
+<para>
+
+</para><variablelist role="struct">
+</variablelist></refsect2>
+<refsect2 id="GXimServerConnection-struct" role="struct">
+<title>GXimServerConnection</title>
+<indexterm zone="GXimServerConnection-struct"><primary>GXimServerConnection</primary></indexterm><programlisting>typedef struct _GXimServerConnection GXimServerConnection;</programlisting>
+<para>
+An implementation of server connection class</para>
+<para>
+
+</para><variablelist role="struct">
+</variablelist></refsect2>
+<refsect2 id="GXimServerTemplate-struct" role="struct">
+<title>GXimServerTemplate</title>
+<indexterm zone="GXimServerTemplate-struct"><primary>GXimServerTemplate</primary></indexterm><programlisting>typedef struct _GXimServerTemplate GXimServerTemplate;</programlisting>
+<para>
+An abstract implementation of XIM server class</para>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimTransport-struct" role="struct">
+<title>GXimTransport</title>
+<indexterm zone="GXimTransport-struct"><primary>GXimTransport</primary></indexterm><programlisting>typedef struct _GXimTransport GXimTransport;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimStrConvText" role="struct">
+<title>GXimStrConvText</title>
+<indexterm zone="GXimStrConvText"><primary>GXimStrConvText</primary></indexterm><programlisting>typedef struct {
+	GXimStrConvFeedbacks  feedback;
+	guint16               length;
+	gchar                *string;
+} GXimStrConvText;
+</programlisting>
+<para>
+A structure to deal with XIM String Conversion Text.</para>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimStyles" role="struct">
+<title>GXimStyles</title>
+<indexterm zone="GXimStyles"><primary>GXimStyles</primary></indexterm><programlisting>typedef struct {
+	guint16    count_styles;
+	GXimStyle *supported_styles;
+} GXimStyles;
+</programlisting>
+<para>
+</para>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimRectangle" role="struct">
+<title>GXimRectangle</title>
+<indexterm zone="GXimRectangle"><primary>GXimRectangle</primary></indexterm><programlisting>typedef struct {
+	short x;
+	short y;
+	unsigned short width;
+	unsigned short height;
+} GXimRectangle;
+</programlisting>
+<para>
+</para>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimPoint" role="struct">
+<title>GXimPoint</title>
+<indexterm zone="GXimPoint"><primary>GXimPoint</primary></indexterm><programlisting>typedef struct {
+	short x;
+	short y;
+} GXimPoint;
+</programlisting>
+<para>
+</para>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimFontSet" role="struct">
+<title>GXimFontSet</title>
+<indexterm zone="GXimFontSet"><primary>GXimFontSet</primary></indexterm><programlisting>typedef struct _GXimFontSet GXimFontSet;</programlisting>
+<para>
+</para>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimString" role="struct">
+<title>GXimString</title>
+<indexterm zone="GXimString"><primary>GXimString</primary></indexterm><programlisting>typedef struct _GXimString GXimString;</programlisting>
+<para>
+</para>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimStr" role="struct">
+<title>GXimStr</title>
+<indexterm zone="GXimStr"><primary>GXimStr</primary></indexterm><programlisting>typedef struct _GXimStr GXimStr;</programlisting>
+<para>
+</para>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimEncodingInfo" role="struct">
+<title>GXimEncodingInfo</title>
+<indexterm zone="GXimEncodingInfo"><primary>GXimEncodingInfo</primary></indexterm><programlisting>typedef struct _GXimEncodingInfo GXimEncodingInfo;</programlisting>
+<para>
+</para>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimNestedList" role="struct">
+<title>GXimNestedList</title>
+<indexterm zone="GXimNestedList"><primary>GXimNestedList</primary></indexterm><programlisting>typedef struct _GXimNestedList GXimNestedList;</programlisting>
+<para>
+</para>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimSepNestedList" role="struct">
+<title>GXimSepNestedList</title>
+<indexterm zone="GXimSepNestedList"><primary>GXimSepNestedList</primary></indexterm><programlisting>typedef struct {
+	guint8 dummy;
+} GXimSepNestedList;
+</programlisting>
+<para>
+</para>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimExt" role="struct">
+<title>GXimExt</title>
+<indexterm zone="GXimExt"><primary>GXimExt</primary></indexterm><programlisting>typedef struct {
+	guint8   major_opcode;
+	guint8   minor_opcode;
+	GString *name;
+} GXimExt;
+</programlisting>
+<para>
+</para>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimAttribute" role="struct">
+<title>GXimAttribute</title>
+<indexterm zone="GXimAttribute"><primary>GXimAttribute</primary></indexterm><programlisting>typedef struct {
+	guint16       id;
+	GXimValueType vtype;
+	union {
+		guint           i;
+		gulong          l;
+		gpointer        pointer;
+	} v;
+} GXimAttribute;
+</programlisting>
+<para>
+</para>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimRawAttr" role="struct">
+<title>GXimRawAttr</title>
+<indexterm zone="GXimRawAttr"><primary>GXimRawAttr</primary></indexterm><programlisting>typedef struct {
+	GXimAttribute  base;
+	GString       *attribute_name;
+} GXimRawAttr;
+</programlisting>
+<para>
+</para>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimText" role="struct">
+<title>GXimText</title>
+<indexterm zone="GXimText"><primary>GXimText</primary></indexterm><programlisting>typedef struct {
+	gshort        length;
+	GXimFeedback *feedback;
+	gboolean      encoding_is_wchar;
+	union {
+		gchar *multi_byte;
+		gunichar2 *wide_char;
+	} string;
+} GXimText;
+</programlisting>
+<para>
+</para>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimPreeditCaret" role="struct">
+<title>GXimPreeditCaret</title>
+<indexterm zone="GXimPreeditCaret"><primary>GXimPreeditCaret</primary></indexterm><programlisting>typedef struct {
+	gint position;
+	GXimCaretDirection direction;
+	GXimCaretStyle     style;
+} GXimPreeditCaret;
+</programlisting>
+<para>
+</para>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimPreeditDraw" role="struct">
+<title>GXimPreeditDraw</title>
+<indexterm zone="GXimPreeditDraw"><primary>GXimPreeditDraw</primary></indexterm><programlisting>typedef struct {
+	gint      caret;
+	gint      chg_first;
+	gint      chg_length;
+	GXimText *text;
+} GXimPreeditDraw;
+</programlisting>
+<para>
+</para>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimStatusDraw" role="struct">
+<title>GXimStatusDraw</title>
+<indexterm zone="GXimStatusDraw"><primary>GXimStatusDraw</primary></indexterm><programlisting>typedef struct {
+	GXimStatusDataType  type;
+	union {
+		GXimText *text;
+		GdkPixmap *bitmap;
+	} data;
+} GXimStatusDraw;
+</programlisting>
+<para>
+</para>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimHotkeyTrigger" role="struct">
+<title>GXimHotkeyTrigger</title>
+<indexterm zone="GXimHotkeyTrigger"><primary>GXimHotkeyTrigger</primary></indexterm><programlisting>typedef struct {
+	guint32 keysym;
+	guint32 modifier;
+	guint32 modifier_mask;
+} GXimHotkeyTrigger;
+</programlisting>
+<para>
+</para>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimLazySignalConnector" role="struct">
+<title>GXimLazySignalConnector</title>
+<indexterm zone="GXimLazySignalConnector"><primary>GXimLazySignalConnector</primary></indexterm><programlisting>typedef struct {
+	gchar     *signal_name;
+	GCallback  function;
+	gpointer   data;
+	gulong     id;
+} GXimLazySignalConnector;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimErrorCode" role="enum">
+<title>enum GXimErrorCode</title>
+<indexterm zone="GXimErrorCode"><primary>GXimErrorCode</primary></indexterm><programlisting>typedef enum {
+	G_XIM_ERR_BadAlloc = 1,
+	G_XIM_ERR_BadStyle,
+	G_XIM_ERR_BadClientWindow,
+	G_XIM_ERR_BadFocusWindow,
+	G_XIM_ERR_BadArea,
+	G_XIM_ERR_BadSpotLocation,
+	G_XIM_ERR_BadColormap,
+	G_XIM_ERR_BadAtom,
+	G_XIM_ERR_BadPixel,
+	G_XIM_ERR_BadPixmap,
+	G_XIM_ERR_BadName,
+	G_XIM_ERR_BadCursor,
+	G_XIM_ERR_BadProtocol,
+	G_XIM_ERR_BadForeground,
+	G_XIM_ERR_BadBackground,
+	G_XIM_ERR_LocaleNotSupported,
+	G_XIM_ERR_BadSomething = 999
+} GXimErrorCode;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimErrorMask" role="enum">
+<title>enum GXimErrorMask</title>
+<indexterm zone="GXimErrorMask"><primary>GXimErrorMask</primary></indexterm><programlisting>typedef enum {
+	G_XIM_EMASK_NO_VALID_ID = 0,
+	G_XIM_EMASK_VALID_IMID = 1,
+	G_XIM_EMASK_VALID_ICID = 2
+} GXimErrorMask;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimOpcode" role="enum">
+<title>enum GXimOpcode</title>
+<indexterm zone="GXimOpcode"><primary>GXimOpcode</primary></indexterm><programlisting>typedef enum {
+	G_XIM_CONNECT = 1,
+	G_XIM_CONNECT_REPLY,
+	G_XIM_DISCONNECT,
+	G_XIM_DISCONNECT_REPLY,
+	G_XIM_AUTH_REQUIRED = 10,
+	G_XIM_AUTH_REPLY,
+	G_XIM_AUTH_NEXT,
+	G_XIM_AUTH_SETUP,
+	G_XIM_AUTH_NG,
+	G_XIM_ERROR = 20,
+	G_XIM_OPEN = 30,
+	G_XIM_OPEN_REPLY,
+	G_XIM_CLOSE,
+	G_XIM_CLOSE_REPLY,
+	G_XIM_REGISTER_TRIGGERKEYS,
+	G_XIM_TRIGGER_NOTIFY,
+	G_XIM_TRIGGER_NOTIFY_REPLY,
+	G_XIM_SET_EVENT_MASK,
+	G_XIM_ENCODING_NEGOTIATION,
+	G_XIM_ENCODING_NEGOTIATION_REPLY,
+	G_XIM_QUERY_EXTENSION,
+	G_XIM_QUERY_EXTENSION_REPLY,
+	G_XIM_SET_IM_VALUES,
+	G_XIM_SET_IM_VALUES_REPLY,
+	G_XIM_GET_IM_VALUES,
+	G_XIM_GET_IM_VALUES_REPLY,
+	G_XIM_CREATE_IC = 50,
+	G_XIM_CREATE_IC_REPLY,
+	G_XIM_DESTROY_IC,
+	G_XIM_DESTROY_IC_REPLY,
+	G_XIM_SET_IC_VALUES,
+	G_XIM_SET_IC_VALUES_REPLY,
+	G_XIM_GET_IC_VALUES,
+	G_XIM_GET_IC_VALUES_REPLY,
+	G_XIM_SET_IC_FOCUS,
+	G_XIM_UNSET_IC_FOCUS,
+	G_XIM_FORWARD_EVENT,
+	G_XIM_SYNC,
+	G_XIM_SYNC_REPLY,
+	G_XIM_COMMIT,
+	G_XIM_RESET_IC,
+	G_XIM_RESET_IC_REPLY,
+	G_XIM_GEOMETRY = 70,
+	G_XIM_STR_CONVERSION,
+	G_XIM_STR_CONVERSION_REPLY,
+	G_XIM_PREEDIT_START,
+	G_XIM_PREEDIT_START_REPLY,
+	G_XIM_PREEDIT_DRAW,
+	G_XIM_PREEDIT_CARET,
+	G_XIM_PREEDIT_CARET_REPLY,
+	G_XIM_PREEDIT_DONE,
+	G_XIM_STATUS_START,
+	G_XIM_STATUS_DRAW,
+	G_XIM_STATUS_DONE,
+	G_XIM_PREEDITSTATE,
+	LAST_XIM_EVENTS
+} GXimOpcode;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimEventFlags" role="enum">
+<title>enum GXimEventFlags</title>
+<indexterm zone="GXimEventFlags"><primary>GXimEventFlags</primary></indexterm><programlisting>typedef enum {
+	G_XIM_Event_Synchronous = 1 &lt;&lt; 0,
+	G_XIM_Event_FilterRequest = 1 &lt;&lt; 1,
+	G_XIM_Event_LookupRequest = 1 &lt;&lt; 2
+} GXimEventFlags;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimFeedback" role="enum">
+<title>enum GXimFeedback</title>
+<indexterm zone="GXimFeedback"><primary>GXimFeedback</primary></indexterm><programlisting>typedef enum {
+	G_XIM_XIMReverse           = (1L &lt;&lt; 0),
+	G_XIM_XIMUnderline         = (1L &lt;&lt; 1),
+	G_XIM_XIMHighlight         = (1L &lt;&lt; 2),
+	G_XIM_XIMPrimary           = (1L &lt;&lt; 5),
+	G_XIM_XIMSecondary         = (1L &lt;&lt; 6),
+	G_XIM_XIMTertiary          = (1L &lt;&lt; 7),
+	G_XIM_XIMVisibleToForward  = (1L &lt;&lt; 8),
+	G_XIM_XIMVisibleToBackward = (1L &lt;&lt; 9),
+	G_XIM_XIMVisibleToCenter   = (1L &lt;&lt; 10)
+} GXimFeedback;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimCaretDirection" role="enum">
+<title>enum GXimCaretDirection</title>
+<indexterm zone="GXimCaretDirection"><primary>GXimCaretDirection</primary></indexterm><programlisting>typedef enum {
+	G_XIM_XIMForwardChar,
+	G_XIM_XIMBackwardChar,
+	G_XIM_XIMForwardWord,
+	G_XIM_XIMBackwardWord,
+	G_XIM_XIMCaretUp,
+	G_XIM_XIMCaretDown,
+	G_XIM_XIMNextLine,
+	G_XIM_XIMPreviousLine,
+	G_XIM_XIMLineStart,
+	G_XIM_XIMLineEnd,
+	G_XIM_XIMAbsolutePosition,
+	G_XIM_XIMDontChange
+} GXimCaretDirection;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimCaretStyle" role="enum">
+<title>enum GXimCaretStyle</title>
+<indexterm zone="GXimCaretStyle"><primary>GXimCaretStyle</primary></indexterm><programlisting>typedef enum {
+	G_XIM_XIMIsInvisible,
+	G_XIM_XIMIsPrimary,
+	G_XIM_XIMIsSecondary
+} GXimCaretStyle;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimLookupType" role="enum">
+<title>enum GXimLookupType</title>
+<indexterm zone="GXimLookupType"><primary>GXimLookupType</primary></indexterm><programlisting>typedef enum {
+	G_XIM_XLookupSynchronous = 1 &lt;&lt; 0,
+	G_XIM_XLookupChars = 1 &lt;&lt; 1,
+	G_XIM_XLookupKeySym = 1 &lt;&lt; 2
+} GXimLookupType;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimStrConvFeedbacks" role="enum">
+<title>enum GXimStrConvFeedbacks</title>
+<indexterm zone="GXimStrConvFeedbacks"><primary>GXimStrConvFeedbacks</primary></indexterm><programlisting>typedef enum {
+	G_XIM_STRCONV_LEFTEDGE   = 1 &lt;&lt; 0,
+	G_XIM_STRCONV_RIGHTEDGE  = 1 &lt;&lt; 1,
+	G_XIM_STRCONV_TOPEDGE    = 1 &lt;&lt; 2,
+	G_XIM_STRCONV_BOTTOMEDGE = 1 &lt;&lt; 3,
+	G_XIM_STRCONV_CONVEALED  = 1 &lt;&lt; 4,
+	G_XIM_STRCONV_WRAPPED    = 1 &lt;&lt; 5,
+	G_XIM_STRCONV_LAST       = 1 &lt;&lt; 15
+} GXimStrConvFeedbacks;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimValueType" role="enum">
+<title>enum GXimValueType</title>
+<indexterm zone="GXimValueType"><primary>GXimValueType</primary></indexterm><programlisting>typedef enum {
+	G_XIM_TYPE_SEPARATOR = 0,
+	G_XIM_TYPE_BYTE,
+	G_XIM_TYPE_WORD,
+	G_XIM_TYPE_LONG,
+	G_XIM_TYPE_CHAR,
+	G_XIM_TYPE_WINDOW,
+	G_XIM_TYPE_XIMSTYLES = 10,
+	G_XIM_TYPE_XRECTANGLE,
+	G_XIM_TYPE_XPOINT,
+	G_XIM_TYPE_XFONTSET,
+	G_XIM_TYPE_HOTKEYTRIGGERS = 15,
+	G_XIM_TYPE_HOTKEYSTATE,
+	G_XIM_TYPE_STRINGCONVERSION,
+	G_XIM_TYPE_PREEDITSTATE,
+	G_XIM_TYPE_RESETSTATE,
+	G_XIM_TYPE_NESTEDLIST = 0x7fff,
+	/* no official support in XIM protocol */
+	G_XIM_TYPE_INVALID,
+	G_XIM_TYPE_PADDING,
+	G_XIM_TYPE_AUTO_PADDING,
+	G_XIM_TYPE_MARKER_N_BYTES_1,
+	G_XIM_TYPE_MARKER_N_BYTES_2,
+	G_XIM_TYPE_MARKER_N_BYTES_4,
+	G_XIM_TYPE_MARKER_N_ITEMS_2,
+	G_XIM_TYPE_STR,
+	G_XIM_TYPE_GSTRING,
+	G_XIM_TYPE_PREEDIT_CARET,
+	G_XIM_TYPE_PREEDIT_DRAW,
+	G_XIM_TYPE_GDKEVENT,
+	G_XIM_TYPE_XIMTEXT,
+	G_XIM_TYPE_HOTKEY_TRIGGER,
+	G_XIM_TYPE_PIXMAP,
+	G_XIM_TYPE_STATUS_DRAW,
+	G_XIM_TYPE_LIST_OF_IMATTR,
+	G_XIM_TYPE_LIST_OF_ICATTR,
+	G_XIM_TYPE_LIST_OF_IMATTRIBUTE,
+	G_XIM_TYPE_LIST_OF_ICATTRIBUTE,
+	G_XIM_TYPE_LIST_OF_EXT,
+	G_XIM_TYPE_LIST_OF_STRING,
+	G_XIM_TYPE_LIST_OF_STR,
+	G_XIM_TYPE_LIST_OF_ENCODINGINFO,
+	G_XIM_TYPE_LIST_OF_BYTE,
+	G_XIM_TYPE_LIST_OF_CARD16,
+	G_XIM_TYPE_LIST_OF_HOTKEY_TRIGGER,
+	LAST_VALUE_TYPE
+} GXimValueType;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimStandardError" role="enum">
+<title>enum GXimStandardError</title>
+<indexterm zone="GXimStandardError"><primary>GXimStandardError</primary></indexterm><programlisting>typedef enum {
+	G_XIM_STD_ERROR_NO_MEMORY,
+	G_XIM_STD_ERROR_NO_REAL_METHODS,
+	G_XIM_STD_ERROR_INVALID_ARGUMENT,
+	G_XIM_STD_ERROR_UNSUPPORTED,
+} GXimStandardError;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimErrorType" role="enum">
+<title>enum GXimErrorType</title>
+<indexterm zone="GXimErrorType"><primary>GXimErrorType</primary></indexterm><programlisting>typedef enum {
+	G_XIM_NOTICE_WARNING = 1 &lt;&lt; 28,
+	G_XIM_NOTICE_ERROR = 1 &lt;&lt; 29,
+	G_XIM_NOTICE_CRITICAL = 1 &lt;&lt; 30,
+	G_XIM_NOTICE_BUG = 1 &lt;&lt; 31
+} GXimErrorType;
+</programlisting>
+<para>
+
+</para></refsect2>
+
+</refsect1>
+<refsect1 id="libgxim-gximtypes.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GXimAttr--attrs-enabled"><title>The <literal>&quot;attrs-enabled&quot;</literal> property</title>
+<indexterm zone="GXimAttr--attrs-enabled"><primary>GXimAttr:attrs-enabled</primary></indexterm><programlisting>  &quot;attrs-enabled&quot;            <link linkend="GStrv">GStrv</link>*                : Read / Write</programlisting>
+<para>XIM Attributes allowed to use.</para></refsect2>
+<refsect2 id="GXimICAttr--area"><title>The <literal>&quot;area&quot;</literal> property</title>
+<indexterm zone="GXimICAttr--area"><primary>GXimICAttr:area</primary></indexterm><programlisting>  &quot;area&quot;                     <link linkend="GXimRectangle">GXimRectangle</link>*        : Read / Write</programlisting>
+<para>area.</para></refsect2>
+<refsect2 id="GXimICAttr--areaNeeded"><title>The <literal>&quot;areaNeeded&quot;</literal> property</title>
+<indexterm zone="GXimICAttr--areaNeeded"><primary>GXimICAttr:areaNeeded</primary></indexterm><programlisting>  &quot;areaNeeded&quot;               <link linkend="GXimRectangle">GXimRectangle</link>*        : Read / Write</programlisting>
+<para>areaNeeded.</para></refsect2>
+<refsect2 id="GXimICAttr--background"><title>The <literal>&quot;background&quot;</literal> property</title>
+<indexterm zone="GXimICAttr--background"><primary>GXimICAttr:background</primary></indexterm><programlisting>  &quot;background&quot;               <link linkend="gulong">gulong</link>                : Read / Write</programlisting>
+<para>background.</para></refsect2>
+<refsect2 id="GXimICAttr--backgroundPixmap"><title>The <literal>&quot;backgroundPixmap&quot;</literal> property</title>
+<indexterm zone="GXimICAttr--backgroundPixmap"><primary>GXimICAttr:backgroundPixmap</primary></indexterm><programlisting>  &quot;backgroundPixmap&quot;         <link linkend="gulong">gulong</link>                : Read / Write</programlisting>
+<para>backgroundPixmap.</para></refsect2>
+<refsect2 id="GXimICAttr--clientWindow"><title>The <literal>&quot;clientWindow&quot;</literal> property</title>
+<indexterm zone="GXimICAttr--clientWindow"><primary>GXimICAttr:clientWindow</primary></indexterm><programlisting>  &quot;clientWindow&quot;             <link linkend="GdkWindow">GdkWindow</link>*            : Read / Write</programlisting>
+<para>clientWindow.</para></refsect2>
+<refsect2 id="GXimICAttr--colorMap"><title>The <literal>&quot;colorMap&quot;</literal> property</title>
+<indexterm zone="GXimICAttr--colorMap"><primary>GXimICAttr:colorMap</primary></indexterm><programlisting>  &quot;colorMap&quot;                 <link linkend="gulong">gulong</link>                : Read / Write</programlisting>
+<para>colorMap.</para></refsect2>
+<refsect2 id="GXimICAttr--cursor"><title>The <literal>&quot;cursor&quot;</literal> property</title>
+<indexterm zone="GXimICAttr--cursor"><primary>GXimICAttr:cursor</primary></indexterm><programlisting>  &quot;cursor&quot;                   <link linkend="gulong">gulong</link>                : Read / Write</programlisting>
+<para>cursor.</para></refsect2>
+<refsect2 id="GXimICAttr--filterEvents"><title>The <literal>&quot;filterEvents&quot;</literal> property</title>
+<indexterm zone="GXimICAttr--filterEvents"><primary>GXimICAttr:filterEvents</primary></indexterm><programlisting>  &quot;filterEvents&quot;             <link linkend="gulong">gulong</link>                : Read / Write</programlisting>
+<para>filterEvents.</para></refsect2>
+<refsect2 id="GXimICAttr--focusWindow"><title>The <literal>&quot;focusWindow&quot;</literal> property</title>
+<indexterm zone="GXimICAttr--focusWindow"><primary>GXimICAttr:focusWindow</primary></indexterm><programlisting>  &quot;focusWindow&quot;              <link linkend="GdkWindow">GdkWindow</link>*            : Read / Write</programlisting>
+<para>focusWindow.</para></refsect2>
+<refsect2 id="GXimICAttr--fontSet"><title>The <literal>&quot;fontSet&quot;</literal> property</title>
+<indexterm zone="GXimICAttr--fontSet"><primary>GXimICAttr:fontSet</primary></indexterm><programlisting>  &quot;fontSet&quot;                  <link linkend="GXimFontSet">GXimFontSet</link>*          : Read / Write</programlisting>
+<para>fontSet.</para></refsect2>
+<refsect2 id="GXimICAttr--foreground"><title>The <literal>&quot;foreground&quot;</literal> property</title>
+<indexterm zone="GXimICAttr--foreground"><primary>GXimICAttr:foreground</primary></indexterm><programlisting>  &quot;foreground&quot;               <link linkend="gulong">gulong</link>                : Read / Write</programlisting>
+<para>foreground.</para></refsect2>
+<refsect2 id="GXimICAttr--inputStyle"><title>The <literal>&quot;inputStyle&quot;</literal> property</title>
+<indexterm zone="GXimICAttr--inputStyle"><primary>GXimICAttr:inputStyle</primary></indexterm><programlisting>  &quot;inputStyle&quot;               <link linkend="gulong">gulong</link>                : Read / Write</programlisting>
+<para>inputStyle.</para></refsect2>
+<refsect2 id="GXimICAttr--lineSpace"><title>The <literal>&quot;lineSpace&quot;</literal> property</title>
+<indexterm zone="GXimICAttr--lineSpace"><primary>GXimICAttr:lineSpace</primary></indexterm><programlisting>  &quot;lineSpace&quot;                <link linkend="gulong">gulong</link>                : Read / Write</programlisting>
+<para>lineSpace.</para></refsect2>
+<refsect2 id="GXimICAttr--preeditAttributes"><title>The <literal>&quot;preeditAttributes&quot;</literal> property</title>
+<indexterm zone="GXimICAttr--preeditAttributes"><primary>GXimICAttr:preeditAttributes</primary></indexterm><programlisting>  &quot;preeditAttributes&quot;        <link linkend="NESTEDLIST:CAPS">NESTEDLIST</link>*           : Read / Write</programlisting>
+<para>preeditAttributes.</para></refsect2>
+<refsect2 id="GXimICAttr--preeditState"><title>The <literal>&quot;preeditState&quot;</literal> property</title>
+<indexterm zone="GXimICAttr--preeditState"><primary>GXimICAttr:preeditState</primary></indexterm><programlisting>  &quot;preeditState&quot;             <link linkend="gulong">gulong</link>                : Read / Write</programlisting>
+<para>preeditState.</para></refsect2>
+<refsect2 id="GXimICAttr--resetState"><title>The <literal>&quot;resetState&quot;</literal> property</title>
+<indexterm zone="GXimICAttr--resetState"><primary>GXimICAttr:resetState</primary></indexterm><programlisting>  &quot;resetState&quot;               <link linkend="gulong">gulong</link>                : Read / Write</programlisting>
+<para>resetState.</para></refsect2>
+<refsect2 id="GXimICAttr--separatorofNestedList"><title>The <literal>&quot;separatorofNestedList&quot;</literal> property</title>
+<indexterm zone="GXimICAttr--separatorofNestedList"><primary>GXimICAttr:separatorofNestedList</primary></indexterm><programlisting>  &quot;separatorofNestedList&quot;    <link linkend="SeparatorofNestedList">SeparatorofNestedList</link>*  : Read / Write</programlisting>
+<para>separatorofNestedList.</para></refsect2>
+<refsect2 id="GXimICAttr--spotLocation"><title>The <literal>&quot;spotLocation&quot;</literal> property</title>
+<indexterm zone="GXimICAttr--spotLocation"><primary>GXimICAttr:spotLocation</primary></indexterm><programlisting>  &quot;spotLocation&quot;             <link linkend="GXimPoint">GXimPoint</link>*            : Read / Write</programlisting>
+<para>spotLocation.</para></refsect2>
+<refsect2 id="GXimICAttr--statusAttributes"><title>The <literal>&quot;statusAttributes&quot;</literal> property</title>
+<indexterm zone="GXimICAttr--statusAttributes"><primary>GXimICAttr:statusAttributes</primary></indexterm><programlisting>  &quot;statusAttributes&quot;         <link linkend="NESTEDLIST:CAPS">NESTEDLIST</link>*           : Read / Write</programlisting>
+<para>statusAttributes.</para></refsect2>
+<refsect2 id="GXimICAttr--stdColorMap"><title>The <literal>&quot;stdColorMap&quot;</literal> property</title>
+<indexterm zone="GXimICAttr--stdColorMap"><primary>GXimICAttr:stdColorMap</primary></indexterm><programlisting>  &quot;stdColorMap&quot;              <link linkend="gulong">gulong</link>                : Read / Write</programlisting>
+<para>stdColorMap.</para></refsect2>
+<refsect2 id="GXimIMAttr--queryInputStyle"><title>The <literal>&quot;queryInputStyle&quot;</literal> property</title>
+<indexterm zone="GXimIMAttr--queryInputStyle"><primary>GXimIMAttr:queryInputStyle</primary></indexterm><programlisting>  &quot;queryInputStyle&quot;          <link linkend="GXimStyles">GXimStyles</link>*           : Read / Write</programlisting>
+<para>queryInputStyle.</para></refsect2>
+<refsect2 id="GXimClientTemplate--atom-server"><title>The <literal>&quot;atom-server&quot;</literal> property</title>
+<indexterm zone="GXimClientTemplate--atom-server"><primary>GXimClientTemplate:atom-server</primary></indexterm><programlisting>  &quot;atom-server&quot;              <link linkend="gpointer">gpointer</link>              : Read / Write / Construct Only</programlisting>
+<para>
+the <link linkend="GdkAtom"><type>GdkAtom</type></link> where the client instance should connects to. the atom
+name would be something what you specify with XMODIFIERS=<parameter>im</parameter>=.</para>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimConnection--proto-signals"><title>The <literal>&quot;proto-signals&quot;</literal> property</title>
+<indexterm zone="GXimConnection--proto-signals"><primary>GXimConnection:proto-signals</primary></indexterm><programlisting>  &quot;proto-signals&quot;            <link linkend="gpointer">gpointer</link>              : Read / Write / Construct Only</programlisting>
+<para>
+a <link linkend="GSList"><type>GSList</type></link> contains <link linkend="GXimLazySignalConnector"><type>GXimLazySignalConnector</type></link> to connected the signals
+when the connection is configured.</para>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimCore--connection-gtype"><title>The <literal>&quot;connection-gtype&quot;</literal> property</title>
+<indexterm zone="GXimCore--connection-gtype"><primary>GXimCore:connection-gtype</primary></indexterm><programlisting>  &quot;connection-gtype&quot;         <link linkend="GType">GType</link>*                : Read / Write / Construct Only</programlisting>
+<para>
+a <link linkend="GType"><type>GType</type></link> inherited from <link linkend="GXimConnection"><type>GXimConnection</type></link>. this will be a instance and
+determines the connection type when the connection is requested.</para>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimCore--display"><title>The <literal>&quot;display&quot;</literal> property</title>
+<indexterm zone="GXimCore--display"><primary>GXimCore:display</primary></indexterm><programlisting>  &quot;display&quot;                  <link linkend="GdkDisplay">GdkDisplay</link>*           : Read / Write / Construct Only</programlisting>
+<para>Gdk display to use.</para></refsect2>
+<refsect2 id="GXimCore--proto-signals"><title>The <literal>&quot;proto-signals&quot;</literal> property</title>
+<indexterm zone="GXimCore--proto-signals"><primary>GXimCore:proto-signals</primary></indexterm><programlisting>  &quot;proto-signals&quot;            <link linkend="gpointer">gpointer</link>              : Read / Write</programlisting>
+<para>
+a set of <link linkend="GXimLazySignalConnector"><type>GXimLazySignalConnector</type></link> to connect signals to a instance
+of <link linkend="GXimCore--connection-gtype"><type>"connection-gtype"</type></link> when the connection is negothating.</para>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimCore--selection-window"><title>The <literal>&quot;selection-window&quot;</literal> property</title>
+<indexterm zone="GXimCore--selection-window"><primary>GXimCore:selection-window</primary></indexterm><programlisting>  &quot;selection-window&quot;         <link linkend="GdkWindow">GdkWindow</link>*            : Read</programlisting>
+<para>
+a <link linkend="GdkWindow"><type>GdkWindow</type></link> to communicate with the XIM server or the client
+application.</para>
+<para>
+
+</para></refsect2>
+<refsect2 id="GXimMessage--all-filters"><title>The <literal>&quot;all-filters&quot;</literal> property</title>
+<indexterm zone="GXimMessage--all-filters"><primary>GXimMessage:all-filters</primary></indexterm><programlisting>  &quot;all-filters&quot;              <link linkend="gboolean">gboolean</link>              : Read / Write</programlisting>
+<para>
+<link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to enable all of the message filters. <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> to deal with each filters added by <link linkend="GXimMessage-filter-added"><type>"filter-added"</type></link> signal.</para>
+<para>
+
+</para><para>Default value: FALSE</para>
+</refsect2>
+<refsect2 id="GXimMessage--master"><title>The <literal>&quot;master&quot;</literal> property</title>
+<indexterm zone="GXimMessage--master"><primary>GXimMessage:master</primary></indexterm><programlisting>  &quot;master&quot;                   <link linkend="gboolean">gboolean</link>              : Read / Write</programlisting>
+<para>
+<link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to be a master instance of <link linkend="GXimMessage"><type>GXimMessage</type></link>. <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> to be a slave instance of <link linkend="GXimMessage"><type>GXimMessage</type></link>.</para>
+<para>
+
+</para><para>Default value: FALSE</para>
+</refsect2>
+<refsect2 id="GXimServerTemplate--server-name"><title>The <literal>&quot;server-name&quot;</literal> property</title>
+<indexterm zone="GXimServerTemplate--server-name"><primary>GXimServerTemplate:server-name</primary></indexterm><programlisting>  &quot;server-name&quot;              <link linkend="gchar">gchar</link>*                : Read / Write / Construct Only</programlisting>
+<para>
+XIM server name that is used to identify the XIM server through
+X property, such as XIM_SERVERS. also it's used to identify for
+client applications with XMODIFIERS.</para>
+<para>
+
+</para><para>Default value: NULL</para>
+</refsect2>
+
+</refsect1>
+
+<refsect1 id="libgxim-gximtypes.signal-details" role="signals">
+<title role="signals.title">Signal Details</title>
+<refsect2 id="GXimClientTemplate-notify-locales"><title>The <literal>&quot;notify-locales&quot;</literal> signal</title>
+<indexterm zone="GXimClientTemplate-notify-locales"><primary>GXimClientTemplate::notify-locales</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="GXimClientTemplate">GXimClientTemplate</link> *cltmpl,
+                                                        <link linkend="GStrv">GStrv</link>              *locales,
+                                                        <link linkend="gpointer">gpointer</link>            user_data)      : Run First</programlisting>
+<para>
+The ::notify-locales signal will be emitted when the <parameter>cltmpl</parameter> received
+a reply of acquiring the supported locales in XIM server.
+</para>
+<para>
+This is a convenience signal to deal with
+<link linkend="GXimCore-selection-notify-event"><type>"selection-notify-event"</type></link> for a reply of <link linkend="LOCALES:CAPS"><literal>LOCALES</literal></link> request.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>cltmpl</parameter>&nbsp;:</term>
+<listitem><simpara> the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>locales</parameter>&nbsp;:</term>
+<listitem><simpara> an array of the string contains the locale names with
+ <link linkend="NULL:CAPS"><literal>NULL</literal></link>-terminated.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2 id="GXimClientTemplate-notify-transport"><title>The <literal>&quot;notify-transport&quot;</literal> signal</title>
+<indexterm zone="GXimClientTemplate-notify-transport"><primary>GXimClientTemplate::notify-transport</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="GXimClientTemplate">GXimClientTemplate</link> *cltmpl,
+                                                        <link linkend="GStrv">GStrv</link>              *transport,
+                                                        <link linkend="gpointer">gpointer</link>            user_data)      : Run First</programlisting>
+<para>
+The ::notify-transport signal will be emitted when the <parameter>cltmpl</parameter>
+received a reply of acquiring the supported transport-specific names
+in XIM server.
+</para>
+<para>
+This is a convenience signal to deal with
+<link linkend="GXimCore-selection-notify-event"><type>"selection-notify-event"</type></link> for a reply of <link linkend="TRANSPORT:CAPS"><literal>TRANSPORT</literal></link> request.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>cltmpl</parameter>&nbsp;:</term>
+<listitem><simpara> the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>transport</parameter>&nbsp;:</term>
+<listitem><simpara> an array of the string contains the transport-specific
+ names with <link linkend="NULL:CAPS"><literal>NULL</literal></link>-terminated.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2 id="GXimClientTemplate-xconnect"><title>The <literal>&quot;xconnect&quot;</literal> signal</title>
+<indexterm zone="GXimClientTemplate-xconnect"><primary>GXimClientTemplate::xconnect</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            user_function                      (<link linkend="GXimClientTemplate">GXimClientTemplate</link> *cltmpl,
+                                                        <link linkend="GdkEvent">GdkEvent</link>           *event,
+                                                        <link linkend="gpointer">gpointer</link>            user_data)      : Run Last</programlisting>
+<para>
+The ::xconnect signal will be emitted when <link linkend="XIM-XCONNECT:CAPS"><literal>XIM_XCONNECT</literal></link> event is
+dispatched from the XIM server in order to respond to <link linkend="XIM-XCONNECT:CAPS"><literal>XIM_XCONNECT</literal></link>
+event from the client.
+See The Input Method Protocol, XIM specification document for more
+details about <link linkend="XIM-XCONNECT:CAPS"><literal>XIM_XCONNECT</literal></link>.</para>
+<para>
+
+</para>
+
+@:<variablelist role="params">
+<varlistentry><term><parameter>cltmpl</parameter>&nbsp;:</term>
+<listitem><simpara> the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>event</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="GdkEventClient"><type>GdkEventClient</type></link> which triggered this signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to stop other handlers from being invoked for
+ the event. <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> to propagate the event further.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2 id="GXimCore-client-event"><title>The <literal>&quot;client-event&quot;</literal> signal</title>
+<indexterm zone="GXimCore-client-event"><primary>GXimCore::client-event</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            user_function                      (<link linkend="GXimCore">GXimCore</link>       *core,
+                                                        <link linkend="GdkEventClient">GdkEventClient</link> *event,
+                                                        <link linkend="gpointer">gpointer</link>        user_data)      : Run Last</programlisting>
+<para>
+The ::client-event signal will be emitted when the <parameter>core</parameter>'s window
+receives a message (via ClientMessage event) from another application.
+all of XIM protocol is delivered with this signal.</para>
+<para>
+
+</para>
+
+@:<variablelist role="params">
+<varlistentry><term><parameter>core</parameter>&nbsp;:</term>
+<listitem><simpara> the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>event</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="GdkEventClient"><type>GdkEventClient</type></link> which triggered this signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to stop other handlers from being invoked for
+the event. <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> to propagate the event further.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2 id="GXimCore-destroy-event"><title>The <literal>&quot;destroy-event&quot;</literal> signal</title>
+<indexterm zone="GXimCore-destroy-event"><primary>GXimCore::destroy-event</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            user_function                      (<link linkend="GXimCore">GXimCore</link> *core,
+                                                        <link linkend="GdkEvent">GdkEvent</link> *event,
+                                                        <link linkend="gpointer">gpointer</link>  user_data)      : Run Last</programlisting>
+<para>
+The ::destroy-event signal will be emitted when a <link linkend="GdkWindow"><type>GdkWindow</type></link>
+is destroyed. typically you will see that when the client connection
+is disconnected from the client side.</para>
+<para>
+
+</para>
+
+@:<variablelist role="params">
+<varlistentry><term><parameter>core</parameter>&nbsp;:</term>
+<listitem><simpara> the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>event</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="GdkEvent"><type>GdkEvent</type></link> which triggered this signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to stop other handlers from being invoked for
+the event. <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> to propagate the event further.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2 id="GXimCore-expose-event"><title>The <literal>&quot;expose-event&quot;</literal> signal</title>
+<indexterm zone="GXimCore-expose-event"><primary>GXimCore::expose-event</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            user_function                      (<link linkend="GXimCore">GXimCore</link>       *gximcore,
+                                                        <link linkend="GdkEventExpose">GdkEventExpose</link> *event,
+                                                        <link linkend="gpointer">gpointer</link>        user_data)      : Run Last</programlisting>
+<para>
+
+</para>
+
+@:<variablelist role="params">
+<varlistentry><term><parameter>Param2</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2 id="GXimCore-selection-clear-event"><title>The <literal>&quot;selection-clear-event&quot;</literal> signal</title>
+<indexterm zone="GXimCore-selection-clear-event"><primary>GXimCore::selection-clear-event</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            user_function                      (<link linkend="GXimCore">GXimCore</link>          *core,
+                                                        <link linkend="GdkEventSelection">GdkEventSelection</link> *event,
+                                                        <link linkend="gpointer">gpointer</link>           user_data)      : Run Last</programlisting>
+<para>
+The ::selection-clear-event signal will be emitted when the
+<parameter>core</parameter>'s window has lost ownership of a selection. this signal
+won't appears in the client instance, such as inherited from
+<link linkend="GXimClientTemplate"><type>GXimClientTemplate</type></link>.</para>
+<para>
+
+</para>
+
+@:<variablelist role="params">
+<varlistentry><term><parameter>core</parameter>&nbsp;:</term>
+<listitem><simpara> the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>event</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="GdkEventSelection"><type>GdkEventSelection</type></link> which triggered this signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to stop other handlers from being invoked for
+the event. <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> to propagate the event further.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2 id="GXimCore-selection-notify-event"><title>The <literal>&quot;selection-notify-event&quot;</literal> signal</title>
+<indexterm zone="GXimCore-selection-notify-event"><primary>GXimCore::selection-notify-event</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            user_function                      (<link linkend="GXimCore">GXimCore</link>          *core,
+                                                        <link linkend="GdkEventSelection">GdkEventSelection</link> *event,
+                                                        <link linkend="gpointer">gpointer</link>           user_data)      : Run Last</programlisting>
+<para>
+The ::selection-notify-event signal will be emitted when the
+the XIM server responded requests to get the supported locales
+and the transport-specific names. this signal won't appears in
+the server instance, such as inherited from <link linkend="GXimServerTemplate"><type>GXimServerTemplate</type></link>.</para>
+<para>
+
+</para>
+
+@:<variablelist role="params">
+<varlistentry><term><parameter>core</parameter>&nbsp;:</term>
+<listitem><simpara> the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>event</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="GdkEventSelection"><type>GdkEventSelection</type></link> which triggered this signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to stop other handlers from being invoked for
+the event. <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> to propagate the event further.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2 id="GXimCore-selection-request-event"><title>The <literal>&quot;selection-request-event&quot;</literal> signal</title>
+<indexterm zone="GXimCore-selection-request-event"><primary>GXimCore::selection-request-event</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            user_function                      (<link linkend="GXimCore">GXimCore</link>          *core,
+                                                        <link linkend="GdkEventSelection">GdkEventSelection</link> *event,
+                                                        <link linkend="gpointer">gpointer</link>           user_data)      : Run Last</programlisting>
+<para>
+The ::selection-request-event signal will be emitted when the client
+applications requests a set of names of the supported locales and
+the preregistered formats for transport-specific names. this signal
+won't appears in the client instance, such as inherited from
+<link linkend="GXimClientTemplate"><type>GXimClientTemplate</type></link>.</para>
+<para>
+
+</para>
+
+@:<variablelist role="params">
+<varlistentry><term><parameter>core</parameter>&nbsp;:</term>
+<listitem><simpara> the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>event</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="GdkEventSelection"><type>GdkEventSelection</type></link> which triggered this signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to stop other handlers from being invoked for
+the event. <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> to propagate the event further.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2 id="GXimMessage-activated"><title>The <literal>&quot;activated&quot;</literal> signal</title>
+<indexterm zone="GXimMessage-activated"><primary>GXimMessage::activated</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            user_function                      (<link linkend="GXimMessage">GXimMessage</link> *message,
+                                                        <link linkend="gboolean">gboolean</link>     flag,
+                                                        <link linkend="gpointer">gpointer</link>     user_data)      : Run Last</programlisting>
+<para>
+The ::activated signal will be emitted when someone calls
+<link linkend="g-xim-message-activate"><function>g_xim_message_activate()</function></link> or when someone emits Activate signal
+through DBus.</para>
+<para>
+
+</para>
+
+@:<variablelist role="params">
+<varlistentry><term><parameter>message</parameter>&nbsp;:</term>
+<listitem><simpara> the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>flag</parameter>&nbsp;:</term>
+<listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to enable the logging facility.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to stop other handlers from being invoked for
+the event. <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> to propagate the event further.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2 id="GXimMessage-created"><title>The <literal>&quot;created&quot;</literal> signal</title>
+<indexterm zone="GXimMessage-created"><primary>GXimMessage::created</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="GXimMessage">GXimMessage</link> *message,
+                                                        <link linkend="GXimMessage">GXimMessage</link> *created_object,
+                                                        <link linkend="gpointer">gpointer</link>     user_data)           : Run First</programlisting>
+<para>
+The ::created signal will be emitted when an instance of <link linkend="GXimMessage"><type>GXimMessage</type></link>
+is created. the master object only receives this signal.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>message</parameter>&nbsp;:</term>
+<listitem><simpara> the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>created_object</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GXimMessage"><type>GXimMessage</type></link> which newly created somewhere in the process.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2 id="GXimMessage-filename-changed"><title>The <literal>&quot;filename-changed&quot;</literal> signal</title>
+<indexterm zone="GXimMessage-filename-changed"><primary>GXimMessage::filename-changed</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            user_function                      (<link linkend="GXimMessage">GXimMessage</link> *message,
+                                                        <link linkend="gchar">gchar</link>       *filename,
+                                                        <link linkend="gpointer">gpointer</link>     user_data)      : Run Last</programlisting>
+<para>
+The ::filename-changed signal will be emitted when someone calls
+<link linkend="g-xim-message-set-filename"><function>g_xim_message_set_filename()</function></link> or when someone emits SetFilename signal
+through DBus.</para>
+<para>
+
+</para>
+
+@:<variablelist role="params">
+<varlistentry><term><parameter>message</parameter>&nbsp;:</term>
+<listitem><simpara> the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>filename</parameter>&nbsp;:</term>
+<listitem><simpara> a filename to be logged into.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to stop other handlers from being invoked for
+the event. <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> to propagate the event further.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2 id="GXimMessage-filter-added"><title>The <literal>&quot;filter-added&quot;</literal> signal</title>
+<indexterm zone="GXimMessage-filter-added"><primary>GXimMessage::filter-added</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            user_function                      (<link linkend="GXimMessage">GXimMessage</link> *message,
+                                                        <link linkend="gchar">gchar</link>       *filter,
+                                                        <link linkend="gpointer">gpointer</link>     user_data)      : Run Last</programlisting>
+<para>
+The ::filter-added signal will be emitted when someone calls
+<link linkend="g-xim-message-enable-filter"><function>g_xim_message_enable_filter()</function></link> or when someone emits AddFilter signal
+through DBus.</para>
+<para>
+
+</para>
+
+@:<variablelist role="params">
+<varlistentry><term><parameter>message</parameter>&nbsp;:</term>
+<listitem><simpara> the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>filter</parameter>&nbsp;:</term>
+<listitem><simpara> the filter name to enable logging.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to stop other handlers from being invoked for
+the event. <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> to propagate the event further.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2 id="GXimMessage-filter-cleared"><title>The <literal>&quot;filter-cleared&quot;</literal> signal</title>
+<indexterm zone="GXimMessage-filter-cleared"><primary>GXimMessage::filter-cleared</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            user_function                      (<link linkend="GXimMessage">GXimMessage</link> *message,
+                                                        <link linkend="gpointer">gpointer</link>     user_data)      : Run Last</programlisting>
+<para>
+The ::filter-cleared signal will be emitted when someone calls
+<link linkend="g-xim-message-clear-filter"><function>g_xim_message_clear_filter()</function></link> or when someone emits RemoveAllFilters
+signal through DBus.</para>
+<para>
+
+</para>
+
+@:<variablelist role="params">
+<varlistentry><term><parameter>message</parameter>&nbsp;:</term>
+<listitem><simpara> the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to stop other handlers from being invoked for
+the event. <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> to propagate the event further.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2 id="GXimProtocol-parser-error"><title>The <literal>&quot;parser-error&quot;</literal> signal</title>
+<indexterm zone="GXimProtocol-parser-error"><primary>GXimProtocol::parser-error</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            user_function                      (<link linkend="GXimProtocol">GXimProtocol</link> *gximprotocol,
+                                                        <link linkend="guint">guint</link>         arg1,
+                                                        <link linkend="guint">guint</link>         arg2,
+                                                        <link linkend="guint">guint</link>         arg3,
+                                                        <link linkend="guint">guint</link>         arg4,
+                                                        <link linkend="gpointer">gpointer</link>      user_data)         : Run Last</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>gximprotocol</parameter>&nbsp;:</term>
+<listitem><simpara>the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg1</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg2</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg3</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg4</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2 id="GXimServerConnection-is-auth-required"><title>The <literal>&quot;is-auth-required&quot;</literal> signal</title>
+<indexterm zone="GXimServerConnection-is-auth-required"><primary>GXimServerConnection::is-auth-required</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            user_function                      (<link linkend="GXimServerConnection">GXimServerConnection</link> *gximserverconnection,
+                                                        <link linkend="gpointer">gpointer</link>              user_data)                 : Run Last</programlisting>
+<para>
+
+</para>
+
+@:<variablelist role="params">
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2 id="GXimServerTemplate-destroy"><title>The <literal>&quot;destroy&quot;</literal> signal</title>
+<indexterm zone="GXimServerTemplate-destroy"><primary>GXimServerTemplate::destroy</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="GXimServerTemplate">GXimServerTemplate</link> *srvtmpl,
+                                                        <link linkend="gpointer">gpointer</link>            user_data)      : Run First</programlisting>
+<para>
+The ::destroy signal will be emitted when the instance is going to
+be destroyed. you can do something with it if you want.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>srvtmpl</parameter>&nbsp;:</term>
+<listitem><simpara> the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2 id="GXimServerTemplate-get-supported-locales"><title>The <literal>&quot;get-supported-locales&quot;</literal> signal</title>
+<indexterm zone="GXimServerTemplate-get-supported-locales"><primary>GXimServerTemplate::get-supported-locales</primary></indexterm><programlisting><link linkend="gchar">gchar</link>*              user_function                      (<link linkend="GXimServerTemplate">GXimServerTemplate</link> *srvtmpl,
+                                                        <link linkend="gpointer">gpointer</link>            user_data)      : Run Last</programlisting>
+<para>
+The ::get-supported-locales signal will be emitted when the client
+application is connecting and requesting which locales XIM server
+would supports.
+</para>
+<para>
+This is a convenience signal to deal with
+<link linkend="GXimCore-selection-request-event"><type>"selection-request-event"</type></link> for <link linkend="LOCALES:CAPS"><literal>LOCALES</literal></link> request.</para>
+<para>
+
+</para>
+
+@:<variablelist role="params">
+<varlistentry><term><parameter>srvtmpl</parameter>&nbsp;:</term>
+<listitem><simpara> the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a locales string that XIM server would supports. multiple
+locales would be separated with comma.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2 id="GXimServerTemplate-get-supported-transport"><title>The <literal>&quot;get-supported-transport&quot;</literal> signal</title>
+<indexterm zone="GXimServerTemplate-get-supported-transport"><primary>GXimServerTemplate::get-supported-transport</primary></indexterm><programlisting><link linkend="gchar">gchar</link>*              user_function                      (<link linkend="GXimServerTemplate">GXimServerTemplate</link> *srvtmpl,
+                                                        <link linkend="gpointer">gpointer</link>            user_data)      : Run Last</programlisting>
+<para>
+The ::get-supported-transport signal will be emitted when the client
+application is connecting and requesting which transport-specific names
+XIM server would supports.
+</para>
+<para>
+This is a convenience signal to deal with
+<link linkend="GXimCore-selection-request-event"><type>"selection-request-event"</type></link> for <link linkend="TRANSPORT:CAPS"><literal>TRANSPORT</literal></link> request.</para>
+<para>
+
+</para>
+
+@:<variablelist role="params">
+<varlistentry><term><parameter>srvtmpl</parameter>&nbsp;:</term>
+<listitem><simpara> the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a transport-specific names that XIM server would supports.
+In general, you may just need to support "X/" for X Window System.
+
+Multiple transport-specific names would be separated with comma.
+and evaluated in order of the list.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2 id="GXimServerTemplate-xconnect"><title>The <literal>&quot;xconnect&quot;</literal> signal</title>
+<indexterm zone="GXimServerTemplate-xconnect"><primary>GXimServerTemplate::xconnect</primary></indexterm><programlisting><link linkend="GXimConnection">GXimConnection</link>*     user_function                      (<link linkend="GXimServerTemplate">GXimServerTemplate</link> *srvtmpl,
+                                                        <link linkend="GdkEvent">GdkEvent</link>           *event,
+                                                        <link linkend="gpointer">gpointer</link>            user_data)      : Run Last</programlisting>
+<para>
+The ::xconnect signal will be emitted when <link linkend="XIM-XCONNECT:CAPS"><literal>XIM_XCONNECT</literal></link> event is
+dispatched from the client applications in order to establish
+a connection between XIM server and a client.
+During processing this signal, it would be supposed to prepare
+a <link linkend="GXimConnection"><type>GXimConnection</type></link> instance and sends back <link linkend="XIM-XCONNECT:CAPS"><literal>XIM_XCONNECT</literal></link> reply to
+the client. See The Input Method Protocol, XIM specification document
+for more details about <link linkend="XIM-XCONNECT:CAPS"><literal>XIM_XCONNECT</literal></link>.</para>
+<para>
+
+</para>
+
+@:<variablelist role="params">
+<varlistentry><term><parameter>srvtmpl</parameter>&nbsp;:</term>
+<listitem><simpara> the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>event</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="GdkEventClient"><type>GdkEventClient</type></link> which triggered this signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a <link linkend="GXimConnection"><type>GXimConnection</type></link> for this session.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+</refsect1>
+
+
+
+</refentry>
