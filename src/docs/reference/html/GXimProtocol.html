@@ -1,0 +1,1636 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GXimProtocol</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
+<link rel="home" href="index.html" title="libgxim Reference Manual">
+<link rel="up" href="ch02.html" title="Base Interface Classes">
+<link rel="prev" href="ch02.html" title="Base Interface Classes">
+<link rel="next" href="GXimTransport.html" title="GXimTransport">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="ch02.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch02.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libgxim Reference Manual</th>
+<td><a accesskey="n" href="GXimTransport.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#GXimProtocol.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#GXimProtocol.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="GXimProtocol"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GXimProtocol.top_of_page"></a>GXimProtocol</span></h2>
+<p>GXimProtocol — Base interface for XIM protocol</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="GXimProtocol.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">                    <a class="link" href="GXimProtocol.html#GXimProtocolClosure" title="GXimProtocolClosure">GXimProtocolClosure</a>;
+<span class="returnvalue">gboolean</span>            (<a class="link" href="GXimProtocol.html#GXimProtocolClosureFunc" title="GXimProtocolClosureFunc ()">*GXimProtocolClosureFunc</a>)          (<em class="parameter"><code><a class="link" href="GXimProtocol.html#GXimProtocolClosure" title="GXimProtocolClosure"><span class="type">GXimProtocolClosure</span></a> *closure</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GDataInputStream</span> *stream</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+enum                <a class="link" href="GXimProtocol.html#GXimProtocolError" title="enum GXimProtocolError">GXimProtocolError</a>;
+struct              <a class="link" href="GXimProtocol.html#GXimProtocolIface" title="struct GXimProtocolIface">GXimProtocolIface</a>;
+struct              <a class="link" href="GXimProtocol.html#GXimProtocolQueueNode" title="struct GXimProtocolQueueNode">GXimProtocolQueueNode</a>;
+#define             <a class="link" href="GXimProtocol.html#G-XIM-OPCODE-KEY:CAPS" title="G_XIM_OPCODE_KEY()">G_XIM_OPCODE_KEY</a>                    (_m_,
+                                                         _n_)
+#define             <a class="link" href="GXimProtocol.html#G-XIM-PROTOCOL-ERROR:CAPS" title="G_XIM_PROTOCOL_ERROR">G_XIM_PROTOCOL_ERROR</a>
+<span class="returnvalue">gpointer</span>            <a class="link" href="GXimProtocol.html#g-xim-attr-get-attribute-from-stream" title="g_xim_attr_get_attribute_from_stream ()">g_xim_attr_get_attribute_from_stream</a>
+                                                        (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GXimIMAttr.html#GXimAttr"><span class="type">GXimAttr</span></a> *attr</code></em>,
+                                                         <em class="parameter"><code><span class="type">GDataInputStream</span> *stream</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gsize</span>               <a class="link" href="GXimProtocol.html#g-xim-attr-put-attribute-to-stream" title="g_xim_attr_put_attribute_to_stream ()">g_xim_attr_put_attribute_to_stream</a>  (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GXimIMAttr.html#GXimAttr"><span class="type">GXimAttr</span></a> *attr</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> attribute_id</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GXimProtocol.html#g-xim-protocol-add-protocol" title="g_xim_protocol_add_protocol ()">g_xim_protocol_add_protocol</a>         (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GXimProtocol.html#GXimProtocolClosure" title="GXimProtocolClosure"><span class="type">GXimProtocolClosure</span></a> *closure</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GXimProtocol.html#g-xim-protocol-cancel-queue" title="g_xim_protocol_cancel_queue ()">g_xim_protocol_cancel_queue</a>         (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GXimProtocol.html#g-xim-protocol-closure-add-signal" title="g_xim_protocol_closure_add_signal ()">g_xim_protocol_closure_add_signal</a>   (<em class="parameter"><code><a class="link" href="GXimProtocol.html#GXimProtocolClosure" title="GXimProtocolClosure"><span class="type">GXimProtocolClosure</span></a> *closure</code></em>,
+                                                         <em class="parameter"><code><span class="type">GClosureMarshal</span> marshaller</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> n_params</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);
+<span class="returnvalue">gulong</span>              <a class="link" href="GXimProtocol.html#g-xim-protocol-closure-connect" title="g_xim_protocol_closure_connect ()">g_xim_protocol_closure_connect</a>      (<em class="parameter"><code><a class="link" href="GXimProtocol.html#GXimProtocolClosure" title="GXimProtocolClosure"><span class="type">GXimProtocolClosure</span></a> *closure</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCallback</span> func</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GXimProtocol.html#g-xim-protocol-closure-disconnect" title="g_xim_protocol_closure_disconnect ()">g_xim_protocol_closure_disconnect</a>   (<em class="parameter"><code><a class="link" href="GXimProtocol.html#GXimProtocolClosure" title="GXimProtocolClosure"><span class="type">GXimProtocolClosure</span></a> *closure</code></em>,
+                                                         <em class="parameter"><code><span class="type">gulong</span> id</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="GXimProtocol.html#g-xim-protocol-closure-emit-signal" title="g_xim_protocol_closure_emit_signal ()">g_xim_protocol_closure_emit_signal</a>  (<em class="parameter"><code><a class="link" href="GXimProtocol.html#GXimProtocolClosure" title="GXimProtocolClosure"><span class="type">GXimProtocolClosure</span></a> *closure</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GXimProtocol.html#g-xim-protocol-closure-free" title="g_xim_protocol_closure_free ()">g_xim_protocol_closure_free</a>         (<em class="parameter"><code><span class="type">gpointer</span> data</code></em>,
+                                                         <em class="parameter"><code><span class="type">GClosure</span> *closure</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="GXimProtocol.html#g-xim-protocol-closure-is-an-extension" title="g_xim_protocol_closure_is_an_extension ()">g_xim_protocol_closure_is_an_extension</a>
+                                                        (<em class="parameter"><code><a class="link" href="GXimProtocol.html#GXimProtocolClosure" title="GXimProtocolClosure"><span class="type">GXimProtocolClosure</span></a> *closure</code></em>);
+<a class="link" href="GXimProtocol.html#GXimProtocolClosure" title="GXimProtocolClosure"><span class="returnvalue">GXimProtocolClosure</span></a> * <a class="link" href="GXimProtocol.html#g-xim-protocol-closure-new" title="g_xim_protocol_closure_new ()">g_xim_protocol_closure_new</a>        (<em class="parameter"><code><span class="type">guint8</span> major_opcode</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint8</span> minor_opcode</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> is_an_extension</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GXimProtocol.html#g-xim-protocol-closure-set-marshal" title="g_xim_protocol_closure_set_marshal ()">g_xim_protocol_closure_set_marshal</a>  (<em class="parameter"><code><a class="link" href="GXimProtocol.html#GXimProtocolClosure" title="GXimProtocolClosure"><span class="type">GXimProtocolClosure</span></a> *closure</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GXimProtocol.html#GXimProtocolClosureFunc" title="GXimProtocolClosureFunc ()"><span class="type">GXimProtocolClosureFunc</span></a> func</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);
+<span class="returnvalue">gulong</span>              <a class="link" href="GXimProtocol.html#g-xim-protocol-connect-closure-by-id" title="g_xim_protocol_connect_closure_by_id ()">g_xim_protocol_connect_closure_by_id</a>
+                                                        (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint8</span> major_opcode</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint8</span> minor_opcode</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCallback</span> func</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);
+<span class="returnvalue">gulong</span>              <a class="link" href="GXimProtocol.html#g-xim-protocol-connect-closure-by-name" title="g_xim_protocol_connect_closure_by_name ()">g_xim_protocol_connect_closure_by_name</a>
+                                                        (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *signal_name</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCallback</span> func</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GXimProtocol.html#g-xim-protocol-dispose" title="g_xim_protocol_dispose ()">g_xim_protocol_dispose</a>              (<em class="parameter"><code><span class="type">GObject</span> *object</code></em>);
+<a class="link" href="GXimProtocol.html#GXimProtocolQueueNode" title="struct GXimProtocolQueueNode"><span class="returnvalue">GXimProtocolQueueNode</span></a> * <a class="link" href="GXimProtocol.html#g-xim-protocol-end-queue" title="g_xim_protocol_end_queue ()">g_xim_protocol_end_queue</a>        (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GXimProtocol.html#g-xim-protocol-finalize" title="g_xim_protocol_finalize ()">g_xim_protocol_finalize</a>             (<em class="parameter"><code><span class="type">GObject</span> *object</code></em>);
+<span class="returnvalue">GQuark</span>              <a class="link" href="GXimProtocol.html#g-xim-protocol-get-error-quark" title="g_xim_protocol_get_error_quark ()">g_xim_protocol_get_error_quark</a>      (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">GSList</span> *            <a class="link" href="GXimProtocol.html#g-xim-protocol-get-extensions" title="g_xim_protocol_get_extensions ()">g_xim_protocol_get_extensions</a>       (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>);
+<span class="returnvalue">GXimProtocolPrivate</span> * <a class="link" href="GXimProtocol.html#g-xim-protocol-get-private" title="g_xim_protocol_get_private ()">g_xim_protocol_get_private</a>        (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>);
+<span class="returnvalue">guint</span>               <a class="link" href="GXimProtocol.html#g-xim-protocol-get-queue-length" title="g_xim_protocol_get_queue_length ()">g_xim_protocol_get_queue_length</a>     (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GXimProtocol.html#g-xim-protocol-init" title="g_xim_protocol_init ()">g_xim_protocol_init</a>                 (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="GXimProtocol.html#g-xim-protocol-is-queued" title="g_xim_protocol_is_queued ()">g_xim_protocol_is_queued</a>            (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>);
+<a class="link" href="GXimProtocol.html#GXimProtocolClosure" title="GXimProtocolClosure"><span class="returnvalue">GXimProtocolClosure</span></a> * <a class="link" href="GXimProtocol.html#g-xim-protocol-lookup-protocol-by-id" title="g_xim_protocol_lookup_protocol_by_id ()">g_xim_protocol_lookup_protocol_by_id</a>
+                                                        (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint8</span> major_opcode</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint8</span> minor_opcode</code></em>);
+<a class="link" href="GXimProtocol.html#GXimProtocolClosure" title="GXimProtocolClosure"><span class="returnvalue">GXimProtocolClosure</span></a> * <a class="link" href="GXimProtocol.html#g-xim-protocol-lookup-protocol-by-name" title="g_xim_protocol_lookup_protocol_by_name ()">g_xim_protocol_lookup_protocol_by_name</a>
+                                                        (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>);
+#define             <a class="link" href="GXimProtocol.html#g-xim-protocol-n-pad4" title="g_xim_protocol_n_pad4()">g_xim_protocol_n_pad4</a>               (_n_)
+<span class="returnvalue">gboolean</span>            <a class="link" href="GXimProtocol.html#g-xim-protocol-process-event" title="g_xim_protocol_process_event ()">g_xim_protocol_process_event</a>        (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gdk3/gdk-Event-Structures.html#GdkEventClient"><span class="type">GdkEventClient</span></a> *event</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="GXimProtocol.html#g-xim-protocol-raise-parser-error" title="g_xim_protocol_raise_parser_error ()">g_xim_protocol_raise_parser_error</a>   (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> major_opcode</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> minor_opcode</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> imid</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> icid</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="GXimProtocol.html#g-xim-protocol-read-format" title="g_xim_protocol_read_format ()">g_xim_protocol_read_format</a>          (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GDataInputStream</span> *stream</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> n_params</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="GXimProtocol.html#g-xim-protocol-read-vformat" title="g_xim_protocol_read_vformat ()">g_xim_protocol_read_vformat</a>         (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GDataInputStream</span> *stream</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> n_params</code></em>,
+                                                         <em class="parameter"><code><span class="type">va_list</span> args</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GXimProtocol.html#g-xim-protocol-remove-protocol" title="g_xim_protocol_remove_protocol ()">g_xim_protocol_remove_protocol</a>      (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GXimProtocol.html#GXimProtocolClosure" title="GXimProtocolClosure"><span class="type">GXimProtocolClosure</span></a> *closure</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GXimProtocol.html#g-xim-protocol-remove-protocol-by-id" title="g_xim_protocol_remove_protocol_by_id ()">g_xim_protocol_remove_protocol_by_id</a>
+                                                        (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint8</span> major_opcode</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint8</span> minor_opcode</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="GXimProtocol.html#g-xim-protocol-send" title="g_xim_protocol_send ()">g_xim_protocol_send</a>                 (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GXimOpcode</span> major_opcode</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint8</span> minor_opcode</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> n_params</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);
+<span class="returnvalue">gsize</span>               <a class="link" href="GXimProtocol.html#g-xim-protocol-send-format" title="g_xim_protocol_send_format ()">g_xim_protocol_send_format</a>          (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> n_params</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="GXimProtocol.html#g-xim-protocol-send-packets" title="g_xim_protocol_send_packets ()">g_xim_protocol_send_packets</a>         (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *data</code></em>,
+                                                         <em class="parameter"><code><span class="type">gsize</span> length</code></em>);
+<span class="returnvalue">gsize</span>               <a class="link" href="GXimProtocol.html#g-xim-protocol-send-vformat" title="g_xim_protocol_send_vformat ()">g_xim_protocol_send_vformat</a>         (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> n_params</code></em>,
+                                                         <em class="parameter"><code><span class="type">va_list</span> args</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="GXimProtocol.html#g-xim-protocol-send-with-list" title="g_xim_protocol_send_with_list ()">g_xim_protocol_send_with_list</a>       (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GXimOpcode</span> major_opcode</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint8</span> minor_opcode</code></em>,
+                                                         <em class="parameter"><code><span class="type">GSList</span> *types</code></em>,
+                                                         <em class="parameter"><code><span class="type">GSList</span> *values</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="GXimProtocol.html#g-xim-protocol-start-queue" title="g_xim_protocol_start_queue ()">g_xim_protocol_start_queue</a>          (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="GXimProtocol.html#g-xim-protocol-translate" title="g_xim_protocol_translate ()">g_xim_protocol_translate</a>            (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>,
+                                                         <em class="parameter"><code><span class="type">gssize</span> length</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="GXimProtocol.html#g-xim-protocol-wait-for-reply" title="g_xim_protocol_wait_for_reply ()">g_xim_protocol_wait_for_reply</a>       (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GXimOpcode</span> major_opcode</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint8</span> minor_opcode</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="GXimProtocol.description"></a><h2>Description</h2>
+<p>
+GXimProtocol provides an interface to deal with XIM protocol events.
+</p>
+</div>
+<div class="refsect1">
+<a name="GXimProtocol.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GXimProtocolClosure"></a><h3>GXimProtocolClosure</h3>
+<pre class="programlisting">typedef struct {
+	GCClosure        closure;
+	GClosureMarshal  signal_marshaller;
+	guint            n_params;
+	GType           *param_types;
+	GSList          *signal_handlers;
+	gchar           *name;
+	union {
+		GXimOpcode v1;
+		guint8     v2;
+	} major_opcode;
+	guint8           minor_opcode;
+	gboolean         is_an_extension;
+} GXimProtocolClosure;
+</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GXimProtocolClosureFunc"></a><h3>GXimProtocolClosureFunc ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            (*GXimProtocolClosureFunc)          (<em class="parameter"><code><a class="link" href="GXimProtocol.html#GXimProtocolClosure" title="GXimProtocolClosure"><span class="type">GXimProtocolClosure</span></a> *closure</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GDataInputStream</span> *stream</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GXimProtocolError"></a><h3>enum GXimProtocolError</h3>
+<pre class="programlisting">typedef enum {
+	G_XIM_PROTOCOL_ERROR_BEGIN = 128,
+	G_XIM_PROTOCOL_ERROR_UNKNOWN_ENDIAN,
+	G_XIM_PROTOCOL_ERROR_INVALID_PACKETS_RECEIVED,
+	G_XIM_PROTOCOL_ERROR_DELIVERY_FAILURE,
+	G_XIM_PROTOCOL_ERROR_NO_PARSER,
+	G_XIM_PROTOCOL_ERROR_NO_DATA,
+} GXimProtocolError;
+</pre>
+<p>
+Error codes returned by <a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> functions.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><a name="G-XIM-PROTOCOL-ERROR-BEGIN:CAPS"></a><span class="term"><code class="literal">G_XIM_PROTOCOL_ERROR_BEGIN</code></span></p></td>
+<td>Unused.
+</td>
+</tr>
+<tr>
+<td><p><a name="G-XIM-PROTOCOL-ERROR-UNKNOWN-ENDIAN:CAPS"></a><span class="term"><code class="literal">G_XIM_PROTOCOL_ERROR_UNKNOWN_ENDIAN</code></span></p></td>
+<td>Packets is sent with the unknown endian.
+</td>
+</tr>
+<tr>
+<td><p><a name="G-XIM-PROTOCOL-ERROR-INVALID-PACKETS-RECEIVED:CAPS"></a><span class="term"><code class="literal">G_XIM_PROTOCOL_ERROR_INVALID_PACKETS_RECEIVED</code></span></p></td>
+<td>Not parserable packets received.
+</td>
+</tr>
+<tr>
+<td><p><a name="G-XIM-PROTOCOL-ERROR-DELIVERY-FAILURE:CAPS"></a><span class="term"><code class="literal">G_XIM_PROTOCOL_ERROR_DELIVERY_FAILURE</code></span></p></td>
+<td>Unable to deliver the signal properly.
+</td>
+</tr>
+<tr>
+<td><p><a name="G-XIM-PROTOCOL-ERROR-NO-PARSER:CAPS"></a><span class="term"><code class="literal">G_XIM_PROTOCOL_ERROR_NO_PARSER</code></span></p></td>
+<td>No handlers available to parse packets.
+</td>
+</tr>
+<tr>
+<td><p><a name="G-XIM-PROTOCOL-ERROR-NO-DATA:CAPS"></a><span class="term"><code class="literal">G_XIM_PROTOCOL_ERROR_NO_DATA</code></span></p></td>
+<td>No data received in a request.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GXimProtocolIface"></a><h3>struct GXimProtocolIface</h3>
+<pre class="programlisting">struct GXimProtocolIface {
+	GTypeInterface  parent_iface;
+
+	GXimMessages   *message;
+	GdkAtom         atom_xim_protocol;
+	GdkAtom         atom_xim_moredata;
+};
+</pre>
+<p>
+An interface of XIM protocol.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><span class="type">GTypeInterface</span> <em class="structfield"><code><a name="GXimProtocolIface.parent-iface"></a>parent_iface</code></em>;</span></p></td>
+<td>a parent.</td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="GXimMessages.html" title="GXimMessages"><span class="type">GXimMessages</span></a> *<em class="structfield"><code><a name="GXimProtocolIface.message"></a>message</code></em>;</span></p></td>
+<td>a <a class="link" href="GXimMessages.html" title="GXimMessages"><span class="type">GXimMessages</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><a href="http://library.gnome.org/devel/gdk3/gdk-Properties-and-Atoms.html#GdkAtom"><span class="type">GdkAtom</span></a> <em class="structfield"><code><a name="GXimProtocolIface.atom-xim-protocol"></a>atom_xim_protocol</code></em>;</span></p></td>
+<td>a <a href="http://library.gnome.org/devel/gdk3/gdk-Properties-and-Atoms.html#GdkAtom"><span class="type">GdkAtom</span></a> for <code class="literal">_XIM_PROTOCOL</code>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><a href="http://library.gnome.org/devel/gdk3/gdk-Properties-and-Atoms.html#GdkAtom"><span class="type">GdkAtom</span></a> <em class="structfield"><code><a name="GXimProtocolIface.atom-xim-moredata"></a>atom_xim_moredata</code></em>;</span></p></td>
+<td>a <a href="http://library.gnome.org/devel/gdk3/gdk-Properties-and-Atoms.html#GdkAtom"><span class="type">GdkAtom</span></a> for <code class="literal">_XIM_MOREDATA</code>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GXimProtocolQueueNode"></a><h3>struct GXimProtocolQueueNode</h3>
+<pre class="programlisting">struct GXimProtocolQueueNode {
+	gchar    *data;
+	gsize     length;
+	guint16   major_opcode;
+	guint16   minor_opcode;
+	guint16   imid;
+	guint16   icid;
+	gboolean  is_sent;
+};
+</pre>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><span class="type">gchar</span> *<em class="structfield"><code><a name="GXimProtocolQueueNode.data"></a>data</code></em>;</span></p></td>
+<td>the packet data received.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">gsize</span> <em class="structfield"><code><a name="GXimProtocolQueueNode.length"></a>length</code></em>;</span></p></td>
+<td>the number of bytes of <em class="parameter"><code>data</code></em>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">guint16</span> <em class="structfield"><code><a name="GXimProtocolQueueNode.major-opcode"></a>major_opcode</code></em>;</span></p></td>
+<td>the major opcode in XIM protocol</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">guint16</span> <em class="structfield"><code><a name="GXimProtocolQueueNode.minor-opcode"></a>minor_opcode</code></em>;</span></p></td>
+<td>the minor opcode in XIM protocol</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">guint16</span> <em class="structfield"><code><a name="GXimProtocolQueueNode.imid"></a>imid</code></em>;</span></p></td>
+<td>the input-method ID</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">guint16</span> <em class="structfield"><code><a name="GXimProtocolQueueNode.icid"></a>icid</code></em>;</span></p></td>
+<td>the input-context ID</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">gboolean</span> <em class="structfield"><code><a name="GXimProtocolQueueNode.is-sent"></a>is_sent</code></em>;</span></p></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="G-XIM-OPCODE-KEY:CAPS"></a><h3>G_XIM_OPCODE_KEY()</h3>
+<pre class="programlisting">#define G_XIM_OPCODE_KEY(_m_,_n_) GUINT_TO_POINTER ((_m_) &lt;&lt; 8 | ((_n_) &amp; 0xff))
+</pre>
+<p>
+Generates a key from opcodes.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>_m_</code></em> :</span></p></td>
+<td>a major opcode in XIM protocol.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>_n_</code></em> :</span></p></td>
+<td>a minor opcode in XIM protocol.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="G-XIM-PROTOCOL-ERROR:CAPS"></a><h3>G_XIM_PROTOCOL_ERROR</h3>
+<pre class="programlisting">#define G_XIM_PROTOCOL_ERROR		(g_xim_protocol_get_error_quark())
+</pre>
+<p>
+Error domain for <a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a>. Errors in this domain will be from
+the <a class="link" href="GXimProtocol.html#GXimProtocolError" title="enum GXimProtocolError"><span class="type">GXimProtocolError</span></a> or <span class="type">GXimStandardError</span> enumeration.
+See <span class="type">GError</span> for more information on error domains.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-attr-get-attribute-from-stream"></a><h3>g_xim_attr_get_attribute_from_stream ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            g_xim_attr_get_attribute_from_stream
+                                                        (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GXimIMAttr.html#GXimAttr"><span class="type">GXimAttr</span></a> *attr</code></em>,
+                                                         <em class="parameter"><code><span class="type">GDataInputStream</span> *stream</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-attr-put-attribute-to-stream"></a><h3>g_xim_attr_put_attribute_to_stream ()</h3>
+<pre class="programlisting"><span class="returnvalue">gsize</span>               g_xim_attr_put_attribute_to_stream  (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GXimIMAttr.html#GXimAttr"><span class="type">GXimAttr</span></a> *attr</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> attribute_id</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-protocol-add-protocol"></a><h3>g_xim_protocol_add_protocol ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_protocol_add_protocol         (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GXimProtocol.html#GXimProtocolClosure" title="GXimProtocolClosure"><span class="type">GXimProtocolClosure</span></a> *closure</code></em>);</pre>
+<p>
+Registers a <em class="parameter"><code>closure</code></em> to add the XIM protocol handler.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td>a <a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>closure</code></em> :</span></p></td>
+<td>a structure of closure.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-protocol-cancel-queue"></a><h3>g_xim_protocol_cancel_queue ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_protocol_cancel_queue         (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>);</pre>
+<p>
+Cancels queueing. Note that you have to invoke this function if you can't
+proceed queueing process with any errors say. otherwise invalid node is kept
+in the queue and you may get a trouble with it eveutnally.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td>a <a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a>.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-protocol-closure-add-signal"></a><h3>g_xim_protocol_closure_add_signal ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_protocol_closure_add_signal   (<em class="parameter"><code><a class="link" href="GXimProtocol.html#GXimProtocolClosure" title="GXimProtocolClosure"><span class="type">GXimProtocolClosure</span></a> *closure</code></em>,
+                                                         <em class="parameter"><code><span class="type">GClosureMarshal</span> marshaller</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> n_params</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);</pre>
+<p>
+Adds a marshaller for signal.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>closure</code></em> :</span></p></td>
+<td>a <a class="link" href="GXimProtocol.html#GXimProtocolClosure" title="GXimProtocolClosure"><span class="type">GXimProtocolClosure</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>marshaller</code></em> :</span></p></td>
+<td>the <span class="type">GClosureMarshal</span> to deal with the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n_params</code></em> :</span></p></td>
+<td>the number of parameters for the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
+<td>a list of types, one for each parameter.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-protocol-closure-connect"></a><h3>g_xim_protocol_closure_connect ()</h3>
+<pre class="programlisting"><span class="returnvalue">gulong</span>              g_xim_protocol_closure_connect      (<em class="parameter"><code><a class="link" href="GXimProtocol.html#GXimProtocolClosure" title="GXimProtocolClosure"><span class="type">GXimProtocolClosure</span></a> *closure</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCallback</span> func</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);</pre>
+<p>
+Connects a closure to a signal.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>closure</code></em> :</span></p></td>
+<td>a <a class="link" href="GXimProtocol.html#GXimProtocolClosure" title="GXimProtocolClosure"><span class="type">GXimProtocolClosure</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>func</code></em> :</span></p></td>
+<td>the <span class="type">GCallback</span> to connect.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>data to pass to <em class="parameter"><code>func</code></em>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the handler id.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-protocol-closure-disconnect"></a><h3>g_xim_protocol_closure_disconnect ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_protocol_closure_disconnect   (<em class="parameter"><code><a class="link" href="GXimProtocol.html#GXimProtocolClosure" title="GXimProtocolClosure"><span class="type">GXimProtocolClosure</span></a> *closure</code></em>,
+                                                         <em class="parameter"><code><span class="type">gulong</span> id</code></em>);</pre>
+<p>
+Disconnects a handler from an instance so it will not be called during
+any future or currently ongoing emissions of the signal if has been
+connected to. The <em class="parameter"><code>id</code></em> becomes invalid and may be reused.
+</p>
+<p>
+The <em class="parameter"><code>id</code></em> has to be a valid signal handler id, connected to a
+signal of <em class="parameter"><code>closure</code></em>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>closure</code></em> :</span></p></td>
+<td>a <a class="link" href="GXimProtocol.html#GXimProtocolClosure" title="GXimProtocolClosure"><span class="type">GXimProtocolClosure</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>id</code></em> :</span></p></td>
+<td>Handler id of the handler to be disconnected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-protocol-closure-emit-signal"></a><h3>g_xim_protocol_closure_emit_signal ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            g_xim_protocol_closure_emit_signal  (<em class="parameter"><code><a class="link" href="GXimProtocol.html#GXimProtocolClosure" title="GXimProtocolClosure"><span class="type">GXimProtocolClosure</span></a> *closure</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);</pre>
+<p>
+Emits a signal.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>closure</code></em> :</span></p></td>
+<td>a <a class="link" href="GXimProtocol.html#GXimProtocolClosure" title="GXimProtocolClosure"><span class="type">GXimProtocolClosure</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td>the instance which wants to raise a signal with <em class="parameter"><code>closure</code></em>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
+<td>parameters to be passed to the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> to be proceeded a signal in the handlers. <code class="literal">FALSE</code> to be failed
+in any handlers or no handlers for this signal.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-protocol-closure-free"></a><h3>g_xim_protocol_closure_free ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_protocol_closure_free         (<em class="parameter"><code><span class="type">gpointer</span> data</code></em>,
+                                                         <em class="parameter"><code><span class="type">GClosure</span> *closure</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-protocol-closure-is-an-extension"></a><h3>g_xim_protocol_closure_is_an_extension ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            g_xim_protocol_closure_is_an_extension
+                                                        (<em class="parameter"><code><a class="link" href="GXimProtocol.html#GXimProtocolClosure" title="GXimProtocolClosure"><span class="type">GXimProtocolClosure</span></a> *closure</code></em>);</pre>
+<p>
+Checks if the <em class="parameter"><code>closure</code></em> was created as an extension protocol in XIM.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>closure</code></em> :</span></p></td>
+<td>a <a class="link" href="GXimProtocol.html#GXimProtocolClosure" title="GXimProtocolClosure"><span class="type">GXimProtocolClosure</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> to be an extension.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-protocol-closure-new"></a><h3>g_xim_protocol_closure_new ()</h3>
+<pre class="programlisting"><a class="link" href="GXimProtocol.html#GXimProtocolClosure" title="GXimProtocolClosure"><span class="returnvalue">GXimProtocolClosure</span></a> * g_xim_protocol_closure_new        (<em class="parameter"><code><span class="type">guint8</span> major_opcode</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint8</span> minor_opcode</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> is_an_extension</code></em>);</pre>
+<p>
+Creates an instance of the <a class="link" href="GXimProtocol.html#GXimProtocolClosure" title="GXimProtocolClosure"><span class="type">GXimProtocolClosure</span></a>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>major_opcode</code></em> :</span></p></td>
+<td>a major opcode in XIM protocol.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>minor_opcode</code></em> :</span></p></td>
+<td>a minor opcode in XIM protocol.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>the XIM protocol name.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>is_an_extension</code></em> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> to define an extension in XIM protocol, otherwise <code class="literal">FALSE</code>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the <a class="link" href="GXimProtocol.html#GXimProtocolClosure" title="GXimProtocolClosure"><span class="type">GXimProtocolClosure</span></a>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-protocol-closure-set-marshal"></a><h3>g_xim_protocol_closure_set_marshal ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_protocol_closure_set_marshal  (<em class="parameter"><code><a class="link" href="GXimProtocol.html#GXimProtocolClosure" title="GXimProtocolClosure"><span class="type">GXimProtocolClosure</span></a> *closure</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GXimProtocol.html#GXimProtocolClosureFunc" title="GXimProtocolClosureFunc ()"><span class="type">GXimProtocolClosureFunc</span></a> func</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);</pre>
+<p>
+Sets the marshaller of <em class="parameter"><code>closure</code></em> which scans the XIM protocol packets and emit
+the proper signal as needed.  Note that <a class="link" href="GXimProtocol.html#g-xim-protocol-closure-emit-signal" title="g_xim_protocol_closure_emit_signal ()"><code class="function">g_xim_protocol_closure_emit_signal()</code></a>
+has to be invoked in <em class="parameter"><code>func</code></em> otherwise any signals added by
+<a class="link" href="GXimProtocol.html#g-xim-protocol-closure-add-signal" title="g_xim_protocol_closure_add_signal ()"><code class="function">g_xim_protocol_closure_add_signal()</code></a> won't do anything at all.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>closure</code></em> :</span></p></td>
+<td>a <a class="link" href="GXimProtocol.html#GXimProtocolClosure" title="GXimProtocolClosure"><span class="type">GXimProtocolClosure</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>func</code></em> :</span></p></td>
+<td>the <a class="link" href="GXimProtocol.html#GXimProtocolClosureFunc" title="GXimProtocolClosureFunc ()"><span class="type">GXimProtocolClosureFunc</span></a> function to scan the XIM protocol packet
+and emits the proper signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>the data to store in the <em class="parameter"><code>data</code></em> field of the <span class="type">GClosure</span>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-protocol-connect-closure-by-id"></a><h3>g_xim_protocol_connect_closure_by_id ()</h3>
+<pre class="programlisting"><span class="returnvalue">gulong</span>              g_xim_protocol_connect_closure_by_id
+                                                        (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint8</span> major_opcode</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint8</span> minor_opcode</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCallback</span> func</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);</pre>
+<p>
+Connects a <span class="type">GCallback</span> function to a signal for XIM protocol events.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td>a <a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>major_opcode</code></em> :</span></p></td>
+<td>a major opcode in XIM protocol.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>minor_opcode</code></em> :</span></p></td>
+<td>a minor opcode in XIM protocol.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>func</code></em> :</span></p></td>
+<td>the <span class="type">GCallback</span> to connect.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>data to pass to <em class="parameter"><code>func</code></em>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the handler id.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-protocol-connect-closure-by-name"></a><h3>g_xim_protocol_connect_closure_by_name ()</h3>
+<pre class="programlisting"><span class="returnvalue">gulong</span>              g_xim_protocol_connect_closure_by_name
+                                                        (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *signal_name</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCallback</span> func</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);</pre>
+<p>
+Connects a <span class="type">GCallback</span> function to a signal for XIM protocol events.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td>a <a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>signal_name</code></em> :</span></p></td>
+<td>a XIM protocol event name.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>func</code></em> :</span></p></td>
+<td>the <span class="type">GCallback</span> to connect.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>data to pass to <em class="parameter"><code>func</code></em>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the handler id.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-protocol-dispose"></a><h3>g_xim_protocol_dispose ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_protocol_dispose              (<em class="parameter"><code><span class="type">GObject</span> *object</code></em>);</pre>
+<p>
+Releases all references to other objects. This can be used to break
+reference cycles.
+</p>
+<p>
+This function should only be called from <span class="type">"dispose"</span> which has
+the <a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> interface.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
+<td>a <span class="type">GObject</span>.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-protocol-end-queue"></a><h3>g_xim_protocol_end_queue ()</h3>
+<pre class="programlisting"><a class="link" href="GXimProtocol.html#GXimProtocolQueueNode" title="struct GXimProtocolQueueNode"><span class="returnvalue">GXimProtocolQueueNode</span></a> * g_xim_protocol_end_queue        (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>);</pre>
+<p>
+Terminates the queue.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td>a <a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the <a class="link" href="GXimProtocol.html#GXimProtocolQueueNode" title="struct GXimProtocolQueueNode"><span class="type">GXimProtocolQueueNode</span></a> which queued the request this time.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-protocol-finalize"></a><h3>g_xim_protocol_finalize ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_protocol_finalize             (<em class="parameter"><code><span class="type">GObject</span> *object</code></em>);</pre>
+<p>
+Finalizes the instance.
+</p>
+<p>
+This function should only be called from <span class="type">"finalize"</span> which has
+the <a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> interface.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
+<td>a <span class="type">GObject</span>.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-protocol-get-error-quark"></a><h3>g_xim_protocol_get_error_quark ()</h3>
+<pre class="programlisting"><span class="returnvalue">GQuark</span>              g_xim_protocol_get_error_quark      (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-protocol-get-extensions"></a><h3>g_xim_protocol_get_extensions ()</h3>
+<pre class="programlisting"><span class="returnvalue">GSList</span> *            g_xim_protocol_get_extensions       (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>);</pre>
+<p>
+Obtains a set of <a class="link" href="GXimProtocol.html#GXimProtocolClosure" title="GXimProtocolClosure"><span class="type">GXimProtocolClosure</span></a> registered as an extension. this is
+helpful to deal with <code class="literal">G_XIM_QUERY_EXTENSION</code> and so on.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td>a <a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the <span class="type">GSList</span> which contains <a class="link" href="GXimProtocol.html#GXimProtocolClosure" title="GXimProtocolClosure"><span class="type">GXimProtocolClosure</span></a>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-protocol-get-private"></a><h3>g_xim_protocol_get_private ()</h3>
+<pre class="programlisting"><span class="returnvalue">GXimProtocolPrivate</span> * g_xim_protocol_get_private        (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>);</pre>
+<p>
+Obtains the <span class="type">GXimProtocolPrivate</span> which is referenced <em class="parameter"><code>proto</code></em>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td>a <a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a>.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-protocol-get-queue-length"></a><h3>g_xim_protocol_get_queue_length ()</h3>
+<pre class="programlisting"><span class="returnvalue">guint</span>               g_xim_protocol_get_queue_length     (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>);</pre>
+<p>
+Obtains how many requests are stored in the queue now.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td>a <a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the number of requests in the queue.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-protocol-init"></a><h3>g_xim_protocol_init ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_protocol_init                 (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>);</pre>
+<p>
+Initializes <em class="parameter"><code>proto</code></em>. this isn't being invoked from the class automatically
+which has a <a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> interface. you need to call this function manually
+before doing something with <em class="parameter"><code>proto</code></em>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td>a <a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a>.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-protocol-is-queued"></a><h3>g_xim_protocol_is_queued ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            g_xim_protocol_is_queued            (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>);</pre>
+<p>
+Checks if <em class="parameter"><code>proto</code></em> is in queueing process.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td>a <a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> to be in the queueing process. otherwise <code class="literal">FALSE</code>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-protocol-lookup-protocol-by-id"></a><h3>g_xim_protocol_lookup_protocol_by_id ()</h3>
+<pre class="programlisting"><a class="link" href="GXimProtocol.html#GXimProtocolClosure" title="GXimProtocolClosure"><span class="returnvalue">GXimProtocolClosure</span></a> * g_xim_protocol_lookup_protocol_by_id
+                                                        (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint8</span> major_opcode</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint8</span> minor_opcode</code></em>);</pre>
+<p>
+Looks up the XIM protocol closure with <em class="parameter"><code>major_opcode</code></em> and <em class="parameter"><code>minor_opcode</code></em> which
+<em class="parameter"><code>proto</code></em> is dealing with.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td>a <a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>major_opcode</code></em> :</span></p></td>
+<td>a major opcode in XIM protocol.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>minor_opcode</code></em> :</span></p></td>
+<td>a minor opcode in XIM protocol.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a <a class="link" href="GXimProtocol.html#GXimProtocolClosure" title="GXimProtocolClosure"><span class="type">GXimProtocolClosure</span></a> corresponding to <em class="parameter"><code>major_opcode</code></em> and <em class="parameter"><code>minor_opcode</code></em>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-protocol-lookup-protocol-by-name"></a><h3>g_xim_protocol_lookup_protocol_by_name ()</h3>
+<pre class="programlisting"><a class="link" href="GXimProtocol.html#GXimProtocolClosure" title="GXimProtocolClosure"><span class="returnvalue">GXimProtocolClosure</span></a> * g_xim_protocol_lookup_protocol_by_name
+                                                        (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>);</pre>
+<p>
+Looks up the XIM protocol closure with <em class="parameter"><code>name</code></em> which <em class="parameter"><code>proto</code></em> is dealing with.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td>a <a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>the name of XIM protocol event.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a <a class="link" href="GXimProtocol.html#GXimProtocolClosure" title="GXimProtocolClosure"><span class="type">GXimProtocolClosure</span></a> corresponding to <em class="parameter"><code>name</code></em>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-protocol-n-pad4"></a><h3>g_xim_protocol_n_pad4()</h3>
+<pre class="programlisting">#define             g_xim_protocol_n_pad4(_n_)</pre>
+<p>
+Generates a number aligned to 4 bytes as needed.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>_n_</code></em> :</span></p></td>
+<td>a number</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-protocol-process-event"></a><h3>g_xim_protocol_process_event ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            g_xim_protocol_process_event        (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gdk3/gdk-Event-Structures.html#GdkEventClient"><span class="type">GdkEventClient</span></a> *event</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+Picks up XIM protocol packets from <em class="parameter"><code>event</code></em> and deal with it as needed.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td>a <a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td>the <a href="http://library.gnome.org/devel/gdk3/gdk-Event-Structures.html#GdkEventClient"><span class="type">GdkEventClient</span></a> which wants to process this time.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>a location to store error, or <code class="literal">NULL</code>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> to be processed successfully.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-protocol-raise-parser-error"></a><h3>g_xim_protocol_raise_parser_error ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            g_xim_protocol_raise_parser_error   (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> major_opcode</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> minor_opcode</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> imid</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> icid</code></em>);</pre>
+<p>
+Raises an appropriate error to the opposite direction on the connection
+according to <em class="parameter"><code>major_opcode</code></em> and <em class="parameter"><code>minor_opcode</code></em>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td>a <a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>major_opcode</code></em> :</span></p></td>
+<td>a major opcode in XIM protocol.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>minor_opcode</code></em> :</span></p></td>
+<td>a minor opcode in XIM protocol.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>imid</code></em> :</span></p></td>
+<td>input-method ID.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icid</code></em> :</span></p></td>
+<td>input-context ID.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> to be sent an error successfully.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-protocol-read-format"></a><h3>g_xim_protocol_read_format ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            g_xim_protocol_read_format          (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GDataInputStream</span> *stream</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> n_params</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);</pre>
+<p>
+Scans XIM protocol packets according to the set of parameters. if any,
+objects generated against it is stored in the locations pointed to by
+the pointer arguments. Each pointer argument must be of a type that is
+appropriate for the value returned by the corresponding value type.
+See <span class="type">GXimValueType</span> documentation which objects the value type is supposed
+to be.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td>a <a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
+<td>a <span class="type">GDataInputStream</span> which contains XIM protocol packets.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>optional <span class="type">GCancellable</span> object, <code class="literal">NULL</code> to ignore.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>a location to store error, or <code class="literal">NULL</code>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n_params</code></em> :</span></p></td>
+<td>the number of a set of parameters.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> to be read successfully.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-protocol-read-vformat"></a><h3>g_xim_protocol_read_vformat ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            g_xim_protocol_read_vformat         (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GDataInputStream</span> *stream</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> n_params</code></em>,
+                                                         <em class="parameter"><code><span class="type">va_list</span> args</code></em>);</pre>
+<p>
+Scans XIM protocol packets according to the set of parameters. if any,
+objects generated against it is stored in the locations pointed to by
+the pointer arguments. Each pointer argument must be of a type that is
+appropriate for the value returned by the corresponding value type.
+See <span class="type">GXimValueType</span> documentation which objects the value type is supposed
+to be.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td>a <a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
+<td>a <span class="type">GDataInputStream</span> which contains XIM protocol packets.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>optional <span class="type">GCancellable</span> object, <code class="literal">NULL</code> to ignore.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>a location to store error, or <code class="literal">NULL</code>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n_params</code></em> :</span></p></td>
+<td>the number of a set of parameters.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>args</code></em> :</span></p></td>
+<td>a <span class="type">va_list</span>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> to be read successfully.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-protocol-remove-protocol"></a><h3>g_xim_protocol_remove_protocol ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_protocol_remove_protocol      (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GXimProtocol.html#GXimProtocolClosure" title="GXimProtocolClosure"><span class="type">GXimProtocolClosure</span></a> *closure</code></em>);</pre>
+<p>
+Gets rid of <em class="parameter"><code>closure</code></em> to stop XIM protocol handling in <em class="parameter"><code>proto</code></em>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td>a <a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>closure</code></em> :</span></p></td>
+<td>a structure of closure.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-protocol-remove-protocol-by-id"></a><h3>g_xim_protocol_remove_protocol_by_id ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_protocol_remove_protocol_by_id
+                                                        (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint8</span> major_opcode</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint8</span> minor_opcode</code></em>);</pre>
+<p>
+Gets rid of XIM protocol handling to stop dealing with <em class="parameter"><code>major_opcode</code></em> and
+<em class="parameter"><code>minor_opcode</code></em> in <em class="parameter"><code>proto</code></em>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td>a <a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>major_opcode</code></em> :</span></p></td>
+<td>a major opcode in XIM protocol.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>minor_opcode</code></em> :</span></p></td>
+<td>a minor opcode in XIM protocol.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-protocol-send"></a><h3>g_xim_protocol_send ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            g_xim_protocol_send                 (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GXimOpcode</span> major_opcode</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint8</span> minor_opcode</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> n_params</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);</pre>
+<p>
+Sends XIM protocol according to the set of parameters. one is a parameter
+type defined in <span class="type">GXimValueType</span>, and one is an object related to that.
+See <span class="type">GXimValueType</span> documentation which objects are supposed to be specified
+with them.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td>a <a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>major_opcode</code></em> :</span></p></td>
+<td>a major opcode in XIM protocol.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>minor_opcode</code></em> :</span></p></td>
+<td>a minor opcode in XIM protocol.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n_params</code></em> :</span></p></td>
+<td>the number of a set of parameters.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> to be sent successfully.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-protocol-send-format"></a><h3>g_xim_protocol_send_format ()</h3>
+<pre class="programlisting"><span class="returnvalue">gsize</span>               g_xim_protocol_send_format          (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> n_params</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);</pre>
+<p>
+Converts the objects to the XIM protocol packets according to the format
+and store it into the send buffer. you shouldn't use this function directly.
+use <a class="link" href="GXimProtocol.html#g-xim-protocol-send" title="g_xim_protocol_send ()"><code class="function">g_xim_protocol_send()</code></a> instead.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td>a <a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>optional <span class="type">GCancellable</span> object, <code class="literal">NULL</code> to ignore.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>a location to store error, or <code class="literal">NULL</code>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n_params</code></em> :</span></p></td>
+<td>the number of a set of parameters.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the number of data stored.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-protocol-send-packets"></a><h3>g_xim_protocol_send_packets ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            g_xim_protocol_send_packets         (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *data</code></em>,
+                                                         <em class="parameter"><code><span class="type">gsize</span> length</code></em>);</pre>
+<p>
+Sends <em class="parameter"><code>data</code></em> to the opposite direction on the connection.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td>a <a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>a chunk of XIM protocol packets.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
+<td>the number of <em class="parameter"><code>data</code></em>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> to be sent successfully.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-protocol-send-vformat"></a><h3>g_xim_protocol_send_vformat ()</h3>
+<pre class="programlisting"><span class="returnvalue">gsize</span>               g_xim_protocol_send_vformat         (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> n_params</code></em>,
+                                                         <em class="parameter"><code><span class="type">va_list</span> args</code></em>);</pre>
+<p>
+Converts the objects to the XIM protocol packets according to format
+and store it into the send buffer. you shouldn't use this function directly.
+use <a class="link" href="GXimProtocol.html#g-xim-protocol-send" title="g_xim_protocol_send ()"><code class="function">g_xim_protocol_send()</code></a> instead.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td>a <a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>optional <span class="type">GCancellable</span> object, <code class="literal">NULL</code> to ignore.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>a location to store error, or <code class="literal">NULL</code>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n_params</code></em> :</span></p></td>
+<td>the number of a set of parameters.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>args</code></em> :</span></p></td>
+<td>a <span class="type">va_list</span>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the number of data stored.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-protocol-send-with-list"></a><h3>g_xim_protocol_send_with_list ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            g_xim_protocol_send_with_list       (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GXimOpcode</span> major_opcode</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint8</span> minor_opcode</code></em>,
+                                                         <em class="parameter"><code><span class="type">GSList</span> *types</code></em>,
+                                                         <em class="parameter"><code><span class="type">GSList</span> *values</code></em>);</pre>
+<p>
+Sends XIM protocol according to <em class="parameter"><code>types</code></em> and <em class="parameter"><code>values</code></em>.
+See <span class="type">GXimValueType</span> documentation which objects are supposed to be specified
+with them.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td>a <a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>major_opcode</code></em> :</span></p></td>
+<td>a major opcode in XIM protocol.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>minor_opcode</code></em> :</span></p></td>
+<td>a minor opcode in XIM protocol.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>types</code></em> :</span></p></td>
+<td>a list of <span class="type">GXimValueType</span>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>values</code></em> :</span></p></td>
+<td>a list of objects fitting to each value types in <em class="parameter"><code>types</code></em>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> to be sent successfully.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-protocol-start-queue"></a><h3>g_xim_protocol_start_queue ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            g_xim_protocol_start_queue          (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>);</pre>
+<p>
+Prepares the queue to not send a request immediately. this function is
+useful if you need to wait for any requests but want to send it after
+the pending requests is done.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td>a <a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> to be ready to queue.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-protocol-translate"></a><h3>g_xim_protocol_translate ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            g_xim_protocol_translate            (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>,
+                                                         <em class="parameter"><code><span class="type">gssize</span> length</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+Translate the packets and deliver it to the appropriate places.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td>a <a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>a chunk of XIM protocol packets</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
+<td>the number of <em class="parameter"><code>data</code></em>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>a location to store error, or <code class="literal">NULL</code>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> to be processed successfully.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-protocol-wait-for-reply"></a><h3>g_xim_protocol_wait_for_reply ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            g_xim_protocol_wait_for_reply       (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GXimOpcode</span> major_opcode</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint8</span> minor_opcode</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+Waits for a response of <em class="parameter"><code>major_opcode</code></em> and <em class="parameter"><code>minor_opcode</code></em> or <code class="literal">G_XIM_ERROR</code>.
+this can be used if you need to send a request synchronously.  Note that
+using this function in the server instance won't works due to how GObject
+delivers signals and iterates it.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proto</code></em> :</span></p></td>
+<td>a <a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>major_opcode</code></em> :</span></p></td>
+<td>a major opcode in XIM protocol.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>minor_opcode</code></em> :</span></p></td>
+<td>a minor opcode in XIM protocol.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>a location to store error, or <code class="literal">NULL</code>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> the request was successfully done.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

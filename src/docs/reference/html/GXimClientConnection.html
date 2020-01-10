@@ -1,0 +1,399 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GXimClientConnection</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
+<link rel="home" href="index.html" title="libgxim Reference Manual">
+<link rel="up" href="ch03.html" title="Low-level Classes">
+<link rel="prev" href="GXimServerConnection.html" title="GXimServerConnection">
+<link rel="next" href="ch04.html" title="Attribute Accessor Classes">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="GXimServerConnection.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch03.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libgxim Reference Manual</th>
+<td><a accesskey="n" href="ch04.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#GXimClientConnection.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#GXimClientConnection.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#GXimClientConnection.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#GXimClientConnection.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="GXimClientConnection"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GXimClientConnection.top_of_page"></a>GXimClientConnection</span></h2>
+<p>GXimClientConnection</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="GXimClientConnection.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">                    <a class="link" href="GXimClientConnection.html#GXimClientConnection-struct" title="GXimClientConnection">GXimClientConnection</a>;
+struct              <a class="link" href="GXimClientConnection.html#GXimClientConnectionClass" title="struct GXimClientConnectionClass">GXimClientConnectionClass</a>;
+<span class="returnvalue">gboolean</span>            <a class="link" href="GXimClientConnection.html#g-xim-client-connection-cmd-close-im" title="g_xim_client_connection_cmd_close_im ()">g_xim_client_connection_cmd_close_im</a>
+                                                        (<em class="parameter"><code><a class="link" href="GXimClientConnection.html" title="GXimClientConnection"><span class="type">GXimClientConnection</span></a> *conn</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> imid</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> is_async</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="GXimClientConnection.html#g-xim-client-connection-cmd-connect" title="g_xim_client_connection_cmd_connect ()">g_xim_client_connection_cmd_connect</a> (<em class="parameter"><code><a class="link" href="GXimClientConnection.html" title="GXimClientConnection"><span class="type">GXimClientConnection</span></a> *conn</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> protocol_major_version</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> protocol_minor_version</code></em>,
+                                                         <em class="parameter"><code><span class="type">GSList</span> *auth_list</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> is_async</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="GXimClientConnection.html#g-xim-client-connection-cmd-create-ic" title="g_xim_client_connection_cmd_create_ic ()">g_xim_client_connection_cmd_create_ic</a>
+                                                        (<em class="parameter"><code><a class="link" href="GXimClientConnection.html" title="GXimClientConnection"><span class="type">GXimClientConnection</span></a> *conn</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> imid</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">GSList</span> *attributes</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> is_async</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="GXimClientConnection.html#g-xim-client-connection-cmd-destroy-ic" title="g_xim_client_connection_cmd_destroy_ic ()">g_xim_client_connection_cmd_destroy_ic</a>
+                                                        (<em class="parameter"><code><a class="link" href="GXimClientConnection.html" title="GXimClientConnection"><span class="type">GXimClientConnection</span></a> *conn</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> imid</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> icid</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> is_async</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="GXimClientConnection.html#g-xim-client-connection-cmd-disconnect" title="g_xim_client_connection_cmd_disconnect ()">g_xim_client_connection_cmd_disconnect</a>
+                                                        (<em class="parameter"><code><a class="link" href="GXimClientConnection.html" title="GXimClientConnection"><span class="type">GXimClientConnection</span></a> *conn</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> is_async</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="GXimClientConnection.html#g-xim-client-connection-cmd-encoding-negotiation" title="g_xim_client_connection_cmd_encoding_negotiation ()">g_xim_client_connection_cmd_encoding_negotiation</a>
+                                                        (<em class="parameter"><code><a class="link" href="GXimClientConnection.html" title="GXimClientConnection"><span class="type">GXimClientConnection</span></a> *conn</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> imid</code></em>,
+                                                         <em class="parameter"><code><span class="type">GSList</span> *encodings</code></em>,
+                                                         <em class="parameter"><code><span class="type">GSList</span> *details</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> is_async</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="GXimClientConnection.html#g-xim-client-connection-cmd-get-ic-values" title="g_xim_client_connection_cmd_get_ic_values ()">g_xim_client_connection_cmd_get_ic_values</a>
+                                                        (<em class="parameter"><code><a class="link" href="GXimClientConnection.html" title="GXimClientConnection"><span class="type">GXimClientConnection</span></a> *conn</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> imid</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> icid</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">GSList</span> *attr_id</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> is_async</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="GXimClientConnection.html#g-xim-client-connection-cmd-get-im-values" title="g_xim_client_connection_cmd_get_im_values ()">g_xim_client_connection_cmd_get_im_values</a>
+                                                        (<em class="parameter"><code><a class="link" href="GXimClientConnection.html" title="GXimClientConnection"><span class="type">GXimClientConnection</span></a> *conn</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> imid</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">GSList</span> *attr_id</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> is_async</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="GXimClientConnection.html#g-xim-client-connection-cmd-open-im" title="g_xim_client_connection_cmd_open_im ()">g_xim_client_connection_cmd_open_im</a> (<em class="parameter"><code><a class="link" href="GXimClientConnection.html" title="GXimClientConnection"><span class="type">GXimClientConnection</span></a> *conn</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">GXimStr</span> *locale</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> is_async</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="GXimClientConnection.html#g-xim-client-connection-cmd-preedit-caret-reply" title="g_xim_client_connection_cmd_preedit_caret_reply ()">g_xim_client_connection_cmd_preedit_caret_reply</a>
+                                                        (<em class="parameter"><code><a class="link" href="GXimClientConnection.html" title="GXimClientConnection"><span class="type">GXimClientConnection</span></a> *conn</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> imid</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> icid</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint32</span> position</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="GXimClientConnection.html#g-xim-client-connection-cmd-preedit-start-reply" title="g_xim_client_connection_cmd_preedit_start_reply ()">g_xim_client_connection_cmd_preedit_start_reply</a>
+                                                        (<em class="parameter"><code><a class="link" href="GXimClientConnection.html" title="GXimClientConnection"><span class="type">GXimClientConnection</span></a> *conn</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> imid</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> icid</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint32</span> return_value</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="GXimClientConnection.html#g-xim-client-connection-cmd-query-extension" title="g_xim_client_connection_cmd_query_extension ()">g_xim_client_connection_cmd_query_extension</a>
+                                                        (<em class="parameter"><code><a class="link" href="GXimClientConnection.html" title="GXimClientConnection"><span class="type">GXimClientConnection</span></a> *conn</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> imid</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">GSList</span> *extensions</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> is_async</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="GXimClientConnection.html#g-xim-client-connection-cmd-reset-ic" title="g_xim_client_connection_cmd_reset_ic ()">g_xim_client_connection_cmd_reset_ic</a>
+                                                        (<em class="parameter"><code><a class="link" href="GXimClientConnection.html" title="GXimClientConnection"><span class="type">GXimClientConnection</span></a> *conn</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> imid</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> icid</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> is_async</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="GXimClientConnection.html#g-xim-client-connection-cmd-set-ic-focus" title="g_xim_client_connection_cmd_set_ic_focus ()">g_xim_client_connection_cmd_set_ic_focus</a>
+                                                        (<em class="parameter"><code><a class="link" href="GXimClientConnection.html" title="GXimClientConnection"><span class="type">GXimClientConnection</span></a> *conn</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> imid</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> icid</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="GXimClientConnection.html#g-xim-client-connection-cmd-set-ic-values" title="g_xim_client_connection_cmd_set_ic_values ()">g_xim_client_connection_cmd_set_ic_values</a>
+                                                        (<em class="parameter"><code><a class="link" href="GXimClientConnection.html" title="GXimClientConnection"><span class="type">GXimClientConnection</span></a> *conn</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> imid</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> icid</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">GSList</span> *attributes</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> is_async</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="GXimClientConnection.html#g-xim-client-connection-cmd-set-im-values" title="g_xim_client_connection_cmd_set_im_values ()">g_xim_client_connection_cmd_set_im_values</a>
+                                                        (<em class="parameter"><code><a class="link" href="GXimClientConnection.html" title="GXimClientConnection"><span class="type">GXimClientConnection</span></a> *conn</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> imid</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">GSList</span> *attributes</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> is_async</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="GXimClientConnection.html#g-xim-client-connection-cmd-sync" title="g_xim_client_connection_cmd_sync ()">g_xim_client_connection_cmd_sync</a>    (<em class="parameter"><code><a class="link" href="GXimClientConnection.html" title="GXimClientConnection"><span class="type">GXimClientConnection</span></a> *conn</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> imid</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> icid</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> is_async</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="GXimClientConnection.html#g-xim-client-connection-cmd-trigger-notify" title="g_xim_client_connection_cmd_trigger_notify ()">g_xim_client_connection_cmd_trigger_notify</a>
+                                                        (<em class="parameter"><code><a class="link" href="GXimClientConnection.html" title="GXimClientConnection"><span class="type">GXimClientConnection</span></a> *conn</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> imid</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> icid</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint32</span> flag</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint32</span> index_</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint32</span> event_mask</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> is_async</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="GXimClientConnection.html#g-xim-client-connection-cmd-unset-ic-focus" title="g_xim_client_connection_cmd_unset_ic_focus ()">g_xim_client_connection_cmd_unset_ic_focus</a>
+                                                        (<em class="parameter"><code><a class="link" href="GXimClientConnection.html" title="GXimClientConnection"><span class="type">GXimClientConnection</span></a> *conn</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> imid</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> icid</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="GXimClientConnection.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  GObject
+   +----<a class="link" href="GXimConnection.html" title="GXimConnection">GXimConnection</a>
+         +----GXimClientConnection
+</pre>
+</div>
+<div class="refsect1">
+<a name="GXimClientConnection.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+GXimClientConnection implements
+ <a class="link" href="GXimTransport.html" title="GXimTransport">GXimTransport</a> and  <a class="link" href="GXimProtocol.html" title="GXimProtocol">GXimProtocol</a>.</p>
+</div>
+<div class="refsect1">
+<a name="GXimClientConnection.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="GXimClientConnection.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GXimClientConnection-struct"></a><h3>GXimClientConnection</h3>
+<pre class="programlisting">typedef struct _GXimClientConnection GXimClientConnection;</pre>
+<p>
+An implementation of client connection class
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GXimClientConnectionClass"></a><h3>struct GXimClientConnectionClass</h3>
+<pre class="programlisting">struct GXimClientConnectionClass {
+	GXimConnectionClass  parent_class;
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-client-connection-cmd-close-im"></a><h3>g_xim_client_connection_cmd_close_im ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            g_xim_client_connection_cmd_close_im
+                                                        (<em class="parameter"><code><a class="link" href="GXimClientConnection.html" title="GXimClientConnection"><span class="type">GXimClientConnection</span></a> *conn</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> imid</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> is_async</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-client-connection-cmd-connect"></a><h3>g_xim_client_connection_cmd_connect ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            g_xim_client_connection_cmd_connect (<em class="parameter"><code><a class="link" href="GXimClientConnection.html" title="GXimClientConnection"><span class="type">GXimClientConnection</span></a> *conn</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> protocol_major_version</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> protocol_minor_version</code></em>,
+                                                         <em class="parameter"><code><span class="type">GSList</span> *auth_list</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> is_async</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-client-connection-cmd-create-ic"></a><h3>g_xim_client_connection_cmd_create_ic ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            g_xim_client_connection_cmd_create_ic
+                                                        (<em class="parameter"><code><a class="link" href="GXimClientConnection.html" title="GXimClientConnection"><span class="type">GXimClientConnection</span></a> *conn</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> imid</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">GSList</span> *attributes</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> is_async</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-client-connection-cmd-destroy-ic"></a><h3>g_xim_client_connection_cmd_destroy_ic ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            g_xim_client_connection_cmd_destroy_ic
+                                                        (<em class="parameter"><code><a class="link" href="GXimClientConnection.html" title="GXimClientConnection"><span class="type">GXimClientConnection</span></a> *conn</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> imid</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> icid</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> is_async</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-client-connection-cmd-disconnect"></a><h3>g_xim_client_connection_cmd_disconnect ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            g_xim_client_connection_cmd_disconnect
+                                                        (<em class="parameter"><code><a class="link" href="GXimClientConnection.html" title="GXimClientConnection"><span class="type">GXimClientConnection</span></a> *conn</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> is_async</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-client-connection-cmd-encoding-negotiation"></a><h3>g_xim_client_connection_cmd_encoding_negotiation ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            g_xim_client_connection_cmd_encoding_negotiation
+                                                        (<em class="parameter"><code><a class="link" href="GXimClientConnection.html" title="GXimClientConnection"><span class="type">GXimClientConnection</span></a> *conn</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> imid</code></em>,
+                                                         <em class="parameter"><code><span class="type">GSList</span> *encodings</code></em>,
+                                                         <em class="parameter"><code><span class="type">GSList</span> *details</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> is_async</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-client-connection-cmd-get-ic-values"></a><h3>g_xim_client_connection_cmd_get_ic_values ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            g_xim_client_connection_cmd_get_ic_values
+                                                        (<em class="parameter"><code><a class="link" href="GXimClientConnection.html" title="GXimClientConnection"><span class="type">GXimClientConnection</span></a> *conn</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> imid</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> icid</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">GSList</span> *attr_id</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> is_async</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-client-connection-cmd-get-im-values"></a><h3>g_xim_client_connection_cmd_get_im_values ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            g_xim_client_connection_cmd_get_im_values
+                                                        (<em class="parameter"><code><a class="link" href="GXimClientConnection.html" title="GXimClientConnection"><span class="type">GXimClientConnection</span></a> *conn</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> imid</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">GSList</span> *attr_id</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> is_async</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-client-connection-cmd-open-im"></a><h3>g_xim_client_connection_cmd_open_im ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            g_xim_client_connection_cmd_open_im (<em class="parameter"><code><a class="link" href="GXimClientConnection.html" title="GXimClientConnection"><span class="type">GXimClientConnection</span></a> *conn</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">GXimStr</span> *locale</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> is_async</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-client-connection-cmd-preedit-caret-reply"></a><h3>g_xim_client_connection_cmd_preedit_caret_reply ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            g_xim_client_connection_cmd_preedit_caret_reply
+                                                        (<em class="parameter"><code><a class="link" href="GXimClientConnection.html" title="GXimClientConnection"><span class="type">GXimClientConnection</span></a> *conn</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> imid</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> icid</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint32</span> position</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-client-connection-cmd-preedit-start-reply"></a><h3>g_xim_client_connection_cmd_preedit_start_reply ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            g_xim_client_connection_cmd_preedit_start_reply
+                                                        (<em class="parameter"><code><a class="link" href="GXimClientConnection.html" title="GXimClientConnection"><span class="type">GXimClientConnection</span></a> *conn</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> imid</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> icid</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint32</span> return_value</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-client-connection-cmd-query-extension"></a><h3>g_xim_client_connection_cmd_query_extension ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            g_xim_client_connection_cmd_query_extension
+                                                        (<em class="parameter"><code><a class="link" href="GXimClientConnection.html" title="GXimClientConnection"><span class="type">GXimClientConnection</span></a> *conn</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> imid</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">GSList</span> *extensions</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> is_async</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-client-connection-cmd-reset-ic"></a><h3>g_xim_client_connection_cmd_reset_ic ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            g_xim_client_connection_cmd_reset_ic
+                                                        (<em class="parameter"><code><a class="link" href="GXimClientConnection.html" title="GXimClientConnection"><span class="type">GXimClientConnection</span></a> *conn</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> imid</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> icid</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> is_async</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-client-connection-cmd-set-ic-focus"></a><h3>g_xim_client_connection_cmd_set_ic_focus ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            g_xim_client_connection_cmd_set_ic_focus
+                                                        (<em class="parameter"><code><a class="link" href="GXimClientConnection.html" title="GXimClientConnection"><span class="type">GXimClientConnection</span></a> *conn</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> imid</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> icid</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-client-connection-cmd-set-ic-values"></a><h3>g_xim_client_connection_cmd_set_ic_values ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            g_xim_client_connection_cmd_set_ic_values
+                                                        (<em class="parameter"><code><a class="link" href="GXimClientConnection.html" title="GXimClientConnection"><span class="type">GXimClientConnection</span></a> *conn</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> imid</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> icid</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">GSList</span> *attributes</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> is_async</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-client-connection-cmd-set-im-values"></a><h3>g_xim_client_connection_cmd_set_im_values ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            g_xim_client_connection_cmd_set_im_values
+                                                        (<em class="parameter"><code><a class="link" href="GXimClientConnection.html" title="GXimClientConnection"><span class="type">GXimClientConnection</span></a> *conn</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> imid</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">GSList</span> *attributes</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> is_async</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-client-connection-cmd-sync"></a><h3>g_xim_client_connection_cmd_sync ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            g_xim_client_connection_cmd_sync    (<em class="parameter"><code><a class="link" href="GXimClientConnection.html" title="GXimClientConnection"><span class="type">GXimClientConnection</span></a> *conn</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> imid</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> icid</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> is_async</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-client-connection-cmd-trigger-notify"></a><h3>g_xim_client_connection_cmd_trigger_notify ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            g_xim_client_connection_cmd_trigger_notify
+                                                        (<em class="parameter"><code><a class="link" href="GXimClientConnection.html" title="GXimClientConnection"><span class="type">GXimClientConnection</span></a> *conn</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> imid</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> icid</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint32</span> flag</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint32</span> index_</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint32</span> event_mask</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> is_async</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-client-connection-cmd-unset-ic-focus"></a><h3>g_xim_client_connection_cmd_unset_ic_focus ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            g_xim_client_connection_cmd_unset_ic_focus
+                                                        (<em class="parameter"><code><a class="link" href="GXimClientConnection.html" title="GXimClientConnection"><span class="type">GXimClientConnection</span></a> *conn</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> imid</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> icid</code></em>);</pre>
+<p>
+</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

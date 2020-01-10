@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>gximerror</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
+<link rel="home" href="index.html" title="libgxim Reference Manual">
+<link rel="up" href="ch05.html" title="Miscelleneous">
+<link rel="prev" href="GXimMessages.html" title="GXimMessages">
+<link rel="next" href="libgxim-gximmisc.html" title="gximmisc">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="GXimMessages.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch05.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libgxim Reference Manual</th>
+<td><a accesskey="n" href="libgxim-gximmisc.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#libgxim-gximerror.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#libgxim-gximerror.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="libgxim-gximerror"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libgxim-gximerror.top_of_page"></a>gximerror</span></h2>
+<p>gximerror</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="libgxim-gximerror.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">#define             <a class="link" href="libgxim-gximerror.html#G-XIM-ERROR-DECODE-X-ERROR-CODE:CAPS" title="G_XIM_ERROR_DECODE_X_ERROR_CODE()">G_XIM_ERROR_DECODE_X_ERROR_CODE</a>     (_v_)
+#define             <a class="link" href="libgxim-gximerror.html#G-XIM-ERROR-DECODE-X-MINOR-CODE:CAPS" title="G_XIM_ERROR_DECODE_X_MINOR_CODE()">G_XIM_ERROR_DECODE_X_MINOR_CODE</a>     (_v_)
+#define             <a class="link" href="libgxim-gximerror.html#G-XIM-ERROR-DECODE-X-REQUEST-CODE:CAPS" title="G_XIM_ERROR_DECODE_X_REQUEST_CODE()">G_XIM_ERROR_DECODE_X_REQUEST_CODE</a>   (_v_)
+#define             <a class="link" href="libgxim-gximerror.html#G-XIM-ERROR-ERROR-CODE:CAPS" title="G_XIM_ERROR_ERROR_CODE()">G_XIM_ERROR_ERROR_CODE</a>              (_e_,
+                                                         _r_,
+                                                         _m_)
+<span class="returnvalue">guint32</span>             <a class="link" href="libgxim-gximerror.html#g-xim-error-pop" title="g_xim_error_pop ()">g_xim_error_pop</a>                     (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libgxim-gximerror.html#g-xim-error-push" title="g_xim_error_push ()">g_xim_error_push</a>                    (<em class="parameter"><code><span class="type">void</span></code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="libgxim-gximerror.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="libgxim-gximerror.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="G-XIM-ERROR-DECODE-X-ERROR-CODE:CAPS"></a><h3>G_XIM_ERROR_DECODE_X_ERROR_CODE()</h3>
+<pre class="programlisting">#define G_XIM_ERROR_DECODE_X_ERROR_CODE(_v_) (((_v_) &gt;&gt; 24) &amp; 0xff)
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="G-XIM-ERROR-DECODE-X-MINOR-CODE:CAPS"></a><h3>G_XIM_ERROR_DECODE_X_MINOR_CODE()</h3>
+<pre class="programlisting">#define G_XIM_ERROR_DECODE_X_MINOR_CODE(_v_) (((_v_) &gt;&gt; 8) &amp; 0xff)
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="G-XIM-ERROR-DECODE-X-REQUEST-CODE:CAPS"></a><h3>G_XIM_ERROR_DECODE_X_REQUEST_CODE()</h3>
+<pre class="programlisting">#define G_XIM_ERROR_DECODE_X_REQUEST_CODE(_v_) (((_v_) &gt;&gt; 16) &amp; 0xff)
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="G-XIM-ERROR-ERROR-CODE:CAPS"></a><h3>G_XIM_ERROR_ERROR_CODE()</h3>
+<pre class="programlisting">#define G_XIM_ERROR_ERROR_CODE(_e_,_r_,_m_) ((((_e_) &amp; 0xff) &lt;&lt; 24) | (((_r_) &amp; 0xff) &lt;&lt; 16) | (((_m_) &amp; 0xff) &lt;&lt; 8))
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-error-pop"></a><h3>g_xim_error_pop ()</h3>
+<pre class="programlisting"><span class="returnvalue">guint32</span>             g_xim_error_pop                     (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-error-push"></a><h3>g_xim_error_push ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_error_push                    (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

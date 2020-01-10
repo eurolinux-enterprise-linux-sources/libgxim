@@ -1,0 +1,149 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: libgxim\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-01-18 15:14+0900\n"
+"PO-Revision-Date: 2011-03-22 11:24-0400\n"
+"Last-Translator: yurchor <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"X-Generator: Zanata 2.0.2\n"
+
+#: ../libgxim/gximattr.c:223
+#, fuzzy
+msgid "Attributes enabled"
+msgstr "Увімкнені атрибути"
+
+#: ../libgxim/gximattr.c:224
+#, fuzzy
+msgid "XIM Attributes allowed to use"
+msgstr "Атрибути XIM, які можна використовувати"
+
+#: ../libgxim/gximcltmpl.c:549
+#, fuzzy
+msgid "GDK Atom"
+msgstr "Atom GDK"
+
+#: ../libgxim/gximcltmpl.c:550
+#, fuzzy
+msgid "GDK Atom for XIM server"
+msgstr "Atom GDK для сервера XIM"
+
+#: ../libgxim/gximconnection.c:160 ../libgxim/gximcore.c:428
+#, fuzzy
+msgid "Signals for Protocol class"
+msgstr "Сигнали для класу Protocol"
+
+#: ../libgxim/gximconnection.c:161
+#, fuzzy
+msgid "A list of signal connector for Protocol class"
+msgstr "Список сигналів для класу Protocol"
+
+#: ../libgxim/gximcore.c:392
+#, fuzzy
+msgid "GdkDisplay"
+msgstr "Дисплей Gdk"
+
+#: ../libgxim/gximcore.c:393
+#, fuzzy
+msgid "Gdk display to use"
+msgstr "Дисплей Gdk, який слід використовувати"
+
+#: ../libgxim/gximcore.c:404
+#, fuzzy
+msgid "Selection Window"
+msgstr "Вікно вибору"
+
+#: ../libgxim/gximcore.c:405
+#, fuzzy
+msgid "A GdkWindow for selection"
+msgstr "Вікно Gdk для вибору"
+
+#: ../libgxim/gximcore.c:416
+#, fuzzy
+msgid "GType of Connection class"
+msgstr "GType класу Connection"
+
+#: ../libgxim/gximcore.c:417
+#, fuzzy
+msgid "A GType that deal with XIM connection"
+msgstr "GType, який оброблятиме дані з’єднання XIM"
+
+#: ../libgxim/gximcore.c:429
+#, fuzzy
+msgid "A structure of signals for Protocol class"
+msgstr "Структура сигналів для класу Protocol"
+
+#: ../libgxim/gximmessages.c:491
+#, fuzzy
+msgid "Master"
+msgstr "Основний"
+
+#: ../libgxim/gximmessages.c:492
+#, fuzzy
+msgid "A flag to mark a master object."
+msgstr "Прапорець позначення основного об’єкта."
+
+#: ../libgxim/gximmessages.c:502
+#, fuzzy
+msgid "All filters"
+msgstr "Всі фільтри"
+
+#: ../libgxim/gximmessages.c:503
+#, fuzzy
+msgid "A flag to enable all of the message filters."
+msgstr "Прапорець вмикання всіх фільтрів повідомлень."
+
+#: ../libgxim/gximprotocol.c:494
+#, fuzzy, c-format
+msgid "Invalid packets on _XIM_PROTOCOL: format: %d."
+msgstr "Некоректні пакети _XIM_PROTOCOL: формат: %d."
+
+#: ../libgxim/gximsrvtmpl.c:827
+#, fuzzy
+msgid "XIM server name"
+msgstr "Назва сервера XIM"
+
+#: ../libgxim/gximsrvtmpl.c:828
+#, fuzzy
+msgid "XIM server name that is used to identify the server through X property"
+msgstr ""
+"Назва сервера XIM, яка використовуватиметься для ідентифікації сервера за "
+"властивістю X"
+
+#: ../libgxim/gximsrvtmpl.c:972
+#, fuzzy, c-format
+msgid "This server instance is already running"
+msgstr "Цей екземпляр сервера вже запущено"
+
+#: ../libgxim/gximsrvtmpl.c:976
+#, fuzzy, c-format
+msgid "Another server instance is already running"
+msgstr "Вже запущено інший екземпляр сервера"
+
+#: ../libgxim/gximsrvtmpl.c:1034
+#, fuzzy, c-format
+msgid "Unable to acquire the XIM server owner for `%s'"
+msgstr "Не вдалося визначити власника сервера XIM для «%s»"
+
+#: ../libgxim/gximsrvtmpl.c:1075
+#, fuzzy, c-format
+msgid "Unable to add a server atom `%s'."
+msgstr "Не вдалося додати елемент сервера «%s»."
+
+#~ msgctxt ""
+#~ msgid "Default IM Attributes"
+#~ msgstr "Типові атрибути IM"
+
+#~ msgctxt ""
+#~ msgid "Default IC Attributes"
+#~ msgstr "Типові атрибути I"

@@ -1,0 +1,150 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Translators:
+# gcintra <gcintra@fedoraproject.org>, 2012. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: libgxim\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-01-18 15:14+0900\n"
+"PO-Revision-Date: 2012-03-08 06:57-0500\n"
+"Last-Translator: gcintra <gcintra@fedoraproject.org>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: pt-BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+"X-Generator: Zanata 2.0.2\n"
+
+#: ../libgxim/gximattr.c:223
+#, fuzzy
+msgid "Attributes enabled"
+msgstr "Atributos habilitados"
+
+#: ../libgxim/gximattr.c:224
+#, fuzzy
+msgid "XIM Attributes allowed to use"
+msgstr "Atributos do XIM permitidos a usar"
+
+#: ../libgxim/gximcltmpl.c:549
+#, fuzzy
+msgid "GDK Atom"
+msgstr "GDK Atom"
+
+#: ../libgxim/gximcltmpl.c:550
+#, fuzzy
+msgid "GDK Atom for XIM server"
+msgstr "GDK Atom para o servidor XIM "
+
+#: ../libgxim/gximconnection.c:160 ../libgxim/gximcore.c:428
+#, fuzzy
+msgid "Signals for Protocol class"
+msgstr "Sinais para a classe do Protocolo"
+
+#: ../libgxim/gximconnection.c:161
+#, fuzzy
+msgid "A list of signal connector for Protocol class"
+msgstr "Uma lista de conectores de sinais para a classe de Protocolo"
+
+#: ../libgxim/gximcore.c:392
+#, fuzzy
+msgid "GdkDisplay"
+msgstr "GdkDisplay"
+
+#: ../libgxim/gximcore.c:393
+#, fuzzy
+msgid "Gdk display to use"
+msgstr "Display do Gdk a utilizar"
+
+#: ../libgxim/gximcore.c:404
+#, fuzzy
+msgid "Selection Window"
+msgstr "Janela de Seleção"
+
+#: ../libgxim/gximcore.c:405
+#, fuzzy
+msgid "A GdkWindow for selection"
+msgstr "Uma Janela Gdk para seleção"
+
+#: ../libgxim/gximcore.c:416
+#, fuzzy
+msgid "GType of Connection class"
+msgstr "GType de classe de conexão"
+
+#: ../libgxim/gximcore.c:417
+#, fuzzy
+msgid "A GType that deal with XIM connection"
+msgstr "Um GType que lida com a conexão do XIM"
+
+#: ../libgxim/gximcore.c:429
+#, fuzzy
+msgid "A structure of signals for Protocol class"
+msgstr "Uma estrutura de sinais para a classe de Protocolos"
+
+#: ../libgxim/gximmessages.c:491
+#, fuzzy
+msgid "Master"
+msgstr "Master"
+
+#: ../libgxim/gximmessages.c:492
+#, fuzzy
+msgid "A flag to mark a master object."
+msgstr "Uma bandeira para marcar um objeto do master"
+
+#: ../libgxim/gximmessages.c:502
+#, fuzzy
+msgid "All filters"
+msgstr "Todos os filtros"
+
+#: ../libgxim/gximmessages.c:503
+#, fuzzy
+msgid "A flag to enable all of the message filters."
+msgstr "Uma bandeira para habilitar todos os filtros de mensagens"
+
+#: ../libgxim/gximprotocol.c:494
+#, fuzzy, c-format
+msgid "Invalid packets on _XIM_PROTOCOL: format: %d."
+msgstr "Pacotes inválidos no _XIM_PROTOCOL: formato: %d."
+
+#: ../libgxim/gximsrvtmpl.c:827
+#, fuzzy
+msgid "XIM server name"
+msgstr "Nome do servidor XIM"
+
+#: ../libgxim/gximsrvtmpl.c:828
+#, fuzzy
+msgid "XIM server name that is used to identify the server through X property"
+msgstr ""
+"O nome do servidor XIM que é usado para identificar o servidor através da "
+"propriedade X"
+
+#: ../libgxim/gximsrvtmpl.c:972
+#, fuzzy, c-format
+msgid "This server instance is already running"
+msgstr "Esta instância de servidor já está sendo executada"
+
+#: ../libgxim/gximsrvtmpl.c:976
+#, fuzzy, c-format
+msgid "Another server instance is already running"
+msgstr "Outra instância de servidor já está em execução"
+
+#: ../libgxim/gximsrvtmpl.c:1034
+#, fuzzy, c-format
+msgid "Unable to acquire the XIM server owner for `%s'"
+msgstr "Incapaz de adquirir o proprietário do servidor do XIM para `%s'"
+
+#: ../libgxim/gximsrvtmpl.c:1075
+#, fuzzy, c-format
+msgid "Unable to add a server atom `%s'."
+msgstr "Incapaz de adicionar um atom de servidor `%s'"
+
+#~ msgctxt ""
+#~ msgid "Default IM Attributes"
+#~ msgstr "Atributos do IM padrão"
+
+#~ msgctxt ""
+#~ msgid "Default IC Attributes"
+#~ msgstr "Atributos do IC padrão"

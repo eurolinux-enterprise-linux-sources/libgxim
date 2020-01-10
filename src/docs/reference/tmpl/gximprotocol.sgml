@@ -1,0 +1,526 @@
+<!-- ##### SECTION Title ##### -->
+GXimProtocol
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT GXimProtocolClosure ##### -->
+<para>
+
+</para>
+
+@closure: 
+@signal_marshaller: 
+@n_params: 
+@param_types: 
+@signal_handlers: 
+@name: 
+@minor_opcode: 
+@is_an_extension: 
+
+<!-- ##### USER_FUNCTION GXimProtocolClosureFunc ##### -->
+<para>
+
+</para>
+
+@closure: 
+@proto: 
+@stream: 
+@error: 
+@user_data: 
+@Returns: 
+
+
+<!-- ##### ENUM GXimProtocolError ##### -->
+<para>
+
+</para>
+
+@G_XIM_PROTOCOL_ERROR_BEGIN: 
+@G_XIM_PROTOCOL_ERROR_UNKNOWN_ENDIAN: 
+@G_XIM_PROTOCOL_ERROR_INVALID_PACKETS_RECEIVED: 
+@G_XIM_PROTOCOL_ERROR_DELIVERY_FAILURE: 
+@G_XIM_PROTOCOL_ERROR_NO_PARSER: 
+@G_XIM_PROTOCOL_ERROR_NO_DATA: 
+
+<!-- ##### STRUCT GXimProtocolIface ##### -->
+<para>
+
+</para>
+
+@parent_iface: 
+@message: 
+@atom_xim_protocol: 
+@atom_xim_moredata: 
+
+<!-- ##### STRUCT GXimProtocolQueueNode ##### -->
+<para>
+
+</para>
+
+@data: 
+@length: 
+@major_opcode: 
+@minor_opcode: 
+@imid: 
+@icid: 
+@is_sent: 
+
+<!-- ##### MACRO G_XIM_OPCODE_KEY ##### -->
+<para>
+
+</para>
+
+@_m_: 
+@_n_: 
+
+
+<!-- ##### MACRO G_XIM_PROTOCOL_ERROR ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### FUNCTION g_xim_attr_get_attribute_from_stream ##### -->
+<para>
+
+</para>
+
+@proto: 
+@attr: 
+@stream: 
+@cancellable: 
+@error: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_attr_put_attribute_to_stream ##### -->
+<para>
+
+</para>
+
+@proto: 
+@attr: 
+@attribute_id: 
+@cancellable: 
+@error: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_protocol_add_protocol ##### -->
+<para>
+
+</para>
+
+@proto: 
+@closure: 
+
+
+<!-- ##### FUNCTION g_xim_protocol_cancel_queue ##### -->
+<para>
+
+</para>
+
+@proto: 
+
+
+<!-- ##### FUNCTION g_xim_protocol_closure_add_signal ##### -->
+<para>
+
+</para>
+
+@closure: 
+@marshaller: 
+@n_params: 
+@...: 
+
+
+<!-- ##### FUNCTION g_xim_protocol_closure_connect ##### -->
+<para>
+
+</para>
+
+@closure: 
+@func: 
+@data: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_protocol_closure_disconnect ##### -->
+<para>
+
+</para>
+
+@closure: 
+@id: 
+
+
+<!-- ##### FUNCTION g_xim_protocol_closure_emit_signal ##### -->
+<para>
+
+</para>
+
+@closure: 
+@proto: 
+@...: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_protocol_closure_free ##### -->
+<para>
+
+</para>
+
+@data: 
+@closure: 
+
+
+<!-- ##### FUNCTION g_xim_protocol_closure_is_an_extension ##### -->
+<para>
+
+</para>
+
+@closure: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_protocol_closure_new ##### -->
+<para>
+
+</para>
+
+@major_opcode: 
+@minor_opcode: 
+@name: 
+@is_an_extension: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_protocol_closure_set_marshal ##### -->
+<para>
+
+</para>
+
+@closure: 
+@func: 
+@data: 
+
+
+<!-- ##### FUNCTION g_xim_protocol_connect_closure_by_id ##### -->
+<para>
+
+</para>
+
+@proto: 
+@major_opcode: 
+@minor_opcode: 
+@func: 
+@data: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_protocol_connect_closure_by_name ##### -->
+<para>
+
+</para>
+
+@proto: 
+@signal_name: 
+@func: 
+@data: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_protocol_dispose ##### -->
+<para>
+
+</para>
+
+@object: 
+
+
+<!-- ##### FUNCTION g_xim_protocol_end_queue ##### -->
+<para>
+
+</para>
+
+@proto: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_protocol_finalize ##### -->
+<para>
+
+</para>
+
+@object: 
+
+
+<!-- ##### FUNCTION g_xim_protocol_get_error_quark ##### -->
+<para>
+
+</para>
+
+@void: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_protocol_get_extensions ##### -->
+<para>
+
+</para>
+
+@proto: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_protocol_get_private ##### -->
+<para>
+
+</para>
+
+@proto: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_protocol_get_queue_length ##### -->
+<para>
+
+</para>
+
+@proto: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_protocol_init ##### -->
+<para>
+
+</para>
+
+@proto: 
+
+
+<!-- ##### FUNCTION g_xim_protocol_is_queued ##### -->
+<para>
+
+</para>
+
+@proto: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_protocol_lookup_protocol_by_id ##### -->
+<para>
+
+</para>
+
+@proto: 
+@major_opcode: 
+@minor_opcode: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_protocol_lookup_protocol_by_name ##### -->
+<para>
+
+</para>
+
+@proto: 
+@name: 
+@Returns: 
+
+
+<!-- ##### MACRO g_xim_protocol_n_pad4 ##### -->
+<para>
+
+</para>
+
+@_n_: 
+
+
+<!-- ##### FUNCTION g_xim_protocol_process_event ##### -->
+<para>
+
+</para>
+
+@proto: 
+@event: 
+@error: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_protocol_raise_parser_error ##### -->
+<para>
+
+</para>
+
+@proto: 
+@major_opcode: 
+@minor_opcode: 
+@imid: 
+@icid: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_protocol_read_format ##### -->
+<para>
+
+</para>
+
+@proto: 
+@stream: 
+@cancellable: 
+@error: 
+@n_params: 
+@...: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_protocol_read_vformat ##### -->
+<para>
+
+</para>
+
+@proto: 
+@stream: 
+@cancellable: 
+@error: 
+@n_params: 
+@args: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_protocol_remove_protocol ##### -->
+<para>
+
+</para>
+
+@proto: 
+@closure: 
+
+
+<!-- ##### FUNCTION g_xim_protocol_remove_protocol_by_id ##### -->
+<para>
+
+</para>
+
+@proto: 
+@major_opcode: 
+@minor_opcode: 
+
+
+<!-- ##### FUNCTION g_xim_protocol_send ##### -->
+<para>
+
+</para>
+
+@proto: 
+@major_opcode: 
+@minor_opcode: 
+@n_params: 
+@...: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_protocol_send_format ##### -->
+<para>
+
+</para>
+
+@proto: 
+@cancellable: 
+@error: 
+@n_params: 
+@...: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_protocol_send_packets ##### -->
+<para>
+
+</para>
+
+@proto: 
+@data: 
+@length: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_protocol_send_vformat ##### -->
+<para>
+
+</para>
+
+@proto: 
+@cancellable: 
+@error: 
+@n_params: 
+@args: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_protocol_send_with_list ##### -->
+<para>
+
+</para>
+
+@proto: 
+@major_opcode: 
+@minor_opcode: 
+@types: 
+@values: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_protocol_start_queue ##### -->
+<para>
+
+</para>
+
+@proto: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_protocol_translate ##### -->
+<para>
+
+</para>
+
+@proto: 
+@data: 
+@length: 
+@error: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_protocol_wait_for_reply ##### -->
+<para>
+
+</para>
+
+@proto: 
+@major_opcode: 
+@minor_opcode: 
+@error: 
+@Returns: 
+
+

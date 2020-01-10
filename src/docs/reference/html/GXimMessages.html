@@ -1,0 +1,952 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GXimMessages</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
+<link rel="home" href="index.html" title="libgxim Reference Manual">
+<link rel="up" href="ch05.html" title="Miscelleneous">
+<link rel="prev" href="ch05.html" title="Miscelleneous">
+<link rel="next" href="libgxim-gximerror.html" title="gximerror">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="ch05.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch05.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libgxim Reference Manual</th>
+<td><a accesskey="n" href="libgxim-gximerror.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#GXimMessages.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#GXimMessages.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#GXimMessages.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#GXimMessages.properties" class="shortcut">Properties</a>
+                   | 
+                  <a href="#GXimMessages.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="GXimMessages"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GXimMessages.top_of_page"></a>GXimMessages</span></h2>
+<p>GXimMessages — Logging facility class</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="GXimMessages.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">                    <a class="link" href="GXimMessages.html#GXimMessages-struct" title="GXimMessages">GXimMessages</a>;
+struct              <a class="link" href="GXimMessages.html#GXimMessagesClass" title="struct GXimMessagesClass">GXimMessagesClass</a>;
+enum                <a class="link" href="GXimMessages.html#GXimMessagesType" title="enum GXimMessagesType">GXimMessagesType</a>;
+#define             <a class="link" href="GXimMessages.html#LIBGXIM-INTERFACE-DBUS:CAPS" title="LIBGXIM_INTERFACE_DBUS">LIBGXIM_INTERFACE_DBUS</a>
+#define             <a class="link" href="GXimMessages.html#LIBGXIM-PATH-DBUS:CAPS" title="LIBGXIM_PATH_DBUS">LIBGXIM_PATH_DBUS</a>
+#define             <a class="link" href="GXimMessages.html#LIBGXIM-SERVICE-DBUS:CAPS" title="LIBGXIM_SERVICE_DBUS">LIBGXIM_SERVICE_DBUS</a>
+#define             <a class="link" href="GXimMessages.html#g-xim-message" title="g_xim_message()">g_xim_message</a>                       (_i_,
+                                                         _f_,
+                                                         ...)
+<span class="returnvalue">void</span>                <a class="link" href="GXimMessages.html#g-xim-messages-activate" title="g_xim_messages_activate ()">g_xim_messages_activate</a>             (<em class="parameter"><code><a class="link" href="GXimMessages.html" title="GXimMessages"><span class="type">GXimMessages</span></a> *message</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> flag</code></em>);
+#define             <a class="link" href="GXimMessages.html#g-xim-messages-bug" title="g_xim_messages_bug()">g_xim_messages_bug</a>                  (_i_,
+                                                         ...)
+<span class="returnvalue">void</span>                <a class="link" href="GXimMessages.html#g-xim-messages-clear-filter" title="g_xim_messages_clear_filter ()">g_xim_messages_clear_filter</a>         (<em class="parameter"><code><a class="link" href="GXimMessages.html" title="GXimMessages"><span class="type">GXimMessages</span></a> *message</code></em>);
+#define             <a class="link" href="GXimMessages.html#g-xim-messages-critical" title="g_xim_messages_critical()">g_xim_messages_critical</a>             (_i_,
+                                                         ...)
+#define             <a class="link" href="GXimMessages.html#g-xim-messages-debug" title="g_xim_messages_debug()">g_xim_messages_debug</a>                (_i_,
+                                                         _f_,
+                                                         ...)
+<span class="returnvalue">void</span>                <a class="link" href="GXimMessages.html#g-xim-messages-enable-filter" title="g_xim_messages_enable_filter ()">g_xim_messages_enable_filter</a>        (<em class="parameter"><code><a class="link" href="GXimMessages.html" title="GXimMessages"><span class="type">GXimMessages</span></a> *message</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *filter_name</code></em>);
+#define             <a class="link" href="GXimMessages.html#g-xim-messages-error" title="g_xim_messages_error()">g_xim_messages_error</a>                (_i_,
+                                                         ...)
+#define             <a class="link" href="GXimMessages.html#g-xim-messages-gerror" title="g_xim_messages_gerror()">g_xim_messages_gerror</a>               (_i_,
+                                                         _e_)
+#define             <a class="link" href="GXimMessages.html#g-xim-messages-info" title="g_xim_messages_info()">g_xim_messages_info</a>                 (_i_,
+                                                         _f_,
+                                                         ...)
+<a class="link" href="GXimMessages.html" title="GXimMessages"><span class="returnvalue">GXimMessages</span></a> *      <a class="link" href="GXimMessages.html#g-xim-messages-new" title="g_xim_messages_new ()">g_xim_messages_new</a>                  (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GXimMessages.html#g-xim-messages-printf" title="g_xim_messages_printf ()">g_xim_messages_printf</a>               (<em class="parameter"><code><a class="link" href="GXimMessages.html" title="GXimMessages"><span class="type">GXimMessages</span></a> *message</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *filter</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GXimMessages.html#GXimMessagesType" title="enum GXimMessagesType"><span class="type">GXimMessagesType</span></a> type</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *format</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GXimMessages.html#g-xim-messages-set-filename" title="g_xim_messages_set_filename ()">g_xim_messages_set_filename</a>         (<em class="parameter"><code><a class="link" href="GXimMessages.html" title="GXimMessages"><span class="type">GXimMessages</span></a> *message</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *filename</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GXimMessages.html#g-xim-messages-vprintf" title="g_xim_messages_vprintf ()">g_xim_messages_vprintf</a>              (<em class="parameter"><code><a class="link" href="GXimMessages.html" title="GXimMessages"><span class="type">GXimMessages</span></a> *message</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *filter</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GXimMessages.html#GXimMessagesType" title="enum GXimMessagesType"><span class="type">GXimMessagesType</span></a> type</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *format</code></em>,
+                                                         <em class="parameter"><code><span class="type">va_list</span> args</code></em>);
+#define             <a class="link" href="GXimMessages.html#g-xim-messages-warning" title="g_xim_messages_warning()">g_xim_messages_warning</a>              (_i_,
+                                                         ...)
+</pre>
+</div>
+<div class="refsect1">
+<a name="GXimMessages.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  GObject
+   +----GXimMessages
+</pre>
+</div>
+<div class="refsect1">
+<a name="GXimMessages.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="GXimMessages.html#GXimMessages--all-filters" title='The "all-filters" property'>all-filters</a>"              <span class="type">gboolean</span>              : Read / Write
+  "<a class="link" href="GXimMessages.html#GXimMessages--master" title='The "master" property'>master</a>"                   <span class="type">gboolean</span>              : Read / Write
+</pre>
+</div>
+<div class="refsect1">
+<a name="GXimMessages.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="GXimMessages.html#GXimMessages-activated" title='The "activated" signal'>activated</a>"                                      : <code class="literal">Run Last</code>
+  "<a class="link" href="GXimMessages.html#GXimMessages-created" title='The "created" signal'>created</a>"                                        : <code class="literal">Run First</code>
+  "<a class="link" href="GXimMessages.html#GXimMessages-filename-changed" title='The "filename-changed" signal'>filename-changed</a>"                               : <code class="literal">Run Last</code>
+  "<a class="link" href="GXimMessages.html#GXimMessages-filter-added" title='The "filter-added" signal'>filter-added</a>"                                   : <code class="literal">Run Last</code>
+  "<a class="link" href="GXimMessages.html#GXimMessages-filter-cleared" title='The "filter-cleared" signal'>filter-cleared</a>"                                 : <code class="literal">Run Last</code>
+</pre>
+</div>
+<div class="refsect1">
+<a name="GXimMessages.description"></a><h2>Description</h2>
+<p>
+GXimMessages provides a logging facility. this allows you to output messages
+any time you want. you can manage it with DBus as well. so you don't even
+restart processes to do something with this then.
+</p>
+<p>
+</p>
+<div class="refsect2">
+<a name="GXimMessages-DBus"></a><h3>DBus signals</h3>
+<p>
+Right now the following signals are available to manage the logging facility.
+you can emits signals any time as following:
+</p>
+<p>
+</p>
+<div class="informalexample">
+  <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+      <tr>
+        <td class="listing_lines" align="right"><pre>1</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">$ dbus</span><span class="symbol">-</span><span class="normal">send </span><span class="symbol">--</span><span class="normal">session </span><span class="symbol">--</span><span class="normal">type</span><span class="symbol">=</span><span class="normal">signal </span><span class="symbol">/</span><span class="normal">org</span><span class="symbol">/</span><span class="normal">tagoh</span><span class="symbol">/</span><span class="usertype">libgxim</span><span class="normal"> org</span><span class="symbol">.</span><span class="normal">tagoh</span><span class="symbol">.</span><span class="normal">libgxim</span><span class="symbol">.&lt;</span><span class="usertype">em</span><span class="normal"> class</span><span class="symbol">=</span><span class="string">"replaceable"</span><span class="symbol">&gt;&lt;</span><span class="normal">code</span><span class="symbol">&gt;</span><span class="usertype">SignalName&lt;/code&gt;&lt;/em&gt;</span><span class="normal"> type</span><span class="symbol">:&lt;</span><span class="usertype">em</span><span class="normal"> class</span><span class="symbol">=</span><span class="string">"replaceable"</span><span class="symbol">&gt;&lt;</span><span class="normal">code</span><span class="symbol">&gt;</span><span class="normal">value</span><span class="symbol">&lt;/</span><span class="normal">code</span><span class="symbol">&gt;&lt;/</span><span class="normal">em</span><span class="symbol">&gt;</span></pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>
+</p>
+<p>
+<em class="replaceable"><code>SignalName</code></em> will be replaced with following signal names. See manpage for
+<span class="command"><strong>dbus-send</strong></span> to learn usage for others.
+</p>
+<p>
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term">Activate</span></p></td>
+<td><p>
+  Sets the activity of the logging facility. a boolean value is required
+  as a parameter. See <a class="link" href="GXimMessages.html#g-xim-messages-activate" title="g_xim_messages_activate ()"><code class="function">g_xim_messages_activate()</code></a> for more details.
+ </p></td>
+</tr>
+<tr>
+<td><p><span class="term">SetFilename</span></p></td>
+<td><p>
+  Sets the filename to be logged messages into. a string value is required
+  as a parameter. See <a class="link" href="GXimMessages.html#g-xim-messages-set-filename" title="g_xim_messages_set_filename ()"><code class="function">g_xim_messages_set_filename()</code></a> for more details.
+ </p></td>
+</tr>
+<tr>
+<td><p><span class="term">RemoveAllFilters</span></p></td>
+<td><p>
+  Resets filters to output. See <a class="link" href="GXimMessages.html#g-xim-messages-clear-filter" title="g_xim_messages_clear_filter ()"><code class="function">g_xim_messages_clear_filter()</code></a> for more details.
+ </p></td>
+</tr>
+<tr>
+<td><p><span class="term">AddFilter</span></p></td>
+<td><p>
+  Adds a filter which you want to see a message. a string value is required
+  as a parameter. See <a class="link" href="GXimMessages.html#g-xim-messages-enable-filter" title="g_xim_messages_enable_filter ()"><code class="function">g_xim_messages_enable_filter()</code></a> for more details.
+ </p></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="GXimMessages.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GXimMessages-struct"></a><h3>GXimMessages</h3>
+<pre class="programlisting">typedef struct _GXimMessages GXimMessages;</pre>
+<p>
+An implementation of message handler class
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GXimMessagesClass"></a><h3>struct GXimMessagesClass</h3>
+<pre class="programlisting">struct GXimMessagesClass {
+	GObjectClass  parent_class;
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GXimMessagesType"></a><h3>enum GXimMessagesType</h3>
+<pre class="programlisting">typedef enum {
+	G_XIM_MESSAGES_MESSAGE,
+	G_XIM_MESSAGES_DEBUG,
+	G_XIM_MESSAGES_INFO,
+	G_XIM_MESSAGES_WARNING,
+	G_XIM_MESSAGES_ERROR,
+	G_XIM_MESSAGES_CRITICAL,
+	G_XIM_MESSAGES_BUG
+} GXimMessagesType;
+</pre>
+<p>
+Flags specifying the type of messages.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><a name="G-XIM-MESSAGES-MESSAGE:CAPS"></a><span class="term"><code class="literal">G_XIM_MESSAGES_MESSAGE</code></span></p></td>
+<td>a message type for usual messages, see <a class="link" href="GXimMessages.html#g-xim-message" title="g_xim_message()"><code class="function">g_xim_message()</code></a>.
+</td>
+</tr>
+<tr>
+<td><p><a name="G-XIM-MESSAGES-DEBUG:CAPS"></a><span class="term"><code class="literal">G_XIM_MESSAGES_DEBUG</code></span></p></td>
+<td>a message type for debug, see <a class="link" href="GXimMessages.html#g-xim-messages-debug" title="g_xim_messages_debug()"><code class="function">g_xim_messages_debug()</code></a>.
+</td>
+</tr>
+<tr>
+<td><p><a name="G-XIM-MESSAGES-INFO:CAPS"></a><span class="term"><code class="literal">G_XIM_MESSAGES_INFO</code></span></p></td>
+<td>a message type for information, see <a class="link" href="GXimMessages.html#g-xim-messages-info" title="g_xim_messages_info()"><code class="function">g_xim_messages_info()</code></a>.
+</td>
+</tr>
+<tr>
+<td><p><a name="G-XIM-MESSAGES-WARNING:CAPS"></a><span class="term"><code class="literal">G_XIM_MESSAGES_WARNING</code></span></p></td>
+<td>a message type for warnings, see <a class="link" href="GXimMessages.html#g-xim-messages-warning" title="g_xim_messages_warning()"><code class="function">g_xim_messages_warning()</code></a>.
+</td>
+</tr>
+<tr>
+<td><p><a name="G-XIM-MESSAGES-ERROR:CAPS"></a><span class="term"><code class="literal">G_XIM_MESSAGES_ERROR</code></span></p></td>
+<td>a message type for errors, see <a class="link" href="GXimMessages.html#g-xim-messages-error" title="g_xim_messages_error()"><code class="function">g_xim_messages_error()</code></a>.
+</td>
+</tr>
+<tr>
+<td><p><a name="G-XIM-MESSAGES-CRITICAL:CAPS"></a><span class="term"><code class="literal">G_XIM_MESSAGES_CRITICAL</code></span></p></td>
+<td>a message type for critical errors, see <a class="link" href="GXimMessages.html#g-xim-messages-critical" title="g_xim_messages_critical()"><code class="function">g_xim_messages_critical()</code></a>.
+</td>
+</tr>
+<tr>
+<td><p><a name="G-XIM-MESSAGES-BUG:CAPS"></a><span class="term"><code class="literal">G_XIM_MESSAGES_BUG</code></span></p></td>
+<td>a message type for bugs, see <a class="link" href="GXimMessages.html#g-xim-messages-bug" title="g_xim_messages_bug()"><code class="function">g_xim_messages_bug()</code></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="LIBGXIM-INTERFACE-DBUS:CAPS"></a><h3>LIBGXIM_INTERFACE_DBUS</h3>
+<pre class="programlisting">#define LIBGXIM_INTERFACE_DBUS		"org.tagoh.libgxim"
+</pre>
+<p>
+An interface name for libgxim used in DBus.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="LIBGXIM-PATH-DBUS:CAPS"></a><h3>LIBGXIM_PATH_DBUS</h3>
+<pre class="programlisting">#define LIBGXIM_PATH_DBUS		"/org/tagoh/libgxim"
+</pre>
+<p>
+A path name for libgxim used in DBus.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="LIBGXIM-SERVICE-DBUS:CAPS"></a><h3>LIBGXIM_SERVICE_DBUS</h3>
+<pre class="programlisting">#define LIBGXIM_SERVICE_DBUS		"org.tagoh.libgxim"
+</pre>
+<p>
+A service name for libgxim used in DBus.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-message"></a><h3>g_xim_message()</h3>
+<pre class="programlisting">#define             g_xim_message(_i_,_f_,...)</pre>
+<p>
+Outputs a message with <a class="link" href="GXimMessages.html#g-xim-messages-printf" title="g_xim_messages_printf ()"><code class="function">g_xim_messages_printf()</code></a>.
+</p>
+<p>
+This is a convenience macro to output a message with <a class="link" href="GXimMessages.html#G-XIM-MESSAGES-MESSAGE:CAPS"><code class="literal">G_XIM_MESSAGES_MESSAGE</code></a>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>_i_</code></em> :</span></p></td>
+<td>a <a class="link" href="GXimMessages.html" title="GXimMessages"><span class="type">GXimMessages</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>_f_</code></em> :</span></p></td>
+<td>a unique filter name.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
+<td>arguments include the format string</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-messages-activate"></a><h3>g_xim_messages_activate ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_messages_activate             (<em class="parameter"><code><a class="link" href="GXimMessages.html" title="GXimMessages"><span class="type">GXimMessages</span></a> *message</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> flag</code></em>);</pre>
+<p>
+Sets the activity of the logging facility.
+</p>
+<p>
+This affects all of the instance of <a class="link" href="GXimMessages.html" title="GXimMessages"><span class="type">GXimMessages</span></a> in the process.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>message</code></em> :</span></p></td>
+<td>a <a class="link" href="GXimMessages.html" title="GXimMessages"><span class="type">GXimMessages</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>flag</code></em> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> to enable logging. <code class="literal">FALSE</code> to disable logging.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-messages-bug"></a><h3>g_xim_messages_bug()</h3>
+<pre class="programlisting">#define             g_xim_messages_bug(_i_,...)</pre>
+<p>
+Outputs a message with <a class="link" href="GXimMessages.html#g-xim-messages-printf" title="g_xim_messages_printf ()"><code class="function">g_xim_messages_printf()</code></a>.
+</p>
+<p>
+This is a convenience macro to output a message with <a class="link" href="GXimMessages.html#G-XIM-MESSAGES-BUG:CAPS"><code class="literal">G_XIM_MESSAGES_BUG</code></a>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>_i_</code></em> :</span></p></td>
+<td>a <a class="link" href="GXimMessages.html" title="GXimMessages"><span class="type">GXimMessages</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
+<td>arguments include the format string.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-messages-clear-filter"></a><h3>g_xim_messages_clear_filter ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_messages_clear_filter         (<em class="parameter"><code><a class="link" href="GXimMessages.html" title="GXimMessages"><span class="type">GXimMessages</span></a> *message</code></em>);</pre>
+<p>
+Resets all of the filters you wanted to allow a message.
+</p>
+<p>
+This affects all of the instance of <a class="link" href="GXimMessages.html" title="GXimMessages"><span class="type">GXimMessages</span></a> in the process.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>message</code></em> :</span></p></td>
+<td>a <a class="link" href="GXimMessages.html" title="GXimMessages"><span class="type">GXimMessages</span></a>.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-messages-critical"></a><h3>g_xim_messages_critical()</h3>
+<pre class="programlisting">#define             g_xim_messages_critical(_i_,...)</pre>
+<p>
+Outputs a message with <a class="link" href="GXimMessages.html#g-xim-messages-printf" title="g_xim_messages_printf ()"><code class="function">g_xim_messages_printf()</code></a>.
+</p>
+<p>
+This is a convenience macro to output a message with <a class="link" href="GXimMessages.html#G-XIM-MESSAGES-CRITICAL:CAPS"><code class="literal">G_XIM_MESSAGES_CRITICAL</code></a>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>_i_</code></em> :</span></p></td>
+<td>a <a class="link" href="GXimMessages.html" title="GXimMessages"><span class="type">GXimMessages</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
+<td>arguments include the format string.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-messages-debug"></a><h3>g_xim_messages_debug()</h3>
+<pre class="programlisting">#define             g_xim_messages_debug(_i_,_f_,...)</pre>
+<p>
+Outputs a message with <a class="link" href="GXimMessages.html#g-xim-messages-printf" title="g_xim_messages_printf ()"><code class="function">g_xim_messages_printf()</code></a>.
+</p>
+<p>
+This is a convenience macro to output a message with <a class="link" href="GXimMessages.html#G-XIM-MESSAGES-DEBUG:CAPS"><code class="literal">G_XIM_MESSAGES_DEBUG</code></a>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>_i_</code></em> :</span></p></td>
+<td>a <a class="link" href="GXimMessages.html" title="GXimMessages"><span class="type">GXimMessages</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>_f_</code></em> :</span></p></td>
+<td>a unique filter name.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
+<td>arguments include the format string.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-messages-enable-filter"></a><h3>g_xim_messages_enable_filter ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_messages_enable_filter        (<em class="parameter"><code><a class="link" href="GXimMessages.html" title="GXimMessages"><span class="type">GXimMessages</span></a> *message</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *filter_name</code></em>);</pre>
+<p>
+Allows logging a message categorized to <em class="parameter"><code>filter_name</code></em>. "all" and "noall"
+filter name is reserved. "all" to enable all of filters no matter what
+filters are enabled. "noall" to enable filters specified by this function.
+</p>
+<p>
+This affects all of the instance of <a class="link" href="GXimMessages.html" title="GXimMessages"><span class="type">GXimMessages</span></a> in the process.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>message</code></em> :</span></p></td>
+<td>a <a class="link" href="GXimMessages.html" title="GXimMessages"><span class="type">GXimMessages</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filter_name</code></em> :</span></p></td>
+<td>a unique filter name to be categorized.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-messages-error"></a><h3>g_xim_messages_error()</h3>
+<pre class="programlisting">#define             g_xim_messages_error(_i_,...)</pre>
+<p>
+Outputs a message with <a class="link" href="GXimMessages.html#g-xim-messages-printf" title="g_xim_messages_printf ()"><code class="function">g_xim_messages_printf()</code></a>.
+</p>
+<p>
+This is a convenience macro to output a message with <a class="link" href="GXimMessages.html#G-XIM-MESSAGES-ERROR:CAPS"><code class="literal">G_XIM_MESSAGES_ERROR</code></a>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>_i_</code></em> :</span></p></td>
+<td>a <a class="link" href="GXimMessages.html" title="GXimMessages"><span class="type">GXimMessages</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
+<td>arguments include the format string.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-messages-gerror"></a><h3>g_xim_messages_gerror()</h3>
+<pre class="programlisting">#define             g_xim_messages_gerror(_i_,_e_)</pre>
+<p>
+Outputs a <span class="type">GError</span> with <a class="link" href="GXimMessages.html#g-xim-messages-printf" title="g_xim_messages_printf ()"><code class="function">g_xim_messages_printf()</code></a>.
+</p>
+<p>
+This is a convenience macro to output a message. the message type depends
+on the error code which would be logically added with <span class="type">GXimErrorType</span>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>_i_</code></em> :</span></p></td>
+<td>a <a class="link" href="GXimMessages.html" title="GXimMessages"><span class="type">GXimMessages</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>_e_</code></em> :</span></p></td>
+<td>a <span class="type">GError</span> to output.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-messages-info"></a><h3>g_xim_messages_info()</h3>
+<pre class="programlisting">#define             g_xim_messages_info(_i_,_f_,...)</pre>
+<p>
+Outputs a message with <a class="link" href="GXimMessages.html#g-xim-messages-printf" title="g_xim_messages_printf ()"><code class="function">g_xim_messages_printf()</code></a>.
+</p>
+<p>
+This is a convenience macro to output a message with <a class="link" href="GXimMessages.html#G-XIM-MESSAGES-INFO:CAPS"><code class="literal">G_XIM_MESSAGES_INFO</code></a>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>_i_</code></em> :</span></p></td>
+<td>a <a class="link" href="GXimMessages.html" title="GXimMessages"><span class="type">GXimMessages</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>_f_</code></em> :</span></p></td>
+<td>a unique filter name.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
+<td>arguments include the format string.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-messages-new"></a><h3>g_xim_messages_new ()</h3>
+<pre class="programlisting"><a class="link" href="GXimMessages.html" title="GXimMessages"><span class="returnvalue">GXimMessages</span></a> *      g_xim_messages_new                  (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Creates an instance to provide you a logging facility. when an instance
+is created, GXimMessages::created signal will be emitted.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a <a class="link" href="GXimMessages.html" title="GXimMessages"><span class="type">GXimMessages</span></a>.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-messages-printf"></a><h3>g_xim_messages_printf ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_messages_printf               (<em class="parameter"><code><a class="link" href="GXimMessages.html" title="GXimMessages"><span class="type">GXimMessages</span></a> *message</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *filter</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GXimMessages.html#GXimMessagesType" title="enum GXimMessagesType"><span class="type">GXimMessagesType</span></a> type</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *format</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);</pre>
+<p>
+Outputs a message. when <a class="link" href="GXimMessages.html#G-XIM-MESSAGES-WARNING:CAPS"><code class="literal">G_XIM_MESSAGES_WARNING</code></a>, <a class="link" href="GXimMessages.html#G-XIM-MESSAGES-ERROR:CAPS"><code class="literal">G_XIM_MESSAGES_ERROR</code></a>,
+<a class="link" href="GXimMessages.html#G-XIM-MESSAGES-CRITICAL:CAPS"><code class="literal">G_XIM_MESSAGES_CRITICAL</code></a> or <a class="link" href="GXimMessages.html#G-XIM-MESSAGES-BUG:CAPS"><code class="literal">G_XIM_MESSAGES_BUG</code></a> is specified to <em class="parameter"><code>type</code></em>,
+a message will be output regardless of what filter is given to <em class="parameter"><code>filter</code></em>.
+Otherwise if <em class="parameter"><code>filter</code></em> isn't enabled, this just will be ignored.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>message</code></em> :</span></p></td>
+<td>a <a class="link" href="GXimMessages.html" title="GXimMessages"><span class="type">GXimMessages</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filter</code></em> :</span></p></td>
+<td>a unique filter name to be categorized.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
+<td>an urgency of the message.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>format</code></em> :</span></p></td>
+<td>the message format. See the <code class="function">printf()</code> documentation.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
+<td>arguments to <em class="parameter"><code>format</code></em>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-messages-set-filename"></a><h3>g_xim_messages_set_filename ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_messages_set_filename         (<em class="parameter"><code><a class="link" href="GXimMessages.html" title="GXimMessages"><span class="type">GXimMessages</span></a> *message</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *filename</code></em>);</pre>
+<p>
+Sets the filename.
+</p>
+<p>
+This affects all of the instance of <a class="link" href="GXimMessages.html" title="GXimMessages"><span class="type">GXimMessages</span></a> in the process.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>message</code></em> :</span></p></td>
+<td>a <a class="link" href="GXimMessages.html" title="GXimMessages"><span class="type">GXimMessages</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
+<td>the filename to be logged a message into.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-messages-vprintf"></a><h3>g_xim_messages_vprintf ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_messages_vprintf              (<em class="parameter"><code><a class="link" href="GXimMessages.html" title="GXimMessages"><span class="type">GXimMessages</span></a> *message</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *filter</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GXimMessages.html#GXimMessagesType" title="enum GXimMessagesType"><span class="type">GXimMessagesType</span></a> type</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *format</code></em>,
+                                                         <em class="parameter"><code><span class="type">va_list</span> args</code></em>);</pre>
+<p>
+Outputs a message. when <a class="link" href="GXimMessages.html#G-XIM-MESSAGES-WARNING:CAPS"><code class="literal">G_XIM_MESSAGES_WARNING</code></a>, <a class="link" href="GXimMessages.html#G-XIM-MESSAGES-ERROR:CAPS"><code class="literal">G_XIM_MESSAGES_ERROR</code></a>,
+<a class="link" href="GXimMessages.html#G-XIM-MESSAGES-CRITICAL:CAPS"><code class="literal">G_XIM_MESSAGES_CRITICAL</code></a> or <a class="link" href="GXimMessages.html#G-XIM-MESSAGES-BUG:CAPS"><code class="literal">G_XIM_MESSAGES_BUG</code></a> is specified to <em class="parameter"><code>type</code></em>,
+a message will be output regardless of what filter is given to <em class="parameter"><code>filter</code></em>.
+Otherwise if <em class="parameter"><code>filter</code></em> isn't enabled, this just will be ignored.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>message</code></em> :</span></p></td>
+<td>a <a class="link" href="GXimMessages.html" title="GXimMessages"><span class="type">GXimMessages</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filter</code></em> :</span></p></td>
+<td>a unique filter name to be categorized.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
+<td>an urgency of the message.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>format</code></em> :</span></p></td>
+<td>the message format. See the <code class="function">printf()</code> documentation.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>args</code></em> :</span></p></td>
+<td>a <span class="type">va_list</span>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-messages-warning"></a><h3>g_xim_messages_warning()</h3>
+<pre class="programlisting">#define             g_xim_messages_warning(_i_,...)</pre>
+<p>
+Outputs a message with <a class="link" href="GXimMessages.html#g-xim-messages-printf" title="g_xim_messages_printf ()"><code class="function">g_xim_messages_printf()</code></a>.
+</p>
+<p>
+This is a convenience macro to output a message with <a class="link" href="GXimMessages.html#G-XIM-MESSAGES-WARNING:CAPS"><code class="literal">G_XIM_MESSAGES_WARNING</code></a>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>_i_</code></em> :</span></p></td>
+<td>a <a class="link" href="GXimMessages.html" title="GXimMessages"><span class="type">GXimMessages</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
+<td>arguments include the format string.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1">
+<a name="GXimMessages.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="GXimMessages--all-filters"></a><h3>The <code class="literal">"all-filters"</code> property</h3>
+<pre class="programlisting">  "all-filters"              <span class="type">gboolean</span>              : Read / Write</pre>
+<p>
+<code class="literal">TRUE</code> to enable all of the messages filters. <code class="literal">FALSE</code> to deal with each filters added by <a class="link" href="GXimMessages.html#GXimMessages-filter-added" title='The "filter-added" signal'><span class="type">"filter-added"</span></a> signal.
+</p>
+<p>Default value: FALSE</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GXimMessages--master"></a><h3>The <code class="literal">"master"</code> property</h3>
+<pre class="programlisting">  "master"                   <span class="type">gboolean</span>              : Read / Write</pre>
+<p>
+<code class="literal">TRUE</code> to be a master instance of <a class="link" href="GXimMessages.html" title="GXimMessages"><span class="type">GXimMessages</span></a>. <code class="literal">FALSE</code> to be a slave instance of <a class="link" href="GXimMessages.html" title="GXimMessages"><span class="type">GXimMessages</span></a>.
+</p>
+<p>Default value: FALSE</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="GXimMessages.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="GXimMessages-activated"></a><h3>The <code class="literal">"activated"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            user_function                      (<a class="link" href="GXimMessages.html" title="GXimMessages"><span class="type">GXimMessages</span></a> *message,
+                                                        <span class="type">gboolean</span>      flag,
+                                                        <span class="type">gpointer</span>      user_data)      : <code class="literal">Run Last</code></pre>
+<p>
+The ::activated signal will be emitted when someone calls
+<a class="link" href="GXimMessages.html#g-xim-messages-activate" title="g_xim_messages_activate ()"><code class="function">g_xim_messages_activate()</code></a> or when someone emits Activate signal
+through DBus.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>message</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>flag</code></em> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> to enable the logging facility.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> to stop other handlers from being invoked for
+the event. <code class="literal">FALSE</code> to propagate the event further.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GXimMessages-created"></a><h3>The <code class="literal">"created"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="GXimMessages.html" title="GXimMessages"><span class="type">GXimMessages</span></a> *message,
+                                                        <a class="link" href="GXimMessages.html" title="GXimMessages"><span class="type">GXimMessages</span></a> *created_object,
+                                                        <span class="type">gpointer</span>      user_data)           : <code class="literal">Run First</code></pre>
+<p>
+The ::created signal will be emitted when an instance of <a class="link" href="GXimMessages.html" title="GXimMessages"><span class="type">GXimMessages</span></a>
+is created. the master object only receives this signal.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>message</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>created_object</code></em> :</span></p></td>
+<td>a <a class="link" href="GXimMessages.html" title="GXimMessages"><span class="type">GXimMessages</span></a> which newly created somewhere in the process.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GXimMessages-filename-changed"></a><h3>The <code class="literal">"filename-changed"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            user_function                      (<a class="link" href="GXimMessages.html" title="GXimMessages"><span class="type">GXimMessages</span></a> *message,
+                                                        <span class="type">gchar</span>        *filename,
+                                                        <span class="type">gpointer</span>      user_data)      : <code class="literal">Run Last</code></pre>
+<p>
+The ::filename-changed signal will be emitted when someone calls
+<a class="link" href="GXimMessages.html#g-xim-messages-set-filename" title="g_xim_messages_set_filename ()"><code class="function">g_xim_messages_set_filename()</code></a> or when someone emits SetFilename signal
+through DBus.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>message</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
+<td>a filename to be logged into.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> to stop other handlers from being invoked for
+the event. <code class="literal">FALSE</code> to propagate the event further.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GXimMessages-filter-added"></a><h3>The <code class="literal">"filter-added"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            user_function                      (<a class="link" href="GXimMessages.html" title="GXimMessages"><span class="type">GXimMessages</span></a> *message,
+                                                        <span class="type">gchar</span>        *filter,
+                                                        <span class="type">gpointer</span>      user_data)      : <code class="literal">Run Last</code></pre>
+<p>
+The ::filter-added signal will be emitted when someone calls
+<a class="link" href="GXimMessages.html#g-xim-messages-enable-filter" title="g_xim_messages_enable_filter ()"><code class="function">g_xim_messages_enable_filter()</code></a> or when someone emits AddFilter signal
+through DBus.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>message</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filter</code></em> :</span></p></td>
+<td>the filter name to enable logging.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> to stop other handlers from being invoked for
+the event. <code class="literal">FALSE</code> to propagate the event further.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GXimMessages-filter-cleared"></a><h3>The <code class="literal">"filter-cleared"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            user_function                      (<a class="link" href="GXimMessages.html" title="GXimMessages"><span class="type">GXimMessages</span></a> *message,
+                                                        <span class="type">gpointer</span>      user_data)      : <code class="literal">Run Last</code></pre>
+<p>
+The ::filter-cleared signal will be emitted when someone calls
+<a class="link" href="GXimMessages.html#g-xim-messages-clear-filter" title="g_xim_messages_clear_filter ()"><code class="function">g_xim_messages_clear_filter()</code></a> or when someone emits RemoveAllFilters
+signal through DBus.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>message</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> to stop other handlers from being invoked for
+the event. <code class="literal">FALSE</code> to propagate the event further.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

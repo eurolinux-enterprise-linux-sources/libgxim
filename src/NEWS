@@ -1,0 +1,61 @@
+0.4.0 -> 0.5.0
+=================
+* Bug Fixes:
+  * Fix broken .pc
+  * Fix deprecated warnings from GLib (soname bumped to 4)
+  * Fix erronerous code
+
+0.3.3 -> 0.4.0
+=================
+* Feature:
+  * GDBus transition.
+* Bug Fixes:
+  * Fix an errror message about FontSet.
+  * Issue#6: Fix dependency of X11.
+  * LISTofXI[CM]ATTRIBUTE is only allowed to have attributes that
+    returned by XIM_OPEN_REPLY.
+* SONAME is bumped.
+
+0.3.2 -> 0.3.3
+=================
+* Bug Fixes:
+  * Issue#5: error about X event conversion.
+  * rhbz#488223: Fix a destroying a window unexpectedly.
+  * Fix error handling behavior to avoid a freeze.
+
+0.3.1 -> 0.3.2
+=================
+* Bug Fixes:
+  * Issue#4: Fix a memory leak. patched by rainy6144.
+  * Fix not working due to the lacks of the certain X atoms.
+* Improvement:
+  * Add more API documentation.
+
+0.3.0 -> 0.3.1
+=================
+* Bug Fix:
+  * Fix a crash with "%n in writable segment detected" error when built with -D_FORTIFY_SOURCE=2.
+* Enhancements:
+  * Add an interface to get the number of the pending requests in the queue.
+  * Add some API reference documentations.
+
+0.2.0 -> 0.3.0
+=================
+* Bug Fixes:
+  * Fix a memory leak.
+  * Send back the appropriate response even when the parser failed.
+* Enhancement:
+  * Add a packet queueing support.
+
+0.1.1 -> 0.2.0
+=================
+* Bug Fixes:
+  * Fix a build dependency.
+  * Fix discarding the packets when reconnecting.
+  * Fix invalid memory accesses.
+
+0.1.0 -> 0.1.1
+=================
+* Bug Fix
+  * Fix an invalid memory access.
+

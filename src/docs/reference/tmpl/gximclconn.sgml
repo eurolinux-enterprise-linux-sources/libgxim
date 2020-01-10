@@ -1,0 +1,266 @@
+<!-- ##### SECTION Title ##### -->
+GXimClientConnection
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT GXimClientConnection ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### STRUCT GXimClientConnectionClass ##### -->
+<para>
+
+</para>
+
+@parent_class: 
+
+<!-- ##### FUNCTION g_xim_client_connection_cmd_close_im ##### -->
+<para>
+
+</para>
+
+@conn: 
+@imid: 
+@is_async: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_client_connection_cmd_connect ##### -->
+<para>
+
+</para>
+
+@conn: 
+@protocol_major_version: 
+@protocol_minor_version: 
+@auth_list: 
+@is_async: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_client_connection_cmd_create_ic ##### -->
+<para>
+
+</para>
+
+@conn: 
+@imid: 
+@attributes: 
+@is_async: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_client_connection_cmd_destroy_ic ##### -->
+<para>
+
+</para>
+
+@conn: 
+@imid: 
+@icid: 
+@is_async: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_client_connection_cmd_disconnect ##### -->
+<para>
+
+</para>
+
+@conn: 
+@is_async: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_client_connection_cmd_encoding_negotiation ##### -->
+<para>
+
+</para>
+
+@conn: 
+@imid: 
+@encodings: 
+@details: 
+@is_async: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_client_connection_cmd_get_ic_values ##### -->
+<para>
+
+</para>
+
+@conn: 
+@imid: 
+@icid: 
+@attr_id: 
+@is_async: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_client_connection_cmd_get_im_values ##### -->
+<para>
+
+</para>
+
+@conn: 
+@imid: 
+@attr_id: 
+@is_async: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_client_connection_cmd_open_im ##### -->
+<para>
+
+</para>
+
+@conn: 
+@locale: 
+@is_async: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_client_connection_cmd_preedit_caret_reply ##### -->
+<para>
+
+</para>
+
+@conn: 
+@imid: 
+@icid: 
+@position: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_client_connection_cmd_preedit_start_reply ##### -->
+<para>
+
+</para>
+
+@conn: 
+@imid: 
+@icid: 
+@return_value: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_client_connection_cmd_query_extension ##### -->
+<para>
+
+</para>
+
+@conn: 
+@imid: 
+@extensions: 
+@is_async: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_client_connection_cmd_reset_ic ##### -->
+<para>
+
+</para>
+
+@conn: 
+@imid: 
+@icid: 
+@is_async: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_client_connection_cmd_set_ic_focus ##### -->
+<para>
+
+</para>
+
+@conn: 
+@imid: 
+@icid: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_client_connection_cmd_set_ic_values ##### -->
+<para>
+
+</para>
+
+@conn: 
+@imid: 
+@icid: 
+@attributes: 
+@is_async: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_client_connection_cmd_set_im_values ##### -->
+<para>
+
+</para>
+
+@conn: 
+@imid: 
+@attributes: 
+@is_async: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_client_connection_cmd_sync ##### -->
+<para>
+
+</para>
+
+@conn: 
+@imid: 
+@icid: 
+@is_async: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_client_connection_cmd_trigger_notify ##### -->
+<para>
+
+</para>
+
+@conn: 
+@imid: 
+@icid: 
+@flag: 
+@index_: 
+@event_mask: 
+@is_async: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_client_connection_cmd_unset_ic_focus ##### -->
+<para>
+
+</para>
+
+@conn: 
+@imid: 
+@icid: 
+@Returns: 
+
+

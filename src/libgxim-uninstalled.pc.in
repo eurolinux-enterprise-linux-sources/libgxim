@@ -1,0 +1,6 @@
+Name: GXIM Uninstalled
+Description: GObject-based X Input Method library, Not Installed
+Version: @VERSION@
+Requires: gdk-2.0
+Libs: ${pcfiledir}/libgxim/libgxim.la
+Cflags: -I${pcfiledir} -I${pcfiledir}/@srcdir@

@@ -1,0 +1,43 @@
+libgxim: GObject-based XIM protocol library
+
+
+libgxim is a X Input Method (a.k.a. XIM) protocol library
+that is implemented by GObject. this library helps you to
+implement XIM servers or client applications to communicate
+through XIM protocol without using Xlib API directly,
+particularly if your application uses GObject-based main
+loop.
+
+
+How to debug
+===============
+This software is still in the alpha phase. you may need to
+gather the certain information to help us to debug this
+software.  However, this section may not helps if your issue
+is a kind of:
+
+ * Performance issue
+ * Issue in Input Method itself
+ * Application specific issue
+
+You may want to track your issue down before following up
+the steps. that would be appreciated if you can find out the
+way to reproduce it with the minimum effort.
+
+Steps
+--------
+
+ 1. Set a filename to save the logs.
+
+    $ dbus-send --session --type=signal /org/tagoh/libgxim org.tagoh.libgxim.SetFilename string:/path/to/logfile
+
+ 2. Enable the appropriate filters
+
+    To enable all of filters:
+
+    $ dbus-send --session --type=signal /org/tagoh/libgxim org.tagoh.libgxim.RemoveAllFilters
+    $ dbus-send --session --type=signal /org/tagoh/libgxim org.tagoh.libgxim.AddFilter string:all
+
+ 3. Enable the logging facility
+
+    $ dbus-send --session --type=signal /org/tagoh/libgxim org.tagoh.libgxim.Activate boolean:true

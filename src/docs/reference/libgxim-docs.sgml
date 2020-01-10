@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY api-index-deprecated "xml/api-index-deprecated.xml">
+<!ENTITY api-index-full "xml/api-index-full.xml">
+<!ENTITY GXimAttr SYSTEM "xml/gximattr.xml">
+<!ENTITY GXimClientConnection SYSTEM "xml/gximclconn.xml">
+<!ENTITY GXimClientTemplate SYSTEM "xml/gximcltmpl.xml">
+<!ENTITY GXimConnection SYSTEM "xml/gximconnection.xml">
+<!ENTITY GXimCore SYSTEM "xml/gximcore.xml">
+<!ENTITY GXimError SYSTEM "xml/gximerror.xml">
+<!ENTITY GXimMessages SYSTEM "xml/gximmessages.xml">
+<!ENTITY Misc SYSTEM "xml/gximmisc.xml">
+<!ENTITY GXimProtocol SYSTEM "xml/gximprotocol.xml">
+<!ENTITY GXimServerConnection SYSTEM "xml/gximsrvconn.xml">
+<!ENTITY GXimServerTemplate SYSTEM "xml/gximsrvtmpl.xml">
+<!ENTITY GXimTransport SYSTEM "xml/gximtransport.xml">
+<!ENTITY obj-types SYSTEM "xml/gximtypes.xml">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<book id="index">
+  <bookinfo>
+    <title>libgxim Reference Manual</title>
+    <releaseinfo>
+      for libgxim &version;
+    </releaseinfo>
+  </bookinfo>
+
+  <reference id="libgxim">
+    <title>libgxim API Reference</title>
+
+    <chapter>
+      <title>Abstract Base Classes</title>
+      &GXimCore;
+      &GXimServerTemplate;
+      &GXimClientTemplate;
+      &GXimConnection;
+    </chapter>
+
+    <chapter>
+      <title>Base Interface Classes</title>
+      &GXimProtocol;
+      &GXimTransport;
+    </chapter>
+
+    <chapter>
+      <title>Low-level Classes</title>
+      &GXimServerConnection;
+      &GXimClientConnection;
+    </chapter>
+
+    <chapter>
+      <title>Attribute Accessor Classes</title>
+      &GXimAttr;
+    </chapter>
+
+    <chapter>
+      <title>Miscelleneous</title>
+      &GXimMessages;
+      &GXimError;
+      &Misc;
+    </chapter>
+
+  </reference>
+
+  <index>
+    <title>Index</title>
+  </index>
+<!--
+  <chapter>
+    <title>[Insert title here]</title>
+    <xi:include href="xml/gximattr.xml"/>
+    <xi:include href="xml/gximmisc.xml"/>
+    <xi:include href="xml/gximclconn.xml"/>
+    <xi:include href="xml/gximcltmpl.xml"/>
+    <xi:include href="xml/gximprotocol.xml"/>
+    <xi:include href="xml/gximsrvtmpl.xml"/>
+    <xi:include href="xml/gximsrvconn.xml"/>
+    <xi:include href="xml/gximcore.xml"/>
+    <xi:include href="xml/gximtransport.xml"/>
+    <xi:include href="xml/gximmessages.xml"/>
+    <xi:include href="xml/gximconnection.xml"/>
+    <xi:include href="xml/gximerror.xml"/>
+    <xi:include href="xml/gximtypes.xml"/>
+  </chapter>
+-->
+</book>

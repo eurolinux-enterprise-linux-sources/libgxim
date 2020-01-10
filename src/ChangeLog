@@ -1,0 +1,1378 @@
+2010-11-01  Akira TAGOH  <akira@tagoh.org>
+
+	* configure.ac: add X11 for deps. (Issue#6)
+
+2009-04-03  Akira TAGOH  <akira@tagoh.org>
+
+	* libgxim/gximmisc.c (g_xim_fontset_put_to_stream): get rid of
+	processing a padding.
+	(g_xim_fontset_get_from_stream): likewise.
+	(g_xim_attribute_put_to_stream): deal with a padding here.
+
+	* libgxim/gximattr.c (g_xim_attr_get_attribute_from_stream): deal with
+	a padding here.
+
+	* libgxim/gximprotocol.c (g_xim_protocol_read_vformat): Stop obtaining
+	a value from NESTEDLIST if a remaining size is less than minimal.
+
+2009-04-02  Akira TAGOH  <akira@tagoh.org>
+
+	* configure.ac: bump to 0.3.3.
+
+	* NEWS: update.
+
+	* libgxim/gximprotocol10.c (g_xim_protocol10_closure_XIM_FORWARD_EVENT):
+	Fix an error handling to avoid a freeze when any parser error happens.
+	(g_xim_protocol10_closure_signal_XIM_FORWARD_EVENT): likewise.
+
+2009-03-03  Akira TAGOH  <akira@tagoh.org>
+
+	* libgxim/gximmisc.c (g_xim_get_window): increase a reference count
+	here to avoid destroying a window unexpectedly.
+	(g_xim_get_selection_owner): hack to keep similar behavior.
+
+	* libgxim/gximclconn.c (g_xim_client_transport_real_do_send_via_property):
+	do increase/decrease a reference count appropriately
+	(g_xim_client_transport_real_do_send_via_cm): likewise.
+
+	* libgxim/gximsrvconn.c (g_xim_server_transport_real_do_send_via_property):
+	likewise.
+	(g_xim_server_transport_real_do_send_via_cm): likewise.
+
+	* libgxim/gximcltmpl.c (g_xim_cl_tmpl_real_dispose): likewise.
+	(g_xim_cl_tmpl_real_translate_events): likewise.
+	(g_xim_cl_tmpl_real_selection_notify_event): likewise.
+
+	* libgxim/gximsrvtmpl.c (_weak_notify_conn_cb): likewise.
+	(g_xim_srv_tmpl_real_translate_events): likewise.
+	(g_xim_srv_tmpl_real_xconnect): likewise.
+	(g_xim_srv_tmpl_send_selection_notify): likewise.
+	(g_xim_srv_tmpl_add_connection): likewise.
+
+2009-03-02  Akira TAGOH  <akira@tagoh.org>
+
+	* libgxim/gximmisc.c (g_xim_xevent_translate_event_type): Fix dealing
+	with the event type to avoid the unknown event. (Issue#5)
+
+2009-01-13  Akira TAGOH  <akira@tagoh.org>
+
+	* libgxim/gximprotocol.[ch]: add more documents without tmpl file.
+
+	Issue#4 - Memory leak in g_xim_attr_get_attribute_from_stream() and
+	g_xim_protocol_read_vformat() (for nested lists). patched by rainy6144.
+
+	* libgxim/gximattr.c (g_xim_attr_get_attribute_from_stream): Fix
+	a memory leak.
+
+	* libgxim/gximprotocol.c (g_xim_protocol_read_vformat): Fix a memory
+	leak in dealing with G_XIM_TYPE_NESTEDLIST
+
+	* libgxim/gximmisc.c (g_xim_copy_by_gtype): new for helper.
+	(g_xim_free_by_gtype): likewise.
+
+2008-11-06  Akira TAGOH  <akira@tagoh.org>
+
+	* libgxim/gximconnection.c: add more documents without tmpl file.
+
+	* libgxim/gximmessage.[ch]: add more documents without tmpl file.
+
+	* libgxim/gximcltmpl.[ch]: add more documents without tmpl file.
+
+	* libgxim/gximsrvtmpl.[ch]: add more documents without tmpl file.
+
+	* libgxim/gximcore.c: add more documents without tmpl file.
+
+2008-10-29  Akira TAGOH  <akira@tagoh.org>
+
+	* libgxim/gximsrvtmpl.c (g_xim_srv_tmpl_take_ownership): set
+	the property with the atomic operation.
+
+	* libgxim/gximcore.c (g_xim_core_atom_init): create caches for X Atom
+	here. otherwise the client applications may fails due to no Atom
+	available for them.
+
+2008-10-23  Akira TAGOH  <akira@tagoh.org>
+
+	* docs/reference/libgxim-docs.sgml: Updated.
+
+	* libgxim/gximmessage.c (g_xim_message_vprintf): make more simple to
+	avoid % appears in the format string after decorating.
+
+	* libgxim/gximprotocol.c (g_xim_protocol_get_queue_length): new.
+
+2008-10-22  Akira TAGOH  <akira@tagoh.org>
+
+	* libgxim/gximconnection.[ch]: Add documents for gtk-doc.
+
+	* docs/reference/tmpl/gximconnection.sgml: new.
+
+	* libgxim/gximcltmpl.[ch]: Add documents for gtk-doc.
+
+	* docs/reference/tmpl/gximcltmpl.sgml: new.
+
+2008-10-21  Akira TAGOH  <akira@tagoh.org>
+
+	* libgxim/gximsrvtmpl.[ch]: Add documents for gtk-doc.
+
+	* docs/reference/tmpl/gximsrvtmpl.sgml: new.
+
+2008-10-17  Akira TAGOH  <akira@tagoh.org>
+
+	* docs/reference/tmpl/gximmessage.sgml: new.
+
+	* libgxim/gximmessage.[ch]: Add documents for gtk-doc.
+
+	* docs/reference/tmpl/gximcore.sgml: new.
+
+	* docs/reference/libgxim-docs.sgml: new.
+
+	* docs/reference/version.xml.in: new.
+
+	* libgxim/gximcore.[ch]: Add documents for gtk-doc.
+
+2008-10-16  Akira TAGOH  <akira@tagoh.org>
+
+	* configure.ac: gtk-doc enabled.
+
+	* libgxim/libgxim.h: new file.
+
+2008-10-11  Akira TAGOH  <akira@tagoh.org>
+
+	* libgxim/gximmisc.c (g_xim_get_window): trap X error.
+
+2008-10-06  Akira TAGOH  <akira@tagoh.org>
+
+	* libgxim/gximprotocol10.c (g_xim_protocol10_closure_real_parser_error): 
+	Use a signal instead of hardcoding the error handlers.
+
+	* libgxim/gximprotocol.c (g_xim_protocol_base_class_init): Add a new
+	signal 'parser_error'.
+	(g_xim_protocol_send_vformat): Fix a local scope issue.
+	(g_xim_protocol_raise_parser_error): new.
+
+2008-10-02  Akira TAGOH  <akira@tagoh.org>
+
+	* libgxim/gximprotocol.c (g_xim_protocol_send): store the packet size
+	and return true to avoid an error even if the packet is queued.
+	(g_xim_protocol_send_with_list): likewise.
+
+2008-10-01  Akira TAGOH  <akira@tagoh.org>
+
+	* libgxim/gximmisc.c (g_xim_protocol_name): new.
+
+	* libgxim/gximprotocol.c (_free_sendq): new.
+	(g_xim_protocol_send): do not send a packet if it's in the queueing
+	mode.
+	(g_xim_protocol_send_with_list): likewise.
+	(g_xim_protocol_start_queue): new.
+	(g_xim_protocol_end_queue): new.
+	(g_xim_protocol_cancel_queue): new.
+	(g_xim_protocol_is_queued): new.
+
+2008-09-29  Akira TAGOH  <akira@tagoh.org>
+
+	* libgxim/gximprotocol.c (g_xim_protocol_read_vformat): set an error
+	for reason.
+
+	* libgxim/gximprotocol10.c (g_xim_protocol10_closure_bad_protocol): 
+	new function.
+	(g_xim_protocol10_closure_XIM_CONNECT)
+	(g_xim_protocol10_closure_XIM_AUTH_REQUIRED)
+	(g_xim_protocol10_closure_XIM_AUTH_REPLY)
+	(g_xim_protocol10_closure_XIM_AUTH_NEXT)
+	(g_xim_protocol10_closure_XIM_AUTH_SETUP)
+	(g_xim_protocol10_closure_XIM_OPEN)
+	(g_xim_protocol10_closure_XIM_CLOSE)
+	(g_xim_protocol10_closure_XIM_TRIGGER_NOTIFY)
+	(g_xim_protocol10_closure_XIM_ENCODING_NEGOTIATION)
+	(g_xim_protocol10_closure_XIM_QUERY_EXTENSION)
+	(g_xim_protocol10_closure_XIM_SET_IM_VALUES)
+	(g_xim_protocol10_closure_XIM_GET_IM_VALUES)
+	(g_xim_protocol10_closure_XIM_DESTROY_IC)
+	(g_xim_protocol10_closure_XIM_SET_IC_VALUES)
+	(g_xim_protocol10_closure_XIM_GET_IC_VALUES)
+	(g_xim_protocol10_closure_XIM_FORWARD_EVENT)
+	(g_xim_protocol10_closure_XIM_SYNC)
+	(g_xim_protocol10_closure_XIM_COMMIT)
+	(g_xim_protocol10_closure_XIM_RESET_IC)
+	(g_xim_protocol10_closure_XIM_STR_CONVERSION)
+	(g_xim_protocol10_closure_XIM_PREEDIT_START)
+	(g_xim_protocol10_closure_XIM_PREEDIT_CARET): Send back an error
+	message or appropreate response to not freeze the opposite party.
+
+	* libgxim/gximsrvtmpl.c (g_xim_srv_tmpl_real_client_event): Fix
+	a memory leak and output an error message if available.
+
+	* libgxim/gximmessage.c (g_xim_message_vprintf): Display current time.
+
+2008-09-25  Akira TAGOH  <akira@tagoh.org>
+
+	* libgxim/gximcltmpl.c (g_xim_cl_tmpl_real_client_event): Fix a memory
+	leak and output an error message if available.
+
+2008-09-14  Akira TAGOH  <akira@tagoh.org>
+
+	* libgxim/gximprotocol.c (g_xim_protocol_read_vformat): use macro for
+	format.
+
+2008-09-13  Akira TAGOH  <akira@tagoh.org>
+
+	* Makefile.am (ACLOCAL_AMFLAGS): Fix an error on aclocal.
+
+	* libgxim/gximmisc.c (g_xim_nested_list_foreach): new.
+
+	* libgxim/gximattr.c (g_xim_ic_attr_set_attr): new.
+	(g_xim_ic_attr_real_set_property): do not set a value for
+	preeditAttributes and statusAttributes. set data in the nested list
+	instead.
+	(g_xim_ic_attr_real_get_property): do not allow getting a value for
+	preeditAttributes and statusAttributes.
+
+	* libgxim/gximprotocol.c (g_xim_protocol_read_vformat): try to rescue
+	the data as much as possible even when an error happens during reading
+	NESTEDLIST.
+
+	* libgxim/gximsrvconn.c (g_xim_server_connection_cmd_encoding_negotiation_reply):
+	Fix a typo.
+
+	* libgxim/gximattr.c (g_xim_attr_set_raw_attr): Fix a build error on
+	32bit arch with gcc 4.3.1.
+
+	* libgxim/gximprotocol.c (g_xim_protocol_read_vformat): likewise.
+
+	* libgxim/gximsrvconn.c (g_xim_server_connection_cmd_commit): likewise.
+
+	* autogen.sh: Fix an error on aclocal.
+
+	* libgxim/gximattr.c (g_xim_ic_attr_real_set_property): implemented.
+	(g_xim_ic_attr_real_get_property): likewise.
+	(g_xim_ic_attr_real_finalize): likewise.
+
+2008-09-12  Akira TAGOH  <akira@tagoh.org>
+
+	* libgxim/gximattr.c (g_xim_im_attr_new): check argument.
+	(g_xim_ic_attr_new): likewise.
+
+	* libgxim/gximprotocol10.c (g_xim_protocol10_closure_XIM_COMMIT):
+	Fix an invalid memory access.
+
+2008-09-11  Akira TAGOH  <akira@tagoh.org>
+
+	* libgxim/gximsrvtmpl.c (locales): Add missing locales.
+
+2008-09-10  Akira TAGOH  <akira@tagoh.org>
+
+	* libgxim/gximconnection.c: rename APIs to see the command.
+
+	* libgxim/gximsrvconn.c: rename APIs to see the command.
+
+	* libgxim/gximclconn.c: likewise.
+
+2008-09-04  Akira TAGOH  <akira@tagoh.org>
+
+	* libgxim/gximprotocol.c (g_xim_protocol_process_event): Fix
+	discarding the packets when reconnecting.
+	(g_xim_protocol_translate): interface is changed due to the above fix.
+
+2008-09-02  Akira TAGOH  <akira@tagoh.org>
+
+	* libgxim/Makefile.am (gximcltmpl.c): Add to satisfy the dependency.
+
+2008-08-29  Akira TAGOH  <akira@tagoh.org>
+
+	* libgxim/gximcltmpl.c (g_xim_cl_tmpl_real_selection_notify_event): 
+	Fix an invalid memory access.
+
+2008-08-25  Akira TAGOH  <akira@tagoh.org>
+
+	* libgxim/gximprotocol10.c (g_xim_protocol10_closure_XIM_AUTH_NG):
+	implemented.
+
+	* libgxim/gximprotocol.c (g_xim_protocol_send): reflect the return
+	value from the result of sending packets.
+	(g_xim_protocol_send_with_list): likewise.
+
+	* libgxim/gximconnection.c (g_xim_connection_forward_event): merged.
+
+	* libgxim/gximsrvconn.c (g_xim_server_connection_set_im_values_reply): new.
+	(g_xim_server_connection_set_im_values_reply): moved to gximconnection.c
+
+	* libgxim/gximclconn.c (g_xim_client_connection_set_im_values): new.
+	(g_xim_client_connection_forward_event): moved to gximconnection.c
+
+	* libgxim/gximattr.c (g_xim_im_attr_real_set_property): keep a copy of
+	instance.
+
+2008-08-22  Akira TAGOH  <akira@tagoh.org>
+
+	* libgxim/gximconnection.c (g_xim_connection_real_finalize): free
+	the encodings.
+
+	* libgxim/gximsrvconn.c (g_xim_server_connection_encoding_negotiation_reply): 
+	store the encoding category and index.
+
+	* libgxim/gximclconn.c (g_xim_client_protocol_real_XIM_ENCODING_NEGOTIATION_REPLY): 
+	store the encoding category and index.
+	(g_xim_client_connection_encoding_negotiation): store the encodings.
+
+	* libgxim/gximmessage.c (_g_xim_message_dbus_message_filter): 
+	Initialize a value before using it.
+
+2008-08-21  Akira TAGOH  <akira@tagoh.org>
+
+	* libgxim/gximcltmpl.c (g_xim_cl_tmpl_real_selection_notify_event): 
+	process the multiple transport protocol separately as do it for
+	locales.
+
+	* libgxim/gximclient.c (g_xim_client_real_notify_transport): 
+	recognize the multiple transport protocol.
+
+	* libgxim/gximprotocol.c (g_xim_protocol_process_event): get
+	the property data from own function instead of gdk_property_get
+	to avoid "no data".
+
+	* libgxim/gximconnection.c (g_xim_connection_real_finalize): 
+	destroy the transport interface.
+	(g_xim_connection_setup): initialize the transport interface.
+
+	* libgxim/gximtransport.c (g_xim_transport_real_do_get_property): new.
+	(g_xim_transport_init): new.
+	(g_xim_transport_finalize): new.
+	(g_xim_transport_destroy): removed.
+	(g_xim_transport_get_private): new.
+	(g_xim_transport_set_version, g_xim_transport_get_version)
+	(g_xim_transport_set_transport_size)
+	(g_xim_transport_get_transport_size)
+	(g_xim_transport_set_transport_max)
+	(g_xim_transport_get_transport_max, g_xim_transport_set_display)
+	(g_xim_transport_get_display, g_xim_transport_get_atom)
+	(g_xim_transport_set_client_window)
+	(g_xim_transport_get_client_window, g_xim_transport_get_channel)
+	(g_xim_transport_set_direction, g_xim_transport_get_direction): 
+	store the value to the private structure instead of putting the data
+	in GObject.
+	(g_xim_transport_get_property): new.
+
+	* libgxim/gximsrvconn.c (g_xim_server_transport_real_do_get_property):
+	new.
+
+	* libgxim/gximclconn.c (g_xim_client_transport_real_do_get_property): 
+	new.
+
+	* libgxim/gximcltmpl.c (g_xim_cl_tmpl_is_initialized): check only
+	if the connection established.
+
+	* libgxim/gximmessage.h: Fix a typo.
+
+	* libgxim/gximprotocol10.c (g_xim_protocol10_closure_signal_XIM_CONNECT):
+	send better reply.
+	(g_xim_protocol10_closure_signal_XIM_AUTH_REQUIRED): likewise.
+	(g_xim_protocol10_closure_signal_XIM_AUTH_REPLY): likewise.
+	(g_xim_protocol10_closure_signal_XIM_AUTH_NEXT): likewise.
+	(g_xim_protocol10_closure_signal_XIM_AUTH_SETUP): likewise.
+	(g_xim_protocol10_closure_signal_XIM_DESTROY_IC): likewise.
+	(g_xim_protocol10_closure_signal_XIM_FORWARD_EVENT): likewise.
+	(g_xim_protocol10_closure_signal_XIM_SYNC): likewise.
+	(g_xim_protocol10_closure_signal_XIM_COMMIT): likewise.
+
+	* libgxim/gximprotocol.c (g_xim_protocol_init): stop overriding
+	the finalizer and disposer in GObject's class. this breaks multiple
+	inheritance.
+
+	* libgxim/gximconnection.c (g_xim_connection_real_dispose): new.
+	(g_xim_connection_real_finalize): destroy the protocol interface
+	explicitly.
+	(g_xim_connection_auth_ng): new.
+	(g_xim_connection_sync_reply): new.
+
+	* libgxim/gximsrvconn.c (g_xim_server_connection_sync_reply):
+	merged into g_xim_connection_sync_reply.
+	(g_xim_server_protocol_real_XIM_DISCONNECT): use an API instead of
+	sending directly.
+	(g_xim_server_protocol_real_XIM_OPEN): likewise.
+	(g_xim_server_protocol_real_XIM_CLOSE): likewise.
+	(g_xim_server_protocol_real_XIM_ENCODING_NEGOTIATION): likewise.
+	(g_xim_server_protocol_real_XIM_TRIGGER_NOTIFY): implemented.
+
+	* libgxim/gximclconn.c (g_xim_client_connection_sync_reply):
+	merged into g_xim_connection_sync_reply.
+
+2008-08-18  Akira TAGOH  <akira@tagoh.org>
+
+	* libgxim/gximsrvtmpl.c (g_xim_srv_tmpl_take_ownership): Fix
+	overwriting XIM_SERVERS.
+
+	* libgxim/gximmisc.c (g_xim_gdkevent_type_name): new.
+	(g_xim_value_type_to_gtype): Add more types.
+	(g_xim_lookup_xim_server): Add a flag to notice an error.
+	(g_xim_attribute_clear): check the type.
+
+	* libgxim/gximserver.c (g_xim_server_real_xim_open): use an API
+	instead of sending directly.
+
+	* libgxim/gximprotocol10.c (g_xim_protocol10_closure_XIM_CREATE_IC): 
+	recover an error as much as possible.
+	(g_xim_protocol10_closure_signal_no_impl): send imid and icid
+	if available.
+
+	* libgxim/gximprotocol.c (g_xim_protocol_send_vformat): Add more types.
+	(g_xim_protocol_read_vformat): likewise.
+	(g_xim_protocol_read_vformat): allow null window.
+
+	* libgxim/gximsrvconn.c (g_xim_server_connection_sync): new.
+
+	* libgxim/gximclconn.c (g_xim_client_connection_sync): new.
+
+2008-08-15  Akira TAGOH  <akira@tagoh.org>
+
+	* libgxim/gximmisc.c (g_xim_nested_list_node_copy): Fix an error
+	for non-boxed objects.
+	(g_xim_nested_list_node_free): likewise.
+	(g_xim_value_type_name): Add more types.
+	(g_xim_nested_list_append): copy a value properly.
+
+	* libgxim/gximprotocol10.c (g_xim_protocol10_closure_XIM_REGISTER_TRIGGERKEYS):
+	recover an error as much as possible.
+	(g_xim_protocol10_closure_XIM_RESET_IC_REPLY): implemented.
+	(g_xim_protocol10_closure_signal_XIM_ERROR): output the comfortable
+	thing instead of sending an error again.
+
+	* libgxim/gximprotocol.c (g_xim_protocol_send_vformat): Add more types.
+	(g_xim_protocol_read_vformat): likewise.
+
+	* libgxim/gximconnection.c (g_xim_connection_error): new.
+
+	* libgxim/gximsrvconn.c (g_xim_server_connection_reset_ic_reply): new.
+
+	* libgxim/gximclconn.c (g_xim_client_connection_reset_ic): new.
+
+	* libgxim/gximsrvtmpl.c (g_xim_srv_tmpl_real_dispose): stop watching
+	the event for the selection window.
+	(g_xim_srv_tmpl_take_ownership): increment the refcount for the root
+	window to give it to the event.
+
+	* libgxim/gximcore.c (g_xim_core_real_finalize): output the debugging
+	info.
+	(g_xim_core_watch_event): Update for the debug.
+	(g_xim_core_unwatch_event): likewise.
+
+2008-08-14  Akira TAGOH  <akira@tagoh.org>
+
+	* libgxim/gximmisc.h (G_XIM_GERROR_IS_RECOVERABLE): measure non-marker
+	error as unrecoverable.
+
+	* libgxim/gximmisc.c (g_xim_nested_list_node_new): new.
+	(g_xim_nested_list_node_copy): new.
+	(g_xim_nested_list_node_free): new.
+	(g_xim_value_type_to_gtype): new.
+	(g_xim_value_type_name): Add more types.
+	(g_xim_get_pixmap): new.
+	(g_xim_styles_insert): revert the change.
+	(g_xim_nested_list_new): implemented.
+	(g_xim_nested_list_copy): likewise.
+	(g_xim_nested_list_free): likewise.
+	(g_xim_nested_list_append): new.
+	(g_xim_nested_list_put_to_stream): new.
+	(g_xim_text_copy): Fix a position of the sanity check.
+	(g_xim_status_draw_get_type): new.
+	(g_xim_status_draw_new): new.
+	(g_xim_status_draw_copy): new.
+	(g_xim_status_draw_free): new.
+	(g_xim_status_draw_put_to_stream): new.
+	(g_xim_status_draw_get_from_stream): new.
+
+	* libgxim/gximattr.c (g_xim_attr_put_attribute_to_stream): output
+	more debugging info.
+
+	* libgxim/gximprotocol10.c (g_xim_protocol10_closure_XIM_TRIGGER_NOTIFY):
+	Implemented.
+	(g_xim_protocol10_closure_XIM_TRIGGER_NOTIFY_REPLY): likewise.
+	(g_xim_protocol10_closure_XIM_QUERY_EXTENSION_REPLY): recover
+	the error as much as possible.
+	(g_xim_protocol10_closure_XIM_STATUS_DRAW): implemented.
+
+	* libgxim/gximprotocol.c (g_xim_protocol_send_vformat): Add more types.
+	(g_xim_protocol_read_vformat): likewise.
+
+	* libgxim/gximtransport.c (g_xim_transport_get_native_channel_from): 
+	allow GdkDrawable as argument.
+
+	* libgxim/gximsrvconn.c (g_xim_server_transport_real_do_get_native_channel):
+	support GdkPixmap too.
+	(g_xim_server_connection_status_draw): new.
+	(g_xim_server_connection_status_done): new.
+	(g_xim_server_connection_register_triggerkeys): new.
+	(g_xim_server_connection_trigger_notify_reply): new.
+	(g_xim_server_connection_set_ic_values_reply): new.
+
+	* libgxim/gximclconn.c (g_xim_client_transport_real_do_get_native_channel):
+	support GdkPixmap too.
+	(g_xim_client_connection_close_im): Fix a typo.
+	(g_xim_client_connection_trigger_notify): new.
+	(g_xim_client_connection_set_ic_values): new.
+
+2008-08-13  Akira TAGOH  <akira@tagoh.org>
+
+	* libgxim/gximmisc.h (G_XIM_GERROR_IS_RECOVERABLE): new macro.
+	(G_XIM_GERROR_RESET_NOTICE_FLAG): likewise.
+	(G_XIM_GERROR_SET_NOTICE_FLAG): likewise.
+	(G_XIM_CHECK_ALLOC_WITH_CODE): likewise.
+	(G_XIM_CHECK_ALLOC): likewise.
+	(G_XIM_CHECK_ALLOC_WITH_NO_RET): likewise.
+	(G_XIM_GERROR_CHECK_ALLOC_WITH_CODE): likewise.
+	(G_XIM_GERROR_CHECK_ALLOC): likewise.
+
+	* libgxim/gximmessage.h (g_xim_message_gerror): new macro.
+
+	* libgxim/gximclconn.c: better error handling.
+
+	* libgxim/gximtransport.c: likewise.
+
+	* libgxim/gximsrvconn.c: likewise.
+
+	* libgxim/gximcore.c: likewise.
+
+	* libgxim/gximclient.c: likewise.
+
+	* libgxim/gximsrvtmpl.c: likewise.
+
+	* libgxim/gximmisc.c: likewise.
+
+	* libgxim/gximcltmpl.c: likewise.
+
+	* libgxim/gximerror.c: likewise.
+
+	* libgxim/gximattr.c: likewise.
+
+	* libgxim/gximserver.c: likewise.
+
+	* libgxim/gximprotocol10.c: likewise.
+
+	* libgxim/gximprotocol.c: likewise.
+
+	* libgxim/gximmisc.c (g_xim_value_type_name): Add more types.
+	(g_xim_gstring_get_from_stream): fails immediately if any error occured.
+	(g_xim_hotkey_trigger_get_type): new.
+	(g_xim_hotkey_trigger_new): new.
+	(g_xim_hotkey_trigger_copy): new.
+	(g_xim_hotkey_trigger_free): new.
+	(g_xim_hotkey_trigger_put_to_stream): new.
+	(g_xim_hotkey_trigger_get_from_stream): new.
+
+	* libgxim/gximprotocol10.c (g_xim_protocol10_closure_XIM_REGISTER_TRIGGERKEYS):
+	Implemented.
+	(g_xim_protocol10_closure_XIM_GET_IM_VALUES_REPLY): send a null list
+	if getting IM attribute is failed.
+
+	* libgxim/gximprotocol.c (g_xim_protocol_send_vformat): Implement
+	more types.
+	(g_xim_protocol_read_vformat): likewise.
+
+	* libgxim/gximsrvconn.c (g_xim_server_connection_register_triggerkeys):
+	new.
+
+2008-08-11  Akira TAGOH  <akira@tagoh.org>
+
+	* libgxim/gximmisc.c (g_xim_value_type_name): Add more types.
+	(g_xim_text_get_type): new.
+	(g_xim_text_new): new.
+	(g_xim_text_set_mbstring): new.
+	(g_xim_text_set_wcstring): new.
+	(g_xim_text_clear_string): new.
+	(g_xim_text_set_feedback): new.
+	(g_xim_text_get_feedback): new.
+	(g_xim_text_copy): new.
+	(g_xim_text_free): new.
+	(g_xim_text_put_to_stream): new.
+	(g_xim_text_get_from_stream): new.
+	(g_xim_preedit_draw_get_type): new.
+	(g_xim_preedit_draw_new): new.
+	(g_xim_preedit_draw_copy): new.
+	(g_xim_preedit_draw_free): new.
+	(g_xim_preedit_draw_put_to_stream): new.
+	(g_xim_preedit_draw_get_from_stream): new.
+
+	* libgxim/gximmessage.c: a bit shut up the debugging messages.
+
+	* libgxim/gximattr.c (g_xim_ic_attr_class_init): Add resetState
+	property.
+	(g_xim_ic_attr_class_init): correct the value type of cursor.
+
+	* libgxim/gximprotocol10.c (g_xim_protocol10_closure_XIM_COMMIT): 
+	implemented.
+	(g_xim_protocol10_closure_XIM_PREEDIT_DRAW): likewise.
+
+	* libgxim/gximprotocol.c (g_xim_protocol_send_vformat): implement
+	more types.
+	(g_xim_protocol_send_with_list): really support the auto-padding type.
+	(g_xim_protocol_read_vformat): implement more types.
+
+	* libgxim/gximsrvconn.c (g_xim_server_connection_query_extension_reply): 
+	allow the null list for extensions.
+	(g_xim_server_connection_preedit_draw): new.
+	(g_xim_server_connection_commit): new.
+	(g_xim_server_connection_status_start): new.
+	(g_xim_server_connection_status_done): new.
+
+2008-08-08  Akira TAGOH  <akira@tagoh.org>
+
+	* libgxim/gximprotocol.c (g_xim_protocol_dispose): new. call
+	g_xim_protocol_closure_finalize instead of in finalize.
+
+	* libgxim/gximmisc.c (g_xim_gdkevent_translate_event_type): new.
+	(g_xim_xevent_translate_event_type): new.
+	(g_xim_styles_put_to_stream): Use GXimProtocol instead of sending
+	directly.
+	(g_xim_rectangle_put_to_stream): likewise.
+	(g_xim_point_put_to_stream): likewise.
+	(g_xim_gdkevent_get_error_quark): new.
+	(g_xim_gdkevent_put_to_stream): new.
+	(g_xim_gdkevent_get_from_stream): new.
+
+	* libgxim/gximtypes.h (G_XIM_NATIVE_WINDOW_TO_POINTER):
+	Moved from gximtransport.h.
+	(G_XIM_POINTER_TO_NATIVE_WINDOW): likewise.
+
+	* libgxim/gximprotocol10.c (g_xim_protocol10_closure_XIM_FORWARD_EVENT):
+	implemented.
+
+	* libgxim/gximprotocol.c (g_xim_protocol_send_vformat):
+	get a GCancellable and a GError as arguments.
+	(g_xim_protocol_send_format): likewise.
+
+	* libgxim/gximsrvconn.c (g_xim_server_connection_forward_event): new.
+	(g_xim_server_connection_sync_reply): new.
+
+	* libgxim/gximclconn.c (g_xim_client_connection_forward_event): new.
+	(g_xim_client_connection_sync_reply): new.
+
+2008-08-07  Akira TAGOH  <akira@tagoh.org>
+
+	* libgxim/gximmisc.c (g_xim_preedit_caret_get_type): new.
+	(g_xim_preedit_caret_new): new.
+	(g_xim_preedit_caret_copy): new.
+	(g_xim_preedit_caret_free): new.
+	(g_xim_preedit_caret_put_to_stream): new.
+	(g_xim_preedit_caret_get_from_stream): new.
+
+	* libgxim/gximprotocol10.c (g_xim_protocol10_closure_XIM_DISCONNECT):
+	do not turn on the disconnect flag yet.
+	(g_xim_protocol10_closure_XIM_PREEDIT_CARET): implemented.
+
+	* libgxim/gximprotocol.c (g_xim_protocol_send_vformat): implement
+	G_XIM_TYPE_PREEDIT_CARET type.
+	(g_xim_protocol_read_vformat): likewise.
+
+	* libgxim/gximsrvconn.c (g_xim_server_connection_disconnect_reply):
+	new.
+	(g_xim_server_connection_preedit_start): Fix a typo.
+	(g_xim_server_connection_preedit_caret): new.
+	(g_xim_server_connection_preedit_done): new.
+
+	* libgxim/gximclconn.c (g_xim_client_connection_disconnect): new.
+	(g_xim_client_connection_preedit_caret_reply): new.
+
+	* libgxim/gximmisc.c (g_xim_value_type_name): new.
+
+	* libgxim/gximprotocol10.c (g_xim_protocol10_closure_XIM_ERROR):
+	implemented.
+	(g_xim_protocol10_closure_XIM_SET_EVENT_MASK): likewise.
+	(g_xim_protocol10_closure_XIM_SET_IM_VALUES): likewise.
+	(g_xim_protocol10_closure_XIM_SET_IM_VALUES_REPLY): likewise.
+	(g_xim_protocol10_closure_XIM_DESTROY_IC): likewise.
+	(g_xim_protocol10_closure_XIM_DESTROY_IC_REPLY): likewise.
+	(g_xim_protocol10_closure_XIM_SET_IC_VALUES): likewise.
+	(g_xim_protocol10_closure_XIM_SET_IC_VALUES_REPLY): likewise.
+	(g_xim_protocol10_closure_XIM_GET_IC_VALUES): likewise.
+	(g_xim_protocol10_closure_XIM_GET_IC_VALUES_REPLY): likewise.
+	(g_xim_protocol10_closure_XIM_SET_IC_FOCUS): likewise.
+	(g_xim_protocol10_closure_XIM_UNSET_IC_FOCUS): likewise.
+	(g_xim_protocol10_closure_XIM_SYNC): likewise.
+	(g_xim_protocol10_closure_XIM_SYNC_REPLY): likewise.
+	(g_xim_protocol10_closure_XIM_RESET_IC): likewise.
+	(g_xim_protocol10_closure_XIM_GEOMETRY): likewise.
+	(g_xim_protocol10_closure_XIM_PREEDIT_START): likewise.
+	(g_xim_protocol10_closure_XIM_PREEDIT_START_REPLY): likewise.
+	(g_xim_protocol10_closure_XIM_PREEDIT_CARET_REPLY): likewise.
+	(g_xim_protocol10_closure_XIM_PREEDIT_DONE): likewise.
+	(g_xim_protocol10_closure_XIM_STATUS_START): likewise.
+	(g_xim_protocol10_closure_XIM_STATUS_DONE): likewise.
+
+	* libgxim/gximprotocol.c (g_xim_protocol_translate): set an error
+	for debugging purpose.
+	(g_xim_protocol_read_vformat): support the markers for values
+	as much as possible.
+
+	* libgxim/gximsrvconn.c (g_xim_server_connection_create_ic_reply):
+	new.
+	(g_xim_server_connection_set_event_mask): new.
+	(g_xim_server_connection_get_ic_values_reply): new.
+	(g_xim_server_connection_destroy_ic_reply): new.
+	(g_xim_server_connection_close_reply): new.
+	(g_xim_server_connection_preedit_start): new.
+
+	* libgxim/gximclconn.c (g_xim_client_connection_create_ic): new.
+	(g_xim_client_connection_get_ic_values): new.
+	(g_xim_client_connection_destroy_ic): new.
+	(g_xim_client_connection_close_im): new.
+	(g_xim_client_connection_set_ic_focus): new.
+	(g_xim_client_connection_unset_ic_focus): new.
+	(g_xim_client_connection_preedit_start_reply): new.
+
+	* libgxim/gximprotocol.c (g_xim_protocol_add_protocol)
+	(g_xim_protocol_remove_protocol_by_id)
+	(g_xim_protocol_lookup_protocol_by_name): allow the case-insensitive
+	search.
+
+	* libgxim/gximprotocol10.c (g_xim_protocol10_closure_init): connect
+	signals to the default behavior for the protocols.
+
+	* libgxim/gximprotocol.c (g_xim_protocol_init): moved to
+	gximprotocol10.c, anything related to the specific-protocol thing.
+
+2008-08-06  Akira TAGOH  <akira@tagoh.org>
+
+	* libgxim/gximprotocol10.[ch]: closure definitions.
+
+	* libgxim/gximmisc.c (g_xim_ext_get_type): new.
+	(g_xim_ext_new): new.
+	(g_xim_ext_copy): new.
+	(g_xim_ext_free): new.
+	(g_xim_ext_put_to_stream): new.
+	(g_xim_ext_get_from_stream): new.
+
+	* libgxim/gximcltmpl.c (g_xim_cl_tmpl_real_finalize): 
+	unref the server window.
+
+	* libgxim/gximattr.c (g_xim_attr_get_attribute_from_stream): 
+	Add more debug info.
+
+	* libgxim/gximprotocol.c (g_xim_protocol_no_impl): Fix a typo.
+	(g_xim_protocol_base_class_init): removed all of GSignal related code.
+	(g_xim_protocol_finalize): destroy the protocol closures.
+	(g_xim_protocol_extension_closure_marshal_BOOLEAN__OBJECT_OBJECT): 
+	removed.
+	(g_xim_protocol_init): initialize the protocol closures and connect to
+	the own closure system instead of GSignal.
+	(g_xim_protocol_translate): removed the hard-coded protocol translator.
+	(g_xim_protocol_read_vformat): implement more.
+	(g_xim_protocol_add_protocol): new.
+	(g_xim_protocol_remove_protocol): new.
+	(g_xim_protocol_remove_protocol_by_id): new.
+	(g_xim_protocol_lookup_protocol_by_name): new.
+	(g_xim_protocol_lookup_protocol_by_id): new.
+	(g_xim_protocol_connect_closure_by_id): new.
+	(g_xim_protocol_connect_closure_by_name): new.
+	(g_xim_protocol_closure_new): support an extension.
+	(g_xim_protocol_closure_is_an_extension): new.
+	(g_xim_protocol_closure_add_signal): new.
+	(g_xim_protocol_closure_connect): new.
+	(g_xim_protocol_closure_disconnect): new.
+	(g_xim_protocol_closure_emit_signal): new.
+
+	* libgxim/gximclconn.c (g_xim_client_connection_real_protocol_init):
+	connect to the own closure system instead of GSignal.
+	This will makes easier to have add-ons for newer protocol version
+	in the future.
+
+	* libgxim/gximsrvconn.c (g_xim_server_connection_real_protocol_init):
+	likewise.
+
+	* libgxim/gximconnection.c (g_xim_connection_setup): likewise.
+
+	* libgxim/gximclient.c (g_xim_client_open_im): strip the locale code
+	down to the essentials and try again to check if current locale is
+	supported by the server.
+	(g_xim_client_new): check the return value.
+
+	* libgxim/gximprotocol.c (g_xim_protocol_closure_marshal_BOOLEAN__OBJECT_OBJECT_POINTER):
+	new.
+	(g_xim_protocol_closure_new): new.
+	(g_xim_protocol_closure_free): new.
+	(g_xim_protocol_closure_set_marshal): new.
+
+2008-08-05  Akira TAGOH  <akira@tagoh.org>
+
+	* libgxim/gximmisc.c (g_xim_gtype_to_value_type): 
+	support more types.
+	(g_xim_styles_copy): Fix a invalid memory access.
+	(g_xim_styles_put_attributes_to_stream): removed.
+	(g_xim_styles_get_from_stream): new.
+	(g_xim_fontset_put_to_stream): new.
+	(g_xim_fontset_get_from_stream): new.
+	(g_xim_raw_attr_get_type): new.
+	(g_xim_raw_attr_new): new.
+	(g_xim_raw_attr_new_with_value): new.
+	(g_xim_raw_attr_set_name): new.
+	(g_xim_raw_attr_clear): new.
+	(g_xim_raw_attr_copy): new.
+	(g_xim_raw_attr_free): new.
+	(g_xim_raw_attr_put_to_stream): new.
+	(g_xim_raw_attr_get_from_stream): new.
+	(g_xim_attribute_get_type): new.
+	(g_xim_attribute_new): new.
+	(g_xim_attribute_new_with_value): new.
+	(g_xim_attribute_set): new.
+	(g_xim_attribute_clear): new.
+	(g_xim_attribute_copy): new.
+	(g_xim_attribute_free): new.
+	(g_xim_attribute_put_to_stream): new.
+	(g_xim_sep_nested_list_get_type): new.
+	(g_xim_sep_nested_list_new): new.
+	(g_xim_sep_nested_list_copy): new.
+	(g_xim_sep_nested_list_free): new.
+
+	* libgxim/gximattr.c (g_xim_attr_real_put_attrlist_to_stream)
+	(g_xim_attr_real_get_attrlist_from_stream)
+	(g_xim_attr_put_attrlist_to_stream)
+	(g_xim_attr_get_attrlist_from_stream)
+	(g_xim_im_attr_get_attrlist_from_stream)
+	(g_xim_ic_attr_get_attrlist_from_stream): removed.
+	(g_xim_ic_attr_class_init): correct wrong value type.
+	(g_xim_attr_get_n_supported_attributes): Fix a memory leak.
+	(g_xim_attr_set_raw_attr): new.
+	(g_xim_attr_put_attribute_to_stream): new.
+	(g_xim_attr_get_attribute_from_stream): new.
+
+	* libgxim/gximserver.c (g_xim_server_real_xim_open): update.
+	(g_xim_server_real_xim_get_im_values): update.
+
+	* libgxim/gximprotocol.c (g_xim_protocol_base_class_init): Add missing
+	signals.
+	(g_xim_protocol_find_marker): new.
+	(g_xim_protocol_translate): implement and improve a procedure. now
+	prefer using a helper function but not access the stream directly.
+	(g_xim_protocol_send_vformat): support more types.
+	(g_xim_protocol_read_vformat): new.
+	(g_xim_protocol_read_format): new.
+
+	* libgxim/gximsrvconn.c (g_xim_server_connection_open_reply): 
+	take a list as arguments instead of object to keep a consistency to
+	other API.
+	(g_xim_server_connection_encoding_negotiation_reply): new.
+	(g_xim_server_connection_get_im_values_reply): new.
+
+2008-08-04  Akira TAGOH  <akira@tagoh.org>
+
+	* libgxim/gximmisc.c (g_xim_styles_insert): new.
+
+	* libgxim/gximconnection.c (g_xim_connection_real_finalize): unref
+	attrubites.
+
+	* libgxim/gximclconn.c (g_xim_client_connection_encoding_negotiation):
+	new.
+	(g_xim_client_connection_get_im_values): new.
+
+	* libgxim/gximprotocol.c (g_xim_protocol_extension_free): ifdef'd to
+	unref the closure.
+
+2008-08-03  Akira TAGOH  <akira@tagoh.org>
+
+	* libgxim/gximcltmpl.c (g_xim_cl_tmpl_real_selection_notify_event):
+	null-terminate the property.
+
+	* libgxim/gximmisc.c (g_xim_gtype_to_value_type): implement more.
+	(g_xim_rectangle_get_type): new.
+	(g_xim_rectangle_new): new.
+	(g_xim_rectangle_copy): new.
+	(g_xim_rectangle_free): new.
+	(g_xim_rectangle_put_to_stream): new.
+	(g_xim_rectangle_get_from_stream): new.
+	(g_xim_point_get_type): new.
+	(g_xim_point_new): new.
+	(g_xim_point_copy): new.
+	(g_xim_point_free): new.
+	(g_xim_point_put_to_stream): new.
+	(g_xim_point_get_from_stream): new.
+	(g_xim_fontset_get_type): new.
+	(g_xim_fontset_copy): new.
+	(g_xim_fontset_free): new.
+	(g_xim_gstring_put_to_stream): new.
+	(g_xim_gstring_get_from_stream): new.
+	(g_xim_string_copy): Exactly copy all of values.
+	(g_xim_str_copy): likewise.
+	(g_xim_encodinginfo_copy): likewise.
+	(g_xim_nested_list_get_type): new.
+
+	* libgxim/gximattr.c (g_xim_attr_real_get_attrlist_from_stream): new.
+	(g_xim_attr_get_attrlist_from_stream): new.
+	(g_xim_im_attr_get_attrlist_from_stream): new.
+	(g_xim_ic_attr_get_attrlist_from_stream): new.
+
+	* libgxim/gximprotocol.c (g_xim_protocol_real_open_reply):
+	Fix a missing argument.
+	(g_xim_protocol_base_class_init): Add missing signals.
+	(g_xim_protocol_translate): Implement more.
+	(g_xim_protocol_send_vformat): implement more.
+	(g_xim_protocol_extension_new): set handler if available.
+	(g_xim_protocol_extension_set_handler): new.
+	(g_xim_protocol_extension_get_from_stream): new.
+
+	* libgxim/gximsrvconn.c (g_xim_server_connection_open_reply): new.
+	(g_xim_server_connection_query_extension_reply): new.
+
+	* libgxim/gximclient.c (g_xim_client_open_im): fail on precheck
+	if the initialization process isn't yet finished.
+
+	* libgxim/gximclconn.c (g_xim_client_connection_real_finalize): 
+	destroy IM/IC ATTR objects.
+	(g_xim_client_protocol_real_open_reply): store the im id and IM/IC
+	attrs.
+	(g_xim_client_connection_open_im): Use GXimStr instead of gchar * as
+	argument.
+	(g_xim_client_connection_query_extension): new.
+
+2008-07-31  Akira TAGOH  <akira@tagoh.org>
+
+	* libgxim/gximmisc.c (g_xim_str_put_to_stream): Fix a typo.
+
+	* libgxim/gximprotocol.c (g_xim_protocol_base_class_init): Add
+	a missing signal.
+
+	* libgxim/gximconnection.c (g_xim_connection_setup): connect to
+	the signals for GXimProtocol.
+
+	* libgxim/gximsrvconn.c (g_xim_server_connection_connect_reply): new.
+
+	* libgxim/gximcore.c (g_xim_core_real_set_property): Do nothing
+	if the value of "proto_signals" is null.
+
+	* libgxim/gximclconn.c (g_xim_client_protocol_real_connect_reply): new.
+	(g_xim_client_connection_connect)
+	(g_xim_client_connection_open_im): Add an async flag.
+
+	* libgxim/gximmisc.c (g_xim_get_byte_order): new.
+	(g_xim_str_append): new.
+	(g_xim_str_append_len): new.
+	(g_xim_str_put_to_stream): send the length of string within a byte but
+	not a word.
+
+	* libgxim/gximcltmpl.c (g_xim_cl_tmpl_real_selection_notify_event): 
+	get rid of @locale= from the property.
+
+	* libgxim/gximprotocol.c (g_xim_protocol_translate): check if there
+	are any request to sync up the protocol.
+	(g_xim_protocol_send_vformat): implement for GXimStr.
+	(g_xim_protocol_wait_for_reply): new.
+
+	* libgxim/gximconnection.c (g_xim_connection_setup): 
+	Initialize GXimProtocol before initializing the child interface.
+
+	* libgxim/gximtransport.c (g_xim_transport_set_direction): new for
+	debugging purpose only.
+	(g_xim_transport_get_direction): likewise.
+	(g_xim_transport_dump): show appropriate direction of arrow for server
+	and client.
+
+	* libgxim/gximclient.c (g_xim_client_open_im): implemented.
+
+	* libgxim/gximclconn.c (g_xim_client_connection_real_protocol_init):
+	Initialize the byte order.
+	(g_xim_client_connection_connect): new.
+	(g_xim_client_connection_open_im): new.
+
+	* libgxim/gximcltmpl.c (g_xim_cl_tmpl_real_selection_notify_event):
+	make more controllable to do something outside of class.
+	i.e. emit a signal to do so.
+
+	* libgxim/gximclient.c (g_xim_client_real_notify_locales): new.
+	(g_xim_client_real_notify_transport): new.
+
+2008-07-30  Akira TAGOH  <akira@tagoh.org>
+
+	* libgxim/gximcltmpl.c (g_xim_cl_tmpl_real_xconnect)
+	(g_xim_cl_tmpl_connect_to_server): remove the unnecessary event watch
+	and watch the event before sending XIM_XCONNECT.
+
+	* libgxim/gximcore.c (g_xim_core_watch_event): more debugging message.
+	(g_xim_core_unwatch_event): likewise.
+
+	* libgxim/gximcltmpl.c (g_xim_cl_tmpl_real_client_event):
+	get a return value as boolean.
+	(g_xim_cl_tmpl_class_init): do not marshal a signal if callback
+	returns TRUE.
+	(g_xim_cl_tmpl_connect_to_server): watch the event on the comm window.
+
+	* libgxim/gximprotocol.c (g_xim_protocol_translate): 
+	get rid of GXimTransport from the signal arguments.
+
+	* libgxim/gximsrvtmpl.c (_weak_notify_conn_cb): unwatch the event
+	for unnecessary connection.
+
+	* libgxim/gximcltmpl.c (g_xim_cl_tmpl_real_constructor): 
+	watch the event for the selection window here.
+	(g_xim_cl_tmpl_real_dispose): new to unwatch the event.
+
+	* libgxim/gximmessage.c (g_xim_message_real_dispose): new to
+	disconnect signals.
+
+	* libgxim/gximconnection.c (g_xim_connection_real_finalize):
+	destroy the transport variables.
+
+	* libgxim/gximcore.c (g_xim_core_real_finalize): destroy the allocated
+	variables.
+	(g_xim_core_watch_event): renamed from g_xim_core_run.
+	(g_xim_core_unwatch_event): new.
+
+	* libgxim/gximcltmpl.c (g_xim_cl_tmpl_real_selection_notify_event):
+	send XIM_XCONNECT after getting the supported transport.
+	(g_xim_cl_tmpl_real_client_event, g_xim_cl_tmpl_real_xconnect):
+	not deal with GXimConnection here.
+	(g_xim_cl_tmpl_init): Add a selection window to the event listener.
+	(g_xim_cl_tmpl_connect_to_server): new.
+	(g_xim_cl_tmpl_real_xconnect): Update status.
+	(g_xim_cl_tmpl_connect_to_server): Update status.
+
+	* libgxim/gximprotocol.c: get rid of GXimTransport from callbacks.
+	(g_xim_protocol_send_header, g_xim_protocol_send_fixate_size)
+	(g_xim_protocol_send_terminate)
+	(g_xim_protocol_extension_closure_marshal_BOOLEAN__OBJECT_OBJECT)
+	(g_xim_protocol_process_event, g_xim_protocol_translate)
+	(g_xim_protocol_send_packets, g_xim_protocol_send_vformat)
+	(g_xim_protocol_send_format, g_xim_protocol_send)
+	(g_xim_protocol_send_with_list): get rid of GXimTransport from
+	arguments.
+	(g_xim_protocol_get_type): Add prerequisite of GXimTransport.
+	(g_xim_protocol_init): do not update a finalizer if it's already done.
+
+	* libgxim/gximconnection.c: change the order of registration for
+	the interface.
+
+	* libgxim/gximsrvconn.c: get rid of GXimTransport from callbacks.
+
+	* libgxim/gximclient.c (g_xim_client_real_setup_connection):
+	new to shut up an warning.
+
+2008-07-26  Akira TAGOH  <akira@tagoh.org>
+
+	* libgxim/gximsrvtmpl.c (g_xim_srv_tmpl_real_client_event): 
+	Fix a typo.
+
+	* libgxim/gximcltmpl.c (g_xim_cl_tmpl_real_client_event):
+	Fix a typo.
+
+	* libgxim/gximserver.c (g_xim_server_real_setup_connection):
+	Fix a typo.
+
+	* libgxim/gximprotocol.c (g_xim_protocol_base_class_init):
+	Fix a typo.
+	(g_xim_protocol_translate): give a GXimTransport as first argument
+	for signal right.
+
+	* libgxim/gximconnection.c (g_xim_connection_protocol_init)
+	(g_xim_connection_transport_init): do not initialize the interface
+	here.
+	(g_xim_connection_setup): new.
+
+	* libgxim/gximtransport.c (g_xim_transport_base_class_init):
+	Fix a typo.
+
+	* libgxim/gximcore.c (g_xim_core_setup_connection): lazy-initialization
+	for the interface.
+
+	* libgxim/gximsrvtmpl.c (g_xim_srv_tmpl_class_init): Fix a typo.
+
+	* libgxim/gximserver.c (g_xim_server_new): Fix a typo.
+
+	* libgxim/gximconnection.h (struct _GXimConnectionClass): Fix a typo.
+
+	* libgxim/gximclient.c (g_xim_client_new): Fix a typo.
+
+	* libgxim/mkacc.rb (param2typeval): get rid of const from GObject.
+
+	* libgxim/gximserver.c (g_xim_server_real_setup_connection):
+	renamed from g_xim_server_real_setup_proc.
+
+	* libgxim/gximconnection.[ch]: connection management class.
+
+	* libgxim/gximcore.c (_weak_notify_proc_cb): removed.
+	(g_xim_core_real_setup_connection): renamed from
+	g_xim_core_real_setup_proc.
+	(g_xim_core_dispatch_events): just emit a client event signal.
+	(g_xim_core_real_constructor): create a selection window here.
+	(g_xim_core_get_proc): removed.
+	(g_xim_core_add_proc): removed.
+	(g_xim_core_remove_proc): removed.
+	(g_xim_core_get_selection_window): new.
+	(g_xim_core_get_connection_gtype): new.
+	(g_xim_core_get_protocol_signal_connector): new.
+	(g_xim_core_setup_connection): new.
+
+	* libgxim/gximsrvtmpl.c (_weak_notify_conn_cb): renamed from
+	_weak_notify_proc_cb.
+	(g_xim_srv_tmpl_real_setup_proc): obsolete callback. removed.
+	(g_xim_srv_tmpl_real_client_event): implemented. now core class
+	doesn't take care of this event.
+	(g_xim_srv_tmpl_real_xconnect): new handler.
+	(g_xim_srv_tmpl_add_connection): new.
+	(g_xim_srv_tmpl_remove_connection): new.
+	(g_xim_srv_tmpl_lookup_connection): new.
+	(g_xim_srv_tmpl_lookup_connection_with_native_window): new.
+
+	* libgxim/gximcltmpl.c (g_xim_cl_tmpl_real_setup_proc):
+	obsolete callback. removed.
+	(g_xim_cl_tmpl_real_client_event): implemented. now core class
+	doesn't take care of this event.
+	(g_xim_cl_tmpl_real_xconnect): new handler.
+	(g_xim_cl_tmpl_start_negotiation): new.
+
+	* libgxim/gximclient.c (g_xim_client_real_selection_notify_event):
+	moved to gximcltmpl.c. we don't need to have a special case here.
+	(g_xim_client_new): give a connection type instead of protocol type.
+
+	* libgxim/gximclconn.[ch]: client protocol/transport implementation.
+	gximclientproto.[ch] would be deprecated by this.
+
+	* libgxim/gximattr.c (g_xim_attr_real_put_attrlist_to_stream):
+	Use a macro from gximprotocol.h
+
+	* libgxim/gximprotocol.c (g_xim_protocol_process_event): Fix a typo.
+
+	* libgxim/gximmisc.c (g_xim_string_get_from_stream): Fix a memory leak.
+	(g_xim_str_get_from_stream): likewise.
+	(g_xim_encodinginfo_get_from_stream): likewise.
+
+	* libgxim/gximtransport.c (g_xim_transport_base_class_init):
+	own atoms in the interface for usability reason.
+
+	* libgxim/gximsrvconn.[ch]: server protocol/transport implementation.
+	gximserverproto.[ch] would be deprecated by this.
+
+2008-07-25  Akira TAGOH  <akira@tagoh.org>
+
+	* libgxim/gximprotocol.[ch]: new interface to deal with the protocol.
+
+	* libgxim/gximtransport.c (g_xim_transport_real_do_create_channel):
+	set a default function.
+	(g_xim_transport_real_do_get_native_channel): likewise.
+	(g_xim_transport_real_do_destroy_channel): likewise.
+	(g_xim_transport_real_do_send_via_property): likewise.
+	(g_xim_transport_real_do_send_via_cm): likewise.
+	(g_xim_transport_real_do_send_via_property_notify): likewise.
+	(g_xim_transport_base_class_init): create a messaging class once.
+	otherwise just increment a refcount.
+	(g_xim_transport_get_native_channel_from): new.
+
+2008-07-24  Akira TAGOH  <akira@tagoh.org>
+
+	* libgxim/gximsrvtmpl.c (g_xim_srv_tmpl_take_ownership): likewise.
+
+	* libgxim/gximcltmpl.c (g_xim_client_real_setup_proc):
+	Get the proper root window instead of using the default root window.
+
+	* libgxim/gximmisc.c (g_xim_get_selection_owner): new.
+	(g_xim_lookup_xim_server): new.
+	(g_xim_lookup_xim_server_from_string): new.
+	(g_xim_get_server_atom): new.
+
+	* libgxim/gximcore.c (g_xim_core_real_set_property):
+	Create a selection window when the display is set. this fixes
+	the incorrect linkage of GdkWindow to GdkDisplay.
+
+	* Makefile.am: Update libgxim-uninstalled.pc as needed.
+
+	* libgxim-uninstalled.pc.in: Require gdk-2.0
+
+	* libgxim.pc.in: likewise.
+
+2008-07-18  Akira TAGOH  <akira@tagoh.org>
+
+	* libgxim/gximclient.[ch]: simple client class.
+
+	* libgxim/gximcltmpl.[ch]: client side template class.
+
+	* libgxim/gximclientproto.[ch]: client protocol class.
+
+	* libgxim/gximsrvtmpl.c (g_xim_srv_tmpl_send_selection_notify):
+	exported.
+
+	* libgxim/gximserver.c (g_xim_server_init): set the callbacks for
+	protocol instead of doing that in _new.
+
+	* libgxim/gximmisc.c (g_xim_gtype_to_value_type): support GdkWindow.
+
+	* libgxim/gximprotoproc.c (g_xim_protocol_processor_send_vformat):
+	Pass GdkWindow instead of Window.
+
+	* libgxim/gximcore.c (g_xim_core_init): initialize the selection window
+	instead of in constructor.
+	(g_xim_core_add_proc): exported.
+
+2008-07-13  Akira TAGOH  <akira@tagoh.org>
+
+	* Makefile.am (AUTOMAKE_OPTIONS): Add dist-bzip2.
+
+2008-07-12  Akira TAGOH  <akira@tagoh.org>
+
+	* libgxim/gximserver.[ch]: simple server class.
+
+	* libgxim/gximconnection.[ch]: client connection management class.
+
+	* libgxim/gximserverproto.[ch]: server protocol class.
+
+	* libgxim/gximsrvtmpl.[ch]: server side template class.
+
+	* libgxim/gximattr.[ch]: IM/IC attributes class.
+
+	* libgxim/gximprotoproc.[ch]: a class deal with the protocol layer.
+
+2008-07-11  Akira TAGOH  <akira@tagoh.org>
+
+	* libgxim/gximtransport.c (g_xim_transport_destroy): clear the data
+	in GObject too.
+
+	* libgxim/gximmisc.c (g_xim_get_window): do not increment a reference
+	counter here.
+
+	* libgxim/gximcore.c (g_xim_core_class_init): prefer GBoxed instead of
+	gpointer.
+	(g_xim_core_add_proc): setup to watch the events.
+
+	* libgxim/gximmessage.c (g_xim_message_real_finalize):
+	Add more debugging message.
+
+2008-07-10  Akira TAGOH  <akira@tagoh.org>
+
+	* libgxim/gximcore.c (g_xim_core_real_set_property): allow one-shot
+	update.
+
+	* configure.ac: requires gdk instead of x11.
+
+	* libgxim/gximtransport.[ch]: Too much changes. get rid of X deps to
+	be comfortable with Gdk.
+
+	* libgxim/gximmisc.c (g_xim_get_window): new to get GdkWindow from
+	GdkNativeWindow.
+	(g_xim_styles_get_type): renamed.
+	(g_xim_styles_get_error_quark): likewise.
+	(g_xim_styles_new): likewise.
+	(g_xim_styles_append): likewise.
+	(g_xim_styles_copy): likewise.
+	(g_xim_styles_free): likewise.
+	(g_xim_styles_put_to_stream): likewise.
+	(g_xim_styles_put_attributes_to_stream): new.
+	(g_xim_string_get_type): new.
+	(g_xim_string_new): new.
+	(g_xim_string_copy): new.
+	(g_xim_string_free): new.
+	(g_xim_string_get_string): new.
+	(g_xim_string_get_length): new.
+	(g_xim_string_put_to_stream): new.
+	(g_xim_string_get_from_stream): new.
+	(g_xim_str_get_type): new.
+	(g_xim_str_new): new.
+	(g_xim_str_copy): new.
+	(g_xim_str_free): new.
+	(g_xim_str_get_string): new.
+	(g_xim_str_get_length): new.
+	(g_xim_str_put_to_stream): new.
+	(g_xim_str_get_from_stream): new.
+	(g_xim_encodinginfo_get_type): new.
+	(g_xim_encodinginfo_new): new.
+	(g_xim_encodinginfo_copy): new.
+	(g_xim_encodinginfo_free): new.
+	(g_xim_encodinginfo_get_string): new.
+	(g_xim_encodinginfo_get_length): new.
+	(g_xim_encodinginfo_put_to_stream): new.
+	(g_xim_encodinginfo_get_from_stream): new.
+
+	* libgxim/gximcore.[ch]: Too much changes. get rid of X deps to be
+	comfortable with Gdk.
+
+2008-07-08  Akira TAGOH  <akira@tagoh.org>
+
+	* libgxim/gximtypes.h (enum _GXimValueType): Add internal value type.
+
+	* libgxim/gximcore.[ch]: core class for XIM event handling.
+
+	* libgxim/gximtransport.c (g_xim_transport_destroy): new to destroy
+	objects stored in the GObject.
+
+2008-07-07  Akira TAGOH  <akira@tagoh.org>
+
+	* libgxim/gximtransport.c (g_xim_transport_dump): show visible chars.
+
+	* libgxim/gximmisc.c (g_xim_init): activate the messaging facility
+	if LIBGXIM_DEBUG env is given.
+	(g_xim_gtype_to_value_type): new.
+	(g_xim_ximstyles_get_type): new.
+	(g_xim_ximstyles_get_error_quark): new.
+	(g_xim_ximstyles_new): new.
+	(g_xim_ximstyles_append): new.
+	(g_xim_ximstyles_copy): new.
+	(g_xim_ximstyles_free): new.
+	(g_xim_ximstyles_put_to_stream): new.
+
+2008-07-01  Akira TAGOH  <akira@tagoh.org>
+
+	* libgxim/gximtransport.[ch]: transport layer class.
+
+2008-06-26  Akira TAGOH  <akira@tagoh.org>
+
+	* tests/gximmisc.c (test_g_xim_init): unref the main loop.
+
+	* tests/gximmessage.c (test_g_xim_message_bug): new testcase.
+
+	* libgxim/gximmessage.h (g_xim_message_bug): new macro.
+
+	* libgxim/gximmessage.c (g_xim_message_real_set_property): Fix a typo.
+	(g_xim_message_vprintf): output the log anyway if no filters given.
+	(g_xim_message_printf): output the priority logs even if the service
+	isn't activated.
+
+	* configure.ac: Add a dbus-glib-1 required.
+
+	* tests/main.[ch]: common utility for unit testing.
+
+	* tests/gximmessage.c: testcase for GXimMessage.
+
+	* tests/gximmisc.c: testcase for gximmisc.c
+
+	* libgxim/gximmisc.c (g_xim_init): new function to setup the master
+	messaging facility.
+	(g_xim_finalize): new to finalize.
+
+	* libgxim/gximmessage.c: Update a lot to have a better machanism to
+	sync up among objects and allow to update the state via D-Bus.
+	(g_xim_message_sync): removed.
+
+2008-06-19  Akira TAGOH  <akira@tagoh.org>
+
+	* libgxim/mkacc.rb: helper tool to generate accumulator.
+
+	* libgxim/gximmessage.[ch]: new class to deal with the message handling.
+
+2008-06-09  Akira TAGOH  <akira@tagoh.org>
+
+	* libgxim/gximmisc.c (g_xim_str_conv_set_feedback): new function.
+	(g_xim_str_conv_get_feedback): likewise.
+
+2008-06-06  Akira TAGOH  <akira@tagoh.org>
+
+	* Makefile.am (ACLOCAL_AMFLAGS): Add aclocal option.
+
+	* configure.ac (AX_CFLAGS_GCC_OPTION): Add -fdiagnostics-show-option
+	checking for debugging purpose.
+
+	* libgxim/gximmisc.[ch]: miscellaneous functions.
+
+	* libgxim/gximerror.c (g_xim_error_pop): Fix a typo.
+
+	* libgxim/gximtypes.h: type definitions.
+
+	* libgxim/gximtransport.[ch]: transport layer interface class.
+
+	* configure.ac (AX_CFLAGS_GCC_OPTION): check -fno-strict-aliasing to
+	avoid an error for G_LOCK when --enable-compile-warnings=error is given.
+
+	* m4macros/ax_cflags_gcc_option.m4: new from
+	http://ac-archive.sourceforge.net/guidod/ax_cflags_gcc_option.html
+
+2008-05-02  Akira TAGOH  <akira@tagoh.org>
+
+	* requires (GTHREAD_REQUIRED): Add gthread requirement.
+
+	* configure.ac: Add --{enable,disable}-rebuilds option.
+
+	* libgxim/gximerror.[ch]: error handling functions.
+

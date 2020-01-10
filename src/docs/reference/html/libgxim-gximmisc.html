@@ -1,0 +1,1757 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>gximmisc</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
+<link rel="home" href="index.html" title="libgxim Reference Manual">
+<link rel="up" href="ch05.html" title="Miscelleneous">
+<link rel="prev" href="libgxim-gximerror.html" title="gximerror">
+<link rel="next" href="ix01.html" title="Index">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libgxim-gximerror.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch05.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libgxim Reference Manual</th>
+<td><a accesskey="n" href="ix01.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#libgxim-gximmisc.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#libgxim-gximmisc.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#libgxim-gximmisc.object-hierarchy" class="shortcut">Object Hierarchy</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="libgxim-gximmisc"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libgxim-gximmisc.top_of_page"></a>gximmisc</span></h2>
+<p>gximmisc</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="libgxim-gximmisc.synopsis"></a><h2>Synopsis</h2>
+<a name="GXimAttribute"></a><a name="GXimExt"></a><a name="GXimHotkeyTrigger"></a><a name="GXimPoint"></a><a name="GXimPreeditCaret"></a><a name="GXimPreeditDraw"></a><a name="GXimRawAttr"></a><a name="GXimRectangle"></a><a name="GXimStatusDraw"></a><a name="GXimStyles"></a><a name="GXimText"></a><pre class="synopsis">                    <a class="link" href="libgxim-gximmisc.html#GXimAttribute-struct" title="GXimAttribute">GXimAttribute</a>;
+                    <a class="link" href="libgxim-gximmisc.html#GXimExt-struct" title="GXimExt">GXimExt</a>;
+enum                <a class="link" href="libgxim-gximmisc.html#GXimGdkEventError" title="enum GXimGdkEventError">GXimGdkEventError</a>;
+                    <a class="link" href="libgxim-gximmisc.html#GXimHotkeyTrigger-struct" title="GXimHotkeyTrigger">GXimHotkeyTrigger</a>;
+<span class="returnvalue">gboolean</span>            (<a class="link" href="libgxim-gximmisc.html#GXimNestedFunc" title="GXimNestedFunc ()">*GXimNestedFunc</a>)                   (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimNestedListNode" title="struct GXimNestedListNode"><span class="type">GXimNestedListNode</span></a> *node</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+                    <a class="link" href="libgxim-gximmisc.html#GXimNestedList" title="GXimNestedList">GXimNestedList</a>;
+struct              <a class="link" href="libgxim-gximmisc.html#GXimNestedListNode" title="struct GXimNestedListNode">GXimNestedListNode</a>;
+                    <a class="link" href="libgxim-gximmisc.html#GXimPoint-struct" title="GXimPoint">GXimPoint</a>;
+                    <a class="link" href="libgxim-gximmisc.html#GXimPreeditCaret-struct" title="GXimPreeditCaret">GXimPreeditCaret</a>;
+                    <a class="link" href="libgxim-gximmisc.html#GXimPreeditDraw-struct" title="GXimPreeditDraw">GXimPreeditDraw</a>;
+                    <a class="link" href="libgxim-gximmisc.html#GXimRawAttr-struct" title="GXimRawAttr">GXimRawAttr</a>;
+                    <a class="link" href="libgxim-gximmisc.html#GXimRectangle-struct" title="GXimRectangle">GXimRectangle</a>;
+                    <a class="link" href="libgxim-gximmisc.html#GXimSepNestedList" title="GXimSepNestedList">GXimSepNestedList</a>;
+enum                <a class="link" href="libgxim-gximmisc.html#GXimStatusDataType" title="enum GXimStatusDataType">GXimStatusDataType</a>;
+                    <a class="link" href="libgxim-gximmisc.html#GXimStatusDraw-struct" title="GXimStatusDraw">GXimStatusDraw</a>;
+                    <a class="link" href="libgxim-gximmisc.html#GXimStrConvText" title="GXimStrConvText">GXimStrConvText</a>;
+enum                <a class="link" href="libgxim-gximmisc.html#GXimStyle" title="enum GXimStyle">GXimStyle</a>;
+                    <a class="link" href="libgxim-gximmisc.html#GXimStyles-struct" title="GXimStyles">GXimStyles</a>;
+                    <a class="link" href="libgxim-gximmisc.html#GXimText-struct" title="GXimText">GXimText</a>;
+#define             <a class="link" href="libgxim-gximmisc.html#G-TYPE-XIM-NESTEDLIST:CAPS" title="G_TYPE_XIM_NESTEDLIST">G_TYPE_XIM_NESTEDLIST</a>
+#define             <a class="link" href="libgxim-gximmisc.html#G-TYPE-XIM-SEP-NESTEDLIST:CAPS" title="G_TYPE_XIM_SEP_NESTEDLIST">G_TYPE_XIM_SEP_NESTEDLIST</a>
+#define             <a class="link" href="libgxim-gximmisc.html#G-XIM-CHECK-ALLOC:CAPS" title="G_XIM_CHECK_ALLOC()">G_XIM_CHECK_ALLOC</a>                   (_v_,
+                                                         _r_)
+#define             <a class="link" href="libgxim-gximmisc.html#G-XIM-CHECK-ALLOC-WITH-CODE:CAPS" title="G_XIM_CHECK_ALLOC_WITH_CODE()">G_XIM_CHECK_ALLOC_WITH_CODE</a>         (_v_,
+                                                         _c_,
+                                                         _r_)
+#define             <a class="link" href="libgxim-gximmisc.html#G-XIM-CHECK-ALLOC-WITH-NO-RET:CAPS" title="G_XIM_CHECK_ALLOC_WITH_NO_RET()">G_XIM_CHECK_ALLOC_WITH_NO_RET</a>       (_v_)
+#define             <a class="link" href="libgxim-gximmisc.html#G-XIM-GDKEVENT-ERROR:CAPS" title="G_XIM_GDKEVENT_ERROR">G_XIM_GDKEVENT_ERROR</a>
+#define             <a class="link" href="libgxim-gximmisc.html#G-XIM-GERROR-CHECK-ALLOC:CAPS" title="G_XIM_GERROR_CHECK_ALLOC()">G_XIM_GERROR_CHECK_ALLOC</a>            (_v_,
+                                                         _e_,
+                                                         _t_,
+                                                         _r_)
+#define             <a class="link" href="libgxim-gximmisc.html#G-XIM-GERROR-CHECK-ALLOC-WITH-CODE:CAPS" title="G_XIM_GERROR_CHECK_ALLOC_WITH_CODE()">G_XIM_GERROR_CHECK_ALLOC_WITH_CODE</a>  (_v_,
+                                                         _e_,
+                                                         _t_,
+                                                         _c_,
+                                                         _r_)
+#define             <a class="link" href="libgxim-gximmisc.html#G-XIM-GERROR-RESET-NOTICE-FLAG:CAPS" title="G_XIM_GERROR_RESET_NOTICE_FLAG()">G_XIM_GERROR_RESET_NOTICE_FLAG</a>      (_e_)
+#define             <a class="link" href="libgxim-gximmisc.html#G-XIM-GERROR-SET-NOTICE-FLAG:CAPS" title="G_XIM_GERROR_SET_NOTICE_FLAG()">G_XIM_GERROR_SET_NOTICE_FLAG</a>        (_e_,
+                                                         _f_)
+#define             <a class="link" href="libgxim-gximmisc.html#G-XIM-STYLES-ERROR:CAPS" title="G_XIM_STYLES_ERROR">G_XIM_STYLES_ERROR</a>
+<span class="returnvalue">void</span>                <a class="link" href="libgxim-gximmisc.html#g-xim-attribute-clear" title="g_xim_attribute_clear ()">g_xim_attribute_clear</a>               (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimAttribute"><span class="type">GXimAttribute</span></a> *attr</code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-attribute-copy" title="g_xim_attribute_copy ()">g_xim_attribute_copy</a>                (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libgxim-gximmisc.html#g-xim-attribute-free" title="g_xim_attribute_free ()">g_xim_attribute_free</a>                (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-attribute-new" title="g_xim_attribute_new ()">g_xim_attribute_new</a>                 (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-attribute-new-with-value" title="g_xim_attribute_new_with_value ()">g_xim_attribute_new_with_value</a>      (<em class="parameter"><code><span class="type">guint16</span> id</code></em>,
+                                                         <em class="parameter"><code><span class="type">GXimValueType</span> vtype</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> value</code></em>);
+<span class="returnvalue">gsize</span>               <a class="link" href="libgxim-gximmisc.html#g-xim-attribute-put-to-stream" title="g_xim_attribute_put_to_stream ()">g_xim_attribute_put_to_stream</a>       (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimAttribute"><span class="type">GXimAttribute</span></a> *attr</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libgxim-gximmisc.html#g-xim-attribute-set" title="g_xim_attribute_set ()">g_xim_attribute_set</a>                 (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimAttribute"><span class="type">GXimAttribute</span></a> *attr</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> id</code></em>,
+                                                         <em class="parameter"><code><span class="type">GXimValueType</span> vtype</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> value</code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-copy-by-gtype" title="g_xim_copy_by_gtype ()">g_xim_copy_by_gtype</a>                 (<em class="parameter"><code><span class="type">GType</span> gtype</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> value</code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-encodinginfo-copy" title="g_xim_encodinginfo_copy ()">g_xim_encodinginfo_copy</a>             (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libgxim-gximmisc.html#g-xim-encodinginfo-free" title="g_xim_encodinginfo_free ()">g_xim_encodinginfo_free</a>             (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-encodinginfo-get-from-stream" title="g_xim_encodinginfo_get_from_stream ()">g_xim_encodinginfo_get_from_stream</a>  (<em class="parameter"><code><span class="type">GDataInputStream</span> *stream</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gsize</span>               <a class="link" href="libgxim-gximmisc.html#g-xim-encodinginfo-get-length" title="g_xim_encodinginfo_get_length ()">g_xim_encodinginfo_get_length</a>       (<em class="parameter"><code><span class="type">GXimEncodingInfo</span> *encoding</code></em>);
+const <span class="returnvalue">gchar</span> *       <a class="link" href="libgxim-gximmisc.html#g-xim-encodinginfo-get-string" title="g_xim_encodinginfo_get_string ()">g_xim_encodinginfo_get_string</a>       (<em class="parameter"><code>const <span class="type">GXimEncodingInfo</span> *encoding</code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-encodinginfo-new" title="g_xim_encodinginfo_new ()">g_xim_encodinginfo_new</a>              (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">gsize</span>               <a class="link" href="libgxim-gximmisc.html#g-xim-encodinginfo-put-to-stream" title="g_xim_encodinginfo_put_to_stream ()">g_xim_encodinginfo_put_to_stream</a>    (<em class="parameter"><code><span class="type">GXimEncodingInfo</span> *encoding</code></em>,
+                                                         <em class="parameter"><code><span class="type">GDataOutputStream</span> *stream</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-ext-copy" title="g_xim_ext_copy ()">g_xim_ext_copy</a>                      (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libgxim-gximmisc.html#g-xim-ext-free" title="g_xim_ext_free ()">g_xim_ext_free</a>                      (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-ext-get-from-stream" title="g_xim_ext_get_from_stream ()">g_xim_ext_get_from_stream</a>           (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GDataInputStream</span> *stream</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-ext-new" title="g_xim_ext_new ()">g_xim_ext_new</a>                       (<em class="parameter"><code><span class="type">guint8</span> major_opcode</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint8</span> minor_opcode</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>);
+<span class="returnvalue">gsize</span>               <a class="link" href="libgxim-gximmisc.html#g-xim-ext-put-to-stream" title="g_xim_ext_put_to_stream ()">g_xim_ext_put_to_stream</a>             (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimExt"><span class="type">GXimExt</span></a> *ext</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libgxim-gximmisc.html#g-xim-finalize" title="g_xim_finalize ()">g_xim_finalize</a>                      (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-fontset-copy" title="g_xim_fontset_copy ()">g_xim_fontset_copy</a>                  (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libgxim-gximmisc.html#g-xim-fontset-free" title="g_xim_fontset_free ()">g_xim_fontset_free</a>                  (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-fontset-get-from-stream" title="g_xim_fontset_get_from_stream ()">g_xim_fontset_get_from_stream</a>       (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GDataInputStream</span> *stream</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gsize</span>               <a class="link" href="libgxim-gximmisc.html#g-xim-fontset-put-to-stream" title="g_xim_fontset_put_to_stream ()">g_xim_fontset_put_to_stream</a>         (<em class="parameter"><code><span class="type">GXimFontSet</span> *fontset</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libgxim-gximmisc.html#g-xim-free-by-gtype" title="g_xim_free_by_gtype ()">g_xim_free_by_gtype</a>                 (<em class="parameter"><code><span class="type">GType</span> gtype</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> value</code></em>);
+<span class="returnvalue">GQuark</span>              <a class="link" href="libgxim-gximmisc.html#g-xim-gdkevent-get-error-quark" title="g_xim_gdkevent_get_error_quark ()">g_xim_gdkevent_get_error_quark</a>      (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-gdkevent-get-from-stream" title="g_xim_gdkevent_get_from_stream ()">g_xim_gdkevent_get_from_stream</a>      (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GDataInputStream</span> *stream</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gsize</span>               <a class="link" href="libgxim-gximmisc.html#g-xim-gdkevent-put-to-stream" title="g_xim_gdkevent_put_to_stream ()">g_xim_gdkevent_put_to_stream</a>        (<em class="parameter"><code><a href="http://library.gnome.org/devel/gdk3/gdk-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">GDataStreamByteOrder</span> <a class="link" href="libgxim-gximmisc.html#g-xim-get-byte-order" title="g_xim_get_byte_order ()">g_xim_get_byte_order</a>               (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a href="http://library.gnome.org/devel/gdk3/gdk-Bitmaps-and-Pixmaps.html#GdkPixmap"><span class="returnvalue">GdkPixmap</span></a> *         <a class="link" href="libgxim-gximmisc.html#g-xim-get-pixmap" title="g_xim_get_pixmap ()">g_xim_get_pixmap</a>                    (<em class="parameter"><code><a href="http://library.gnome.org/devel/gdk3/GdkDisplay.html"><span class="type">GdkDisplay</span></a> *dpy</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gdk3/gdk-Event-Structures.html#GdkNativeWindow"><span class="type">GdkNativeWindow</span></a> window</code></em>);
+<a href="http://library.gnome.org/devel/gdk3/gdk-Windows.html#GdkWindow"><span class="returnvalue">GdkWindow</span></a> *         <a class="link" href="libgxim-gximmisc.html#g-xim-get-selection-owner" title="g_xim_get_selection_owner ()">g_xim_get_selection_owner</a>           (<em class="parameter"><code><a href="http://library.gnome.org/devel/gdk3/GdkDisplay.html"><span class="type">GdkDisplay</span></a> *display</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gdk3/gdk-Properties-and-Atoms.html#GdkAtom"><span class="type">GdkAtom</span></a> selection</code></em>);
+<a href="http://library.gnome.org/devel/gdk3/gdk-Properties-and-Atoms.html#GdkAtom"><span class="returnvalue">GdkAtom</span></a>             <a class="link" href="libgxim-gximmisc.html#g-xim-get-server-atom" title="g_xim_get_server_atom ()">g_xim_get_server_atom</a>               (<em class="parameter"><code>const <span class="type">gchar</span> *server_name</code></em>);
+<a href="http://library.gnome.org/devel/gdk3/gdk-Windows.html#GdkWindow"><span class="returnvalue">GdkWindow</span></a> *         <a class="link" href="libgxim-gximmisc.html#g-xim-get-window" title="g_xim_get_window ()">g_xim_get_window</a>                    (<em class="parameter"><code><a href="http://library.gnome.org/devel/gdk3/GdkDisplay.html"><span class="type">GdkDisplay</span></a> *dpy</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gdk3/gdk-Event-Structures.html#GdkNativeWindow"><span class="type">GdkNativeWindow</span></a> window</code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-gstring-get-from-stream" title="g_xim_gstring_get_from_stream ()">g_xim_gstring_get_from_stream</a>       (<em class="parameter"><code><span class="type">GDataInputStream</span> *stream</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gsize</span>               <a class="link" href="libgxim-gximmisc.html#g-xim-gstring-put-to-stream" title="g_xim_gstring_put_to_stream ()">g_xim_gstring_put_to_stream</a>         (<em class="parameter"><code><span class="type">GString</span> *string</code></em>,
+                                                         <em class="parameter"><code><span class="type">GDataOutputStream</span> *stream</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">GXimValueType</span>       <a class="link" href="libgxim-gximmisc.html#g-xim-gtype-to-value-type" title="g_xim_gtype_to_value_type ()">g_xim_gtype_to_value_type</a>           (<em class="parameter"><code><span class="type">GType</span> gtype</code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-hotkey-trigger-copy" title="g_xim_hotkey_trigger_copy ()">g_xim_hotkey_trigger_copy</a>           (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libgxim-gximmisc.html#g-xim-hotkey-trigger-free" title="g_xim_hotkey_trigger_free ()">g_xim_hotkey_trigger_free</a>           (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-hotkey-trigger-get-from-stream" title="g_xim_hotkey_trigger_get_from_stream ()">g_xim_hotkey_trigger_get_from_stream</a>
+                                                        (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GDataInputStream</span> *stream</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-hotkey-trigger-new" title="g_xim_hotkey_trigger_new ()">g_xim_hotkey_trigger_new</a>            (<em class="parameter"><code><span class="type">guint32</span> keysym</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint32</span> modifier</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint32</span> modifier_mask</code></em>);
+<span class="returnvalue">gsize</span>               <a class="link" href="libgxim-gximmisc.html#g-xim-hotkey-trigger-put-to-stream" title="g_xim_hotkey_trigger_put_to_stream ()">g_xim_hotkey_trigger_put_to_stream</a>  (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimHotkeyTrigger"><span class="type">GXimHotkeyTrigger</span></a> *hotkey</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libgxim-gximmisc.html#g-xim-init" title="g_xim_init ()">g_xim_init</a>                          (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a href="http://library.gnome.org/devel/gdk3/gdk-Windows.html#GdkWindow"><span class="returnvalue">GdkWindow</span></a> *         <a class="link" href="libgxim-gximmisc.html#g-xim-lookup-xim-server" title="g_xim_lookup_xim_server ()">g_xim_lookup_xim_server</a>             (<em class="parameter"><code><a href="http://library.gnome.org/devel/gdk3/GdkDisplay.html"><span class="type">GdkDisplay</span></a> *dpy</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gdk3/gdk-Properties-and-Atoms.html#GdkAtom"><span class="type">GdkAtom</span></a> atom_server</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> *is_valid</code></em>);
+<a href="http://library.gnome.org/devel/gdk3/gdk-Windows.html#GdkWindow"><span class="returnvalue">GdkWindow</span></a> *         <a class="link" href="libgxim-gximmisc.html#g-xim-lookup-xim-server-from-string" title="g_xim_lookup_xim_server_from_string ()">g_xim_lookup_xim_server_from_string</a> (<em class="parameter"><code><a href="http://library.gnome.org/devel/gdk3/GdkDisplay.html"><span class="type">GdkDisplay</span></a> *dpy</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *server_name</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> *is_valid</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-nested-list-append" title="g_xim_nested_list_append ()">g_xim_nested_list_append</a>            (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimNestedList" title="GXimNestedList"><span class="type">GXimNestedList</span></a> *list</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> value</code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-nested-list-copy" title="g_xim_nested_list_copy ()">g_xim_nested_list_copy</a>              (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-nested-list-foreach" title="g_xim_nested_list_foreach ()">g_xim_nested_list_foreach</a>           (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimNestedList" title="GXimNestedList"><span class="type">GXimNestedList</span></a> *list</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimNestedFunc" title="GXimNestedFunc ()"><span class="type">GXimNestedFunc</span></a> func</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libgxim-gximmisc.html#g-xim-nested-list-free" title="g_xim_nested_list_free ()">g_xim_nested_list_free</a>              (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-nested-list-new" title="g_xim_nested_list_new ()">g_xim_nested_list_new</a>               (<em class="parameter"><code><a class="link" href="GXimIMAttr.html#GXimAttr"><span class="type">GXimAttr</span></a> *attr</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> n_nodes</code></em>);
+<span class="returnvalue">gsize</span>               <a class="link" href="libgxim-gximmisc.html#g-xim-nested-list-put-to-stream" title="g_xim_nested_list_put_to_stream ()">g_xim_nested_list_put_to_stream</a>     (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimNestedList" title="GXimNestedList"><span class="type">GXimNestedList</span></a> *list</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-point-copy" title="g_xim_point_copy ()">g_xim_point_copy</a>                    (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libgxim-gximmisc.html#g-xim-point-free" title="g_xim_point_free ()">g_xim_point_free</a>                    (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-point-get-from-stream" title="g_xim_point_get_from_stream ()">g_xim_point_get_from_stream</a>         (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GDataInputStream</span> *stream</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-point-new" title="g_xim_point_new ()">g_xim_point_new</a>                     (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">gsize</span>               <a class="link" href="libgxim-gximmisc.html#g-xim-point-put-to-stream" title="g_xim_point_put_to_stream ()">g_xim_point_put_to_stream</a>           (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimPoint"><span class="type">GXimPoint</span></a> *point</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-preedit-caret-copy" title="g_xim_preedit_caret_copy ()">g_xim_preedit_caret_copy</a>            (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libgxim-gximmisc.html#g-xim-preedit-caret-free" title="g_xim_preedit_caret_free ()">g_xim_preedit_caret_free</a>            (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-preedit-caret-get-from-stream" title="g_xim_preedit_caret_get_from_stream ()">g_xim_preedit_caret_get_from_stream</a> (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GDataInputStream</span> *stream</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-preedit-caret-new" title="g_xim_preedit_caret_new ()">g_xim_preedit_caret_new</a>             (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">gsize</span>               <a class="link" href="libgxim-gximmisc.html#g-xim-preedit-caret-put-to-stream" title="g_xim_preedit_caret_put_to_stream ()">g_xim_preedit_caret_put_to_stream</a>   (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimPreeditCaret"><span class="type">GXimPreeditCaret</span></a> *caret</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-preedit-draw-copy" title="g_xim_preedit_draw_copy ()">g_xim_preedit_draw_copy</a>             (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libgxim-gximmisc.html#g-xim-preedit-draw-free" title="g_xim_preedit_draw_free ()">g_xim_preedit_draw_free</a>             (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-preedit-draw-get-from-stream" title="g_xim_preedit_draw_get_from_stream ()">g_xim_preedit_draw_get_from_stream</a>  (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GDataInputStream</span> *stream</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-preedit-draw-new" title="g_xim_preedit_draw_new ()">g_xim_preedit_draw_new</a>              (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">gsize</span>               <a class="link" href="libgxim-gximmisc.html#g-xim-preedit-draw-put-to-stream" title="g_xim_preedit_draw_put_to_stream ()">g_xim_preedit_draw_put_to_stream</a>    (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimPreeditDraw"><span class="type">GXimPreeditDraw</span></a> *draw</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+const <span class="returnvalue">gchar</span> *       <a class="link" href="libgxim-gximmisc.html#g-xim-protocol-name" title="g_xim_protocol_name ()">g_xim_protocol_name</a>                 (<em class="parameter"><code><span class="type">guint16</span> major_opcode</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libgxim-gximmisc.html#g-xim-raw-attr-clear" title="g_xim_raw_attr_clear ()">g_xim_raw_attr_clear</a>                (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimRawAttr"><span class="type">GXimRawAttr</span></a> *attr</code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-raw-attr-copy" title="g_xim_raw_attr_copy ()">g_xim_raw_attr_copy</a>                 (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libgxim-gximmisc.html#g-xim-raw-attr-free" title="g_xim_raw_attr_free ()">g_xim_raw_attr_free</a>                 (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-raw-attr-get-from-stream" title="g_xim_raw_attr_get_from_stream ()">g_xim_raw_attr_get_from_stream</a>      (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GDataInputStream</span> *stream</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-raw-attr-new" title="g_xim_raw_attr_new ()">g_xim_raw_attr_new</a>                  (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-raw-attr-new-with-value" title="g_xim_raw_attr_new_with_value ()">g_xim_raw_attr_new_with_value</a>       (<em class="parameter"><code><span class="type">guint16</span> id</code></em>,
+                                                         <em class="parameter"><code><span class="type">GString</span> *name</code></em>,
+                                                         <em class="parameter"><code><span class="type">GXimValueType</span> vtype</code></em>);
+<span class="returnvalue">gsize</span>               <a class="link" href="libgxim-gximmisc.html#g-xim-raw-attr-put-to-stream" title="g_xim_raw_attr_put_to_stream ()">g_xim_raw_attr_put_to_stream</a>        (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimRawAttr"><span class="type">GXimRawAttr</span></a> *attr</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libgxim-gximmisc.html#g-xim-raw-attr-set-name" title="g_xim_raw_attr_set_name ()">g_xim_raw_attr_set_name</a>             (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimRawAttr"><span class="type">GXimRawAttr</span></a> *attr</code></em>,
+                                                         <em class="parameter"><code><span class="type">GString</span> *name</code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-rectangle-copy" title="g_xim_rectangle_copy ()">g_xim_rectangle_copy</a>                (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libgxim-gximmisc.html#g-xim-rectangle-free" title="g_xim_rectangle_free ()">g_xim_rectangle_free</a>                (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-rectangle-get-from-stream" title="g_xim_rectangle_get_from_stream ()">g_xim_rectangle_get_from_stream</a>     (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GDataInputStream</span> *stream</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-rectangle-new" title="g_xim_rectangle_new ()">g_xim_rectangle_new</a>                 (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">gsize</span>               <a class="link" href="libgxim-gximmisc.html#g-xim-rectangle-put-to-stream" title="g_xim_rectangle_put_to_stream ()">g_xim_rectangle_put_to_stream</a>       (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimRectangle"><span class="type">GXimRectangle</span></a> *rectangle</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-sep-nested-list-copy" title="g_xim_sep_nested_list_copy ()">g_xim_sep_nested_list_copy</a>          (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libgxim-gximmisc.html#g-xim-sep-nested-list-free" title="g_xim_sep_nested_list_free ()">g_xim_sep_nested_list_free</a>          (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-sep-nested-list-new" title="g_xim_sep_nested_list_new ()">g_xim_sep_nested_list_new</a>           (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-status-draw-copy" title="g_xim_status_draw_copy ()">g_xim_status_draw_copy</a>              (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libgxim-gximmisc.html#g-xim-status-draw-free" title="g_xim_status_draw_free ()">g_xim_status_draw_free</a>              (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-status-draw-get-from-stream" title="g_xim_status_draw_get_from_stream ()">g_xim_status_draw_get_from_stream</a>   (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GDataInputStream</span> *stream</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-status-draw-new" title="g_xim_status_draw_new ()">g_xim_status_draw_new</a>               (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">gsize</span>               <a class="link" href="libgxim-gximmisc.html#g-xim-status-draw-put-to-stream" title="g_xim_status_draw_put_to_stream ()">g_xim_status_draw_put_to_stream</a>     (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimStatusDraw"><span class="type">GXimStatusDraw</span></a> *draw</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">GXimStr</span> *           <a class="link" href="libgxim-gximmisc.html#g-xim-str-append" title="g_xim_str_append ()">g_xim_str_append</a>                    (<em class="parameter"><code><span class="type">GXimStr</span> *string</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *val</code></em>);
+<span class="returnvalue">GXimStr</span> *           <a class="link" href="libgxim-gximmisc.html#g-xim-str-append-len" title="g_xim_str_append_len ()">g_xim_str_append_len</a>                (<em class="parameter"><code><span class="type">GXimStr</span> *string</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *val</code></em>,
+                                                         <em class="parameter"><code><span class="type">gssize</span> len</code></em>);
+<span class="returnvalue">guint16</span>             <a class="link" href="libgxim-gximmisc.html#g-xim-str-conv-get-feedback" title="g_xim_str_conv_get_feedback ()">g_xim_str_conv_get_feedback</a>         (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimStrConvText" title="GXimStrConvText"><span class="type">GXimStrConvText</span></a> *text</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libgxim-gximmisc.html#g-xim-str-conv-set-feedback" title="g_xim_str_conv_set_feedback ()">g_xim_str_conv_set_feedback</a>         (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimStrConvText" title="GXimStrConvText"><span class="type">GXimStrConvText</span></a> *text</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> feedback</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libgxim-gximmisc.html#g-xim-str-conv-text-free" title="g_xim_str_conv_text_free ()">g_xim_str_conv_text_free</a>            (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimStrConvText" title="GXimStrConvText"><span class="type">GXimStrConvText</span></a> *text</code></em>);
+<a class="link" href="libgxim-gximmisc.html#GXimStrConvText" title="GXimStrConvText"><span class="returnvalue">GXimStrConvText</span></a> *   <a class="link" href="libgxim-gximmisc.html#g-xim-str-conv-text-new" title="g_xim_str_conv_text_new ()">g_xim_str_conv_text_new</a>             (<em class="parameter"><code>const <span class="type">gchar</span> *string</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> length</code></em>);
+<a class="link" href="libgxim-gximmisc.html#GXimStrConvText" title="GXimStrConvText"><span class="returnvalue">GXimStrConvText</span></a> *   <a class="link" href="libgxim-gximmisc.html#g-xim-str-conv-text-new-full" title="g_xim_str_conv_text_new_full ()">g_xim_str_conv_text_new_full</a>        (<em class="parameter"><code>const <span class="type">gchar</span> *string</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> length</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> feedback</code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-str-copy" title="g_xim_str_copy ()">g_xim_str_copy</a>                      (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libgxim-gximmisc.html#g-xim-str-free" title="g_xim_str_free ()">g_xim_str_free</a>                      (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-str-get-from-stream" title="g_xim_str_get_from_stream ()">g_xim_str_get_from_stream</a>           (<em class="parameter"><code><span class="type">GDataInputStream</span> *stream</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gsize</span>               <a class="link" href="libgxim-gximmisc.html#g-xim-str-get-length" title="g_xim_str_get_length ()">g_xim_str_get_length</a>                (<em class="parameter"><code>const <span class="type">GXimStr</span> *string</code></em>);
+const <span class="returnvalue">gchar</span> *       <a class="link" href="libgxim-gximmisc.html#g-xim-str-get-string" title="g_xim_str_get_string ()">g_xim_str_get_string</a>                (<em class="parameter"><code>const <span class="type">GXimStr</span> *string</code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-str-new" title="g_xim_str_new ()">g_xim_str_new</a>                       (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">gsize</span>               <a class="link" href="libgxim-gximmisc.html#g-xim-str-put-to-stream" title="g_xim_str_put_to_stream ()">g_xim_str_put_to_stream</a>             (<em class="parameter"><code><span class="type">GXimStr</span> *string</code></em>,
+                                                         <em class="parameter"><code><span class="type">GDataOutputStream</span> *stream</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-string-copy" title="g_xim_string_copy ()">g_xim_string_copy</a>                   (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libgxim-gximmisc.html#g-xim-string-free" title="g_xim_string_free ()">g_xim_string_free</a>                   (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-string-get-from-stream" title="g_xim_string_get_from_stream ()">g_xim_string_get_from_stream</a>        (<em class="parameter"><code><span class="type">GDataInputStream</span> *stream</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gsize</span>               <a class="link" href="libgxim-gximmisc.html#g-xim-string-get-length" title="g_xim_string_get_length ()">g_xim_string_get_length</a>             (<em class="parameter"><code><span class="type">GXimString</span> *string</code></em>);
+const <span class="returnvalue">gchar</span> *       <a class="link" href="libgxim-gximmisc.html#g-xim-string-get-string" title="g_xim_string_get_string ()">g_xim_string_get_string</a>             (<em class="parameter"><code>const <span class="type">GXimString</span> *string</code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-string-new" title="g_xim_string_new ()">g_xim_string_new</a>                    (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">gsize</span>               <a class="link" href="libgxim-gximmisc.html#g-xim-string-put-to-stream" title="g_xim_string_put_to_stream ()">g_xim_string_put_to_stream</a>          (<em class="parameter"><code><span class="type">GXimString</span> *string</code></em>,
+                                                         <em class="parameter"><code><span class="type">GDataOutputStream</span> *stream</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-styles-append" title="g_xim_styles_append ()">g_xim_styles_append</a>                 (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimStyles"><span class="type">GXimStyles</span></a> *styles</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimStyle" title="enum GXimStyle"><span class="type">GXimStyle</span></a> style</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-styles-copy" title="g_xim_styles_copy ()">g_xim_styles_copy</a>                   (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libgxim-gximmisc.html#g-xim-styles-free" title="g_xim_styles_free ()">g_xim_styles_free</a>                   (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);
+<span class="returnvalue">GQuark</span>              <a class="link" href="libgxim-gximmisc.html#g-xim-styles-get-error-quark" title="g_xim_styles_get_error_quark ()">g_xim_styles_get_error_quark</a>        (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-styles-get-from-stream" title="g_xim_styles_get_from_stream ()">g_xim_styles_get_from_stream</a>        (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GDataInputStream</span> *stream</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-styles-insert" title="g_xim_styles_insert ()">g_xim_styles_insert</a>                 (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimStyles"><span class="type">GXimStyles</span></a> *styles</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> index_</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimStyle" title="enum GXimStyle"><span class="type">GXimStyle</span></a> style</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<a class="link" href="libgxim-gximmisc.html#GXimStyles"><span class="returnvalue">GXimStyles</span></a> *        <a class="link" href="libgxim-gximmisc.html#g-xim-styles-new" title="g_xim_styles_new ()">g_xim_styles_new</a>                    (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">gsize</span>               <a class="link" href="libgxim-gximmisc.html#g-xim-styles-put-to-stream" title="g_xim_styles_put_to_stream ()">g_xim_styles_put_to_stream</a>          (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimStyles"><span class="type">GXimStyles</span></a> *styles</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libgxim-gximmisc.html#g-xim-text-clear-string" title="g_xim_text_clear_string ()">g_xim_text_clear_string</a>             (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimText"><span class="type">GXimText</span></a> *text</code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-text-copy" title="g_xim_text_copy ()">g_xim_text_copy</a>                     (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libgxim-gximmisc.html#g-xim-text-free" title="g_xim_text_free ()">g_xim_text_free</a>                     (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);
+<span class="returnvalue">GXimFeedback</span>        <a class="link" href="libgxim-gximmisc.html#g-xim-text-get-feedback" title="g_xim_text_get_feedback ()">g_xim_text_get_feedback</a>             (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimText"><span class="type">GXimText</span></a> *text</code></em>,
+                                                         <em class="parameter"><code><span class="type">gshort</span> position</code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-text-get-from-stream" title="g_xim_text_get_from_stream ()">g_xim_text_get_from_stream</a>          (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GDataInputStream</span> *stream</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-text-new" title="g_xim_text_new ()">g_xim_text_new</a>                      (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">gsize</span>               <a class="link" href="libgxim-gximmisc.html#g-xim-text-put-to-stream" title="g_xim_text_put_to_stream ()">g_xim_text_put_to_stream</a>            (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimText"><span class="type">GXimText</span></a> *text</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libgxim-gximmisc.html#g-xim-text-set-feedback" title="g_xim_text_set_feedback ()">g_xim_text_set_feedback</a>             (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimText"><span class="type">GXimText</span></a> *text</code></em>,
+                                                         <em class="parameter"><code><span class="type">GXimFeedback</span> feedback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gshort</span> position</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-text-set-mbstring" title="g_xim_text_set_mbstring ()">g_xim_text_set_mbstring</a>             (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimText"><span class="type">GXimText</span></a> *text</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *string</code></em>,
+                                                         <em class="parameter"><code><span class="type">gssize</span> length</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="libgxim-gximmisc.html#g-xim-text-set-wcstring" title="g_xim_text_set_wcstring ()">g_xim_text_set_wcstring</a>             (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimText"><span class="type">GXimText</span></a> *text</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gunichar2</span> *string</code></em>,
+                                                         <em class="parameter"><code><span class="type">gssize</span> length</code></em>);
+const <span class="returnvalue">gchar</span> *       <a class="link" href="libgxim-gximmisc.html#g-xim-value-type-name" title="g_xim_value_type_name ()">g_xim_value_type_name</a>               (<em class="parameter"><code><span class="type">GXimValueType</span> vtype</code></em>);
+<span class="returnvalue">GType</span>               <a class="link" href="libgxim-gximmisc.html#g-xim-value-type-to-gtype" title="g_xim_value_type_to_gtype ()">g_xim_value_type_to_gtype</a>           (<em class="parameter"><code><span class="type">GXimValueType</span> vtype</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="libgxim-gximmisc.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  GBoxed
+   +----GXimAttribute
+</pre>
+<pre class="synopsis">
+  GBoxed
+   +----GXimExt
+</pre>
+<pre class="synopsis">
+  GBoxed
+   +----GXimHotkeyTrigger
+</pre>
+<pre class="synopsis">
+  GBoxed
+   +----GXimPoint
+</pre>
+<pre class="synopsis">
+  GBoxed
+   +----GXimPreeditCaret
+</pre>
+<pre class="synopsis">
+  GBoxed
+   +----GXimPreeditDraw
+</pre>
+<pre class="synopsis">
+  GBoxed
+   +----GXimRawAttr
+</pre>
+<pre class="synopsis">
+  GBoxed
+   +----GXimRectangle
+</pre>
+<pre class="synopsis">
+  GBoxed
+   +----GXimStatusDraw
+</pre>
+<pre class="synopsis">
+  GBoxed
+   +----GXimStyles
+</pre>
+<pre class="synopsis">
+  GBoxed
+   +----GXimText
+</pre>
+</div>
+<div class="refsect1">
+<a name="libgxim-gximmisc.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="libgxim-gximmisc.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GXimAttribute-struct"></a><h3>GXimAttribute</h3>
+<pre class="programlisting">typedef struct {
+	guint16       id;
+	GXimValueType vtype;
+	union {
+		guint           i;
+		gulong          l;
+		gpointer        pointer;
+	} v;
+} GXimAttribute;
+</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GXimExt-struct"></a><h3>GXimExt</h3>
+<pre class="programlisting">typedef struct {
+	guint8   major_opcode;
+	guint8   minor_opcode;
+	GString *name;
+} GXimExt;
+</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GXimGdkEventError"></a><h3>enum GXimGdkEventError</h3>
+<pre class="programlisting">typedef enum {
+	G_XIM_GDKEVENT_ERROR_BEGIN = 128,
+	G_XIM_GDKEVENT_ERROR_UNSUPPORTED_EVENT,
+} GXimGdkEventError;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GXimHotkeyTrigger-struct"></a><h3>GXimHotkeyTrigger</h3>
+<pre class="programlisting">typedef struct {
+	guint32 keysym;
+	guint32 modifier;
+	guint32 modifier_mask;
+} GXimHotkeyTrigger;
+</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GXimNestedFunc"></a><h3>GXimNestedFunc ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            (*GXimNestedFunc)                   (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimNestedListNode" title="struct GXimNestedListNode"><span class="type">GXimNestedListNode</span></a> *node</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GXimNestedList"></a><h3>GXimNestedList</h3>
+<pre class="programlisting">typedef struct {
+	GXimAttr            *attr;
+	guint16              n_nodes;
+	guint16              allocated_len;
+	GXimNestedListNode **nodes;
+} GXimNestedList;
+</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GXimNestedListNode"></a><h3>struct GXimNestedListNode</h3>
+<pre class="programlisting">struct GXimNestedListNode {
+	GXimValueType  vtype;
+	gchar         *name;
+	gpointer       value;
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GXimPoint-struct"></a><h3>GXimPoint</h3>
+<pre class="programlisting">typedef struct {
+	short x;
+	short y;
+} GXimPoint;
+</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GXimPreeditCaret-struct"></a><h3>GXimPreeditCaret</h3>
+<pre class="programlisting">typedef struct {
+	gint position;
+	GXimCaretDirection direction;
+	GXimCaretStyle     style;
+} GXimPreeditCaret;
+</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GXimPreeditDraw-struct"></a><h3>GXimPreeditDraw</h3>
+<pre class="programlisting">typedef struct {
+	gint      caret;
+	gint      chg_first;
+	gint      chg_length;
+	GXimText *text;
+} GXimPreeditDraw;
+</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GXimRawAttr-struct"></a><h3>GXimRawAttr</h3>
+<pre class="programlisting">typedef struct {
+	GXimAttribute  base;
+	GString       *attribute_name;
+} GXimRawAttr;
+</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GXimRectangle-struct"></a><h3>GXimRectangle</h3>
+<pre class="programlisting">typedef struct {
+	short x;
+	short y;
+	unsigned short width;
+	unsigned short height;
+} GXimRectangle;
+</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GXimSepNestedList"></a><h3>GXimSepNestedList</h3>
+<pre class="programlisting">typedef struct {
+	guint8 dummy;
+} GXimSepNestedList;
+</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GXimStatusDataType"></a><h3>enum GXimStatusDataType</h3>
+<pre class="programlisting">typedef enum {
+	G_XIM_XIMTextType,
+	G_XIM_XIMBitmapType
+} GXimStatusDataType;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GXimStatusDraw-struct"></a><h3>GXimStatusDraw</h3>
+<pre class="programlisting">typedef struct {
+	GXimStatusDataType  type;
+	union {
+		GXimText *text;
+		GdkPixmap *bitmap;
+	} data;
+} GXimStatusDraw;
+</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GXimStrConvText"></a><h3>GXimStrConvText</h3>
+<pre class="programlisting">typedef struct {
+	GXimStrConvFeedbacks  feedback;
+	guint16               length;
+	gchar                *string;
+} GXimStrConvText;
+</pre>
+<p>
+A structure to deal with XIM String Conversion Text.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GXimStyle"></a><h3>enum GXimStyle</h3>
+<pre class="programlisting">typedef enum {
+	G_XIM_PreeditArea = 1 &lt;&lt; 0,
+	G_XIM_PreeditCallbacks = 1 &lt;&lt; 1,
+	G_XIM_PreeditPosition = 1 &lt;&lt; 2,
+	G_XIM_PreeditNothing = 1 &lt;&lt; 3,
+	G_XIM_PreeditNone = 1 &lt;&lt; 4,
+	G_XIM_StatusArea = 1 &lt;&lt; 8,
+	G_XIM_StatusCallbacks = 1 &lt;&lt; 9,
+	G_XIM_StatusNothing = 1 &lt;&lt; 10,
+	G_XIM_StatusNone = 1 &lt;&lt; 11,
+} GXimStyle;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GXimStyles-struct"></a><h3>GXimStyles</h3>
+<pre class="programlisting">typedef struct {
+	guint16    count_styles;
+	GXimStyle *supported_styles;
+} GXimStyles;
+</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GXimText-struct"></a><h3>GXimText</h3>
+<pre class="programlisting">typedef struct {
+	gshort        length;
+	GXimFeedback *feedback;
+	gboolean      encoding_is_wchar;
+	union {
+		gchar *multi_byte;
+		gunichar2 *wide_char;
+	} string;
+} GXimText;
+</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="G-TYPE-XIM-NESTEDLIST:CAPS"></a><h3>G_TYPE_XIM_NESTEDLIST</h3>
+<pre class="programlisting">#define G_TYPE_XIM_NESTEDLIST		(g_xim_nested_list_get_type())
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="G-TYPE-XIM-SEP-NESTEDLIST:CAPS"></a><h3>G_TYPE_XIM_SEP_NESTEDLIST</h3>
+<pre class="programlisting">#define G_TYPE_XIM_SEP_NESTEDLIST (g_xim_sep_nested_list_get_type())
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="G-XIM-CHECK-ALLOC:CAPS"></a><h3>G_XIM_CHECK_ALLOC()</h3>
+<pre class="programlisting">#define             G_XIM_CHECK_ALLOC(_v_,_r_)</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="G-XIM-CHECK-ALLOC-WITH-CODE:CAPS"></a><h3>G_XIM_CHECK_ALLOC_WITH_CODE()</h3>
+<pre class="programlisting">#define             G_XIM_CHECK_ALLOC_WITH_CODE(_v_,_c_,_r_)</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="G-XIM-CHECK-ALLOC-WITH-NO-RET:CAPS"></a><h3>G_XIM_CHECK_ALLOC_WITH_NO_RET()</h3>
+<pre class="programlisting">#define             G_XIM_CHECK_ALLOC_WITH_NO_RET(_v_)</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="G-XIM-GDKEVENT-ERROR:CAPS"></a><h3>G_XIM_GDKEVENT_ERROR</h3>
+<pre class="programlisting">#define G_XIM_GDKEVENT_ERROR		(g_xim_gdkevent_get_error_quark())
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="G-XIM-GERROR-CHECK-ALLOC:CAPS"></a><h3>G_XIM_GERROR_CHECK_ALLOC()</h3>
+<pre class="programlisting">#define             G_XIM_GERROR_CHECK_ALLOC(_v_,_e_,_t_,_r_)</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="G-XIM-GERROR-CHECK-ALLOC-WITH-CODE:CAPS"></a><h3>G_XIM_GERROR_CHECK_ALLOC_WITH_CODE()</h3>
+<pre class="programlisting">#define             G_XIM_GERROR_CHECK_ALLOC_WITH_CODE(_v_,_e_,_t_,_c_,_r_)</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="G-XIM-GERROR-RESET-NOTICE-FLAG:CAPS"></a><h3>G_XIM_GERROR_RESET_NOTICE_FLAG()</h3>
+<pre class="programlisting">#define             G_XIM_GERROR_RESET_NOTICE_FLAG(_e_)</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="G-XIM-GERROR-SET-NOTICE-FLAG:CAPS"></a><h3>G_XIM_GERROR_SET_NOTICE_FLAG()</h3>
+<pre class="programlisting">#define             G_XIM_GERROR_SET_NOTICE_FLAG(_e_,_f_)</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="G-XIM-STYLES-ERROR:CAPS"></a><h3>G_XIM_STYLES_ERROR</h3>
+<pre class="programlisting">#define G_XIM_STYLES_ERROR		(g_xim_styles_get_error_quark())
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-attribute-clear"></a><h3>g_xim_attribute_clear ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_attribute_clear               (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimAttribute"><span class="type">GXimAttribute</span></a> *attr</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-attribute-copy"></a><h3>g_xim_attribute_copy ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            g_xim_attribute_copy                (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-attribute-free"></a><h3>g_xim_attribute_free ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_attribute_free                (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-attribute-new"></a><h3>g_xim_attribute_new ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            g_xim_attribute_new                 (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-attribute-new-with-value"></a><h3>g_xim_attribute_new_with_value ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            g_xim_attribute_new_with_value      (<em class="parameter"><code><span class="type">guint16</span> id</code></em>,
+                                                         <em class="parameter"><code><span class="type">GXimValueType</span> vtype</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> value</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-attribute-put-to-stream"></a><h3>g_xim_attribute_put_to_stream ()</h3>
+<pre class="programlisting"><span class="returnvalue">gsize</span>               g_xim_attribute_put_to_stream       (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimAttribute"><span class="type">GXimAttribute</span></a> *attr</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-attribute-set"></a><h3>g_xim_attribute_set ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_attribute_set                 (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimAttribute"><span class="type">GXimAttribute</span></a> *attr</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> id</code></em>,
+                                                         <em class="parameter"><code><span class="type">GXimValueType</span> vtype</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> value</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-copy-by-gtype"></a><h3>g_xim_copy_by_gtype ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            g_xim_copy_by_gtype                 (<em class="parameter"><code><span class="type">GType</span> gtype</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> value</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-encodinginfo-copy"></a><h3>g_xim_encodinginfo_copy ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            g_xim_encodinginfo_copy             (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-encodinginfo-free"></a><h3>g_xim_encodinginfo_free ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_encodinginfo_free             (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-encodinginfo-get-from-stream"></a><h3>g_xim_encodinginfo_get_from_stream ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            g_xim_encodinginfo_get_from_stream  (<em class="parameter"><code><span class="type">GDataInputStream</span> *stream</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-encodinginfo-get-length"></a><h3>g_xim_encodinginfo_get_length ()</h3>
+<pre class="programlisting"><span class="returnvalue">gsize</span>               g_xim_encodinginfo_get_length       (<em class="parameter"><code><span class="type">GXimEncodingInfo</span> *encoding</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-encodinginfo-get-string"></a><h3>g_xim_encodinginfo_get_string ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       g_xim_encodinginfo_get_string       (<em class="parameter"><code>const <span class="type">GXimEncodingInfo</span> *encoding</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-encodinginfo-new"></a><h3>g_xim_encodinginfo_new ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            g_xim_encodinginfo_new              (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-encodinginfo-put-to-stream"></a><h3>g_xim_encodinginfo_put_to_stream ()</h3>
+<pre class="programlisting"><span class="returnvalue">gsize</span>               g_xim_encodinginfo_put_to_stream    (<em class="parameter"><code><span class="type">GXimEncodingInfo</span> *encoding</code></em>,
+                                                         <em class="parameter"><code><span class="type">GDataOutputStream</span> *stream</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-ext-copy"></a><h3>g_xim_ext_copy ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            g_xim_ext_copy                      (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-ext-free"></a><h3>g_xim_ext_free ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_ext_free                      (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-ext-get-from-stream"></a><h3>g_xim_ext_get_from_stream ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            g_xim_ext_get_from_stream           (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GDataInputStream</span> *stream</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-ext-new"></a><h3>g_xim_ext_new ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            g_xim_ext_new                       (<em class="parameter"><code><span class="type">guint8</span> major_opcode</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint8</span> minor_opcode</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-ext-put-to-stream"></a><h3>g_xim_ext_put_to_stream ()</h3>
+<pre class="programlisting"><span class="returnvalue">gsize</span>               g_xim_ext_put_to_stream             (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimExt"><span class="type">GXimExt</span></a> *ext</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-finalize"></a><h3>g_xim_finalize ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_finalize                      (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-fontset-copy"></a><h3>g_xim_fontset_copy ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            g_xim_fontset_copy                  (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-fontset-free"></a><h3>g_xim_fontset_free ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_fontset_free                  (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-fontset-get-from-stream"></a><h3>g_xim_fontset_get_from_stream ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            g_xim_fontset_get_from_stream       (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GDataInputStream</span> *stream</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-fontset-put-to-stream"></a><h3>g_xim_fontset_put_to_stream ()</h3>
+<pre class="programlisting"><span class="returnvalue">gsize</span>               g_xim_fontset_put_to_stream         (<em class="parameter"><code><span class="type">GXimFontSet</span> *fontset</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-free-by-gtype"></a><h3>g_xim_free_by_gtype ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_free_by_gtype                 (<em class="parameter"><code><span class="type">GType</span> gtype</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> value</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-gdkevent-get-error-quark"></a><h3>g_xim_gdkevent_get_error_quark ()</h3>
+<pre class="programlisting"><span class="returnvalue">GQuark</span>              g_xim_gdkevent_get_error_quark      (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-gdkevent-get-from-stream"></a><h3>g_xim_gdkevent_get_from_stream ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            g_xim_gdkevent_get_from_stream      (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GDataInputStream</span> *stream</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-gdkevent-put-to-stream"></a><h3>g_xim_gdkevent_put_to_stream ()</h3>
+<pre class="programlisting"><span class="returnvalue">gsize</span>               g_xim_gdkevent_put_to_stream        (<em class="parameter"><code><a href="http://library.gnome.org/devel/gdk3/gdk-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-get-byte-order"></a><h3>g_xim_get_byte_order ()</h3>
+<pre class="programlisting"><span class="returnvalue">GDataStreamByteOrder</span> g_xim_get_byte_order               (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-get-pixmap"></a><h3>g_xim_get_pixmap ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gdk3/gdk-Bitmaps-and-Pixmaps.html#GdkPixmap"><span class="returnvalue">GdkPixmap</span></a> *         g_xim_get_pixmap                    (<em class="parameter"><code><a href="http://library.gnome.org/devel/gdk3/GdkDisplay.html"><span class="type">GdkDisplay</span></a> *dpy</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gdk3/gdk-Event-Structures.html#GdkNativeWindow"><span class="type">GdkNativeWindow</span></a> window</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-get-selection-owner"></a><h3>g_xim_get_selection_owner ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gdk3/gdk-Windows.html#GdkWindow"><span class="returnvalue">GdkWindow</span></a> *         g_xim_get_selection_owner           (<em class="parameter"><code><a href="http://library.gnome.org/devel/gdk3/GdkDisplay.html"><span class="type">GdkDisplay</span></a> *display</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gdk3/gdk-Properties-and-Atoms.html#GdkAtom"><span class="type">GdkAtom</span></a> selection</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-get-server-atom"></a><h3>g_xim_get_server_atom ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gdk3/gdk-Properties-and-Atoms.html#GdkAtom"><span class="returnvalue">GdkAtom</span></a>             g_xim_get_server_atom               (<em class="parameter"><code>const <span class="type">gchar</span> *server_name</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-get-window"></a><h3>g_xim_get_window ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gdk3/gdk-Windows.html#GdkWindow"><span class="returnvalue">GdkWindow</span></a> *         g_xim_get_window                    (<em class="parameter"><code><a href="http://library.gnome.org/devel/gdk3/GdkDisplay.html"><span class="type">GdkDisplay</span></a> *dpy</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gdk3/gdk-Event-Structures.html#GdkNativeWindow"><span class="type">GdkNativeWindow</span></a> window</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-gstring-get-from-stream"></a><h3>g_xim_gstring_get_from_stream ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            g_xim_gstring_get_from_stream       (<em class="parameter"><code><span class="type">GDataInputStream</span> *stream</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-gstring-put-to-stream"></a><h3>g_xim_gstring_put_to_stream ()</h3>
+<pre class="programlisting"><span class="returnvalue">gsize</span>               g_xim_gstring_put_to_stream         (<em class="parameter"><code><span class="type">GString</span> *string</code></em>,
+                                                         <em class="parameter"><code><span class="type">GDataOutputStream</span> *stream</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-gtype-to-value-type"></a><h3>g_xim_gtype_to_value_type ()</h3>
+<pre class="programlisting"><span class="returnvalue">GXimValueType</span>       g_xim_gtype_to_value_type           (<em class="parameter"><code><span class="type">GType</span> gtype</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-hotkey-trigger-copy"></a><h3>g_xim_hotkey_trigger_copy ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            g_xim_hotkey_trigger_copy           (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-hotkey-trigger-free"></a><h3>g_xim_hotkey_trigger_free ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_hotkey_trigger_free           (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-hotkey-trigger-get-from-stream"></a><h3>g_xim_hotkey_trigger_get_from_stream ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            g_xim_hotkey_trigger_get_from_stream
+                                                        (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GDataInputStream</span> *stream</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-hotkey-trigger-new"></a><h3>g_xim_hotkey_trigger_new ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            g_xim_hotkey_trigger_new            (<em class="parameter"><code><span class="type">guint32</span> keysym</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint32</span> modifier</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint32</span> modifier_mask</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-hotkey-trigger-put-to-stream"></a><h3>g_xim_hotkey_trigger_put_to_stream ()</h3>
+<pre class="programlisting"><span class="returnvalue">gsize</span>               g_xim_hotkey_trigger_put_to_stream  (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimHotkeyTrigger"><span class="type">GXimHotkeyTrigger</span></a> *hotkey</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-init"></a><h3>g_xim_init ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_init                          (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-lookup-xim-server"></a><h3>g_xim_lookup_xim_server ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gdk3/gdk-Windows.html#GdkWindow"><span class="returnvalue">GdkWindow</span></a> *         g_xim_lookup_xim_server             (<em class="parameter"><code><a href="http://library.gnome.org/devel/gdk3/GdkDisplay.html"><span class="type">GdkDisplay</span></a> *dpy</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gdk3/gdk-Properties-and-Atoms.html#GdkAtom"><span class="type">GdkAtom</span></a> atom_server</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> *is_valid</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-lookup-xim-server-from-string"></a><h3>g_xim_lookup_xim_server_from_string ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gdk3/gdk-Windows.html#GdkWindow"><span class="returnvalue">GdkWindow</span></a> *         g_xim_lookup_xim_server_from_string (<em class="parameter"><code><a href="http://library.gnome.org/devel/gdk3/GdkDisplay.html"><span class="type">GdkDisplay</span></a> *dpy</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *server_name</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> *is_valid</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-nested-list-append"></a><h3>g_xim_nested_list_append ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            g_xim_nested_list_append            (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimNestedList" title="GXimNestedList"><span class="type">GXimNestedList</span></a> *list</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> value</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-nested-list-copy"></a><h3>g_xim_nested_list_copy ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            g_xim_nested_list_copy              (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-nested-list-foreach"></a><h3>g_xim_nested_list_foreach ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            g_xim_nested_list_foreach           (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimNestedList" title="GXimNestedList"><span class="type">GXimNestedList</span></a> *list</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimNestedFunc" title="GXimNestedFunc ()"><span class="type">GXimNestedFunc</span></a> func</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-nested-list-free"></a><h3>g_xim_nested_list_free ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_nested_list_free              (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-nested-list-new"></a><h3>g_xim_nested_list_new ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            g_xim_nested_list_new               (<em class="parameter"><code><a class="link" href="GXimIMAttr.html#GXimAttr"><span class="type">GXimAttr</span></a> *attr</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> n_nodes</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-nested-list-put-to-stream"></a><h3>g_xim_nested_list_put_to_stream ()</h3>
+<pre class="programlisting"><span class="returnvalue">gsize</span>               g_xim_nested_list_put_to_stream     (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimNestedList" title="GXimNestedList"><span class="type">GXimNestedList</span></a> *list</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-point-copy"></a><h3>g_xim_point_copy ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            g_xim_point_copy                    (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-point-free"></a><h3>g_xim_point_free ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_point_free                    (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-point-get-from-stream"></a><h3>g_xim_point_get_from_stream ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            g_xim_point_get_from_stream         (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GDataInputStream</span> *stream</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-point-new"></a><h3>g_xim_point_new ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            g_xim_point_new                     (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-point-put-to-stream"></a><h3>g_xim_point_put_to_stream ()</h3>
+<pre class="programlisting"><span class="returnvalue">gsize</span>               g_xim_point_put_to_stream           (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimPoint"><span class="type">GXimPoint</span></a> *point</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-preedit-caret-copy"></a><h3>g_xim_preedit_caret_copy ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            g_xim_preedit_caret_copy            (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-preedit-caret-free"></a><h3>g_xim_preedit_caret_free ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_preedit_caret_free            (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-preedit-caret-get-from-stream"></a><h3>g_xim_preedit_caret_get_from_stream ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            g_xim_preedit_caret_get_from_stream (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GDataInputStream</span> *stream</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-preedit-caret-new"></a><h3>g_xim_preedit_caret_new ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            g_xim_preedit_caret_new             (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-preedit-caret-put-to-stream"></a><h3>g_xim_preedit_caret_put_to_stream ()</h3>
+<pre class="programlisting"><span class="returnvalue">gsize</span>               g_xim_preedit_caret_put_to_stream   (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimPreeditCaret"><span class="type">GXimPreeditCaret</span></a> *caret</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-preedit-draw-copy"></a><h3>g_xim_preedit_draw_copy ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            g_xim_preedit_draw_copy             (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-preedit-draw-free"></a><h3>g_xim_preedit_draw_free ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_preedit_draw_free             (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-preedit-draw-get-from-stream"></a><h3>g_xim_preedit_draw_get_from_stream ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            g_xim_preedit_draw_get_from_stream  (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GDataInputStream</span> *stream</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-preedit-draw-new"></a><h3>g_xim_preedit_draw_new ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            g_xim_preedit_draw_new              (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-preedit-draw-put-to-stream"></a><h3>g_xim_preedit_draw_put_to_stream ()</h3>
+<pre class="programlisting"><span class="returnvalue">gsize</span>               g_xim_preedit_draw_put_to_stream    (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimPreeditDraw"><span class="type">GXimPreeditDraw</span></a> *draw</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-protocol-name"></a><h3>g_xim_protocol_name ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       g_xim_protocol_name                 (<em class="parameter"><code><span class="type">guint16</span> major_opcode</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-raw-attr-clear"></a><h3>g_xim_raw_attr_clear ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_raw_attr_clear                (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimRawAttr"><span class="type">GXimRawAttr</span></a> *attr</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-raw-attr-copy"></a><h3>g_xim_raw_attr_copy ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            g_xim_raw_attr_copy                 (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-raw-attr-free"></a><h3>g_xim_raw_attr_free ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_raw_attr_free                 (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-raw-attr-get-from-stream"></a><h3>g_xim_raw_attr_get_from_stream ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            g_xim_raw_attr_get_from_stream      (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GDataInputStream</span> *stream</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-raw-attr-new"></a><h3>g_xim_raw_attr_new ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            g_xim_raw_attr_new                  (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-raw-attr-new-with-value"></a><h3>g_xim_raw_attr_new_with_value ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            g_xim_raw_attr_new_with_value       (<em class="parameter"><code><span class="type">guint16</span> id</code></em>,
+                                                         <em class="parameter"><code><span class="type">GString</span> *name</code></em>,
+                                                         <em class="parameter"><code><span class="type">GXimValueType</span> vtype</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-raw-attr-put-to-stream"></a><h3>g_xim_raw_attr_put_to_stream ()</h3>
+<pre class="programlisting"><span class="returnvalue">gsize</span>               g_xim_raw_attr_put_to_stream        (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimRawAttr"><span class="type">GXimRawAttr</span></a> *attr</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-raw-attr-set-name"></a><h3>g_xim_raw_attr_set_name ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_raw_attr_set_name             (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimRawAttr"><span class="type">GXimRawAttr</span></a> *attr</code></em>,
+                                                         <em class="parameter"><code><span class="type">GString</span> *name</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-rectangle-copy"></a><h3>g_xim_rectangle_copy ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            g_xim_rectangle_copy                (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-rectangle-free"></a><h3>g_xim_rectangle_free ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_rectangle_free                (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-rectangle-get-from-stream"></a><h3>g_xim_rectangle_get_from_stream ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            g_xim_rectangle_get_from_stream     (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GDataInputStream</span> *stream</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-rectangle-new"></a><h3>g_xim_rectangle_new ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            g_xim_rectangle_new                 (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-rectangle-put-to-stream"></a><h3>g_xim_rectangle_put_to_stream ()</h3>
+<pre class="programlisting"><span class="returnvalue">gsize</span>               g_xim_rectangle_put_to_stream       (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimRectangle"><span class="type">GXimRectangle</span></a> *rectangle</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-sep-nested-list-copy"></a><h3>g_xim_sep_nested_list_copy ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            g_xim_sep_nested_list_copy          (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-sep-nested-list-free"></a><h3>g_xim_sep_nested_list_free ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_sep_nested_list_free          (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-sep-nested-list-new"></a><h3>g_xim_sep_nested_list_new ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            g_xim_sep_nested_list_new           (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-status-draw-copy"></a><h3>g_xim_status_draw_copy ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            g_xim_status_draw_copy              (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-status-draw-free"></a><h3>g_xim_status_draw_free ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_status_draw_free              (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-status-draw-get-from-stream"></a><h3>g_xim_status_draw_get_from_stream ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            g_xim_status_draw_get_from_stream   (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GDataInputStream</span> *stream</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-status-draw-new"></a><h3>g_xim_status_draw_new ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            g_xim_status_draw_new               (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-status-draw-put-to-stream"></a><h3>g_xim_status_draw_put_to_stream ()</h3>
+<pre class="programlisting"><span class="returnvalue">gsize</span>               g_xim_status_draw_put_to_stream     (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimStatusDraw"><span class="type">GXimStatusDraw</span></a> *draw</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-str-append"></a><h3>g_xim_str_append ()</h3>
+<pre class="programlisting"><span class="returnvalue">GXimStr</span> *           g_xim_str_append                    (<em class="parameter"><code><span class="type">GXimStr</span> *string</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *val</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-str-append-len"></a><h3>g_xim_str_append_len ()</h3>
+<pre class="programlisting"><span class="returnvalue">GXimStr</span> *           g_xim_str_append_len                (<em class="parameter"><code><span class="type">GXimStr</span> *string</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *val</code></em>,
+                                                         <em class="parameter"><code><span class="type">gssize</span> len</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-str-conv-get-feedback"></a><h3>g_xim_str_conv_get_feedback ()</h3>
+<pre class="programlisting"><span class="returnvalue">guint16</span>             g_xim_str_conv_get_feedback         (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimStrConvText" title="GXimStrConvText"><span class="type">GXimStrConvText</span></a> *text</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-str-conv-set-feedback"></a><h3>g_xim_str_conv_set_feedback ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_str_conv_set_feedback         (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimStrConvText" title="GXimStrConvText"><span class="type">GXimStrConvText</span></a> *text</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> feedback</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-str-conv-text-free"></a><h3>g_xim_str_conv_text_free ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_str_conv_text_free            (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimStrConvText" title="GXimStrConvText"><span class="type">GXimStrConvText</span></a> *text</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-str-conv-text-new"></a><h3>g_xim_str_conv_text_new ()</h3>
+<pre class="programlisting"><a class="link" href="libgxim-gximmisc.html#GXimStrConvText" title="GXimStrConvText"><span class="returnvalue">GXimStrConvText</span></a> *   g_xim_str_conv_text_new             (<em class="parameter"><code>const <span class="type">gchar</span> *string</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> length</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-str-conv-text-new-full"></a><h3>g_xim_str_conv_text_new_full ()</h3>
+<pre class="programlisting"><a class="link" href="libgxim-gximmisc.html#GXimStrConvText" title="GXimStrConvText"><span class="returnvalue">GXimStrConvText</span></a> *   g_xim_str_conv_text_new_full        (<em class="parameter"><code>const <span class="type">gchar</span> *string</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> length</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint16</span> feedback</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-str-copy"></a><h3>g_xim_str_copy ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            g_xim_str_copy                      (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-str-free"></a><h3>g_xim_str_free ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_str_free                      (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-str-get-from-stream"></a><h3>g_xim_str_get_from_stream ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            g_xim_str_get_from_stream           (<em class="parameter"><code><span class="type">GDataInputStream</span> *stream</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-str-get-length"></a><h3>g_xim_str_get_length ()</h3>
+<pre class="programlisting"><span class="returnvalue">gsize</span>               g_xim_str_get_length                (<em class="parameter"><code>const <span class="type">GXimStr</span> *string</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-str-get-string"></a><h3>g_xim_str_get_string ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       g_xim_str_get_string                (<em class="parameter"><code>const <span class="type">GXimStr</span> *string</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-str-new"></a><h3>g_xim_str_new ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            g_xim_str_new                       (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-str-put-to-stream"></a><h3>g_xim_str_put_to_stream ()</h3>
+<pre class="programlisting"><span class="returnvalue">gsize</span>               g_xim_str_put_to_stream             (<em class="parameter"><code><span class="type">GXimStr</span> *string</code></em>,
+                                                         <em class="parameter"><code><span class="type">GDataOutputStream</span> *stream</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-string-copy"></a><h3>g_xim_string_copy ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            g_xim_string_copy                   (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-string-free"></a><h3>g_xim_string_free ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_string_free                   (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-string-get-from-stream"></a><h3>g_xim_string_get_from_stream ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            g_xim_string_get_from_stream        (<em class="parameter"><code><span class="type">GDataInputStream</span> *stream</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-string-get-length"></a><h3>g_xim_string_get_length ()</h3>
+<pre class="programlisting"><span class="returnvalue">gsize</span>               g_xim_string_get_length             (<em class="parameter"><code><span class="type">GXimString</span> *string</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-string-get-string"></a><h3>g_xim_string_get_string ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       g_xim_string_get_string             (<em class="parameter"><code>const <span class="type">GXimString</span> *string</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-string-new"></a><h3>g_xim_string_new ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            g_xim_string_new                    (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-string-put-to-stream"></a><h3>g_xim_string_put_to_stream ()</h3>
+<pre class="programlisting"><span class="returnvalue">gsize</span>               g_xim_string_put_to_stream          (<em class="parameter"><code><span class="type">GXimString</span> *string</code></em>,
+                                                         <em class="parameter"><code><span class="type">GDataOutputStream</span> *stream</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-styles-append"></a><h3>g_xim_styles_append ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            g_xim_styles_append                 (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimStyles"><span class="type">GXimStyles</span></a> *styles</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimStyle" title="enum GXimStyle"><span class="type">GXimStyle</span></a> style</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-styles-copy"></a><h3>g_xim_styles_copy ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            g_xim_styles_copy                   (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-styles-free"></a><h3>g_xim_styles_free ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_styles_free                   (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-styles-get-error-quark"></a><h3>g_xim_styles_get_error_quark ()</h3>
+<pre class="programlisting"><span class="returnvalue">GQuark</span>              g_xim_styles_get_error_quark        (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-styles-get-from-stream"></a><h3>g_xim_styles_get_from_stream ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            g_xim_styles_get_from_stream        (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GDataInputStream</span> *stream</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-styles-insert"></a><h3>g_xim_styles_insert ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            g_xim_styles_insert                 (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimStyles"><span class="type">GXimStyles</span></a> *styles</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> index_</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimStyle" title="enum GXimStyle"><span class="type">GXimStyle</span></a> style</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-styles-new"></a><h3>g_xim_styles_new ()</h3>
+<pre class="programlisting"><a class="link" href="libgxim-gximmisc.html#GXimStyles"><span class="returnvalue">GXimStyles</span></a> *        g_xim_styles_new                    (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-styles-put-to-stream"></a><h3>g_xim_styles_put_to_stream ()</h3>
+<pre class="programlisting"><span class="returnvalue">gsize</span>               g_xim_styles_put_to_stream          (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimStyles"><span class="type">GXimStyles</span></a> *styles</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-text-clear-string"></a><h3>g_xim_text_clear_string ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_text_clear_string             (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimText"><span class="type">GXimText</span></a> *text</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-text-copy"></a><h3>g_xim_text_copy ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            g_xim_text_copy                     (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-text-free"></a><h3>g_xim_text_free ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_text_free                     (<em class="parameter"><code><span class="type">gpointer</span> boxed</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-text-get-feedback"></a><h3>g_xim_text_get_feedback ()</h3>
+<pre class="programlisting"><span class="returnvalue">GXimFeedback</span>        g_xim_text_get_feedback             (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimText"><span class="type">GXimText</span></a> *text</code></em>,
+                                                         <em class="parameter"><code><span class="type">gshort</span> position</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-text-get-from-stream"></a><h3>g_xim_text_get_from_stream ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            g_xim_text_get_from_stream          (<em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GDataInputStream</span> *stream</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-text-new"></a><h3>g_xim_text_new ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            g_xim_text_new                      (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-text-put-to-stream"></a><h3>g_xim_text_put_to_stream ()</h3>
+<pre class="programlisting"><span class="returnvalue">gsize</span>               g_xim_text_put_to_stream            (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimText"><span class="type">GXimText</span></a> *text</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GXimProtocol.html" title="GXimProtocol"><span class="type">GXimProtocol</span></a> *proto</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-text-set-feedback"></a><h3>g_xim_text_set_feedback ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_text_set_feedback             (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimText"><span class="type">GXimText</span></a> *text</code></em>,
+                                                         <em class="parameter"><code><span class="type">GXimFeedback</span> feedback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gshort</span> position</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-text-set-mbstring"></a><h3>g_xim_text_set_mbstring ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            g_xim_text_set_mbstring             (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimText"><span class="type">GXimText</span></a> *text</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *string</code></em>,
+                                                         <em class="parameter"><code><span class="type">gssize</span> length</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-text-set-wcstring"></a><h3>g_xim_text_set_wcstring ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            g_xim_text_set_wcstring             (<em class="parameter"><code><a class="link" href="libgxim-gximmisc.html#GXimText"><span class="type">GXimText</span></a> *text</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gunichar2</span> *string</code></em>,
+                                                         <em class="parameter"><code><span class="type">gssize</span> length</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-value-type-name"></a><h3>g_xim_value_type_name ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       g_xim_value_type_name               (<em class="parameter"><code><span class="type">GXimValueType</span> vtype</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-value-type-to-gtype"></a><h3>g_xim_value_type_to_gtype ()</h3>
+<pre class="programlisting"><span class="returnvalue">GType</span>               g_xim_value_type_to_gtype           (<em class="parameter"><code><span class="type">GXimValueType</span> vtype</code></em>);</pre>
+<p>
+</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

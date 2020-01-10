@@ -1,0 +1,98 @@
+<!-- ##### SECTION Title ##### -->
+GXimConnection
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT GXimConnection ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### ARG GXimConnection:proto-signals ##### -->
+<para>
+
+</para>
+
+<!-- ##### STRUCT GXimConnectionClass ##### -->
+<para>
+
+</para>
+
+@parent_class: 
+
+<!-- ##### FUNCTION g_xim_connection_cmd_auth_ng ##### -->
+<para>
+
+</para>
+
+@conn: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_connection_cmd_error ##### -->
+<para>
+
+</para>
+
+@conn: 
+@imid: 
+@icid: 
+@flag: 
+@error_code: 
+@detail: 
+@error_message: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_connection_cmd_forward_event ##### -->
+<para>
+
+</para>
+
+@conn: 
+@imid: 
+@icid: 
+@flag: 
+@event: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_connection_cmd_sync_reply ##### -->
+<para>
+
+</para>
+
+@conn: 
+@imid: 
+@icid: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_connection_setup ##### -->
+<para>
+
+</para>
+
+@conn: 
+
+

@@ -1,0 +1,361 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GXimTransport</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
+<link rel="home" href="index.html" title="libgxim Reference Manual">
+<link rel="up" href="ch02.html" title="Base Interface Classes">
+<link rel="prev" href="GXimProtocol.html" title="GXimProtocol">
+<link rel="next" href="ch03.html" title="Low-level Classes">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="GXimProtocol.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch02.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libgxim Reference Manual</th>
+<td><a accesskey="n" href="ch03.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#GXimTransport.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#GXimTransport.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="GXimTransport"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GXimTransport.top_of_page"></a>GXimTransport</span></h2>
+<p>GXimTransport</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="GXimTransport.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">enum                <a class="link" href="GXimTransport.html#GXimDirection" title="enum GXimDirection">GXimDirection</a>;
+struct              <a class="link" href="GXimTransport.html#GXimTransportIface" title="struct GXimTransportIface">GXimTransportIface</a>;
+#define             <a class="link" href="GXimTransport.html#G-XIM-TRANSPORT-MAX:CAPS" title="G_XIM_TRANSPORT_MAX">G_XIM_TRANSPORT_MAX</a>
+#define             <a class="link" href="GXimTransport.html#G-XIM-TRANSPORT-SIZE:CAPS" title="G_XIM_TRANSPORT_SIZE">G_XIM_TRANSPORT_SIZE</a>
+<span class="returnvalue">void</span>                <a class="link" href="GXimTransport.html#g-xim-transport-destroy" title="g_xim_transport_destroy ()">g_xim_transport_destroy</a>             (<em class="parameter"><code><a class="link" href="GXimTransport.html" title="GXimTransport"><span class="type">GXimTransport</span></a> *trans</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GXimTransport.html#g-xim-transport-dump" title="g_xim_transport_dump ()">g_xim_transport_dump</a>                (<em class="parameter"><code><a class="link" href="GXimTransport.html" title="GXimTransport"><span class="type">GXimTransport</span></a> *trans</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *data</code></em>,
+                                                         <em class="parameter"><code><span class="type">gsize</span> length</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> is_sent</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GXimTransport.html#g-xim-transport-finalize" title="g_xim_transport_finalize ()">g_xim_transport_finalize</a>            (<em class="parameter"><code><a class="link" href="GXimTransport.html" title="GXimTransport"><span class="type">GXimTransport</span></a> *trans</code></em>);
+<a href="http://library.gnome.org/devel/gdk3/gdk-Properties-and-Atoms.html#GdkAtom"><span class="returnvalue">GdkAtom</span></a>             <a class="link" href="GXimTransport.html#g-xim-transport-get-atom" title="g_xim_transport_get_atom ()">g_xim_transport_get_atom</a>            (<em class="parameter"><code><a class="link" href="GXimTransport.html" title="GXimTransport"><span class="type">GXimTransport</span></a> *trans</code></em>);
+<a href="http://library.gnome.org/devel/gdk3/gdk-Windows.html#GdkWindow"><span class="returnvalue">GdkWindow</span></a> *         <a class="link" href="GXimTransport.html#g-xim-transport-get-channel" title="g_xim_transport_get_channel ()">g_xim_transport_get_channel</a>         (<em class="parameter"><code><a class="link" href="GXimTransport.html" title="GXimTransport"><span class="type">GXimTransport</span></a> *trans</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gdk3/gdk-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> *parent_window</code></em>);
+<a href="http://library.gnome.org/devel/gdk3/gdk-Event-Structures.html#GdkNativeWindow"><span class="returnvalue">GdkNativeWindow</span></a>     <a class="link" href="GXimTransport.html#g-xim-transport-get-client-window" title="g_xim_transport_get_client_window ()">g_xim_transport_get_client_window</a>   (<em class="parameter"><code><a class="link" href="GXimTransport.html" title="GXimTransport"><span class="type">GXimTransport</span></a> *trans</code></em>);
+<a class="link" href="GXimTransport.html#GXimDirection" title="enum GXimDirection"><span class="returnvalue">GXimDirection</span></a>       <a class="link" href="GXimTransport.html#g-xim-transport-get-direction" title="g_xim_transport_get_direction ()">g_xim_transport_get_direction</a>       (<em class="parameter"><code><a class="link" href="GXimTransport.html" title="GXimTransport"><span class="type">GXimTransport</span></a> *trans</code></em>);
+<a href="http://library.gnome.org/devel/gdk3/GdkDisplay.html"><span class="returnvalue">GdkDisplay</span></a> *        <a class="link" href="GXimTransport.html#g-xim-transport-get-display" title="g_xim_transport_get_display ()">g_xim_transport_get_display</a>         (<em class="parameter"><code><a class="link" href="GXimTransport.html" title="GXimTransport"><span class="type">GXimTransport</span></a> *trans</code></em>);
+<a href="http://library.gnome.org/devel/gdk3/gdk-Event-Structures.html#GdkNativeWindow"><span class="returnvalue">GdkNativeWindow</span></a>     <a class="link" href="GXimTransport.html#g-xim-transport-get-native-channel" title="g_xim_transport_get_native_channel ()">g_xim_transport_get_native_channel</a>  (<em class="parameter"><code><a class="link" href="GXimTransport.html" title="GXimTransport"><span class="type">GXimTransport</span></a> *trans</code></em>);
+<a href="http://library.gnome.org/devel/gdk3/gdk-Event-Structures.html#GdkNativeWindow"><span class="returnvalue">GdkNativeWindow</span></a>     <a class="link" href="GXimTransport.html#g-xim-transport-get-native-channel-from" title="g_xim_transport_get_native_channel_from ()">g_xim_transport_get_native_channel_from</a>
+                                                        (<em class="parameter"><code><a class="link" href="GXimTransport.html" title="GXimTransport"><span class="type">GXimTransport</span></a> *trans</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> drawable</code></em>);
+<span class="returnvalue">GXimTransportPrivate</span> * <a class="link" href="GXimTransport.html#g-xim-transport-get-private" title="g_xim_transport_get_private ()">g_xim_transport_get_private</a>      (<em class="parameter"><code><a class="link" href="GXimTransport.html" title="GXimTransport"><span class="type">GXimTransport</span></a> *trans</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="GXimTransport.html#g-xim-transport-get-property" title="g_xim_transport_get_property ()">g_xim_transport_get_property</a>        (<em class="parameter"><code><a class="link" href="GXimTransport.html" title="GXimTransport"><span class="type">GXimTransport</span></a> *trans</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gdk3/gdk-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> *window</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gdk3/gdk-Properties-and-Atoms.html#GdkAtom"><span class="type">GdkAtom</span></a> property</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gdk3/gdk-Properties-and-Atoms.html#GdkAtom"><span class="type">GdkAtom</span></a> type</code></em>,
+                                                         <em class="parameter"><code><span class="type">gulong</span> length</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gdk3/gdk-Properties-and-Atoms.html#GdkAtom"><span class="type">GdkAtom</span></a> *actual_property_type</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *actual_format</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *actual_length</code></em>,
+                                                         <em class="parameter"><code><span class="type">guchar</span> **data</code></em>);
+<span class="returnvalue">gsize</span>               <a class="link" href="GXimTransport.html#g-xim-transport-get-transport-max" title="g_xim_transport_get_transport_max ()">g_xim_transport_get_transport_max</a>   (<em class="parameter"><code><a class="link" href="GXimTransport.html" title="GXimTransport"><span class="type">GXimTransport</span></a> *trans</code></em>);
+<span class="returnvalue">gsize</span>               <a class="link" href="GXimTransport.html#g-xim-transport-get-transport-size" title="g_xim_transport_get_transport_size ()">g_xim_transport_get_transport_size</a>  (<em class="parameter"><code><a class="link" href="GXimTransport.html" title="GXimTransport"><span class="type">GXimTransport</span></a> *trans</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="GXimTransport.html#g-xim-transport-get-version" title="g_xim_transport_get_version ()">g_xim_transport_get_version</a>         (<em class="parameter"><code><a class="link" href="GXimTransport.html" title="GXimTransport"><span class="type">GXimTransport</span></a> *trans</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint8</span> *major_version</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint8</span> *minor_version</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GXimTransport.html#g-xim-transport-init" title="g_xim_transport_init ()">g_xim_transport_init</a>                (<em class="parameter"><code><a class="link" href="GXimTransport.html" title="GXimTransport"><span class="type">GXimTransport</span></a> *trans</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="GXimTransport.html#g-xim-transport-send-via-cm" title="g_xim_transport_send_via_cm ()">g_xim_transport_send_via_cm</a>         (<em class="parameter"><code><a class="link" href="GXimTransport.html" title="GXimTransport"><span class="type">GXimTransport</span></a> *trans</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *data</code></em>,
+                                                         <em class="parameter"><code><span class="type">gsize</span> length</code></em>,
+                                                         <em class="parameter"><code><span class="type">gsize</span> threshold</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="GXimTransport.html#g-xim-transport-send-via-property" title="g_xim_transport_send_via_property ()">g_xim_transport_send_via_property</a>   (<em class="parameter"><code><a class="link" href="GXimTransport.html" title="GXimTransport"><span class="type">GXimTransport</span></a> *trans</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *data</code></em>,
+                                                         <em class="parameter"><code><span class="type">gsize</span> length</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="GXimTransport.html#g-xim-transport-send-via-property-notify" title="g_xim_transport_send_via_property_notify ()">g_xim_transport_send_via_property_notify</a>
+                                                        (<em class="parameter"><code><a class="link" href="GXimTransport.html" title="GXimTransport"><span class="type">GXimTransport</span></a> *trans</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *data</code></em>,
+                                                         <em class="parameter"><code><span class="type">gsize</span> length</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GXimTransport.html#g-xim-transport-set-client-window" title="g_xim_transport_set_client_window ()">g_xim_transport_set_client_window</a>   (<em class="parameter"><code><a class="link" href="GXimTransport.html" title="GXimTransport"><span class="type">GXimTransport</span></a> *trans</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gdk3/gdk-Event-Structures.html#GdkNativeWindow"><span class="type">GdkNativeWindow</span></a> client_window</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GXimTransport.html#g-xim-transport-set-direction" title="g_xim_transport_set_direction ()">g_xim_transport_set_direction</a>       (<em class="parameter"><code><a class="link" href="GXimTransport.html" title="GXimTransport"><span class="type">GXimTransport</span></a> *trans</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GXimTransport.html#GXimDirection" title="enum GXimDirection"><span class="type">GXimDirection</span></a> direction</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GXimTransport.html#g-xim-transport-set-display" title="g_xim_transport_set_display ()">g_xim_transport_set_display</a>         (<em class="parameter"><code><a class="link" href="GXimTransport.html" title="GXimTransport"><span class="type">GXimTransport</span></a> *trans</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gdk3/GdkDisplay.html"><span class="type">GdkDisplay</span></a> *dpy</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GXimTransport.html#g-xim-transport-set-transport-max" title="g_xim_transport_set_transport_max ()">g_xim_transport_set_transport_max</a>   (<em class="parameter"><code><a class="link" href="GXimTransport.html" title="GXimTransport"><span class="type">GXimTransport</span></a> *trans</code></em>,
+                                                         <em class="parameter"><code><span class="type">gsize</span> size</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GXimTransport.html#g-xim-transport-set-transport-size" title="g_xim_transport_set_transport_size ()">g_xim_transport_set_transport_size</a>  (<em class="parameter"><code><a class="link" href="GXimTransport.html" title="GXimTransport"><span class="type">GXimTransport</span></a> *trans</code></em>,
+                                                         <em class="parameter"><code><span class="type">gsize</span> size</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GXimTransport.html#g-xim-transport-set-version" title="g_xim_transport_set_version ()">g_xim_transport_set_version</a>         (<em class="parameter"><code><a class="link" href="GXimTransport.html" title="GXimTransport"><span class="type">GXimTransport</span></a> *trans</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint8</span> major_version</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint8</span> minor_version</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="GXimTransport.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="GXimTransport.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GXimDirection"></a><h3>enum GXimDirection</h3>
+<pre class="programlisting">typedef enum {
+	G_XIM_DIR_RIGHT = 0,
+	G_XIM_DIR_LEFT
+} GXimDirection;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GXimTransportIface"></a><h3>struct GXimTransportIface</h3>
+<pre class="programlisting">struct GXimTransportIface {
+	GTypeInterface  parent_iface;
+
+	GXimMessages   *message;
+	GdkAtom         atom_xim_protocol;
+	GdkAtom         atom_xim_moredata;
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="G-XIM-TRANSPORT-MAX:CAPS"></a><h3>G_XIM_TRANSPORT_MAX</h3>
+<pre class="programlisting">#define G_XIM_TRANSPORT_MAX		20
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="G-XIM-TRANSPORT-SIZE:CAPS"></a><h3>G_XIM_TRANSPORT_SIZE</h3>
+<pre class="programlisting">#define G_XIM_TRANSPORT_SIZE		20
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-transport-destroy"></a><h3>g_xim_transport_destroy ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_transport_destroy             (<em class="parameter"><code><a class="link" href="GXimTransport.html" title="GXimTransport"><span class="type">GXimTransport</span></a> *trans</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-transport-dump"></a><h3>g_xim_transport_dump ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_transport_dump                (<em class="parameter"><code><a class="link" href="GXimTransport.html" title="GXimTransport"><span class="type">GXimTransport</span></a> *trans</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *data</code></em>,
+                                                         <em class="parameter"><code><span class="type">gsize</span> length</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> is_sent</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-transport-finalize"></a><h3>g_xim_transport_finalize ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_transport_finalize            (<em class="parameter"><code><a class="link" href="GXimTransport.html" title="GXimTransport"><span class="type">GXimTransport</span></a> *trans</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-transport-get-atom"></a><h3>g_xim_transport_get_atom ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gdk3/gdk-Properties-and-Atoms.html#GdkAtom"><span class="returnvalue">GdkAtom</span></a>             g_xim_transport_get_atom            (<em class="parameter"><code><a class="link" href="GXimTransport.html" title="GXimTransport"><span class="type">GXimTransport</span></a> *trans</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-transport-get-channel"></a><h3>g_xim_transport_get_channel ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gdk3/gdk-Windows.html#GdkWindow"><span class="returnvalue">GdkWindow</span></a> *         g_xim_transport_get_channel         (<em class="parameter"><code><a class="link" href="GXimTransport.html" title="GXimTransport"><span class="type">GXimTransport</span></a> *trans</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gdk3/gdk-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> *parent_window</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-transport-get-client-window"></a><h3>g_xim_transport_get_client_window ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gdk3/gdk-Event-Structures.html#GdkNativeWindow"><span class="returnvalue">GdkNativeWindow</span></a>     g_xim_transport_get_client_window   (<em class="parameter"><code><a class="link" href="GXimTransport.html" title="GXimTransport"><span class="type">GXimTransport</span></a> *trans</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-transport-get-direction"></a><h3>g_xim_transport_get_direction ()</h3>
+<pre class="programlisting"><a class="link" href="GXimTransport.html#GXimDirection" title="enum GXimDirection"><span class="returnvalue">GXimDirection</span></a>       g_xim_transport_get_direction       (<em class="parameter"><code><a class="link" href="GXimTransport.html" title="GXimTransport"><span class="type">GXimTransport</span></a> *trans</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-transport-get-display"></a><h3>g_xim_transport_get_display ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gdk3/GdkDisplay.html"><span class="returnvalue">GdkDisplay</span></a> *        g_xim_transport_get_display         (<em class="parameter"><code><a class="link" href="GXimTransport.html" title="GXimTransport"><span class="type">GXimTransport</span></a> *trans</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-transport-get-native-channel"></a><h3>g_xim_transport_get_native_channel ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gdk3/gdk-Event-Structures.html#GdkNativeWindow"><span class="returnvalue">GdkNativeWindow</span></a>     g_xim_transport_get_native_channel  (<em class="parameter"><code><a class="link" href="GXimTransport.html" title="GXimTransport"><span class="type">GXimTransport</span></a> *trans</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-transport-get-native-channel-from"></a><h3>g_xim_transport_get_native_channel_from ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gdk3/gdk-Event-Structures.html#GdkNativeWindow"><span class="returnvalue">GdkNativeWindow</span></a>     g_xim_transport_get_native_channel_from
+                                                        (<em class="parameter"><code><a class="link" href="GXimTransport.html" title="GXimTransport"><span class="type">GXimTransport</span></a> *trans</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> drawable</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-transport-get-private"></a><h3>g_xim_transport_get_private ()</h3>
+<pre class="programlisting"><span class="returnvalue">GXimTransportPrivate</span> * g_xim_transport_get_private      (<em class="parameter"><code><a class="link" href="GXimTransport.html" title="GXimTransport"><span class="type">GXimTransport</span></a> *trans</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-transport-get-property"></a><h3>g_xim_transport_get_property ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            g_xim_transport_get_property        (<em class="parameter"><code><a class="link" href="GXimTransport.html" title="GXimTransport"><span class="type">GXimTransport</span></a> *trans</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gdk3/gdk-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> *window</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gdk3/gdk-Properties-and-Atoms.html#GdkAtom"><span class="type">GdkAtom</span></a> property</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gdk3/gdk-Properties-and-Atoms.html#GdkAtom"><span class="type">GdkAtom</span></a> type</code></em>,
+                                                         <em class="parameter"><code><span class="type">gulong</span> length</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gdk3/gdk-Properties-and-Atoms.html#GdkAtom"><span class="type">GdkAtom</span></a> *actual_property_type</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *actual_format</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *actual_length</code></em>,
+                                                         <em class="parameter"><code><span class="type">guchar</span> **data</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-transport-get-transport-max"></a><h3>g_xim_transport_get_transport_max ()</h3>
+<pre class="programlisting"><span class="returnvalue">gsize</span>               g_xim_transport_get_transport_max   (<em class="parameter"><code><a class="link" href="GXimTransport.html" title="GXimTransport"><span class="type">GXimTransport</span></a> *trans</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-transport-get-transport-size"></a><h3>g_xim_transport_get_transport_size ()</h3>
+<pre class="programlisting"><span class="returnvalue">gsize</span>               g_xim_transport_get_transport_size  (<em class="parameter"><code><a class="link" href="GXimTransport.html" title="GXimTransport"><span class="type">GXimTransport</span></a> *trans</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-transport-get-version"></a><h3>g_xim_transport_get_version ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            g_xim_transport_get_version         (<em class="parameter"><code><a class="link" href="GXimTransport.html" title="GXimTransport"><span class="type">GXimTransport</span></a> *trans</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint8</span> *major_version</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint8</span> *minor_version</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-transport-init"></a><h3>g_xim_transport_init ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_transport_init                (<em class="parameter"><code><a class="link" href="GXimTransport.html" title="GXimTransport"><span class="type">GXimTransport</span></a> *trans</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-transport-send-via-cm"></a><h3>g_xim_transport_send_via_cm ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            g_xim_transport_send_via_cm         (<em class="parameter"><code><a class="link" href="GXimTransport.html" title="GXimTransport"><span class="type">GXimTransport</span></a> *trans</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *data</code></em>,
+                                                         <em class="parameter"><code><span class="type">gsize</span> length</code></em>,
+                                                         <em class="parameter"><code><span class="type">gsize</span> threshold</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-transport-send-via-property"></a><h3>g_xim_transport_send_via_property ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            g_xim_transport_send_via_property   (<em class="parameter"><code><a class="link" href="GXimTransport.html" title="GXimTransport"><span class="type">GXimTransport</span></a> *trans</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *data</code></em>,
+                                                         <em class="parameter"><code><span class="type">gsize</span> length</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-transport-send-via-property-notify"></a><h3>g_xim_transport_send_via_property_notify ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            g_xim_transport_send_via_property_notify
+                                                        (<em class="parameter"><code><a class="link" href="GXimTransport.html" title="GXimTransport"><span class="type">GXimTransport</span></a> *trans</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *data</code></em>,
+                                                         <em class="parameter"><code><span class="type">gsize</span> length</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-transport-set-client-window"></a><h3>g_xim_transport_set_client_window ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_transport_set_client_window   (<em class="parameter"><code><a class="link" href="GXimTransport.html" title="GXimTransport"><span class="type">GXimTransport</span></a> *trans</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gdk3/gdk-Event-Structures.html#GdkNativeWindow"><span class="type">GdkNativeWindow</span></a> client_window</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-transport-set-direction"></a><h3>g_xim_transport_set_direction ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_transport_set_direction       (<em class="parameter"><code><a class="link" href="GXimTransport.html" title="GXimTransport"><span class="type">GXimTransport</span></a> *trans</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GXimTransport.html#GXimDirection" title="enum GXimDirection"><span class="type">GXimDirection</span></a> direction</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-transport-set-display"></a><h3>g_xim_transport_set_display ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_transport_set_display         (<em class="parameter"><code><a class="link" href="GXimTransport.html" title="GXimTransport"><span class="type">GXimTransport</span></a> *trans</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gdk3/GdkDisplay.html"><span class="type">GdkDisplay</span></a> *dpy</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-transport-set-transport-max"></a><h3>g_xim_transport_set_transport_max ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_transport_set_transport_max   (<em class="parameter"><code><a class="link" href="GXimTransport.html" title="GXimTransport"><span class="type">GXimTransport</span></a> *trans</code></em>,
+                                                         <em class="parameter"><code><span class="type">gsize</span> size</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-transport-set-transport-size"></a><h3>g_xim_transport_set_transport_size ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_transport_set_transport_size  (<em class="parameter"><code><a class="link" href="GXimTransport.html" title="GXimTransport"><span class="type">GXimTransport</span></a> *trans</code></em>,
+                                                         <em class="parameter"><code><span class="type">gsize</span> size</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-transport-set-version"></a><h3>g_xim_transport_set_version ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_xim_transport_set_version         (<em class="parameter"><code><a class="link" href="GXimTransport.html" title="GXimTransport"><span class="type">GXimTransport</span></a> *trans</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint8</span> major_version</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint8</span> minor_version</code></em>);</pre>
+<p>
+</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

@@ -1,0 +1,7 @@
+libgxim/gximattr.c
+libgxim/gximcltmpl.c
+libgxim/gximconnection.c
+libgxim/gximcore.c
+libgxim/gximmessages.c
+libgxim/gximprotocol.c
+libgxim/gximsrvtmpl.c

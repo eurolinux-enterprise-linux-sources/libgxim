@@ -1,0 +1,487 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GXimClientTemplate</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
+<link rel="home" href="index.html" title="libgxim Reference Manual">
+<link rel="up" href="ch01.html" title="Abstract Base Classes">
+<link rel="prev" href="GXimServerTemplate.html" title="GXimServerTemplate">
+<link rel="next" href="GXimConnection.html" title="GXimConnection">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="GXimServerTemplate.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libgxim Reference Manual</th>
+<td><a accesskey="n" href="GXimConnection.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#GXimClientTemplate.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#GXimClientTemplate.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#GXimClientTemplate.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#GXimClientTemplate.properties" class="shortcut">Properties</a>
+                   | 
+                  <a href="#GXimClientTemplate.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="GXimClientTemplate"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GXimClientTemplate.top_of_page"></a>GXimClientTemplate</span></h2>
+<p>GXimClientTemplate — Base class for XIM client</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="GXimClientTemplate.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">#define             <a class="link" href="GXimClientTemplate.html#GXC-ESTABLISHED:CAPS" title="GXC_ESTABLISHED">GXC_ESTABLISHED</a>
+#define             <a class="link" href="GXimClientTemplate.html#GXC-NEGOTIATING:CAPS" title="GXC_NEGOTIATING">GXC_NEGOTIATING</a>
+#define             <a class="link" href="GXimClientTemplate.html#GXC-NONE:CAPS" title="GXC_NONE">GXC_NONE</a>
+                    <a class="link" href="GXimClientTemplate.html#GXimClientTemplate-struct" title="GXimClientTemplate">GXimClientTemplate</a>;
+struct              <a class="link" href="GXimClientTemplate.html#GXimClientTemplateClass" title="struct GXimClientTemplateClass">GXimClientTemplateClass</a>;
+enum                <a class="link" href="GXimClientTemplate.html#GXimClientTemplateError" title="enum GXimClientTemplateError">GXimClientTemplateError</a>;
+#define             <a class="link" href="GXimClientTemplate.html#G-XIM-CL-TMPL-ERROR:CAPS" title="G_XIM_CL_TMPL_ERROR">G_XIM_CL_TMPL_ERROR</a>
+<span class="returnvalue">gboolean</span>            <a class="link" href="GXimClientTemplate.html#g-xim-cl-tmpl-connect-to-server" title="g_xim_cl_tmpl_connect_to_server ()">g_xim_cl_tmpl_connect_to_server</a>     (<em class="parameter"><code><a class="link" href="GXimClientTemplate.html" title="GXimClientTemplate"><span class="type">GXimClientTemplate</span></a> *cltmpl</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">GQuark</span>              <a class="link" href="GXimClientTemplate.html#g-xim-cl-tmpl-get-error-quark" title="g_xim_cl_tmpl_get_error_quark ()">g_xim_cl_tmpl_get_error_quark</a>       (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="GXimClientTemplate.html#g-xim-cl-tmpl-is-initialized" title="g_xim_cl_tmpl_is_initialized ()">g_xim_cl_tmpl_is_initialized</a>        (<em class="parameter"><code><a class="link" href="GXimClientTemplate.html" title="GXimClientTemplate"><span class="type">GXimClientTemplate</span></a> *cltmpl</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="GXimClientTemplate.html#g-xim-cl-tmpl-is-pending-negotiation" title="g_xim_cl_tmpl_is_pending_negotiation ()">g_xim_cl_tmpl_is_pending_negotiation</a>
+                                                        (<em class="parameter"><code><a class="link" href="GXimClientTemplate.html" title="GXimClientTemplate"><span class="type">GXimClientTemplate</span></a> *cltmpl</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="GXimClientTemplate.html#g-xim-cl-tmpl-send-selection-request" title="g_xim_cl_tmpl_send_selection_request ()">g_xim_cl_tmpl_send_selection_request</a>
+                                                        (<em class="parameter"><code><a class="link" href="GXimClientTemplate.html" title="GXimClientTemplate"><span class="type">GXimClientTemplate</span></a> *cltmpl</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gdk3/gdk-Properties-and-Atoms.html#GdkAtom"><span class="type">GdkAtom</span></a> atom</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="GXimClientTemplate.html#g-xim-cl-tmpl-start-negotiation" title="g_xim_cl_tmpl_start_negotiation ()">g_xim_cl_tmpl_start_negotiation</a>     (<em class="parameter"><code><a class="link" href="GXimClientTemplate.html" title="GXimClientTemplate"><span class="type">GXimClientTemplate</span></a> *cltmpl</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="GXimClientTemplate.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  GObject
+   +----<a class="link" href="GXimCore.html" title="GXimCore">GXimCore</a>
+         +----GXimClientTemplate
+</pre>
+</div>
+<div class="refsect1">
+<a name="GXimClientTemplate.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="GXimClientTemplate.html#GXimClientTemplate--atom-server" title='The "atom-server" property'>atom-server</a>"              <span class="type">gpointer</span>              : Read / Write / Construct Only
+</pre>
+</div>
+<div class="refsect1">
+<a name="GXimClientTemplate.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="GXimClientTemplate.html#GXimClientTemplate-notify-locales" title='The "notify-locales" signal'>notify-locales</a>"                                 : <code class="literal">Run First</code>
+  "<a class="link" href="GXimClientTemplate.html#GXimClientTemplate-notify-transport" title='The "notify-transport" signal'>notify-transport</a>"                               : <code class="literal">Run First</code>
+  "<a class="link" href="GXimClientTemplate.html#GXimClientTemplate-xconnect" title='The "xconnect" signal'>xconnect</a>"                                       : <code class="literal">Run Last</code>
+</pre>
+</div>
+<div class="refsect1">
+<a name="GXimClientTemplate.description"></a><h2>Description</h2>
+<p>
+GXimClientTemplate provides a common facility to deal with XIM protocol
+events, particularly to be working on XIM client.
+</p>
+</div>
+<div class="refsect1">
+<a name="GXimClientTemplate.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GXC-ESTABLISHED:CAPS"></a><h3>GXC_ESTABLISHED</h3>
+<pre class="programlisting">#define GXC_ESTABLISHED 2
+</pre>
+<p>
+the connection has been established and ready to do something with
+XIM protocol.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GXC-NEGOTIATING:CAPS"></a><h3>GXC_NEGOTIATING</h3>
+<pre class="programlisting">#define GXC_NEGOTIATING 1
+</pre>
+<p>
+a statte that is negotiating the connection to XIM server.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GXC-NONE:CAPS"></a><h3>GXC_NONE</h3>
+<pre class="programlisting">#define GXC_NONE 0
+</pre>
+<p>
+a state not yet starting to negotiate the connection.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GXimClientTemplate-struct"></a><h3>GXimClientTemplate</h3>
+<pre class="programlisting">typedef struct _GXimClientTemplate GXimClientTemplate;</pre>
+<p>
+An implementation of XIM client class
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GXimClientTemplateClass"></a><h3>struct GXimClientTemplateClass</h3>
+<pre class="programlisting">struct GXimClientTemplateClass {
+	GXimCoreClass  parent_class;
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GXimClientTemplateError"></a><h3>enum GXimClientTemplateError</h3>
+<pre class="programlisting">typedef enum {
+	G_XIM_CL_TMPL_ERROR_BEGIN = 128,
+	G_XIM_CL_TMPL_ERROR_INVALID_CONNECTION_TYPE,
+} GXimClientTemplateError;
+</pre>
+<p>
+Error codes returned by <a class="link" href="GXimClientTemplate.html" title="GXimClientTemplate"><span class="type">GXimClientTemplate</span></a> functions.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><a name="G-XIM-CL-TMPL-ERROR-BEGIN:CAPS"></a><span class="term"><code class="literal">G_XIM_CL_TMPL_ERROR_BEGIN</code></span></p></td>
+<td>Unused.
+</td>
+</tr>
+<tr>
+<td><p><a name="G-XIM-CL-TMPL-ERROR-INVALID-CONNECTION-TYPE:CAPS"></a><span class="term"><code class="literal">G_XIM_CL_TMPL_ERROR_INVALID_CONNECTION_TYPE</code></span></p></td>
+<td>The connection type isn't inherited from <a class="link" href="GXimConnection.html" title="GXimConnection"><span class="type">GXimConnection</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="G-XIM-CL-TMPL-ERROR:CAPS"></a><h3>G_XIM_CL_TMPL_ERROR</h3>
+<pre class="programlisting">#define G_XIM_CL_TMPL_ERROR		(g_xim_cl_tmpl_get_error_quark())
+</pre>
+<p>
+Error domain for <a class="link" href="GXimClientTemplate.html" title="GXimClientTemplate"><span class="type">GXimClientTemplate</span></a>. Errors in this domain will be from
+the <a class="link" href="GXimClientTemplate.html#GXimClientTemplateError" title="enum GXimClientTemplateError"><span class="type">GXimClientTemplateError</span></a> or <span class="type">GXimStandardError</span> enumeration.
+See <span class="type">GError</span> for more information on error domains.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-cl-tmpl-connect-to-server"></a><h3>g_xim_cl_tmpl_connect_to_server ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            g_xim_cl_tmpl_connect_to_server     (<em class="parameter"><code><a class="link" href="GXimClientTemplate.html" title="GXimClientTemplate"><span class="type">GXimClientTemplate</span></a> *cltmpl</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+Connects to XIM server. you have to call this function before doing something
+with XIM protocols.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cltmpl</code></em> :</span></p></td>
+<td>a <a class="link" href="GXimClientTemplate.html" title="GXimClientTemplate"><span class="type">GXimClientTemplate</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>a location to store error, or <code class="literal">NULL</code>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> to be starting the negotiation to be connected successfully.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-cl-tmpl-get-error-quark"></a><h3>g_xim_cl_tmpl_get_error_quark ()</h3>
+<pre class="programlisting"><span class="returnvalue">GQuark</span>              g_xim_cl_tmpl_get_error_quark       (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-cl-tmpl-is-initialized"></a><h3>g_xim_cl_tmpl_is_initialized ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            g_xim_cl_tmpl_is_initialized        (<em class="parameter"><code><a class="link" href="GXimClientTemplate.html" title="GXimClientTemplate"><span class="type">GXimClientTemplate</span></a> *cltmpl</code></em>);</pre>
+<p>
+Checks if an instance of <em class="parameter"><code>cltmpl</code></em> is ready to process XIM protocols.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cltmpl</code></em> :</span></p></td>
+<td>a <a class="link" href="GXimClientTemplate.html" title="GXimClientTemplate"><span class="type">GXimClientTemplate</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> to be initialized the instance properly.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-cl-tmpl-is-pending-negotiation"></a><h3>g_xim_cl_tmpl_is_pending_negotiation ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            g_xim_cl_tmpl_is_pending_negotiation
+                                                        (<em class="parameter"><code><a class="link" href="GXimClientTemplate.html" title="GXimClientTemplate"><span class="type">GXimClientTemplate</span></a> *cltmpl</code></em>);</pre>
+<p>
+Checks if an instance of <em class="parameter"><code>cltmpl</code></em> is waiting for finish the negotiation.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cltmpl</code></em> :</span></p></td>
+<td>a <a class="link" href="GXimClientTemplate.html" title="GXimClientTemplate"><span class="type">GXimClientTemplate</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> to be pending in any negotiation state.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-cl-tmpl-send-selection-request"></a><h3>g_xim_cl_tmpl_send_selection_request ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            g_xim_cl_tmpl_send_selection_request
+                                                        (<em class="parameter"><code><a class="link" href="GXimClientTemplate.html" title="GXimClientTemplate"><span class="type">GXimClientTemplate</span></a> *cltmpl</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gdk3/gdk-Properties-and-Atoms.html#GdkAtom"><span class="type">GdkAtom</span></a> atom</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+Sends a request of <em class="parameter"><code>atom</code></em> to the XIM server with <code class="literal">SelectionRequest</code> event.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cltmpl</code></em> :</span></p></td>
+<td>a <a class="link" href="GXimClientTemplate.html" title="GXimClientTemplate"><span class="type">GXimClientTemplate</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>atom</code></em> :</span></p></td>
+<td>a <a href="http://library.gnome.org/devel/gdk3/gdk-Properties-and-Atoms.html#GdkAtom"><span class="type">GdkAtom</span></a> to determine which request would be sent.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>a location to store error, or <code class="literal">NULL</code>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> to be sent a request successfully.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-xim-cl-tmpl-start-negotiation"></a><h3>g_xim_cl_tmpl_start_negotiation ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            g_xim_cl_tmpl_start_negotiation     (<em class="parameter"><code><a class="link" href="GXimClientTemplate.html" title="GXimClientTemplate"><span class="type">GXimClientTemplate</span></a> *cltmpl</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+Starts the transaction to negotiate a connection between XIM server and
+the client.
+</p>
+<p>
+This is a convenience function to send a request with
+<a class="link" href="GXimClientTemplate.html#g-xim-cl-tmpl-send-selection-request" title="g_xim_cl_tmpl_send_selection_request ()"><code class="function">g_xim_cl_tmpl_send_selection_request()</code></a>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cltmpl</code></em> :</span></p></td>
+<td>a <a class="link" href="GXimClientTemplate.html" title="GXimClientTemplate"><span class="type">GXimClientTemplate</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>a location to store error, or <code class="literal">NULL</code>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> to be sent a request for first negotiation successfully.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1">
+<a name="GXimClientTemplate.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="GXimClientTemplate--atom-server"></a><h3>The <code class="literal">"atom-server"</code> property</h3>
+<pre class="programlisting">  "atom-server"              <span class="type">gpointer</span>              : Read / Write / Construct Only</pre>
+<p>
+the <a href="http://library.gnome.org/devel/gdk3/gdk-Properties-and-Atoms.html#GdkAtom"><span class="type">GdkAtom</span></a> where the client instance should connects to. the atom
+name would be something what you specify with XMODIFIERS=<em class="parameter"><code>im</code></em>=.
+</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="GXimClientTemplate.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="GXimClientTemplate-notify-locales"></a><h3>The <code class="literal">"notify-locales"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="GXimClientTemplate.html" title="GXimClientTemplate"><span class="type">GXimClientTemplate</span></a> *cltmpl,
+                                                        <span class="type">GStrv</span>               locales,
+                                                        <span class="type">gpointer</span>            user_data)      : <code class="literal">Run First</code></pre>
+<p>
+The ::notify-locales signal will be emitted when the <em class="parameter"><code>cltmpl</code></em> received
+a reply of acquiring the supported locales in XIM server.
+</p>
+<p>
+This is a convenience signal to deal with
+<a class="link" href="GXimCore.html#GXimCore-selection-notify-event" title='The "selection-notify-event" signal'><span class="type">"selection-notify-event"</span></a> for a reply of <code class="literal">LOCALES</code> request.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cltmpl</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>locales</code></em> :</span></p></td>
+<td>an array of the string contains the locale names with
+<code class="literal">NULL</code>-terminated.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GXimClientTemplate-notify-transport"></a><h3>The <code class="literal">"notify-transport"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="GXimClientTemplate.html" title="GXimClientTemplate"><span class="type">GXimClientTemplate</span></a> *cltmpl,
+                                                        <span class="type">GStrv</span>               transport,
+                                                        <span class="type">gpointer</span>            user_data)      : <code class="literal">Run First</code></pre>
+<p>
+The ::notify-transport signal will be emitted when the <em class="parameter"><code>cltmpl</code></em>
+received a reply of acquiring the supported transport-specific names
+in XIM server.
+</p>
+<p>
+This is a convenience signal to deal with
+<a class="link" href="GXimCore.html#GXimCore-selection-notify-event" title='The "selection-notify-event" signal'><span class="type">"selection-notify-event"</span></a> for a reply of <code class="literal">TRANSPORT</code> request.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cltmpl</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>transport</code></em> :</span></p></td>
+<td>an array of the string contains the transport-specific
+names with <code class="literal">NULL</code>-terminated.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GXimClientTemplate-xconnect"></a><h3>The <code class="literal">"xconnect"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            user_function                      (<a class="link" href="GXimClientTemplate.html" title="GXimClientTemplate"><span class="type">GXimClientTemplate</span></a> *cltmpl,
+                                                        <a href="http://library.gnome.org/devel/gdk3/gdk-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a>           *event,
+                                                        <span class="type">gpointer</span>            user_data)      : <code class="literal">Run Last</code></pre>
+<p>
+The ::xconnect signal will be emitted when <code class="literal">XIM_XCONNECT</code> event is
+dispatched from the XIM server in order to respond to <code class="literal">XIM_XCONNECT</code>
+event from the client.
+See The Input Method Protocol, XIM specification document for more
+details about <code class="literal">XIM_XCONNECT</code>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cltmpl</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td>the <a href="http://library.gnome.org/devel/gdk3/gdk-Event-Structures.html#GdkEventClient"><span class="type">GdkEventClient</span></a> which triggered this signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> to stop other handlers from being invoked for
+the event. <code class="literal">FALSE</code> to propagate the event further.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1">
+<a name="GXimClientTemplate.see-also"></a><h2>See Also</h2>
+<a class="link" href="GXimCore.html" title="GXimCore"><span class="type">GXimCore</span></a>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

@@ -1,0 +1,479 @@
+<!-- ##### SECTION Title ##### -->
+GXimIMAttr
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT GXimAttr ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### ARG GXimAttr:attrs-enabled ##### -->
+<para>
+
+</para>
+
+<!-- ##### STRUCT GXimAttrClass ##### -->
+<para>
+
+</para>
+
+@parent_class: 
+@get_supported_attributes: 
+
+<!-- ##### ENUM GXimAttrError ##### -->
+<para>
+
+</para>
+
+@G_XIM_ATTR_ERROR_BEGIN: 
+@G_XIM_ATTR_ERROR_NO_SUCH_PROPERTY: 
+@G_XIM_ATTR_ERROR_UNABLE_TO_CONVERT_TYPE: 
+
+<!-- ##### STRUCT GXimICAttr ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### ARG GXimICAttr:area ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG GXimICAttr:areaNeeded ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG GXimICAttr:background ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG GXimICAttr:backgroundPixmap ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG GXimICAttr:clientWindow ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG GXimICAttr:colorMap ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG GXimICAttr:cursor ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG GXimICAttr:filterEvents ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG GXimICAttr:focusWindow ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG GXimICAttr:fontSet ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG GXimICAttr:foreground ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG GXimICAttr:inputStyle ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG GXimICAttr:lineSpace ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG GXimICAttr:preeditAttributes ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG GXimICAttr:preeditState ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG GXimICAttr:resetState ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG GXimICAttr:separatorofNestedList ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG GXimICAttr:spotLocation ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG GXimICAttr:statusAttributes ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG GXimICAttr:stdColorMap ##### -->
+<para>
+
+</para>
+
+<!-- ##### STRUCT GXimICAttrClass ##### -->
+<para>
+
+</para>
+
+@parent_class: 
+
+<!-- ##### STRUCT GXimIMAttr ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### ARG GXimIMAttr:queryInputStyle ##### -->
+<para>
+
+</para>
+
+<!-- ##### STRUCT GXimIMAttrClass ##### -->
+<para>
+
+</para>
+
+@parent_class: 
+
+<!-- ##### MACRO G_XIM_ATTR_ERROR ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO XNArea ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO XNAreaNeeded ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO XNBackground ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO XNBackgroundPixmap ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO XNClientWindow ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO XNColormap ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO XNCursor ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO XNFilterEvents ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO XNFocusWindow ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO XNFontSet ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO XNForeground ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO XNInputStyle ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO XNLineSpace ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO XNPreeditAttributes ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO XNPreeditState ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO XNQueryInputStyle ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO XNResetState ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO XNSeparatorofNestedList ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO XNSpotLocation ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO XNStatusAttributes ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO XNStdColormap ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### FUNCTION g_xim_attr_attribute_is_enabled ##### -->
+<para>
+
+</para>
+
+@attr: 
+@attribute_name: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_attr_get_attribute_id ##### -->
+<para>
+
+</para>
+
+@attr: 
+@attribute_name: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_attr_get_attribute_name ##### -->
+<para>
+
+</para>
+
+@attr: 
+@attribute_id: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_attr_get_error_quark ##### -->
+<para>
+
+</para>
+
+@void: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_attr_get_gtype_by_id ##### -->
+<para>
+
+</para>
+
+@attr: 
+@attribute_id: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_attr_get_gtype_by_name ##### -->
+<para>
+
+</para>
+
+@attr: 
+@attribute_name: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_attr_get_n_supported_attributes ##### -->
+<para>
+
+</para>
+
+@attr: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_attr_get_supported_attributes ##### -->
+<para>
+
+</para>
+
+@attr: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_attr_get_value_by_id ##### -->
+<para>
+
+</para>
+
+@attr: 
+@attribute_id: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_attr_get_value_by_name ##### -->
+<para>
+
+</para>
+
+@attr: 
+@attribute_name: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_attr_set_raw_attr ##### -->
+<para>
+
+</para>
+
+@attr: 
+@raw: 
+
+
+<!-- ##### FUNCTION g_xim_ic_attr_new ##### -->
+<para>
+
+</para>
+
+@attrs: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_im_attr_get_input_styles ##### -->
+<para>
+
+</para>
+
+@attr: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_im_attr_new ##### -->
+<para>
+
+</para>
+
+@attrs: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_im_attr_set_input_styles ##### -->
+<para>
+
+</para>
+
+@attr: 
+@style: 
+
+

@@ -1,0 +1,161 @@
+<!-- ##### SECTION Title ##### -->
+GXimClientTemplate
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### MACRO GXC_ESTABLISHED ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO GXC_NEGOTIATING ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO GXC_NONE ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### STRUCT GXimClientTemplate ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SIGNAL GXimClientTemplate::notify-locales ##### -->
+<para>
+
+</para>
+
+@gximclienttemplate: the object which received the signal.
+@arg1: 
+
+<!-- ##### SIGNAL GXimClientTemplate::notify-transport ##### -->
+<para>
+
+</para>
+
+@gximclienttemplate: the object which received the signal.
+@arg1: 
+
+<!-- ##### SIGNAL GXimClientTemplate::xconnect ##### -->
+<para>
+
+</para>
+
+@gximclienttemplate: the object which received the signal.
+@arg1: 
+@Returns: 
+
+<!-- ##### ARG GXimClientTemplate:atom-server ##### -->
+<para>
+
+</para>
+
+<!-- ##### STRUCT GXimClientTemplateClass ##### -->
+<para>
+
+</para>
+
+@parent_class: 
+
+<!-- ##### ENUM GXimClientTemplateError ##### -->
+<para>
+
+</para>
+
+@G_XIM_CL_TMPL_ERROR_BEGIN: 
+@G_XIM_CL_TMPL_ERROR_INVALID_CONNECTION_TYPE: 
+
+<!-- ##### MACRO G_XIM_CL_TMPL_ERROR ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### FUNCTION g_xim_cl_tmpl_connect_to_server ##### -->
+<para>
+
+</para>
+
+@cltmpl: 
+@error: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_cl_tmpl_get_error_quark ##### -->
+<para>
+
+</para>
+
+@void: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_cl_tmpl_is_initialized ##### -->
+<para>
+
+</para>
+
+@cltmpl: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_cl_tmpl_is_pending_negotiation ##### -->
+<para>
+
+</para>
+
+@cltmpl: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_cl_tmpl_send_selection_request ##### -->
+<para>
+
+</para>
+
+@cltmpl: 
+@atom: 
+@error: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_xim_cl_tmpl_start_negotiation ##### -->
+<para>
+
+</para>
+
+@cltmpl: 
+@error: 
+@Returns: 
+
+
