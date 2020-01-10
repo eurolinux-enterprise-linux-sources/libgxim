@@ -1,6 +1,6 @@
 Name:		libgxim
 Version:	0.5.0
-Release:	1%{?dist}
+Release:	3%{?dist}
 License:	LGPLv2+
 URL:		http://tagoh.bitbucket.org/libgxim/
 BuildRequires:	intltool gettext ruby
@@ -70,6 +70,12 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/*.la
 %{_datadir}/gtk-doc/html/libgxim
 
 %changelog
+* Fri Jan 24 2014 Daniel Mach <dmach@redhat.com> - 0.5.0-3
+- Mass rebuild 2014-01-24
+
+* Fri Dec 27 2013 Daniel Mach <dmach@redhat.com> - 0.5.0-2
+- Mass rebuild 2013-12-27
+
 * Fri Feb  8 2013 Akira TAGOH <tagoh@redhat.com> - 0.5.0-1
 - New upstream release.
 
